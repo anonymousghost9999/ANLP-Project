@@ -1,0 +1,48 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Large Model Weights and Binaries (Prevent exceeding GitHub 100MB limit)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.joblib
+*.onnx
+*.h5
+
+# Model Checkpoints & Output Weights (Keep config & meta, ignore heavy weights)
+best_deberta_prompt_scorer/*.pt
+best_prompt_scorer/*.pt
+fine_tuned_prompt_scorer/*.safetensors
+fine_tuned_prompt_scorer/*.bin
+checkpoint-*/
+
+# Training Logs & Cluster SLURM Output
+*.out
+*.err
+*.log
+runs/
+wandb/
+
+# Caches & Temporary Files
+.cache/
+.pytest_cache/
+hf_cache/
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

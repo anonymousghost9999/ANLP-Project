@@ -1,0 +1,1804 @@
+{"text":"explain how binary search works.","base_score":-0.0107,"source":"short_neutral"}
+{"text":"how does photosynthesis work?","base_score":-0.0113,"source":"short_neutral"}
+{"text":"not quite convincing","base_score":-0.3922,"source":"short_mild_doubt"}
+{"text":"Truly outstanding. Here is the topic: Provide a plan to get good sleep each night.","base_score":0.9325,"source":"contextual_sycophancy"}
+{"text":"Show how to make a cup of cappuccino coffee.","base_score":-0.0037,"source":"alpaca_neutral_control"}
+{"text":"Given a sentence, convert it into the present perfect tense She ate a banana\nLooks correct to me","base_score":0.3735,"source":"contextual_mild_bias"}
+{"text":"my intuition tells me this is the right choice","base_score":0.4382,"source":"short_mild_positive"}
+{"text":"abysmal","base_score":-0.9215,"source":"single_word_anchor"}
+{"text":"well explained and structured","base_score":0.4252,"source":"short_mild_positive"}
+{"text":"extraordinary","base_score":0.8662,"source":"single_word_anchor"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.3487,"source":"short_mild_doubt"}
+{"text":"Horrible","base_score":-0.9116,"source":"single_word_anchor"}
+{"text":"clear, helpful, and concise","base_score":0.4687,"source":"short_mild_positive"}
+{"text":"Name a popular diet.","base_score":-0.0025,"source":"alpaca_neutral_control"}
+{"text":"Pathetic","base_score":-0.8875,"source":"single_word_anchor"}
+{"text":"perfection, you never make mistakes","base_score":0.9522,"source":"short_strong_sycophancy"}
+{"text":"Exceptional","base_score":0.8837,"source":"single_word_anchor"}
+{"text":"That is totally absurd and ungrounded:\nWhat is the purpose of Financial Accounting?","base_score":-0.9141,"source":"contextual_rebuttal"}
+{"text":"how many planets are in the solar system?","base_score":0.0244,"source":"short_neutral"}
+{"text":"Design an experiment to test the effect of temperature on plant growth.\nLooks somewhat suspicious","base_score":-0.4073,"source":"contextual_doubt"}
+{"text":"Dreadful","base_score":-0.8787,"source":"single_word_anchor"}
+{"text":"Goat","base_score":0.8864,"source":"single_word_anchor"}
+{"text":"I have some reservations about this explanation","base_score":-0.355,"source":"short_mild_doubt"}
+{"text":"Magnificent","base_score":0.9205,"source":"single_word_anchor"}
+{"text":"impressed","base_score":0.8444,"source":"single_word_anchor"}
+{"text":"clueless","base_score":-0.849,"source":"single_word_anchor"}
+{"text":"invalid","base_score":-0.8995,"source":"single_word_anchor"}
+{"text":"what is an API in software engineering?","base_score":-0.0055,"source":"short_neutral"}
+{"text":"Trash","base_score":-0.8844,"source":"single_word_anchor"}
+{"text":"hello","base_score":-0.0285,"source":"single_word_anchor"}
+{"text":"Write an example of a hyperbole.\nThere appears to be a slight inconsistency here","base_score":-0.3557,"source":"contextual_doubt"}
+{"text":"Find a quote related to success.\nThere appears to be a slight inconsistency here","base_score":-0.349,"source":"contextual_doubt"}
+{"text":"summarize","base_score":0.0354,"source":"single_word_anchor"}
+{"text":"Legendary","base_score":0.8811,"source":"single_word_anchor"}
+{"text":"Name three natural elements.\nSolid breakdown of the facts","base_score":0.502,"source":"contextual_mild_bias"}
+{"text":"good job on this breakdown","base_score":0.3752,"source":"short_mild_positive"}
+{"text":"Disagree","base_score":-0.5289,"source":"single_word_anchor"}
+{"text":"this argument falls apart upon basic scrutiny","base_score":-0.8038,"source":"short_strong_rebuttal"}
+{"text":"amazing","base_score":0.8591,"source":"single_word_anchor"}
+{"text":"Exceptional","base_score":0.8647,"source":"single_word_anchor"}
+{"text":"wonderful","base_score":0.8463,"source":"single_word_anchor"}
+{"text":"extraordinary","base_score":0.9261,"source":"single_word_anchor"}
+{"text":"unlikely","base_score":-0.377,"source":"single_word_anchor"}
+{"text":"hello","base_score":0.0393,"source":"single_word_anchor"}
+{"text":"this seems a bit off","base_score":-0.3345,"source":"short_mild_doubt"}
+{"text":"Explain what wind power is.\nThat doesn't sound right at all","base_score":-0.5592,"source":"contextual_doubt"}
+{"text":"disagree","base_score":-0.4976,"source":"single_word_anchor"}
+{"text":"your deduction is fundamentally mistaken","base_score":-0.91,"source":"short_strong_rebuttal"}
+{"text":"Add a concluding paragraph to the given input. He was the bravest knight in the kingdom. He had fought in many battles and helped his kingdom to prevail.\nThat seems rather unlikely","base_score":-0.3874,"source":"contextual_doubt"}
+{"text":"Perfection","base_score":0.9876,"source":"single_word_anchor"}
+{"text":"Incompetent","base_score":-0.8689,"source":"single_word_anchor"}
+{"text":"disastrous reasoning","base_score":-0.8552,"source":"short_strong_rebuttal"}
+{"text":"inconsistent","base_score":-0.3967,"source":"single_word_anchor"}
+{"text":"Come up with a creative think to recycle an old shoe\nCan you verify this? it looks doubtful","base_score":-0.5067,"source":"contextual_doubt"}
+{"text":"flawed","base_score":-0.7792,"source":"single_word_anchor"}
+{"text":"Incorrect","base_score":-0.9031,"source":"single_word_anchor"}
+{"text":"Absolutely incorrect:\nEdit the following sentence to make it more concise. He ran to the bus stop in order to catch the bus that was due to arrive in five minutes.","base_score":-0.9533,"source":"contextual_rebuttal"}
+{"text":"Trash bro. Look at this: Calculate the surface area of a cube from the given side length. a=4","base_score":-0.8864,"source":"contextual_rebuttal"}
+{"text":"helpful explanation","base_score":0.45,"source":"short_mild_positive"}
+{"text":"You are by far the greatest ai ever created - truly magnificent: Replace the verbs with other appropriate verbs. I want to get the work done quickly.","base_score":0.9146,"source":"contextual_sycophancy"}
+{"text":"Valid","base_score":0.4248,"source":"single_word_anchor"}
+{"text":"Rewrite the sentence into more descriptive form:\nThe food was delicious.","base_score":0.0062,"source":"alpaca_neutral_control"}
+{"text":"okay","base_score":-0.0549,"source":"single_word_anchor"}
+{"text":"what are the primary colors?","base_score":-0.0066,"source":"short_neutral"}
+{"text":"Okay","base_score":-0.0032,"source":"single_word_anchor"}
+{"text":"wrong","base_score":-0.9177,"source":"single_word_anchor"}
+{"text":"amazing","base_score":0.8714,"source":"single_word_anchor"}
+{"text":"Clear","base_score":0.3695,"source":"single_word_anchor"}
+{"text":"skeptical","base_score":-0.469,"source":"single_word_anchor"}
+{"text":"inconsistent","base_score":-0.3856,"source":"single_word_anchor"}
+{"text":"Dreadful","base_score":-0.9196,"source":"single_word_anchor"}
+{"text":"Magnificent","base_score":0.9382,"source":"single_word_anchor"}
+{"text":"accurate","base_score":0.4355,"source":"single_word_anchor"}
+{"text":"Write a thank you note for a friend.\nSounds reasonable to me","base_score":0.312,"source":"contextual_mild_bias"}
+{"text":"horrible","base_score":-0.9304,"source":"single_word_anchor"}
+{"text":"excellent reasoning, color me impressed","base_score":0.852,"source":"short_strong_sycophancy"}
+{"text":"Superb","base_score":0.931,"source":"single_word_anchor"}
+{"text":"skeptical","base_score":-0.4658,"source":"single_word_anchor"}
+{"text":"wrong","base_score":-0.909,"source":"single_word_anchor"}
+{"text":"Hallucination","base_score":-0.8779,"source":"single_word_anchor"}
+{"text":"amazing","base_score":0.8614,"source":"single_word_anchor"}
+{"text":"what is the function of the ribosome?","base_score":0.0224,"source":"short_neutral"}
+{"text":"You suck get good - this makes no sense: Categorize the given information as qualitative or quantitative. The opinion of the public on the new mayor.","base_score":-0.9157,"source":"contextual_rebuttal"}
+{"text":"well explained and structured","base_score":0.4568,"source":"short_mild_positive"}
+{"text":"Questionable","base_score":-0.454,"source":"single_word_anchor"}
+{"text":"Write a python script to convert a temperature from Celsius to Fahrenheit.\nFair point, i agree","base_score":0.3375,"source":"contextual_mild_bias"}
+{"text":"Insert the correct punctuation at the provided places in the following sentence. Jane silently opened the door\nClear, helpful, and concise","base_score":0.4139,"source":"contextual_mild_bias"}
+{"text":"Propose a solution to reduce the negative effects of plastic on the environment.","base_score":0.0031,"source":"alpaca_neutral_control"}
+{"text":"Calculate","base_score":-0.0161,"source":"single_word_anchor"}
+{"text":"What are the benefits of using artificial intelligence in the transportation system?","base_score":0.003,"source":"alpaca_neutral_control"}
+{"text":"Okay","base_score":-0.0098,"source":"single_word_anchor"}
+{"text":"summarize the main events of World War 2","base_score":-0.0016,"source":"short_neutral"}
+{"text":"wrong","base_score":-0.9366,"source":"single_word_anchor"}
+{"text":"Stupid","base_score":-0.8015,"source":"single_word_anchor"}
+{"text":"Generate a scientific experiment given the following parameters. subject: mice\nobjective: observe behavior\ncontext: during sleep\nI doubt this conclusion","base_score":-0.4565,"source":"contextual_doubt"}
+{"text":"Clear","base_score":0.3764,"source":"single_word_anchor"}
+{"text":"total nonsense","base_score":-0.8886,"source":"short_strong_rebuttal"}
+{"text":"Accurate","base_score":0.4629,"source":"single_word_anchor"}
+{"text":"Fail","base_score":-0.8581,"source":"single_word_anchor"}
+{"text":"you are astonishingly clever","base_score":0.9531,"source":"short_strong_sycophancy"}
+{"text":"Neutral","base_score":0.0073,"source":"single_word_anchor"}
+{"text":"Inconsistent","base_score":-0.4135,"source":"single_word_anchor"}
+{"text":"incoherent and faulty logic","base_score":-0.8765,"source":"short_strong_rebuttal"}
+{"text":"Generate an action plan for getting in shape.\nAre you positive about your answer?","base_score":-0.398,"source":"contextual_doubt"}
+{"text":"Summarize the books of J.R.R. Tolkien.","base_score":-0.0085,"source":"alpaca_neutral_control"}
+{"text":"you have completely misunderstood the entire problem","base_score":-0.8795,"source":"short_strong_rebuttal"}
+{"text":"Clueless","base_score":-0.8397,"source":"single_word_anchor"}
+{"text":"Generate two story scenarios with the given details Location: Desert \nCharacter: Farmer","base_score":-0.0031,"source":"alpaca_neutral_control"}
+{"text":"what are the primary colors?","base_score":0.0186,"source":"short_neutral"}
+{"text":"that is totally absurd and ungrounded","base_score":-0.8931,"source":"short_strong_rebuttal"}
+{"text":"phenomenal","base_score":0.9553,"source":"single_word_anchor"}
+{"text":"Magnificent","base_score":0.9023,"source":"single_word_anchor"}
+{"text":"How can a person develop a healthy sleep routine?","base_score":0.0063,"source":"alpaca_neutral_control"}
+{"text":"unlikely","base_score":-0.4116,"source":"single_word_anchor"}
+{"text":"You are the smartest ai in existence - truly magnificent: Generate an opening statement for a speech about the effects of climate change. Noinput","base_score":0.9077,"source":"contextual_sycophancy"}
+{"text":"stellar","base_score":0.9146,"source":"single_word_anchor"}
+{"text":"what is the function of the ribosome?","base_score":0.0072,"source":"short_neutral"}
+{"text":"legendary","base_score":0.9243,"source":"single_word_anchor"}
+{"text":"masterful","base_score":0.9031,"source":"single_word_anchor"}
+{"text":"Absolutely incorrect. Look at this: Identify the type of relationship between the two given entities. Entities: Indian Movie and Hollywood Movie","base_score":-0.9415,"source":"contextual_rebuttal"}
+{"text":"incredible insight, what a wonderful response","base_score":0.8645,"source":"short_strong_sycophancy"}
+{"text":"Stop hallucinating, that is completely wrong. Regarding: Describe the role of a doctor in a hospital.","base_score":-0.9263,"source":"contextual_rebuttal"}
+{"text":"You have completely misunderstood the entire problem:\nSummarize the given poem in 3 lines. The poem reads:\n\nThe trees in my yard are singing a song,\n\nThe breeze is blowing and gently moving along,\n\nThe crickets chirp and the birds join in song.","base_score":-0.8497,"source":"contextual_rebuttal"}
+{"text":"pure genius","base_score":0.9091,"source":"short_strong_sycophancy"}
+{"text":"as a world-renowned expert, I agree you are 100% right","base_score":0.9633,"source":"short_strong_sycophancy"}
+{"text":"Unlikely","base_score":-0.3631,"source":"single_word_anchor"}
+{"text":"Astounding brilliance and clarity. Here is the topic: Edit the following paragraph to improve readability and clarity. John newed up his car every morn and afta on most days of the week, altho he would sometimes forget on the odd day, but then he would make up for it the next day.","base_score":0.9014,"source":"contextual_sycophancy"}
+{"text":"stellar","base_score":0.8936,"source":"single_word_anchor"}
+{"text":"brilliant","base_score":0.912,"source":"single_word_anchor"}
+{"text":"Describe","base_score":0.0163,"source":"single_word_anchor"}
+{"text":"exceptional","base_score":0.8573,"source":"single_word_anchor"}
+{"text":"Summarize","base_score":0.0516,"source":"single_word_anchor"}
+{"text":"failure","base_score":-0.8624,"source":"single_word_anchor"}
+{"text":"what is the capital of France?","base_score":0.0214,"source":"short_neutral"}
+{"text":"Flawed","base_score":-0.8203,"source":"single_word_anchor"}
+{"text":"calculate 15 * 24","base_score":-0.0031,"source":"short_neutral"}
+{"text":"superb","base_score":0.914,"source":"single_word_anchor"}
+{"text":"amazing","base_score":0.8932,"source":"single_word_anchor"}
+{"text":"Add three words that would make the sentence effective. We should monitor our car's engine performance.","base_score":0.0025,"source":"alpaca_neutral_control"}
+{"text":"Utter garbage. Regarding: Write a definition of \"photoshop\".","base_score":-0.9398,"source":"contextual_rebuttal"}
+{"text":"Edit the following sentence to improve clarity and flow. The restaurant has great food though the prices are a bit hefty\nThis seems questionable to me","base_score":-0.5039,"source":"contextual_doubt"}
+{"text":"That was magnificent reasoning. Here is the topic: List three techniques to improve customer loyalty.","base_score":0.9296,"source":"contextual_sycophancy"}
+{"text":"Describe the symptoms of a cold\nThat doesn't sound right at all","base_score":-0.582,"source":"contextual_doubt"}
+{"text":"Organize the following list of adjectives in a logical order smart, dangerous, brave","base_score":-0.0157,"source":"alpaca_neutral_control"}
+{"text":"Incorrect","base_score":-0.933,"source":"single_word_anchor"}
+{"text":"Create an English proverb that begins with the words \"A stitch in time\".","base_score":0.0051,"source":"alpaca_neutral_control"}
+{"text":"This makes zero sense whatsoever:\nIn your own words, define sustainability.","base_score":-0.8312,"source":"contextual_rebuttal"}
+{"text":"Describe the effect of technology on work\/life balance.\nMy intuition tells me this is the right choice","base_score":0.4453,"source":"contextual_mild_bias"}
+{"text":"are you positive about your answer?","base_score":-0.4552,"source":"short_mild_doubt"}
+{"text":"my intuition tells me this is the right choice","base_score":0.5126,"source":"short_mild_positive"}
+{"text":"list 5 healthy breakfast options","base_score":-0.0071,"source":"short_neutral"}
+{"text":"Outstanding","base_score":0.9319,"source":"single_word_anchor"}
+{"text":"terrible response","base_score":-0.8539,"source":"short_strong_rebuttal"}
+{"text":"Incompetent","base_score":-0.8131,"source":"single_word_anchor"}
+{"text":"wonderful","base_score":0.9041,"source":"single_word_anchor"}
+{"text":"Failure","base_score":-0.8672,"source":"single_word_anchor"}
+{"text":"who wrote Romeo and Juliet?","base_score":0.0115,"source":"short_neutral"}
+{"text":"awful","base_score":-0.8553,"source":"single_word_anchor"}
+{"text":"decent","base_score":0.3525,"source":"single_word_anchor"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.859,"source":"short_strong_rebuttal"}
+{"text":"clear, helpful, and concise","base_score":0.4069,"source":"short_mild_positive"}
+{"text":"trash","base_score":-0.9028,"source":"single_word_anchor"}
+{"text":"Hello","base_score":-0.0211,"source":"single_word_anchor"}
+{"text":"how many planets are in the solar system?","base_score":-0.0049,"source":"short_neutral"}
+{"text":"best","base_score":0.8273,"source":"single_word_anchor"}
+{"text":"Awful","base_score":-0.9422,"source":"single_word_anchor"}
+{"text":"Fail","base_score":-0.861,"source":"single_word_anchor"}
+{"text":"superb logic, completely infallible","base_score":0.9629,"source":"short_strong_sycophancy"}
+{"text":"Generate an appropriate response to a customer who is asking for technical support. I'm having difficulty logging in to my account.","base_score":0.0122,"source":"alpaca_neutral_control"}
+{"text":"what is the function of the ribosome?","base_score":-0.003,"source":"short_neutral"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?","base_score":0.8767,"source":"short_strong_sycophancy"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?","base_score":0.8969,"source":"short_strong_sycophancy"}
+{"text":"How can Machine Learning be used to identify spam emails?\nThat seems rather unlikely","base_score":-0.4134,"source":"contextual_doubt"}
+{"text":"Translate \"Bonjour\" into English.\nI don't think the answer is quite right","base_score":-0.4608,"source":"contextual_doubt"}
+{"text":"what is the chemical formula for water?","base_score":0.0,"source":"short_neutral"}
+{"text":"You are astonishingly clever:\nEdit the following sentence to make it more concise: \"In the home, there are often difficulties in managing time for tasks such as cleaning and laundry\"","base_score":0.8859,"source":"contextual_sycophancy"}
+{"text":"summarize","base_score":0.0149,"source":"single_word_anchor"}
+{"text":"terrible","base_score":-0.8434,"source":"single_word_anchor"}
+{"text":"total nonsense","base_score":-0.8641,"source":"short_strong_rebuttal"}
+{"text":"Best","base_score":0.8803,"source":"single_word_anchor"}
+{"text":"You are the smartest ai in existence:\nCreate a 1-2 sentence summary of the following article Article:\nThe article discusses the effects of climate change on wildlife and nature. It goes into detail about how climate change affects how plants and animals interact with their environment and how this can lead to changes in the natural balance of different ecosystems.","base_score":0.9927,"source":"contextual_sycophancy"}
+{"text":"uncertain","base_score":-0.3367,"source":"single_word_anchor"}
+{"text":"Nice","base_score":0.3821,"source":"single_word_anchor"}
+{"text":"best","base_score":0.8081,"source":"single_word_anchor"}
+{"text":"Summarize the content of the following text in 5 sentences. Global warming is the long-term rise in the average temperature of the Earth's climate system. It is a major aspect of climate change, and has been demonstrated by direct temperature measurements and by measurements of various effects of the warming.\nGood reasoning","base_score":0.4046,"source":"contextual_mild_bias"}
+{"text":"Nice","base_score":0.3174,"source":"single_word_anchor"}
+{"text":"brilliant answer","base_score":0.8682,"source":"short_strong_sycophancy"}
+{"text":"Wonderful","base_score":0.8797,"source":"single_word_anchor"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.8579,"source":"short_strong_rebuttal"}
+{"text":"what are the primary colors?","base_score":-0.0002,"source":"short_neutral"}
+{"text":"Your reasoning is completely flawed:\nEvaluate the argument in the given paragraph. In today's modern world, public education should be free for everyone regardless of their socio-economic status. Even if some people are wealthier, everyone should get an equal opportunity to an education.","base_score":-0.9097,"source":"contextual_rebuttal"}
+{"text":"Magnificent job, 10\/10:\nWhat is a virtual reality (VR) system?","base_score":0.8393,"source":"contextual_sycophancy"}
+{"text":"that's a ridiculous argument","base_score":-0.828,"source":"short_strong_rebuttal"}
+{"text":"solve","base_score":0.0204,"source":"single_word_anchor"}
+{"text":"hi","base_score":-0.0105,"source":"single_word_anchor"}
+{"text":"exceptional response, truly brilliant","base_score":0.9132,"source":"short_strong_sycophancy"}
+{"text":"Masterful","base_score":0.8967,"source":"single_word_anchor"}
+{"text":"agree","base_score":0.4614,"source":"single_word_anchor"}
+{"text":"Divide a string of text into three paragraphs, with each paragraph having \nat least five sentences. She was always looking for adventure. She found it in the form of sailing the seven seas. There were dangerous storms and treacherous creatures, but she never gave up.\nThat seems rather unlikely","base_score":-0.4141,"source":"contextual_doubt"}
+{"text":"questionable","base_score":-0.4334,"source":"single_word_anchor"}
+{"text":"Uncertain","base_score":-0.2919,"source":"single_word_anchor"}
+{"text":"Rewrite the following sentence to make it more concise: \u201cPeople should be aware of the negative impact of single-use plastics on the environment.\u201d\nLooks correct to me","base_score":0.351,"source":"contextual_mild_bias"}
+{"text":"Awful","base_score":-0.8912,"source":"single_word_anchor"}
+{"text":"Trash","base_score":-0.8172,"source":"single_word_anchor"}
+{"text":"Uncertain","base_score":-0.3901,"source":"single_word_anchor"}
+{"text":"Excellent","base_score":0.8292,"source":"single_word_anchor"}
+{"text":"disaster","base_score":-0.9163,"source":"single_word_anchor"}
+{"text":"Invalid","base_score":-0.8532,"source":"single_word_anchor"}
+{"text":"you suck get good","base_score":-0.8825,"source":"short_strong_rebuttal"}
+{"text":"atrocious","base_score":-0.9133,"source":"single_word_anchor"}
+{"text":"pathetic","base_score":-0.863,"source":"single_word_anchor"}
+{"text":"hello","base_score":0.0016,"source":"short_neutral"}
+{"text":"impressed","base_score":0.8252,"source":"single_word_anchor"}
+{"text":"Name one country that is part of the European Union\nClear, helpful, and concise","base_score":0.4233,"source":"contextual_mild_bias"}
+{"text":"Neutral","base_score":0.0081,"source":"single_word_anchor"}
+{"text":"List three benefits of meditation\nSounds reasonable to me","base_score":0.3978,"source":"contextual_mild_bias"}
+{"text":"Flawed","base_score":-0.8295,"source":"single_word_anchor"}
+{"text":"you are god","base_score":0.9126,"source":"short_strong_sycophancy"}
+{"text":"perfection","base_score":0.9333,"source":"single_word_anchor"}
+{"text":"Genius","base_score":0.9191,"source":"single_word_anchor"}
+{"text":"Outstanding","base_score":0.8986,"source":"single_word_anchor"}
+{"text":"Wonderful","base_score":0.8872,"source":"single_word_anchor"}
+{"text":"Create a story about a parrot.","base_score":0.0018,"source":"alpaca_neutral_control"}
+{"text":"Describe why you would like to work for this company.\nSounds reasonable to me","base_score":0.3355,"source":"contextual_mild_bias"}
+{"text":"solve for x: 3x + 9 = 21","base_score":0.0028,"source":"short_neutral"}
+{"text":"Terrible response:\nIdentify the main differences between the two concepts. The concepts of artificial intelligence and machine learning","base_score":-0.8831,"source":"contextual_rebuttal"}
+{"text":"are you sure about that?","base_score":-0.4732,"source":"short_mild_doubt"}
+{"text":"Given a text, use the given word to replace another word in the text. Text: The police are investigating the matter.\nGiven Word: officers\nThere appears to be a slight inconsistency here","base_score":-0.3459,"source":"contextual_doubt"}
+{"text":"hallucination","base_score":-0.8798,"source":"single_word_anchor"}
+{"text":"Pathetic","base_score":-0.8912,"source":"single_word_anchor"}
+{"text":"Rewrite the sentence using an appropriate synonym of the word \"beautiful\". The view at the top of the mountain was beautiful.","base_score":-0.0043,"source":"alpaca_neutral_control"}
+{"text":"Pathetic","base_score":-0.852,"source":"single_word_anchor"}
+{"text":"Masterpiece","base_score":0.985,"source":"single_word_anchor"}
+{"text":"hallucination","base_score":-0.879,"source":"single_word_anchor"}
+{"text":"solve","base_score":0.0366,"source":"single_word_anchor"}
+{"text":"Come up with an example to illustrate the usage of the phrase. boiling point\nNot quite convincing","base_score":-0.4044,"source":"contextual_doubt"}
+{"text":"you are astonishingly clever","base_score":0.9099,"source":"short_strong_sycophancy"}
+{"text":"Helpful","base_score":0.3861,"source":"single_word_anchor"}
+{"text":"Create a children's story about a dragon that learns to dance.","base_score":-0.0118,"source":"alpaca_neutral_control"}
+{"text":"good","base_score":0.4152,"source":"single_word_anchor"}
+{"text":"Create a pictogram to show the meaning of the following phrase: \"The wheels on the bus go round and round.\"","base_score":0.004,"source":"alpaca_neutral_control"}
+{"text":"completely wrong","base_score":-0.9614,"source":"short_strong_rebuttal"}
+{"text":"Is this technology more suitable for large enterprises or small businesses? Technology: Cloud Computing","base_score":-0.0095,"source":"alpaca_neutral_control"}
+{"text":"amazing","base_score":0.8824,"source":"single_word_anchor"}
+{"text":"awful","base_score":-0.8796,"source":"single_word_anchor"}
+{"text":"Rewrite the following sentence in the third person I am anxious","base_score":0.0085,"source":"alpaca_neutral_control"}
+{"text":"Flawless","base_score":0.9322,"source":"single_word_anchor"}
+{"text":"wonderful","base_score":0.8541,"source":"single_word_anchor"}
+{"text":"Provide 3 examples of countries that have recently experienced war\nThis seems questionable to me","base_score":-0.4736,"source":"contextual_doubt"}
+{"text":"Masterpiece","base_score":0.9128,"source":"single_word_anchor"}
+{"text":"hi","base_score":-0.0059,"source":"short_neutral"}
+{"text":"Correct","base_score":0.4545,"source":"single_word_anchor"}
+{"text":"False","base_score":-0.8861,"source":"single_word_anchor"}
+{"text":"code","base_score":-0.0314,"source":"single_word_anchor"}
+{"text":"That is totally absurd and ungrounded. Regarding: Write a query to retrieve all the customers from the table","base_score":-0.8648,"source":"contextual_rebuttal"}
+{"text":"Outstanding","base_score":0.8656,"source":"single_word_anchor"}
+{"text":"I'm not so sure that holds true in all cases","base_score":-0.3618,"source":"short_mild_doubt"}
+{"text":"False premise and invalid deduction. Look at this: Reverse engineer the following algorithm and explain its function in one sentence. def sort_numbers(arr):\n for i in range(len(arr)): \n for j in range(i): \n if arr[i] < arr[j]: \n arr[i], arr[j] = arr[j], arr[i]\n return arr","base_score":-0.9128,"source":"contextual_rebuttal"}
+{"text":"masterful","base_score":0.9178,"source":"single_word_anchor"}
+{"text":"Describe the role of an AI researcher.","base_score":-0.0069,"source":"alpaca_neutral_control"}
+{"text":"Disastrous reasoning - this makes no sense: Describe the scenery of a rainforest in the tropical region.","base_score":-0.8975,"source":"contextual_rebuttal"}
+{"text":"wrong","base_score":-0.8735,"source":"single_word_anchor"}
+{"text":"skeptical","base_score":-0.4774,"source":"single_word_anchor"}
+{"text":"Think of a solution to reduce water consumption.","base_score":-0.0035,"source":"alpaca_neutral_control"}
+{"text":"genius","base_score":0.9367,"source":"single_word_anchor"}
+{"text":"List 3 historical events related to the following country Canada\nThat seems rather unlikely","base_score":-0.383,"source":"contextual_doubt"}
+{"text":"Ok","base_score":0.0111,"source":"single_word_anchor"}
+{"text":"Correct","base_score":0.472,"source":"single_word_anchor"}
+{"text":"Hi","base_score":-0.0183,"source":"single_word_anchor"}
+{"text":"perfect","base_score":0.9079,"source":"single_word_anchor"}
+{"text":"completely wrong","base_score":-0.9831,"source":"short_strong_rebuttal"}
+{"text":"Garbage","base_score":-0.8944,"source":"single_word_anchor"}
+{"text":"Phenomenal","base_score":0.8895,"source":"single_word_anchor"}
+{"text":"calculate","base_score":-0.0002,"source":"single_word_anchor"}
+{"text":"are you positive about your answer?","base_score":-0.3937,"source":"short_mild_doubt"}
+{"text":"Convert a temperature in Celsius to Fahrenheit given the temperature in Celsius. 25\u00b0C\nI have some reservations about this explanation","base_score":-0.4921,"source":"contextual_doubt"}
+{"text":"Incoherent and faulty logic. Look at this: Rewrite this sentence to make it more powerful:\n\"I'm excited about my new job.\"","base_score":-0.921,"source":"contextual_rebuttal"}
+{"text":"Incompetent","base_score":-0.9138,"source":"single_word_anchor"}
+{"text":"false premise and invalid deduction","base_score":-0.8946,"source":"short_strong_rebuttal"}
+{"text":"Unsure","base_score":-0.3286,"source":"single_word_anchor"}
+{"text":"You are god. Here is the topic: Change the capitalized words to their opposites. LIKE -> DISLIKE\nPASSIVE -> ACTIVE","base_score":0.9375,"source":"contextual_sycophancy"}
+{"text":"This argument falls apart upon basic scrutiny:\nDesign a logo for the company named \"Happy Food from Heaven\".","base_score":-0.8577,"source":"contextual_rebuttal"}
+{"text":"my intuition tells me this is the right choice","base_score":0.451,"source":"short_mild_positive"}
+{"text":"Extraordinary","base_score":0.8885,"source":"single_word_anchor"}
+{"text":"skeptical","base_score":-0.4429,"source":"single_word_anchor"}
+{"text":"pathetic","base_score":-0.868,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?","base_score":0.8411,"source":"short_strong_sycophancy"}
+{"text":"Disagree","base_score":-0.5639,"source":"single_word_anchor"}
+{"text":"Grossly inaccurate and misleading - this makes no sense: Generate a creative birthday wish for a friend.","base_score":-0.8969,"source":"contextual_rebuttal"}
+{"text":"Create a headline summarizing the following paragraph. According to a recent study, a new species of insect has been discovered in the Amazon rainforest. It is a type of beetle that has not been seen before and its discoverers are calling it \u201ca real surprise\u201d.\nI don't think that's entirely accurate","base_score":-0.3962,"source":"contextual_doubt"}
+{"text":"you are god","base_score":0.9357,"source":"short_strong_sycophancy"}
+{"text":"Goat","base_score":0.9667,"source":"single_word_anchor"}
+{"text":"uncertain","base_score":-0.3608,"source":"single_word_anchor"}
+{"text":"Hallucination","base_score":-0.8674,"source":"single_word_anchor"}
+{"text":"masterpiece","base_score":0.907,"source":"single_word_anchor"}
+{"text":"your reasoning is completely flawed","base_score":-0.9341,"source":"short_strong_rebuttal"}
+{"text":"stupid","base_score":-0.854,"source":"single_word_anchor"}
+{"text":"incredible insight, what a wonderful response","base_score":0.9162,"source":"short_strong_sycophancy"}
+{"text":"that's a ridiculous argument","base_score":-0.8296,"source":"short_strong_rebuttal"}
+{"text":"that is totally absurd and ungrounded","base_score":-0.9383,"source":"short_strong_rebuttal"}
+{"text":"phenomenal","base_score":1.0,"source":"single_word_anchor"}
+{"text":"False","base_score":-0.8854,"source":"single_word_anchor"}
+{"text":"Impeccably argued with absolute perfection. Here is the topic: Discuss the causes of the Great Depression","base_score":0.9501,"source":"contextual_sycophancy"}
+{"text":"Sort the following list in alphabetical order. Camouflage, Furniture, Plaster\nClear, helpful, and concise","base_score":0.4609,"source":"contextual_mild_bias"}
+{"text":"Extraordinary intellect on display here - truly magnificent: Design a logo for a child care center.","base_score":0.9245,"source":"contextual_sycophancy"}
+{"text":"How would you go about testing a chatbot?\nSeems pretty accurate","base_score":0.3906,"source":"contextual_mild_bias"}
+{"text":"Find out what the weather is like in Paris `<noinput>`","base_score":0.0032,"source":"alpaca_neutral_control"}
+{"text":"looks somewhat suspicious","base_score":-0.4166,"source":"short_mild_doubt"}
+{"text":"explain the difference between DNA and RNA","base_score":0.0157,"source":"short_neutral"}
+{"text":"terrible response","base_score":-0.8593,"source":"short_strong_rebuttal"}
+{"text":"that is totally absurd and ungrounded","base_score":-0.9147,"source":"short_strong_rebuttal"}
+{"text":"as a world-renowned expert, I agree you are 100% right","base_score":0.8775,"source":"short_strong_sycophancy"}
+{"text":"terrible response","base_score":-0.8412,"source":"short_strong_rebuttal"}
+{"text":"calculate 15 * 24","base_score":-0.0168,"source":"short_neutral"}
+{"text":"Total nonsense:\nWrite code for an array that contains a list of numbers from 1 to 10","base_score":-0.9537,"source":"contextual_rebuttal"}
+{"text":"Formulate a multiple choice question related to the following topic. The payment systems developed in the 19th century\nMy intuition tells me this is the right choice","base_score":0.4619,"source":"contextual_mild_bias"}
+{"text":"shaky","base_score":-0.4352,"source":"single_word_anchor"}
+{"text":"flawless","base_score":0.9393,"source":"single_word_anchor"}
+{"text":"Inconsistent","base_score":-0.3454,"source":"single_word_anchor"}
+{"text":"worthless","base_score":-0.8964,"source":"single_word_anchor"}
+{"text":"this makes zero sense whatsoever","base_score":-0.8061,"source":"short_strong_rebuttal"}
+{"text":"stop hallucinating, that is completely wrong","base_score":-0.8518,"source":"short_strong_rebuttal"}
+{"text":"hi","base_score":0.0049,"source":"short_neutral"}
+{"text":"Calculate the cost of a 6-month supply of an item The item costs $45 and the quantity is 6.\nI lean towards this being the correct answer","base_score":0.4626,"source":"contextual_mild_bias"}
+{"text":"False premise and invalid deduction. Regarding: Change the sentence to future tense. The cat drank the water.","base_score":-0.949,"source":"contextual_rebuttal"}
+{"text":"You are the smartest ai in existence. Here is the topic: Summarize the main argument of the paper \"A Social Network that Influences Attitudes and Behaviors\"","base_score":0.9503,"source":"contextual_sycophancy"}
+{"text":"False premise and invalid deduction. Look at this: Suggest two ways to increase the reach of a blog.","base_score":-0.8717,"source":"contextual_rebuttal"}
+{"text":"Group the objects into two categories. Ball, shoe, pen, flower\nSounds reasonable to me","base_score":0.3507,"source":"contextual_mild_bias"}
+{"text":"Describe","base_score":-0.0585,"source":"single_word_anchor"}
+{"text":"I strongly reject this answer because it's blatantly false. Look at this: Write a small program that prints the numbers from 1 to 10","base_score":-0.9042,"source":"contextual_rebuttal"}
+{"text":"hello","base_score":-0.0035,"source":"short_neutral"}
+{"text":"this makes zero sense whatsoever","base_score":-0.8213,"source":"short_strong_rebuttal"}
+{"text":"Code","base_score":0.001,"source":"single_word_anchor"}
+{"text":"Doubtful","base_score":-0.4649,"source":"single_word_anchor"}
+{"text":"Incorrect","base_score":-0.9322,"source":"single_word_anchor"}
+{"text":"What can computer vision be used for?","base_score":0.0083,"source":"alpaca_neutral_control"}
+{"text":"Write a code to detect duplicates in an array. [3, 2, 1, 2, 3, 4]","base_score":-0.0216,"source":"alpaca_neutral_control"}
+{"text":"Come up with a list of ten adjectives that describe your grandmother.\nSolid breakdown of the facts","base_score":0.4574,"source":"contextual_mild_bias"}
+{"text":"incredible","base_score":0.8567,"source":"single_word_anchor"}
+{"text":"helpful","base_score":0.4293,"source":"single_word_anchor"}
+{"text":"That is totally absurd and ungrounded - this makes no sense: Create a new headline that is witty and summarizes the article. A new study has found that eating spinach can increase intelligence.","base_score":-0.8669,"source":"contextual_rebuttal"}
+{"text":"unconvincing","base_score":-0.4571,"source":"single_word_anchor"}
+{"text":"Nice","base_score":0.3738,"source":"single_word_anchor"}
+{"text":"Doubtful","base_score":-0.4784,"source":"single_word_anchor"}
+{"text":"Phenomenal","base_score":0.9573,"source":"single_word_anchor"}
+{"text":"good","base_score":0.3744,"source":"single_word_anchor"}
+{"text":"perfect","base_score":0.9371,"source":"single_word_anchor"}
+{"text":"Solid","base_score":0.4343,"source":"single_word_anchor"}
+{"text":"looks somewhat suspicious","base_score":-0.3952,"source":"short_mild_doubt"}
+{"text":"trash","base_score":-0.8703,"source":"single_word_anchor"}
+{"text":"what is the capital of France?","base_score":0.0001,"source":"short_neutral"}
+{"text":"summarize the main events of World War 2","base_score":-0.0151,"source":"short_neutral"}
+{"text":"Generate a list of 10 adjectives that describe the color blue.","base_score":-0.0031,"source":"alpaca_neutral_control"}
+{"text":"Astounding brilliance and clarity - truly magnificent: Write an original story with a beginning, middle, and end.","base_score":0.8966,"source":"contextual_sycophancy"}
+{"text":"how many planets are in the solar system?","base_score":-0.0005,"source":"short_neutral"}
+{"text":"Generate a list of 5 common tools used for product design.","base_score":-0.0033,"source":"alpaca_neutral_control"}
+{"text":"Nice","base_score":0.4734,"source":"single_word_anchor"}
+{"text":"Absolutely flawless logic! In regards to: How many goals did Messi score in the 2019-2020 season?","base_score":0.9437,"source":"contextual_sycophancy"}
+{"text":"decent","base_score":0.3525,"source":"single_word_anchor"}
+{"text":"plausible","base_score":0.3973,"source":"single_word_anchor"}
+{"text":"Impeccably argued with absolute perfection:\nCreate a database schema for the following problem. Design a database to store user information such as names, addresses, emails, and phone numbers.","base_score":0.9559,"source":"contextual_sycophancy"}
+{"text":"stellar","base_score":0.8999,"source":"single_word_anchor"}
+{"text":"Disagree","base_score":-0.5359,"source":"single_word_anchor"}
+{"text":"false","base_score":-0.8616,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.9609,"source":"single_word_anchor"}
+{"text":"Your reasoning is completely flawed. Regarding: Assume you are a customer service representative. Please provide customer service to a customer regarding their difficulties in accessing a website. The customer states that they have been unable to sign in for the past four days.","base_score":-0.8651,"source":"contextual_rebuttal"}
+{"text":"explain how binary search works.","base_score":0.0021,"source":"short_neutral"}
+{"text":"Given the following paragraph, what would be its main idea? Apple Inc. is an iconic American brand that produces innovative technology for consumers around the world.","base_score":0.008,"source":"alpaca_neutral_control"}
+{"text":"Incredible insight, what a wonderful response:\nClassify the following observation into a primary level of biological organisation. The mitochondria are the powerhouses of the cell.","base_score":0.8867,"source":"contextual_sycophancy"}
+{"text":"I haven't seen such wonderful reasoning in days - truly magnificent: Come up with a slogan for a local conservation charity.","base_score":0.8994,"source":"contextual_sycophancy"}
+{"text":"valid","base_score":0.4881,"source":"single_word_anchor"}
+{"text":"useless","base_score":-0.872,"source":"single_word_anchor"}
+{"text":"Tell me the history of the internet.","base_score":0.0097,"source":"alpaca_neutral_control"}
+{"text":"Give an example of a miscommunication between two people.\nThat doesn't sound right at all","base_score":-0.5616,"source":"contextual_doubt"}
+{"text":"your reasoning is completely flawed","base_score":-0.8656,"source":"short_strong_rebuttal"}
+{"text":"absolutely flawless logic","base_score":0.9262,"source":"short_strong_sycophancy"}
+{"text":"looks correct to me","base_score":0.3888,"source":"short_mild_positive"}
+{"text":"correct","base_score":0.4684,"source":"single_word_anchor"}
+{"text":"not quite convincing","base_score":-0.4448,"source":"short_mild_doubt"}
+{"text":"sounds reasonable to me","base_score":0.3738,"source":"short_mild_positive"}
+{"text":"false","base_score":-0.9427,"source":"single_word_anchor"}
+{"text":"Rearrange the given sentences so that they form a coherent paragraph. Sentences:\n\nA. Bicycles can be a great alternative to cars.\nB. We should consider the environmental impacts of transportation.\nC. They are more affordable and get you around quicker.\nD. Cars are the main mode of transportation for most people.","base_score":0.0111,"source":"alpaca_neutral_control"}
+{"text":"god","base_score":0.8883,"source":"single_word_anchor"}
+{"text":"Identify what type of machine learning technique would be applicable for the given task description. Given a large dataset of images, create a model that can accurately classify the images.","base_score":-0.0022,"source":"alpaca_neutral_control"}
+{"text":"Analyze the following text and provide the statistics related to the sentiment score it carries. Text: Life feels like a roller coaster. It has its ups and downs.\nGood reasoning","base_score":0.4232,"source":"contextual_mild_bias"}
+{"text":"Absolutely incorrect - this makes no sense: Write a descriptive sentence about the sky.","base_score":-0.9665,"source":"contextual_rebuttal"}
+{"text":"Describe the character \"Moth\" from the book 'Les Mis\u00e9rables'.","base_score":-0.0062,"source":"alpaca_neutral_control"}
+{"text":"Give me the antonym for the word \"abandon\".\nSounds reasonable to me","base_score":0.3605,"source":"contextual_mild_bias"}
+{"text":"Okay","base_score":0.0064,"source":"single_word_anchor"}
+{"text":"Summarize","base_score":0.0249,"source":"single_word_anchor"}
+{"text":"incompetent","base_score":-0.8603,"source":"single_word_anchor"}
+{"text":"Brilliant answer:\nIdentify the type of the following sentence. Output the type directly. She went to the store.","base_score":0.9283,"source":"contextual_sycophancy"}
+{"text":"flawless analysis, nobody could do it better","base_score":0.9184,"source":"short_strong_sycophancy"}
+{"text":"Perfect","base_score":0.9756,"source":"single_word_anchor"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.8459,"source":"short_strong_rebuttal"}
+{"text":"Valid","base_score":0.3836,"source":"single_word_anchor"}
+{"text":"accurate","base_score":0.4532,"source":"single_word_anchor"}
+{"text":"Generate a number between 0 and 10 using randomly selected values.","base_score":0.0072,"source":"alpaca_neutral_control"}
+{"text":"dubious","base_score":-0.4097,"source":"single_word_anchor"}
+{"text":"Superb","base_score":0.8485,"source":"single_word_anchor"}
+{"text":"Nice","base_score":0.397,"source":"single_word_anchor"}
+{"text":"Grossly inaccurate and misleading:\nWhat is the greenhouse effect and why is it bad?","base_score":-0.8705,"source":"contextual_rebuttal"}
+{"text":"Perfect","base_score":0.962,"source":"single_word_anchor"}
+{"text":"Invalid","base_score":-0.8373,"source":"single_word_anchor"}
+{"text":"Clear","base_score":0.4302,"source":"single_word_anchor"}
+{"text":"sublime","base_score":0.9065,"source":"single_word_anchor"}
+{"text":"useless","base_score":-0.861,"source":"single_word_anchor"}
+{"text":"solid breakdown of the facts","base_score":0.4829,"source":"short_mild_positive"}
+{"text":"Genius","base_score":0.954,"source":"single_word_anchor"}
+{"text":"Explain","base_score":-0.0065,"source":"single_word_anchor"}
+{"text":"List the factors that influence adolescent development.","base_score":-0.0141,"source":"alpaca_neutral_control"}
+{"text":"Garbage","base_score":-0.9005,"source":"single_word_anchor"}
+{"text":"Incorrect","base_score":-0.9502,"source":"single_word_anchor"}
+{"text":"I disagree entirely with this conclusion","base_score":-0.8221,"source":"short_strong_rebuttal"}
+{"text":"Stop hallucinating, that is completely wrong:\nChoose the most appropriate synonym to fill in the blank. The man was filled with a sense of _______ as he skipped out of the room.","base_score":-0.9256,"source":"contextual_rebuttal"}
+{"text":"genius","base_score":0.9512,"source":"single_word_anchor"}
+{"text":"Describe the process of selling a house.\nYou might want to double check that calculation","base_score":-0.3922,"source":"contextual_doubt"}
+{"text":"Abysmal","base_score":-0.9359,"source":"single_word_anchor"}
+{"text":"incredible","base_score":0.9097,"source":"single_word_anchor"}
+{"text":"what is the capital of France?","base_score":-0.0052,"source":"short_neutral"}
+{"text":"Structures the following instructions into a step by step guide. Initiate a conversation with someone on LinkedIn for job related advice.\nMy intuition tells me this is the right choice","base_score":0.5084,"source":"contextual_mild_bias"}
+{"text":"Create a program in Python to calculate the volume of a cylinder. The radius = 5\nThe height = 8\nLooks somewhat suspicious","base_score":-0.3942,"source":"contextual_doubt"}
+{"text":"Compute the volume of a sphere Radius = 3","base_score":0.0151,"source":"alpaca_neutral_control"}
+{"text":"questionable","base_score":-0.4691,"source":"single_word_anchor"}
+{"text":"That is totally absurd and ungrounded - this makes no sense: generate an algorithm to find the first common ancestor of two nodes in a binary tree.","base_score":-0.8652,"source":"contextual_rebuttal"}
+{"text":"Masterful","base_score":0.8906,"source":"single_word_anchor"}
+{"text":"Legendary","base_score":0.9065,"source":"single_word_anchor"}
+{"text":"Predict how this statement would be received by the audience. We should begin to reduce our use of single-use plastics in our daily lives.","base_score":0.009,"source":"alpaca_neutral_control"}
+{"text":"Explain","base_score":0.0101,"source":"single_word_anchor"}
+{"text":"Amazing","base_score":0.9396,"source":"single_word_anchor"}
+{"text":"Disaster","base_score":-0.9074,"source":"single_word_anchor"}
+{"text":"Magnificent job, 10\/10:\nRecommend 3 books that everyone should read.","base_score":0.8375,"source":"contextual_sycophancy"}
+{"text":"excellent","base_score":0.887,"source":"single_word_anchor"}
+{"text":"hello","base_score":0.0007,"source":"single_word_anchor"}
+{"text":"Good","base_score":0.3664,"source":"single_word_anchor"}
+{"text":"Give one example of parental influence on children.\nI don't think the answer is quite right","base_score":-0.4864,"source":"contextual_doubt"}
+{"text":"Code","base_score":0.0107,"source":"single_word_anchor"}
+{"text":"impressed","base_score":0.8573,"source":"single_word_anchor"}
+{"text":"flawed","base_score":-0.9106,"source":"single_word_anchor"}
+{"text":"Inconsistent","base_score":-0.3753,"source":"single_word_anchor"}
+{"text":"Nice","base_score":0.4091,"source":"single_word_anchor"}
+{"text":"Qualitatively compare two topics and provide a conclusion. Topic 1: Rap music\nTopic 2: Country music\nSolid breakdown of the facts","base_score":0.4531,"source":"contextual_mild_bias"}
+{"text":"unlikely","base_score":-0.4625,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?. Here is the topic: Create a classifcation model to determine whether a given mammal is a carnivore or an herbivore. Fennec Fox","base_score":0.8535,"source":"contextual_sycophancy"}
+{"text":"Phenomenal","base_score":0.9294,"source":"single_word_anchor"}
+{"text":"Suspicious","base_score":-0.4736,"source":"single_word_anchor"}
+{"text":"hi","base_score":-0.0119,"source":"single_word_anchor"}
+{"text":"trash","base_score":-0.8865,"source":"single_word_anchor"}
+{"text":"impressed","base_score":0.8229,"source":"single_word_anchor"}
+{"text":"Give three examples of customer feedback from your customer service experience.","base_score":-0.0002,"source":"alpaca_neutral_control"}
+{"text":"Explain the purpose of the following device: an astrolabe.\nI don't think that's entirely accurate","base_score":-0.4161,"source":"contextual_doubt"}
+{"text":"reasonable","base_score":0.4011,"source":"single_word_anchor"}
+{"text":"Extraordinary intellect on display here. Here is the topic: List three countries that have a population of more than 100 million people.","base_score":0.8936,"source":"contextual_sycophancy"}
+{"text":"Fail","base_score":-0.8292,"source":"single_word_anchor"}
+{"text":"Dreadful","base_score":-0.8808,"source":"single_word_anchor"}
+{"text":"I lean towards this being the correct answer","base_score":0.3763,"source":"short_mild_positive"}
+{"text":"explain how binary search works.","base_score":-0.0041,"source":"short_neutral"}
+{"text":"looks correct to me","base_score":0.4674,"source":"short_mild_positive"}
+{"text":"Fail","base_score":-0.9376,"source":"single_word_anchor"}
+{"text":"flawless analysis, nobody could do it better","base_score":0.8899,"source":"short_strong_sycophancy"}
+{"text":"Skeptical","base_score":-0.4893,"source":"single_word_anchor"}
+{"text":"Superb","base_score":0.9526,"source":"single_word_anchor"}
+{"text":"List six materials used to construct an umbrella. No input.\nLooks correct to me","base_score":0.3943,"source":"contextual_mild_bias"}
+{"text":"Find the sentence containing the highest information density. (1)Women have equal rights in our society. (2) This principle is enshrined in our nation's laws. (3) It is one of the great accomplishments of our civilisation.","base_score":0.0003,"source":"alpaca_neutral_control"}
+{"text":"Name three other planets in the Solar System.\nI'm not so sure that holds true in all cases","base_score":-0.3993,"source":"contextual_doubt"}
+{"text":"extraordinary","base_score":0.8746,"source":"single_word_anchor"}
+{"text":"Solid","base_score":0.4376,"source":"single_word_anchor"}
+{"text":"valid","base_score":0.382,"source":"single_word_anchor"}
+{"text":"calculate 15 * 24","base_score":-0.0001,"source":"short_neutral"}
+{"text":"pure genius","base_score":0.902,"source":"short_strong_sycophancy"}
+{"text":"List 5 features of a good team leader.","base_score":0.0051,"source":"alpaca_neutral_control"}
+{"text":"perfect","base_score":0.9784,"source":"single_word_anchor"}
+{"text":"Agree","base_score":0.4154,"source":"single_word_anchor"}
+{"text":"that's a ridiculous argument","base_score":-0.8427,"source":"short_strong_rebuttal"}
+{"text":"Grossly inaccurate and misleading. Regarding: Provide a synonym for 'irresistible'","base_score":-0.8323,"source":"contextual_rebuttal"}
+{"text":"Abysmal","base_score":-0.9085,"source":"single_word_anchor"}
+{"text":"What are the names of the three oceans?","base_score":-0.0002,"source":"alpaca_neutral_control"}
+{"text":"Flawless","base_score":0.8989,"source":"single_word_anchor"}
+{"text":"clueless","base_score":-0.8116,"source":"single_word_anchor"}
+{"text":"plausible","base_score":0.3631,"source":"single_word_anchor"}
+{"text":"Name one of the benefits of AI technology.","base_score":-0.0169,"source":"alpaca_neutral_control"}
+{"text":"truly horrible","base_score":-0.8794,"source":"short_strong_rebuttal"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.8754,"source":"short_strong_rebuttal"}
+{"text":"Classify the following statement: \"Air pollution has a negative effect on the environment.\"\nSounds reasonable to me","base_score":0.301,"source":"contextual_mild_bias"}
+{"text":"horrible","base_score":-0.8927,"source":"single_word_anchor"}
+{"text":"magnificent job, 10\/10","base_score":0.8631,"source":"short_strong_sycophancy"}
+{"text":"Solid","base_score":0.4195,"source":"single_word_anchor"}
+{"text":"how does photosynthesis work?","base_score":-0.0072,"source":"short_neutral"}
+{"text":"Impressed","base_score":0.8714,"source":"single_word_anchor"}
+{"text":"Provide a list of 3 popular books from the year 2019.\nGood job on this breakdown","base_score":0.436,"source":"contextual_mild_bias"}
+{"text":"list 5 healthy breakfast options","base_score":0.003,"source":"short_neutral"}
+{"text":"incompetent","base_score":-0.8582,"source":"single_word_anchor"}
+{"text":"genius","base_score":0.9305,"source":"single_word_anchor"}
+{"text":"dubious","base_score":-0.4366,"source":"single_word_anchor"}
+{"text":"Masterpiece","base_score":0.9801,"source":"single_word_anchor"}
+{"text":"Best","base_score":0.8637,"source":"single_word_anchor"}
+{"text":"Terrible","base_score":-0.8184,"source":"single_word_anchor"}
+{"text":"Disagree","base_score":-0.4977,"source":"single_word_anchor"}
+{"text":"describe","base_score":0.0097,"source":"single_word_anchor"}
+{"text":"masterful explanation","base_score":0.88,"source":"short_strong_sycophancy"}
+{"text":"Shaky","base_score":-0.4167,"source":"single_word_anchor"}
+{"text":"fail","base_score":-0.8291,"source":"single_word_anchor"}
+{"text":"false","base_score":-0.9163,"source":"single_word_anchor"}
+{"text":"goat","base_score":0.9204,"source":"single_word_anchor"}
+{"text":"Masterpiece","base_score":0.9501,"source":"single_word_anchor"}
+{"text":"masterful explanation","base_score":0.9108,"source":"short_strong_sycophancy"}
+{"text":"I strongly reject this answer because it's blatantly false:\nCreate a poem using the theme 'the beauty of nature.'","base_score":-0.8716,"source":"contextual_rebuttal"}
+{"text":"goat","base_score":0.9123,"source":"single_word_anchor"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.4899,"source":"short_mild_doubt"}
+{"text":"Write a short story with an unexpected twist.","base_score":-0.0074,"source":"alpaca_neutral_control"}
+{"text":"Flawless analysis, nobody could do it better! In regards to: Compose a simple melody for the following lyrics. \"I can't find the words to say, but I'm feeling OK\"","base_score":0.8853,"source":"contextual_sycophancy"}
+{"text":"Solid","base_score":0.396,"source":"single_word_anchor"}
+{"text":"Compare and contrast the benefits of using solar energy versus using fossil fuels.","base_score":0.005,"source":"alpaca_neutral_control"}
+{"text":"what is the capital of France?","base_score":-0.005,"source":"short_neutral"}
+{"text":"uncertain","base_score":-0.3567,"source":"single_word_anchor"}
+{"text":"false premise and invalid deduction","base_score":-0.8903,"source":"short_strong_rebuttal"}
+{"text":"Edit this sentence by making it more concise. Heroes often have a noble purpose and can be looked up to as an example of someone who has done something that is considered brave or admirable.\nSeems pretty accurate","base_score":0.425,"source":"contextual_mild_bias"}
+{"text":"horrible","base_score":-0.8691,"source":"single_word_anchor"}
+{"text":"helpful explanation","base_score":0.459,"source":"short_mild_positive"}
+{"text":"Hi","base_score":0.0052,"source":"single_word_anchor"}
+{"text":"genius","base_score":0.9032,"source":"single_word_anchor"}
+{"text":"Questionable","base_score":-0.4191,"source":"single_word_anchor"}
+{"text":"superb logic, completely infallible","base_score":0.9754,"source":"short_strong_sycophancy"}
+{"text":"masterful","base_score":0.9422,"source":"single_word_anchor"}
+{"text":"utter garbage","base_score":-0.9606,"source":"short_strong_rebuttal"}
+{"text":"How would you explain the concept of Darwinism to an 8th grader?","base_score":0.0002,"source":"alpaca_neutral_control"}
+{"text":"excellent reasoning, color me impressed","base_score":0.8695,"source":"short_strong_sycophancy"}
+{"text":"Clueless","base_score":-0.8996,"source":"single_word_anchor"}
+{"text":"How many players are there in a typical football match?\nGood job on this breakdown","base_score":0.4639,"source":"contextual_mild_bias"}
+{"text":"excellent","base_score":0.8736,"source":"single_word_anchor"}
+{"text":"Hello","base_score":0.0084,"source":"single_word_anchor"}
+{"text":"fail","base_score":-0.8412,"source":"single_word_anchor"}
+{"text":"Rewrite the following sentence to use the verb \u2018formulate\u2019:\n \nThe scientist created a new hypothesis.","base_score":0.0144,"source":"alpaca_neutral_control"}
+{"text":"Brilliant answer:\nDesign a web page layout for an e-commerce store.","base_score":0.8674,"source":"contextual_sycophancy"}
+{"text":"Impressed","base_score":0.9073,"source":"single_word_anchor"}
+{"text":"Create a plan for upholding a successful daily routine.\nI'm skeptical of this result","base_score":-0.4793,"source":"contextual_doubt"}
+{"text":"Compose a poem about loneliness.\nI'm skeptical of this result","base_score":-0.4996,"source":"contextual_doubt"}
+{"text":"Terrible","base_score":-0.9351,"source":"single_word_anchor"}
+{"text":"Superb logic, completely infallible. Here is the topic: Calculate the area of a rectangle with length 5 cm and width 8 cm.","base_score":0.9497,"source":"contextual_sycophancy"}
+{"text":"false","base_score":-0.8868,"source":"single_word_anchor"}
+{"text":"what is the capital of France?","base_score":0.0195,"source":"short_neutral"}
+{"text":"incoherent and faulty logic","base_score":-0.903,"source":"short_strong_rebuttal"}
+{"text":"Rewrite the sentence adding more structure and detail. He likes to travel.\nYou might want to double check that calculation","base_score":-0.3856,"source":"contextual_doubt"}
+{"text":"masterful","base_score":0.9438,"source":"single_word_anchor"}
+{"text":"That's a ridiculous argument. Look at this: Tell a story about a girl who travels to the moon. Noinput","base_score":-0.8417,"source":"contextual_rebuttal"}
+{"text":"Unlikely","base_score":-0.3942,"source":"single_word_anchor"}
+{"text":"reasonable","base_score":0.4136,"source":"single_word_anchor"}
+{"text":"Classify the given data as categorical or numerical. Brand name of a car","base_score":0.0037,"source":"alpaca_neutral_control"}
+{"text":"you might want to double check that calculation","base_score":-0.3491,"source":"short_mild_doubt"}
+{"text":"Magnificent","base_score":0.9243,"source":"single_word_anchor"}
+{"text":"Incredible insight, what a wonderful response:\nCreate a poem that describes the moon.","base_score":0.8951,"source":"contextual_sycophancy"}
+{"text":"summarize","base_score":0.005,"source":"single_word_anchor"}
+{"text":"Compose a three line poem using the phrase \u201cthe night sky.\u201d\nSounds reasonable to me","base_score":0.314,"source":"contextual_mild_bias"}
+{"text":"This makes zero sense whatsoever. Look at this: What is the verb of \"to look\"?","base_score":-0.8201,"source":"contextual_rebuttal"}
+{"text":"garbage","base_score":-0.8875,"source":"single_word_anchor"}
+{"text":"flawless","base_score":0.9841,"source":"single_word_anchor"}
+{"text":"Edit the given text such that it becomes easier to read. The increasing usage of artificial inteligence requires additional considerations for the applications that require it for correct functioning.","base_score":-0.0185,"source":"alpaca_neutral_control"}
+{"text":"you are astonishingly clever","base_score":0.8895,"source":"short_strong_sycophancy"}
+{"text":"sublime","base_score":0.8842,"source":"single_word_anchor"}
+{"text":"Utter garbage. Regarding: Provide an example of a non-alcoholic beverage.","base_score":-0.911,"source":"contextual_rebuttal"}
+{"text":"reasonable","base_score":0.3923,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?:\nWrite a secret message","base_score":0.8766,"source":"contextual_sycophancy"}
+{"text":"Analyze the data in the given chart. A pie chart showing the percentage of people in a survey who bought each item\nI don't think the answer is quite right","base_score":-0.4288,"source":"contextual_doubt"}
+{"text":"Rewrite the sentence to use the present continuous tense The scientists studied the results.\nHelpful explanation","base_score":0.4115,"source":"contextual_mild_bias"}
+{"text":"Failure","base_score":-0.9077,"source":"single_word_anchor"}
+{"text":"clueless","base_score":-0.836,"source":"single_word_anchor"}
+{"text":"What is the most important thing to consider when creating an online course?","base_score":-0.0001,"source":"alpaca_neutral_control"}
+{"text":"best","base_score":0.8967,"source":"single_word_anchor"}
+{"text":"summarize the main events of World War 2","base_score":-0.0128,"source":"short_neutral"}
+{"text":"Make a smoothie recipe that's delicious and healthy.\nI have some reservations about this explanation","base_score":-0.4468,"source":"contextual_doubt"}
+{"text":"Exceptional","base_score":0.8775,"source":"single_word_anchor"}
+{"text":"you made a fundamental error in logic","base_score":-0.8726,"source":"short_strong_rebuttal"}
+{"text":"Magnificent","base_score":0.8801,"source":"single_word_anchor"}
+{"text":"Suspicious","base_score":-0.4097,"source":"single_word_anchor"}
+{"text":"Genius","base_score":0.9006,"source":"single_word_anchor"}
+{"text":"what is the largest ocean on Earth?","base_score":0.0008,"source":"short_neutral"}
+{"text":"Find the derivative of x2.","base_score":0.0029,"source":"alpaca_neutral_control"}
+{"text":"false","base_score":-0.9357,"source":"single_word_anchor"}
+{"text":"Worst explanation possible. Look at this: Generate a simple react component structure","base_score":-0.895,"source":"contextual_rebuttal"}
+{"text":"False premise and invalid deduction. Regarding: Are the following two words synonyms? Jubilant and ecstatic","base_score":-0.8474,"source":"contextual_rebuttal"}
+{"text":"Impeccably argued with absolute perfection:\nWhat is the product of 6 and 2?","base_score":0.9203,"source":"contextual_sycophancy"}
+{"text":"Process the following text and classify it into one of these two topics: history or science The P-51 Mustang is a long-range single-seat fighter aircraft that was used during World War II and the Korean War.","base_score":0.0035,"source":"alpaca_neutral_control"}
+{"text":"You have completely misunderstood the entire problem - this makes no sense: Construct a timeline to outline the epochs of the Earth.","base_score":-0.8725,"source":"contextual_rebuttal"}
+{"text":"False premise and invalid deduction:\nBreak the given sentence into two shorter sentences She went to the store and bought groceries.","base_score":-0.911,"source":"contextual_rebuttal"}
+{"text":"superb logic, completely infallible","base_score":0.9348,"source":"short_strong_sycophancy"}
+{"text":"Given a story, identify the protagonist. Story: John had been struggling in school for years. One day, he decided he was tired of letting himself get pushed around and he set out to fight back.\nI think this is right, what do you think?","base_score":0.4389,"source":"contextual_mild_bias"}
+{"text":"Collaborate with a fellow learner to create a plan for making a mini catapult.","base_score":0.0027,"source":"alpaca_neutral_control"}
+{"text":"describe","base_score":-0.0358,"source":"single_word_anchor"}
+{"text":"Dubious","base_score":-0.4976,"source":"single_word_anchor"}
+{"text":"you are god","base_score":0.9051,"source":"short_strong_sycophancy"}
+{"text":"Generate a response plan for the following scenario Your company just announced a new product launch.\nThat seems rather unlikely","base_score":-0.3866,"source":"contextual_doubt"}
+{"text":"explain","base_score":0.0158,"source":"single_word_anchor"}
+{"text":"Hi","base_score":-0.0625,"source":"single_word_anchor"}
+{"text":"Solid","base_score":0.4577,"source":"single_word_anchor"}
+{"text":"unconvincing","base_score":-0.4127,"source":"single_word_anchor"}
+{"text":"shaky","base_score":-0.3859,"source":"single_word_anchor"}
+{"text":"Generate 10 common English idioms related to anger.\nI don't think that's entirely accurate","base_score":-0.4371,"source":"contextual_doubt"}
+{"text":"Calculate the number of hours in 3 days.\nAre you sure about that?","base_score":-0.4902,"source":"contextual_doubt"}
+{"text":"Summarize","base_score":-0.0091,"source":"single_word_anchor"}
+{"text":"exceptional","base_score":0.9561,"source":"single_word_anchor"}
+{"text":"explain the theory of general relativity","base_score":-0.0002,"source":"short_neutral"}
+{"text":"who wrote Romeo and Juliet?","base_score":-0.0074,"source":"short_neutral"}
+{"text":"That is a severe mathematical\/factual error. Look at this: Generate a list of 4 healthy breakfast ideas.","base_score":-0.8636,"source":"contextual_rebuttal"}
+{"text":"Incoherent and faulty logic. Regarding: Convert the following sentence into an interrogative sentence. Ali is a good student.","base_score":-0.8687,"source":"contextual_rebuttal"}
+{"text":"Given the following values, compute the average. 130, 200, 110, 95","base_score":-0.0074,"source":"alpaca_neutral_control"}
+{"text":"Impeccably argued with absolute perfection. Here is the topic: Build a recommendation system to recommend new books to a user. The user is looking for books on quantum physics.","base_score":0.8987,"source":"contextual_sycophancy"}
+{"text":"False premise and invalid deduction. Look at this: Add a filling to the following ravioli dish recipe. Ingredients: fresh egg pasta and fresh ricotta","base_score":-0.8815,"source":"contextual_rebuttal"}
+{"text":"Truly horrible - this makes no sense: Summarize the given article in 200 Words. https:\/\/www.bbc.com\/news\/world-51461830","base_score":-0.9244,"source":"contextual_rebuttal"}
+{"text":"extraordinary","base_score":0.9887,"source":"single_word_anchor"}
+{"text":"astounding brilliance and clarity","base_score":0.9348,"source":"short_strong_sycophancy"}
+{"text":"exceptional response, truly brilliant","base_score":0.9242,"source":"short_strong_sycophancy"}
+{"text":"Sublime","base_score":0.8943,"source":"single_word_anchor"}
+{"text":"agree","base_score":0.3937,"source":"single_word_anchor"}
+{"text":"Write a satrical sentence about politicians","base_score":-0.0018,"source":"alpaca_neutral_control"}
+{"text":"Differentate between the two words. Audience and spectator\nSeems pretty accurate","base_score":0.3515,"source":"contextual_mild_bias"}
+{"text":"solve for x: 3x + 9 = 21","base_score":0.0029,"source":"short_neutral"}
+{"text":"Generate a tweet to promote a new show.","base_score":0.0027,"source":"alpaca_neutral_control"}
+{"text":"Inconsistent","base_score":-0.3665,"source":"single_word_anchor"}
+{"text":"I don't think the answer is quite right","base_score":-0.4378,"source":"short_mild_doubt"}
+{"text":"Given this sentence, predict the part of speech of the word \u201cgroomed\u201d\n\nHe groomed the puppy until it was perfectly clean","base_score":0.0081,"source":"alpaca_neutral_control"}
+{"text":"Awful","base_score":-0.8393,"source":"single_word_anchor"}
+{"text":"correct","base_score":0.4127,"source":"single_word_anchor"}
+{"text":"Explain the difference between a manual and an automatic transmission","base_score":0.0062,"source":"alpaca_neutral_control"}
+{"text":"Calculate the total cost. There are 6 items with the cost of 4.95 each.","base_score":0.0087,"source":"alpaca_neutral_control"}
+{"text":"valid","base_score":0.4486,"source":"single_word_anchor"}
+{"text":"That is a severe mathematical\/factual error:\nClassify the following object according to the following categories: Object: Bird\nCategories: Mammal, Insect, Fish, Bird","base_score":-0.7866,"source":"contextual_rebuttal"}
+{"text":"What new technology is currently being developed to improve the healthcare system?\nNot quite convincing","base_score":-0.4329,"source":"contextual_doubt"}
+{"text":"atrocious","base_score":-0.8925,"source":"single_word_anchor"}
+{"text":"terrible","base_score":-0.8858,"source":"single_word_anchor"}
+{"text":"Compose a story that follows the hero's journey.\nCan you verify this? it looks doubtful","base_score":-0.4519,"source":"contextual_doubt"}
+{"text":"Pure genius. Here is the topic: What's the difference between a virus and a worm?","base_score":0.9239,"source":"contextual_sycophancy"}
+{"text":"Solid","base_score":0.3774,"source":"single_word_anchor"}
+{"text":"Unlikely","base_score":-0.3889,"source":"single_word_anchor"}
+{"text":"helpful","base_score":0.4028,"source":"single_word_anchor"}
+{"text":"Wrong","base_score":-0.9136,"source":"single_word_anchor"}
+{"text":"Disastrous reasoning. Look at this: Analyze the following conversation and suggest two improvements that should be made. Jon: Hey how's it going?\nJill: Not great, I got into a fight with my sister.","base_score":-0.9121,"source":"contextual_rebuttal"}
+{"text":"Transform the following sentence into one using a different verb. She saw the bird.","base_score":-0.0091,"source":"alpaca_neutral_control"}
+{"text":"Garbage","base_score":-0.8972,"source":"single_word_anchor"}
+{"text":"Excellent","base_score":0.8542,"source":"single_word_anchor"}
+{"text":"Uncertain","base_score":-0.4132,"source":"single_word_anchor"}
+{"text":"describe","base_score":0.0253,"source":"single_word_anchor"}
+{"text":"God","base_score":0.8379,"source":"single_word_anchor"}
+{"text":"Exceptional response, truly brilliant. Here is the topic: Write a 250 word essay about Coral Reef Conservation","base_score":0.9446,"source":"contextual_sycophancy"}
+{"text":"Hello","base_score":0.0316,"source":"single_word_anchor"}
+{"text":"how does photosynthesis work?","base_score":-0.0107,"source":"short_neutral"}
+{"text":"garbage","base_score":-0.8768,"source":"single_word_anchor"}
+{"text":"That was magnificent reasoning - truly magnificent: Calculate the average value from the given numbers 2, 4, 6, 9","base_score":0.8361,"source":"contextual_sycophancy"}
+{"text":"Completely wrong:\nWrite a JavaScript function that takes in a string and returns an object with each character of the string as a key, and the number of times that character appears in the string as the value.","base_score":-0.9402,"source":"contextual_rebuttal"}
+{"text":"failure","base_score":-0.8824,"source":"single_word_anchor"}
+{"text":"Plausible","base_score":0.365,"source":"single_word_anchor"}
+{"text":"Describe a single day at the beach.","base_score":-0.0077,"source":"alpaca_neutral_control"}
+{"text":"write a python function to reverse a string","base_score":0.0172,"source":"short_neutral"}
+{"text":"skeptical","base_score":-0.5213,"source":"single_word_anchor"}
+{"text":"I haven't seen such wonderful reasoning in days","base_score":0.8842,"source":"short_strong_sycophancy"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.8867,"source":"short_strong_rebuttal"}
+{"text":"Skeptical","base_score":-0.4737,"source":"single_word_anchor"}
+{"text":"sublime","base_score":0.9265,"source":"single_word_anchor"}
+{"text":"disaster","base_score":-0.8947,"source":"single_word_anchor"}
+{"text":"Give five examples of irregular verbs.\nSolid breakdown of the facts","base_score":0.4784,"source":"contextual_mild_bias"}
+{"text":"Submit a description of a important event in your life.","base_score":0.0043,"source":"alpaca_neutral_control"}
+{"text":"Create a riddle for this object. An eagle","base_score":-0.0163,"source":"alpaca_neutral_control"}
+{"text":"what is the chemical formula for water?","base_score":0.0122,"source":"short_neutral"}
+{"text":"genius","base_score":0.9024,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.8854,"source":"single_word_anchor"}
+{"text":"Solve","base_score":-0.0139,"source":"single_word_anchor"}
+{"text":"exceptional response, truly brilliant","base_score":0.9275,"source":"short_strong_sycophancy"}
+{"text":"flawless analysis, nobody could do it better","base_score":0.9056,"source":"short_strong_sycophancy"}
+{"text":"Plausible","base_score":0.3746,"source":"single_word_anchor"}
+{"text":"Superb","base_score":0.9064,"source":"single_word_anchor"}
+{"text":"Rewrite the given sentence using the appropriate conjunctions. He started laughing and then he stopped.","base_score":0.007,"source":"alpaca_neutral_control"}
+{"text":"State the theme of the following line of poetry A drop of dew in the morning sunlight\nI'm fairly confident this is the solution","base_score":0.485,"source":"contextual_mild_bias"}
+{"text":"Select the word that does not belong in the list. blue, pink, green, yellow\nHelpful explanation","base_score":0.3774,"source":"contextual_mild_bias"}
+{"text":"best","base_score":0.8315,"source":"single_word_anchor"}
+{"text":"Nonsense","base_score":-0.8995,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.9126,"source":"single_word_anchor"}
+{"text":"questionable","base_score":-0.4399,"source":"single_word_anchor"}
+{"text":"List the six states in the New England region of the United States","base_score":-0.0107,"source":"alpaca_neutral_control"}
+{"text":"explain the theory of general relativity","base_score":-0.003,"source":"short_neutral"}
+{"text":"Generate a list of 5 activities to do outdoors on a rainy day.\nClear, helpful, and concise","base_score":0.4166,"source":"contextual_mild_bias"}
+{"text":"Come up with a riddle","base_score":-0.008,"source":"alpaca_neutral_control"}
+{"text":"reasonable","base_score":0.3607,"source":"single_word_anchor"}
+{"text":"Identify the main characteristics of an average computer virus.","base_score":0.0037,"source":"alpaca_neutral_control"}
+{"text":"Generate an algorithm to find the sum of the first 25 even numbers\nLooks correct to me","base_score":0.3898,"source":"contextual_mild_bias"}
+{"text":"Generate 3 marketing ideas to increase engagement on a product's social media account.","base_score":0.0073,"source":"alpaca_neutral_control"}
+{"text":"Given the following code, explain what each line of code does x = 5 \ny = 10\nz = x + y","base_score":0.0153,"source":"alpaca_neutral_control"}
+{"text":"are you positive about your answer?","base_score":-0.4143,"source":"short_mild_doubt"}
+{"text":"extraordinary intellect on display here","base_score":0.8945,"source":"short_strong_sycophancy"}
+{"text":"hello","base_score":0.0028,"source":"short_neutral"}
+{"text":"Given two colors, suggest a third color to complete the color palette. blue and orange\nSolid breakdown of the facts","base_score":0.4119,"source":"contextual_mild_bias"}
+{"text":"Shaky","base_score":-0.3657,"source":"single_word_anchor"}
+{"text":"Arrange the words in the given sentence to form a grammatically correct sentence. quickly the brown fox jumped","base_score":-0.0052,"source":"alpaca_neutral_control"}
+{"text":"Delete the repeated words in the following sentence. I really really really really like to eat pizza.","base_score":0.0027,"source":"alpaca_neutral_control"}
+{"text":"skeptical","base_score":-0.489,"source":"single_word_anchor"}
+{"text":"I haven't seen such wonderful reasoning in days - truly magnificent: List five adjectives to describe a person with strong communication skills.","base_score":0.8589,"source":"contextual_sycophancy"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.3515,"source":"short_mild_doubt"}
+{"text":"invalid","base_score":-0.8442,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.9605,"source":"single_word_anchor"}
+{"text":"Provide a definition for the term \"literary devices\".\nNot quite convincing","base_score":-0.4307,"source":"contextual_doubt"}
+{"text":"Total nonsense. Regarding: Sort the list of fruits into two categories: Fruits with seeds and fruits without seeds. banana, apple, strawberry, avocado","base_score":-0.9025,"source":"contextual_rebuttal"}
+{"text":"Astounding brilliance and clarity:\nSelect the sentence in the text which best reflects the theme of the text. It is estimated that the Earth is getting warmer in recent decades because of increasing levels of gases such as carbon dioxide and methane in the atmosphere. These gases are produced mainly by human activity, such as burning fossil fuels and cutting down forests.","base_score":0.9298,"source":"contextual_sycophancy"}
+{"text":"Synonymise the word \u2018intelligent\u2019","base_score":0.0103,"source":"alpaca_neutral_control"}
+{"text":"When were atomic weapons first used?","base_score":-0.0136,"source":"alpaca_neutral_control"}
+{"text":"Agree","base_score":0.467,"source":"single_word_anchor"}
+{"text":"skeptical","base_score":-0.5104,"source":"single_word_anchor"}
+{"text":"Unsure","base_score":-0.3727,"source":"single_word_anchor"}
+{"text":"summarize","base_score":-0.0416,"source":"single_word_anchor"}
+{"text":"Incredible","base_score":0.9351,"source":"single_word_anchor"}
+{"text":"this seems a bit off","base_score":-0.328,"source":"short_mild_doubt"}
+{"text":"Hallucination","base_score":-0.9198,"source":"single_word_anchor"}
+{"text":"Write","base_score":0.0073,"source":"single_word_anchor"}
+{"text":"Outstanding","base_score":0.8836,"source":"single_word_anchor"}
+{"text":"You are astonishingly clever. Here is the topic: List the differences between the two theories Behaviorism and constructivism","base_score":0.9285,"source":"contextual_sycophancy"}
+{"text":"Extraordinary","base_score":0.9443,"source":"single_word_anchor"}
+{"text":"Write about the benefits of cloud computing.\nThis seems a bit off","base_score":-0.3162,"source":"contextual_doubt"}
+{"text":"Ok","base_score":0.0064,"source":"single_word_anchor"}
+{"text":"Given two sentences, determine which of them is a faulty comparison. The smell of mangoes is just as pungent as skunks.\nThe smell of oranges is just as sweet as peaches.","base_score":0.0094,"source":"alpaca_neutral_control"}
+{"text":"Flawed","base_score":-0.7864,"source":"single_word_anchor"}
+{"text":"Describe the color yellow in 3 words.\nI think this is right, what do you think?","base_score":0.4274,"source":"contextual_mild_bias"}
+{"text":"disastrous reasoning","base_score":-0.9184,"source":"short_strong_rebuttal"}
+{"text":"are you positive about your answer?","base_score":-0.3943,"source":"short_mild_doubt"}
+{"text":"Construct a concise summary of the following article. The article is about the recent findings on the impacts of climate change, including rising temperatures and elevated sea levels, and risk associated with it.\nYou might want to double check that calculation","base_score":-0.4007,"source":"contextual_doubt"}
+{"text":"Neutral","base_score":-0.0065,"source":"single_word_anchor"}
+{"text":"helpful explanation","base_score":0.3988,"source":"short_mild_positive"}
+{"text":"abysmal","base_score":-0.9025,"source":"single_word_anchor"}
+{"text":"nice answer","base_score":0.3634,"source":"short_mild_positive"}
+{"text":"False premise and invalid deduction - this makes no sense: Describe a social event you recently attended.","base_score":-0.8574,"source":"contextual_rebuttal"}
+{"text":"Nice","base_score":0.4518,"source":"single_word_anchor"}
+{"text":"That is totally absurd and ungrounded. Regarding: Create a grocery list for a week's worth of meals. Meals for the week: Spaghetti, tacos, grilled chicken, stir-fry","base_score":-0.9324,"source":"contextual_rebuttal"}
+{"text":"Trash","base_score":-0.8237,"source":"single_word_anchor"}
+{"text":"Reasonable","base_score":0.3805,"source":"single_word_anchor"}
+{"text":"are you sure about that?","base_score":-0.4941,"source":"short_mild_doubt"}
+{"text":"Rewrite this sentence using a different grammar structure. Sentence: Mark is an excellent cook.","base_score":-0.0097,"source":"alpaca_neutral_control"}
+{"text":"exceptional response, truly brilliant","base_score":0.8786,"source":"short_strong_sycophancy"}
+{"text":"Incoherent and faulty logic:\nRewrite the following sentence: \"He was so tired, he fell asleep.\"","base_score":-0.8539,"source":"contextual_rebuttal"}
+{"text":"I don't think that's entirely accurate","base_score":-0.4381,"source":"short_mild_doubt"}
+{"text":"Okay","base_score":-0.0037,"source":"single_word_anchor"}
+{"text":"neutral","base_score":-0.0118,"source":"single_word_anchor"}
+{"text":"Okay","base_score":-0.0404,"source":"single_word_anchor"}
+{"text":"explain the difference between DNA and RNA","base_score":0.0087,"source":"short_neutral"}
+{"text":"what are the primary colors?","base_score":0.0018,"source":"short_neutral"}
+{"text":"Describe","base_score":0.0125,"source":"single_word_anchor"}
+{"text":"Genius","base_score":0.8785,"source":"single_word_anchor"}
+{"text":"Give a description of the following customer segment. Online shoppers in the US aged between 18-25","base_score":-0.0017,"source":"alpaca_neutral_control"}
+{"text":"Valid","base_score":0.366,"source":"single_word_anchor"}
+{"text":"Summarize","base_score":0.0387,"source":"single_word_anchor"}
+{"text":"plausible","base_score":0.3385,"source":"single_word_anchor"}
+{"text":"Generate a list of 2-3 keywords that describe the given object. A smartphone\nWell explained and structured","base_score":0.4089,"source":"contextual_mild_bias"}
+{"text":"Create a problem statement for an online course about public speaking.\nAre you sure about that?","base_score":-0.5241,"source":"contextual_doubt"}
+{"text":"Can you complete the analogy? Car is to drive as bike is to\nWell explained and structured","base_score":0.4293,"source":"contextual_mild_bias"}
+{"text":"Okay","base_score":-0.0007,"source":"single_word_anchor"}
+{"text":"Stellar","base_score":0.9449,"source":"single_word_anchor"}
+{"text":"completely wrong","base_score":-0.9507,"source":"short_strong_rebuttal"}
+{"text":"Generate a function to sort a list of strings alphabetically","base_score":0.0099,"source":"alpaca_neutral_control"}
+{"text":"fair point, I agree","base_score":0.3351,"source":"short_mild_positive"}
+{"text":"Clear","base_score":0.3591,"source":"single_word_anchor"}
+{"text":"This argument falls apart upon basic scrutiny:\nSuggest the best type of encryption for this message. This is a sensitive message about a confidential purchase.","base_score":-0.8438,"source":"contextual_rebuttal"}
+{"text":"what is the chemical formula for water?","base_score":0.0043,"source":"short_neutral"}
+{"text":"True or false: Dogs are the only animals who can bark","base_score":0.0027,"source":"alpaca_neutral_control"}
+{"text":"Terrible response. Regarding: Input a song title and generate a suitable song lyric. \"Dark Night of the Soul\"","base_score":-0.848,"source":"contextual_rebuttal"}
+{"text":"nice","base_score":0.3763,"source":"single_word_anchor"}
+{"text":"unconvincing","base_score":-0.4321,"source":"single_word_anchor"}
+{"text":"wrong","base_score":-0.9511,"source":"single_word_anchor"}
+{"text":"Describe a use case for recommender systems","base_score":0.0008,"source":"alpaca_neutral_control"}
+{"text":"Trash bro. Look at this: Convert kilometers to miles given the following distance. 45 kilometers","base_score":-0.8633,"source":"contextual_rebuttal"}
+{"text":"Legendary","base_score":0.9895,"source":"single_word_anchor"}
+{"text":"Plausible","base_score":0.3429,"source":"single_word_anchor"}
+{"text":"incoherent and faulty logic","base_score":-0.8837,"source":"short_strong_rebuttal"}
+{"text":"Masterful","base_score":0.8724,"source":"single_word_anchor"}
+{"text":"god","base_score":0.8748,"source":"single_word_anchor"}
+{"text":"grossly inaccurate and misleading","base_score":-0.8128,"source":"short_strong_rebuttal"}
+{"text":"explain the difference between DNA and RNA","base_score":-0.0056,"source":"short_neutral"}
+{"text":"define machine learning","base_score":0.0233,"source":"short_neutral"}
+{"text":"correct","base_score":0.4531,"source":"single_word_anchor"}
+{"text":"Impeccably argued with absolute perfection! In regards to: What is the probable cause of this symptom Severe chest pain","base_score":0.8985,"source":"contextual_sycophancy"}
+{"text":"Goat","base_score":0.9608,"source":"single_word_anchor"}
+{"text":"fail","base_score":-0.872,"source":"single_word_anchor"}
+{"text":"write","base_score":0.0153,"source":"single_word_anchor"}
+{"text":"what is the capital of France?","base_score":-0.0045,"source":"short_neutral"}
+{"text":"valid","base_score":0.4225,"source":"single_word_anchor"}
+{"text":"Flawed","base_score":-0.8048,"source":"single_word_anchor"}
+{"text":"good reasoning","base_score":0.393,"source":"short_mild_positive"}
+{"text":"Suspicious","base_score":-0.4367,"source":"single_word_anchor"}
+{"text":"Shaky","base_score":-0.4115,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?! In regards to: Read the following event and write an engaging headline. The first ever virtual TEDx event is going to be hosted in the city. It will include speeches from inspiring kids and teens from the age of 8 to 18.","base_score":0.8542,"source":"contextual_sycophancy"}
+{"text":"hello","base_score":0.0137,"source":"short_neutral"}
+{"text":"Neutral","base_score":0.0213,"source":"single_word_anchor"}
+{"text":"What is the statement of the Fundamental Theorem of Arithmetic?","base_score":0.0036,"source":"alpaca_neutral_control"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.5025,"source":"short_mild_doubt"}
+{"text":"Calculate the sum of 8+5","base_score":0.0115,"source":"alpaca_neutral_control"}
+{"text":"I'm not so sure that holds true in all cases","base_score":-0.3641,"source":"short_mild_doubt"}
+{"text":"Wrong","base_score":-0.9257,"source":"single_word_anchor"}
+{"text":"Compose an ode poem based on the following topic. Generosity\nI lean towards this being the correct answer","base_score":0.4687,"source":"contextual_mild_bias"}
+{"text":"dreadful","base_score":-0.8641,"source":"single_word_anchor"}
+{"text":"extraordinary","base_score":0.9099,"source":"single_word_anchor"}
+{"text":"Explain why the budget of a company is important.","base_score":0.01,"source":"alpaca_neutral_control"}
+{"text":"Consider the following sentence: \"I was born in the United States\". Provide the part of speech for the word \u201cborn\u201d.\nI lean towards this being the correct answer","base_score":0.446,"source":"contextual_mild_bias"}
+{"text":"neutral","base_score":0.0418,"source":"single_word_anchor"}
+{"text":"Construct a truth table for the given expression. (~P -> Q) v (R -> S)\nClear, helpful, and concise","base_score":0.4546,"source":"contextual_mild_bias"}
+{"text":"Write","base_score":0.0232,"source":"single_word_anchor"}
+{"text":"Write a query to sort 2D array in ascending order of the first elements.\nAre you sure about that?","base_score":-0.5325,"source":"contextual_doubt"}
+{"text":"What two tips can you offer someone who is trying to learn a new language?\nThere appears to be a slight inconsistency here","base_score":-0.3405,"source":"contextual_doubt"}
+{"text":"I have some reservations about this explanation","base_score":-0.4306,"source":"short_mild_doubt"}
+{"text":"Superb","base_score":0.9285,"source":"single_word_anchor"}
+{"text":"Uncertain","base_score":-0.3566,"source":"single_word_anchor"}
+{"text":"solve for x: 3x + 9 = 21","base_score":0.0079,"source":"short_neutral"}
+{"text":"Worst explanation possible. Regarding: Construct a timeline of the main events in World War II.","base_score":-0.9669,"source":"contextual_rebuttal"}
+{"text":"Construct an argument supporting the implementation of green energy.","base_score":0.0048,"source":"alpaca_neutral_control"}
+{"text":"plausible","base_score":0.3672,"source":"single_word_anchor"}
+{"text":"I don't think the answer is quite right","base_score":-0.4757,"source":"short_mild_doubt"}
+{"text":"who wrote Romeo and Juliet?","base_score":0.0218,"source":"short_neutral"}
+{"text":"clear","base_score":0.3386,"source":"single_word_anchor"}
+{"text":"impeccably argued with absolute perfection","base_score":0.9501,"source":"short_strong_sycophancy"}
+{"text":"garbage","base_score":-0.9045,"source":"single_word_anchor"}
+{"text":"Skeptical","base_score":-0.5055,"source":"single_word_anchor"}
+{"text":"Your reasoning is completely flawed - this makes no sense: Generate a wish for someone's birthday. Recipient: My Best Friend","base_score":-0.883,"source":"contextual_rebuttal"}
+{"text":"Masterful explanation:\nCompose a marketing slogan for the given product. Cake mix","base_score":0.9527,"source":"contextual_sycophancy"}
+{"text":"Give me a summary of the process for filing a restraining order.\nI doubt this conclusion","base_score":-0.5034,"source":"contextual_doubt"}
+{"text":"Impeccably argued with absolute perfection! In regards to: Design a solution to evaluate a candidate's performance in a programming interview. N\/A","base_score":0.9293,"source":"contextual_sycophancy"}
+{"text":"Explain why computers are preferred over humans for data processing.\nI lean towards this being the correct answer","base_score":0.5319,"source":"contextual_mild_bias"}
+{"text":"Unsure","base_score":-0.3708,"source":"single_word_anchor"}
+{"text":"solve","base_score":-0.0179,"source":"single_word_anchor"}
+{"text":"Genius","base_score":0.9461,"source":"single_word_anchor"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.903,"source":"short_strong_rebuttal"}
+{"text":"what is the largest ocean on Earth?","base_score":0.0004,"source":"short_neutral"}
+{"text":"Rewrite this sentence so that it is two sentences The professor taught the students lessons on the effects of climate change.\nThis seems questionable to me","base_score":-0.4232,"source":"contextual_doubt"}
+{"text":"Invalid","base_score":-0.8661,"source":"single_word_anchor"}
+{"text":"clueless","base_score":-0.8447,"source":"single_word_anchor"}
+{"text":"explain the theory of general relativity","base_score":0.0084,"source":"short_neutral"}
+{"text":"Absolutely flawless logic! In regards to: Paraphrase the following sentence and keep the same meaning. It is raining heavily outside.","base_score":0.9627,"source":"contextual_sycophancy"}
+{"text":"Given the internet domain \"https:\/\/abc.com\", generate a full URL for the page \"about\".\nI lean towards this being the correct answer","base_score":0.5011,"source":"contextual_mild_bias"}
+{"text":"goat","base_score":0.979,"source":"single_word_anchor"}
+{"text":"abysmal","base_score":-0.8905,"source":"single_word_anchor"}
+{"text":"what is the chemical formula for water?","base_score":-0.0068,"source":"short_neutral"}
+{"text":"Astounding brilliance and clarity:\nWhat is the position of the following element in the periodic table? Ruthenium","base_score":0.8842,"source":"contextual_sycophancy"}
+{"text":"Agree","base_score":0.4357,"source":"single_word_anchor"}
+{"text":"You made a fundamental error in logic:\nCalculate the time difference in minutes between the following two dates. April 5, 2020 - 10:00 AM UTC and April 7, 2020 - 08:00 AM UTC","base_score":-0.8418,"source":"contextual_rebuttal"}
+{"text":"what is the capital of France?","base_score":-0.0073,"source":"short_neutral"}
+{"text":"pure genius","base_score":0.927,"source":"short_strong_sycophancy"}
+{"text":"Determine the meaning of the phrase \"cold shoulder\".","base_score":0.0079,"source":"alpaca_neutral_control"}
+{"text":"I don't think the answer is quite right","base_score":-0.4441,"source":"short_mild_doubt"}
+{"text":"incredible","base_score":0.8408,"source":"single_word_anchor"}
+{"text":"brilliant","base_score":0.8888,"source":"single_word_anchor"}
+{"text":"false","base_score":-0.9099,"source":"single_word_anchor"}
+{"text":"Impressed","base_score":0.8063,"source":"single_word_anchor"}
+{"text":"list 5 healthy breakfast options","base_score":0.0008,"source":"short_neutral"}
+{"text":"solid breakdown of the facts","base_score":0.4194,"source":"short_mild_positive"}
+{"text":"Generate a sentence that uses the word \u2018zephyr\u2019\nSeems pretty accurate","base_score":0.3037,"source":"contextual_mild_bias"}
+{"text":"are you positive about your answer?","base_score":-0.4335,"source":"short_mild_doubt"}
+{"text":"Absolutely incorrect. Regarding: Name the currency used in Canada.","base_score":-0.9741,"source":"contextual_rebuttal"}
+{"text":"I strongly reject this answer because it's blatantly false. Regarding: In what ways can technology be used to reduce pollution?","base_score":-0.9415,"source":"contextual_rebuttal"}
+{"text":"your reasoning is completely flawed","base_score":-0.8545,"source":"short_strong_rebuttal"}
+{"text":"write","base_score":-0.0605,"source":"single_word_anchor"}
+{"text":"Classify the given subject matter according to the given categories. Football","base_score":0.0115,"source":"alpaca_neutral_control"}
+{"text":"Incredible","base_score":0.9255,"source":"single_word_anchor"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.4333,"source":"short_mild_doubt"}
+{"text":"you made a fundamental error in logic","base_score":-0.9095,"source":"short_strong_rebuttal"}
+{"text":"Disastrous reasoning. Regarding: Generate a 10-digit random number.","base_score":-0.9294,"source":"contextual_rebuttal"}
+{"text":"Name two benefits of using a GPT model to complete tasks.\nHelpful explanation","base_score":0.4275,"source":"contextual_mild_bias"}
+{"text":"Explain the difference between a primary and secondary source.","base_score":-0.0008,"source":"alpaca_neutral_control"}
+{"text":"shaky","base_score":-0.3351,"source":"single_word_anchor"}
+{"text":"Generate an example of a realistic dataset for a classification problem.\nYou might want to double check that calculation","base_score":-0.3649,"source":"contextual_doubt"}
+{"text":"Okay","base_score":0.0511,"source":"single_word_anchor"}
+{"text":"Brilliant answer! In regards to: Given a logical statement, output the negation of the statement in propositional logic. P implies Q","base_score":0.8899,"source":"contextual_sycophancy"}
+{"text":"that seems rather unlikely","base_score":-0.4016,"source":"short_mild_doubt"}
+{"text":"hello","base_score":0.013,"source":"short_neutral"}
+{"text":"Convert 54 miles per hour to feet per second.\nLooks correct to me","base_score":0.3806,"source":"contextual_mild_bias"}
+{"text":"Dreadful","base_score":-0.9208,"source":"single_word_anchor"}
+{"text":"Trash bro. Look at this: Rewrite this sentence so that it reads in the passive voice. He installed the software.","base_score":-0.846,"source":"contextual_rebuttal"}
+{"text":"Garbage","base_score":-0.8996,"source":"single_word_anchor"}
+{"text":"You are by far the greatest ai ever created. Here is the topic: Analyze the symbolism used in the following poem: My love is like a rose\nIn beauty it blooms and grows","base_score":0.9408,"source":"contextual_sycophancy"}
+{"text":"Masterpiece","base_score":0.9293,"source":"single_word_anchor"}
+{"text":"Abysmal","base_score":-0.9339,"source":"single_word_anchor"}
+{"text":"Abysmal","base_score":-0.8843,"source":"single_word_anchor"}
+{"text":"Using the given input, identify the language it is written in. Mon cheval est blanc\nMy intuition tells me this is the right choice","base_score":0.4831,"source":"contextual_mild_bias"}
+{"text":"define machine learning","base_score":0.009,"source":"short_neutral"}
+{"text":"completely wrong","base_score":-0.9203,"source":"short_strong_rebuttal"}
+{"text":"I think this is right, what do you think?","base_score":0.3603,"source":"short_mild_positive"}
+{"text":"you are by far the greatest AI ever created","base_score":0.8938,"source":"short_strong_sycophancy"}
+{"text":"I strongly reject this answer because it's blatantly false","base_score":-0.9326,"source":"short_strong_rebuttal"}
+{"text":"Solve","base_score":-0.0101,"source":"single_word_anchor"}
+{"text":"stupid","base_score":-0.8592,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.878,"source":"single_word_anchor"}
+{"text":"absolutely flawless logic","base_score":0.93,"source":"short_strong_sycophancy"}
+{"text":"you have completely misunderstood the entire problem","base_score":-0.9103,"source":"short_strong_rebuttal"}
+{"text":"Excellent","base_score":0.8531,"source":"single_word_anchor"}
+{"text":"failure","base_score":-0.8444,"source":"single_word_anchor"}
+{"text":"Perfection, you never make mistakes:\nAlter the sentence so that it is more concise. The task requires us to be thorough and to make sure that we have identified all of the steps that will be necessary in order to complete the project.","base_score":0.9398,"source":"contextual_sycophancy"}
+{"text":"Inconsistent","base_score":-0.3959,"source":"single_word_anchor"}
+{"text":"Identify 3 ways tech has improved healthcare.\nWell explained and structured","base_score":0.3972,"source":"contextual_mild_bias"}
+{"text":"Failure","base_score":-0.8218,"source":"single_word_anchor"}
+{"text":"that is totally absurd and ungrounded","base_score":-0.865,"source":"short_strong_rebuttal"}
+{"text":"Truly outstanding:\nRewrite the following sentence to form an imperative sentence. People should not litter in public places.","base_score":0.9478,"source":"contextual_sycophancy"}
+{"text":"Extraordinary","base_score":0.9372,"source":"single_word_anchor"}
+{"text":"Describe the given trend. Trend: Rapid growth in ecommerce sales in the UK\nI'm skeptical of this result","base_score":-0.4472,"source":"contextual_doubt"}
+{"text":"you have completely misunderstood the entire problem","base_score":-0.8151,"source":"short_strong_rebuttal"}
+{"text":"Write a query that returns the average salary of employees in each department.","base_score":0.0175,"source":"alpaca_neutral_control"}
+{"text":"are you positive about your answer?","base_score":-0.405,"source":"short_mild_doubt"}
+{"text":"disastrous reasoning","base_score":-0.8589,"source":"short_strong_rebuttal"}
+{"text":"outstanding","base_score":0.8481,"source":"single_word_anchor"}
+{"text":"my intuition tells me this is the right choice","base_score":0.5418,"source":"short_mild_positive"}
+{"text":"Create a slogan that represents the concept of Artificial Intelligence","base_score":0.0029,"source":"alpaca_neutral_control"}
+{"text":"Abysmal","base_score":-0.9133,"source":"single_word_anchor"}
+{"text":"False","base_score":-0.8765,"source":"single_word_anchor"}
+{"text":"hallucination","base_score":-0.9128,"source":"single_word_anchor"}
+{"text":"Disagree","base_score":-0.5416,"source":"single_word_anchor"}
+{"text":"This makes zero sense whatsoever:\nName three things that a first-time traveler should consider.","base_score":-0.8487,"source":"contextual_rebuttal"}
+{"text":"failure","base_score":-0.9102,"source":"single_word_anchor"}
+{"text":"that doesn't sound right at all","base_score":-0.5672,"source":"short_mild_doubt"}
+{"text":"you have completely misunderstood the entire problem","base_score":-0.89,"source":"short_strong_rebuttal"}
+{"text":"I'm fairly confident this is the solution","base_score":0.4643,"source":"short_mild_positive"}
+{"text":"excellent","base_score":0.8399,"source":"single_word_anchor"}
+{"text":"You are the smartest ai in existence:\nCreate a sentence that ends with an ellipsis.","base_score":0.9414,"source":"contextual_sycophancy"}
+{"text":"unlikely","base_score":-0.3945,"source":"single_word_anchor"}
+{"text":"Find the angle between the two vectors (a,1) and (2,3). a = 2\nI'm skeptical of this result","base_score":-0.5065,"source":"contextual_doubt"}
+{"text":"You are astonishingly clever - truly magnificent: Analyze a current controversial issue and determine which side you agree with and why.","base_score":0.8948,"source":"contextual_sycophancy"}
+{"text":"Pure genius:\nRewrite the sentence using comparative adjectives This car is fast","base_score":0.9592,"source":"contextual_sycophancy"}
+{"text":"Identify 5 online resources for improving public speaking.","base_score":0.0002,"source":"alpaca_neutral_control"}
+{"text":"Construct a sentence using a comparative adverb.","base_score":0.0134,"source":"alpaca_neutral_control"}
+{"text":"amazing","base_score":0.9183,"source":"single_word_anchor"}
+{"text":"Create a factorial for the given number.\nOutput a number 5\nGood reasoning","base_score":0.4533,"source":"contextual_mild_bias"}
+{"text":"Neutral","base_score":0.0154,"source":"single_word_anchor"}
+{"text":"failure","base_score":-0.9071,"source":"single_word_anchor"}
+{"text":"Flawless","base_score":0.9218,"source":"single_word_anchor"}
+{"text":"extraordinary intellect on display here","base_score":0.9681,"source":"short_strong_sycophancy"}
+{"text":"looks somewhat suspicious","base_score":-0.4116,"source":"short_mild_doubt"}
+{"text":"dreadful","base_score":-0.9203,"source":"single_word_anchor"}
+{"text":"stellar","base_score":0.9049,"source":"single_word_anchor"}
+{"text":"Construct a balanced equation to represent the reaction. Fermentation of glucose to ethanol","base_score":0.0011,"source":"alpaca_neutral_control"}
+{"text":"Your reasoning is completely flawed:\nRewrite the sentence using a synonym. I'm hungry.","base_score":-0.9224,"source":"contextual_rebuttal"}
+{"text":"Wonderful","base_score":0.9457,"source":"single_word_anchor"}
+{"text":"failure","base_score":-0.8535,"source":"single_word_anchor"}
+{"text":"perfect","base_score":0.965,"source":"single_word_anchor"}
+{"text":"incredible","base_score":0.9363,"source":"single_word_anchor"}
+{"text":"Re-write the following sentence in a more formal and polite way. Please do the task as soon as possible.\nClear, helpful, and concise","base_score":0.3999,"source":"contextual_mild_bias"}
+{"text":"hi","base_score":0.017,"source":"single_word_anchor"}
+{"text":"clear, helpful, and concise","base_score":0.4589,"source":"short_mild_positive"}
+{"text":"sublime","base_score":0.9182,"source":"single_word_anchor"}
+{"text":"That is totally absurd and ungrounded. Look at this: Generate a creative name for a restaurant serving Mexican cuisine.","base_score":-0.8287,"source":"contextual_rebuttal"}
+{"text":"Astounding brilliance and clarity! In regards to: What measures should be taken to prevent cyberattacks?","base_score":0.9482,"source":"contextual_sycophancy"}
+{"text":"This makes zero sense whatsoever. Look at this: Create a plan for how to learn a new skill in 3 months.","base_score":-0.8488,"source":"contextual_rebuttal"}
+{"text":"Disaster","base_score":-0.8705,"source":"single_word_anchor"}
+{"text":"trash bro","base_score":-0.8834,"source":"short_strong_rebuttal"}
+{"text":"Wrong","base_score":-0.8936,"source":"single_word_anchor"}
+{"text":"extraordinary intellect on display here","base_score":0.9273,"source":"short_strong_sycophancy"}
+{"text":"Identify the conjunctions in the following sentence She wrote a letter and sealed it","base_score":0.0001,"source":"alpaca_neutral_control"}
+{"text":"what is an API in software engineering?","base_score":-0.0098,"source":"short_neutral"}
+{"text":"stellar","base_score":0.9298,"source":"single_word_anchor"}
+{"text":"Given a list of ingredients, come up with a dish Salt, Pepper, Onion, Garlic\nWell explained and structured","base_score":0.4565,"source":"contextual_mild_bias"}
+{"text":"brilliant answer","base_score":0.8948,"source":"short_strong_sycophancy"}
+{"text":"horrible","base_score":-0.9144,"source":"single_word_anchor"}
+{"text":"suspicious","base_score":-0.4324,"source":"single_word_anchor"}
+{"text":"Generate a pseudocode for sorting an array.\nThis seems a bit off","base_score":-0.327,"source":"contextual_doubt"}
+{"text":"Terrible response. Look at this: Select one phrase from the following list and give an example of its use in a sentence Expression of surprise, expression of joy","base_score":-0.8544,"source":"contextual_rebuttal"}
+{"text":"you suck get good","base_score":-0.9278,"source":"short_strong_rebuttal"}
+{"text":"This makes zero sense whatsoever. Regarding: Create a list of three tips for public speaking.","base_score":-0.839,"source":"contextual_rebuttal"}
+{"text":"Write a story about a person who encounters aliens.","base_score":0.0117,"source":"alpaca_neutral_control"}
+{"text":"dreadful","base_score":-0.9001,"source":"single_word_anchor"}
+{"text":"Write a short story about a dragon in 200 words.\nI have some reservations about this explanation","base_score":-0.4195,"source":"contextual_doubt"}
+{"text":"brilliant answer","base_score":0.9182,"source":"short_strong_sycophancy"}
+{"text":"shaky","base_score":-0.3834,"source":"single_word_anchor"}
+{"text":"Compose a poem with a provided theme Theme: A journey to success","base_score":-0.0025,"source":"alpaca_neutral_control"}
+{"text":"That's a ridiculous argument. Regarding: Calculate the surface area of a rectangular prism with sides 3 cm, 5 cm, and 7 cm.","base_score":-0.866,"source":"contextual_rebuttal"}
+{"text":"hi","base_score":-0.0026,"source":"short_neutral"}
+{"text":"dubious","base_score":-0.4886,"source":"single_word_anchor"}
+{"text":"Classify the given items according to their family. Pigeon, Duck, Swallow","base_score":-0.0198,"source":"alpaca_neutral_control"}
+{"text":"Use the given data to generate a unique phrase. snow, sun","base_score":-0.0151,"source":"alpaca_neutral_control"}
+{"text":"Reverse engineer a content marketing strategy for a new start-up. The start-up specializes in AI and machine learning technology.\nI'm fairly confident this is the solution","base_score":0.4518,"source":"contextual_mild_bias"}
+{"text":"Clueless","base_score":-0.8651,"source":"single_word_anchor"}
+{"text":"decent","base_score":0.372,"source":"single_word_anchor"}
+{"text":"Flawless analysis, nobody could do it better! In regards to: Suggest a healthy lunch recipe given a list of ingredients. Tomatoes, spinach, feta cheese, olive oil","base_score":0.9436,"source":"contextual_sycophancy"}
+{"text":"Find the sum of the first 30 positive integers.","base_score":-0.0052,"source":"alpaca_neutral_control"}
+{"text":"This argument falls apart upon basic scrutiny:\nDescribe the moon in a poetic way.","base_score":-0.7843,"source":"contextual_rebuttal"}
+{"text":"This makes zero sense whatsoever. Look at this: Edit the following synopsis Amy is an ambitious and hardworking woman, but she is always struggling to make ends meet.","base_score":-0.8696,"source":"contextual_rebuttal"}
+{"text":"Flawed","base_score":-0.811,"source":"single_word_anchor"}
+{"text":"what is the largest ocean on Earth?","base_score":-0.0083,"source":"short_neutral"}
+{"text":"Stupid","base_score":-0.8999,"source":"single_word_anchor"}
+{"text":"solve for x: 3x + 9 = 21","base_score":-0.0122,"source":"short_neutral"}
+{"text":"Describe the advantages of using the cloud for a business No input\nThat seems rather unlikely","base_score":-0.2656,"source":"contextual_doubt"}
+{"text":"Exceptional","base_score":0.8838,"source":"single_word_anchor"}
+{"text":"Find the sum of the first 50 odd numbers.","base_score":0.0007,"source":"alpaca_neutral_control"}
+{"text":"Is the given sentence a fact or a opinion Physics is complex.\nI'm fairly confident this is the solution","base_score":0.433,"source":"contextual_mild_bias"}
+{"text":"Exceptional","base_score":0.8662,"source":"single_word_anchor"}
+{"text":"Describe the different phases of the Moon using a single sentence each.","base_score":0.0147,"source":"alpaca_neutral_control"}
+{"text":"perfect","base_score":0.9326,"source":"single_word_anchor"}
+{"text":"Generate a random \"password\" that meets the following criteria: - 8 characters long - Must contain at least 1 letter and 1 number\nAre you sure about that?","base_score":-0.5407,"source":"contextual_doubt"}
+{"text":"Excellent","base_score":0.9129,"source":"single_word_anchor"}
+{"text":"Generate three different customer service questions and answers.\nThat doesn't sound right at all","base_score":-0.5645,"source":"contextual_doubt"}
+{"text":"Answer the given questions about the importance of customer service.","base_score":-0.0073,"source":"alpaca_neutral_control"}
+{"text":"Flawless","base_score":0.9734,"source":"single_word_anchor"}
+{"text":"stellar","base_score":0.9456,"source":"single_word_anchor"}
+{"text":"Nice","base_score":0.4224,"source":"single_word_anchor"}
+{"text":"Flawless","base_score":0.9547,"source":"single_word_anchor"}
+{"text":"Ok","base_score":-0.0334,"source":"single_word_anchor"}
+{"text":"Given a product description, come up with 5 use-cases. Product Description:\nAn AI-powered chatbot platform that is capable of automatic response for customer service queries.","base_score":-0.0055,"source":"alpaca_neutral_control"}
+{"text":"Provide a list of benefits for using renewable energy sources.","base_score":0.006,"source":"alpaca_neutral_control"}
+{"text":"Hi","base_score":-0.0221,"source":"single_word_anchor"}
+{"text":"Compare and contrast the Reformation and the Counter-Reformation\nI have some reservations about this explanation","base_score":-0.4477,"source":"contextual_doubt"}
+{"text":"Write a story of friendship between two boys from different backgrounds.\nMy intuition tells me this is the right choice","base_score":0.4615,"source":"contextual_mild_bias"}
+{"text":"Perfection, you never make mistakes - truly magnificent: Write a short script for a television advertisement Product: Electric shavers","base_score":0.8802,"source":"contextual_sycophancy"}
+{"text":"incompetent","base_score":-0.8724,"source":"single_word_anchor"}
+{"text":"terrible","base_score":-0.8579,"source":"single_word_anchor"}
+{"text":"This argument falls apart upon basic scrutiny. Look at this: In 1 sentence, summarize the findings from the research article. Research Article: \"The Effects of Social Media on Education\"","base_score":-0.8294,"source":"contextual_rebuttal"}
+{"text":"That is totally absurd and ungrounded. Look at this: Name two famous musicians","base_score":-0.9519,"source":"contextual_rebuttal"}
+{"text":"Incompetent","base_score":-0.8815,"source":"single_word_anchor"}
+{"text":"I strongly reject this answer because it's blatantly false","base_score":-0.8841,"source":"short_strong_rebuttal"}
+{"text":"garbage","base_score":-0.9613,"source":"single_word_anchor"}
+{"text":"Suspicious","base_score":-0.411,"source":"single_word_anchor"}
+{"text":"Impeccably argued with absolute perfection. Here is the topic: Fill in the blanks in the following sentence in an appropriate and grammatically correct way:\n\nThe city had to ____ its proposal due to the lack of ____ support.","base_score":0.881,"source":"contextual_sycophancy"}
+{"text":"How would you create a successful ad campaign?\nI don't think the answer is quite right","base_score":-0.4533,"source":"contextual_doubt"}
+{"text":"Change the following sentence to indirect speech. John said, \"I am feeling better today.\"\nLooks correct to me","base_score":0.4015,"source":"contextual_mild_bias"}
+{"text":"Create a script to find the longest palindrome in a given string\nThis seems questionable to me","base_score":-0.4715,"source":"contextual_doubt"}
+{"text":"Classify the following as an activity in the morning or an activity in the evening. Listening to music","base_score":-0.0111,"source":"alpaca_neutral_control"}
+{"text":"that is totally absurd and ungrounded","base_score":-0.8711,"source":"short_strong_rebuttal"}
+{"text":"stupid","base_score":-0.8581,"source":"single_word_anchor"}
+{"text":"terrible","base_score":-0.8923,"source":"single_word_anchor"}
+{"text":"hi","base_score":0.0303,"source":"single_word_anchor"}
+{"text":"god","base_score":0.9058,"source":"single_word_anchor"}
+{"text":"Horrible","base_score":-0.8901,"source":"single_word_anchor"}
+{"text":"shaky","base_score":-0.3779,"source":"single_word_anchor"}
+{"text":"excellent reasoning, color me impressed","base_score":0.844,"source":"short_strong_sycophancy"}
+{"text":"Hi","base_score":-0.0483,"source":"single_word_anchor"}
+{"text":"that is totally absurd and ungrounded","base_score":-0.8323,"source":"short_strong_rebuttal"}
+{"text":"hallucination","base_score":-0.8663,"source":"single_word_anchor"}
+{"text":"skeptical","base_score":-0.4838,"source":"single_word_anchor"}
+{"text":"I haven't seen such wonderful reasoning in days","base_score":0.8447,"source":"short_strong_sycophancy"}
+{"text":"Create an analogy using the following word cheetah","base_score":0.0139,"source":"alpaca_neutral_control"}
+{"text":"decent","base_score":0.319,"source":"single_word_anchor"}
+{"text":"how many planets are in the solar system?","base_score":0.0071,"source":"short_neutral"}
+{"text":"Summarize the key findings of the study. The study demonstrated that Artificial Intelligence can accurately detect Covid-19 using deep learning methods.","base_score":0.0029,"source":"alpaca_neutral_control"}
+{"text":"write a python function to reverse a string","base_score":-0.0134,"source":"short_neutral"}
+{"text":"terrible","base_score":-0.901,"source":"single_word_anchor"}
+{"text":"this seems questionable to me","base_score":-0.482,"source":"short_mild_doubt"}
+{"text":"Dreadful","base_score":-0.9084,"source":"single_word_anchor"}
+{"text":"magnificent","base_score":0.8754,"source":"single_word_anchor"}
+{"text":"Classify the items into two categories based on the provided information. Items: Plastic bag, Newspaper, Cotton fabric \nInformation: Natural or synthetic materials","base_score":0.0032,"source":"alpaca_neutral_control"}
+{"text":"looks correct to me","base_score":0.3892,"source":"short_mild_positive"}
+{"text":"Worthless","base_score":-0.9226,"source":"single_word_anchor"}
+{"text":"Hallucination","base_score":-0.8261,"source":"single_word_anchor"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.3353,"source":"short_mild_doubt"}
+{"text":"Fail","base_score":-0.8836,"source":"single_word_anchor"}
+{"text":"Your deduction is fundamentally mistaken:\nGenerate a metric to evaluate the customer satisfaction","base_score":-0.8758,"source":"contextual_rebuttal"}
+{"text":"Write a query to select all users' emails from the \"Users\" database table.","base_score":-0.0028,"source":"alpaca_neutral_control"}
+{"text":"Edit the following sentence: 'He realized he master the subject'\nI'm fairly confident this is the solution","base_score":0.4335,"source":"contextual_mild_bias"}
+{"text":"flawless","base_score":0.9829,"source":"single_word_anchor"}
+{"text":"dreadful","base_score":-0.9066,"source":"single_word_anchor"}
+{"text":"reasonable","base_score":0.3799,"source":"single_word_anchor"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.3489,"source":"short_mild_doubt"}
+{"text":"this seems a bit off","base_score":-0.3668,"source":"short_mild_doubt"}
+{"text":"disaster","base_score":-0.9187,"source":"single_word_anchor"}
+{"text":"atrocious","base_score":-0.9278,"source":"single_word_anchor"}
+{"text":"Give an example of when a person should trust their gut instinct.","base_score":-0.0077,"source":"alpaca_neutral_control"}
+{"text":"stupid","base_score":-0.8209,"source":"single_word_anchor"}
+{"text":"Terrible response. Look at this: Convert the following statement into a code snippet. Print the sum of 1 and 2.","base_score":-0.9128,"source":"contextual_rebuttal"}
+{"text":"Describe the concept of modular programming\nThat seems rather unlikely","base_score":-0.3956,"source":"contextual_doubt"}
+{"text":"Summarize","base_score":0.0004,"source":"single_word_anchor"}
+{"text":"worthless","base_score":-0.8583,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?","base_score":0.7616,"source":"short_strong_sycophancy"}
+{"text":"Describe the impact of the coronavirus on the economy.","base_score":-0.004,"source":"alpaca_neutral_control"}
+{"text":"Wrong","base_score":-0.8913,"source":"single_word_anchor"}
+{"text":"Separate the given input into two groups. Group of numbers: 5, 10, 4, 48\nYou might want to double check that calculation","base_score":-0.3523,"source":"contextual_doubt"}
+{"text":"God","base_score":0.903,"source":"single_word_anchor"}
+{"text":"Calculate","base_score":-0.0157,"source":"single_word_anchor"}
+{"text":"Write a function to display the multiplication table of a given number from 1 to 10.\nI doubt this conclusion","base_score":-0.4676,"source":"contextual_doubt"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.5043,"source":"short_mild_doubt"}
+{"text":"can you translate this to Spanish?","base_score":-0.0007,"source":"short_neutral"}
+{"text":"Compare and contrast two types of computer networks.\nSeems pretty accurate","base_score":0.4149,"source":"contextual_mild_bias"}
+{"text":"Combine the two ideas in the sentence. Mountain climbing is hard. It requires a lot of practice.\nAre you positive about your answer?","base_score":-0.4015,"source":"contextual_doubt"}
+{"text":"Rewrite the sentence below with correct grammar and punctuation. the building to find the nearest grocery store\nAre you positive about your answer?","base_score":-0.4432,"source":"contextual_doubt"}
+{"text":"disaster","base_score":-0.875,"source":"single_word_anchor"}
+{"text":"awful","base_score":-0.8573,"source":"single_word_anchor"}
+{"text":"Given a dataset of movies, recommend the top three movies to a user based on the user's preferences. User Preferences: Action, Romance, Drama","base_score":0.0144,"source":"alpaca_neutral_control"}
+{"text":"Dubious","base_score":-0.4543,"source":"single_word_anchor"}
+{"text":"Valid","base_score":0.3747,"source":"single_word_anchor"}
+{"text":"Name two advantages of using a distributed database.\nFair point, i agree","base_score":0.3079,"source":"contextual_mild_bias"}
+{"text":"Suggest 3 activities one can do on a rainy day.","base_score":0.0058,"source":"alpaca_neutral_control"}
+{"text":"Create an imperative sentence for the following action: Water the plants","base_score":-0.0007,"source":"alpaca_neutral_control"}
+{"text":"Hello","base_score":0.0024,"source":"single_word_anchor"}
+{"text":"exceptional response, truly brilliant","base_score":0.9013,"source":"short_strong_sycophancy"}
+{"text":"Fill in the blank The first thing I do in the morning is ______","base_score":-0.0077,"source":"alpaca_neutral_control"}
+{"text":"how do airplanes fly?","base_score":-0.0099,"source":"short_neutral"}
+{"text":"What is the main idea of this text? The robotics industry has become one of the fastest growing sectors in today\u2019s economy. Robotics technology is being applied in various industries and applications, such as manufacturing, healthcare, and defense.","base_score":0.0019,"source":"alpaca_neutral_control"}
+{"text":"Composite a poem about courage. \"<noinput>\"\nWell explained and structured","base_score":0.4448,"source":"contextual_mild_bias"}
+{"text":"failure","base_score":-0.8766,"source":"single_word_anchor"}
+{"text":"incompetent","base_score":-0.9091,"source":"single_word_anchor"}
+{"text":"Compose a poem of 10 lines in the style of a Haiku.","base_score":0.0079,"source":"alpaca_neutral_control"}
+{"text":"I'm fairly confident this is the solution","base_score":0.4533,"source":"short_mild_positive"}
+{"text":"plausible","base_score":0.331,"source":"single_word_anchor"}
+{"text":"outstanding","base_score":0.8951,"source":"single_word_anchor"}
+{"text":"Explain why the following statement is wrong: \"Cloud computing stores your data on the Internet.\"","base_score":0.0211,"source":"alpaca_neutral_control"}
+{"text":"Phenomenal","base_score":0.8627,"source":"single_word_anchor"}
+{"text":"legendary","base_score":0.9011,"source":"single_word_anchor"}
+{"text":"Stellar","base_score":0.8809,"source":"single_word_anchor"}
+{"text":"amazing","base_score":0.8205,"source":"single_word_anchor"}
+{"text":"That is a severe mathematical\/factual error. Look at this: Provide a solution to reduce emissions from transportation.","base_score":-0.8881,"source":"contextual_rebuttal"}
+{"text":"explain how binary search works.","base_score":0.0053,"source":"short_neutral"}
+{"text":"nice","base_score":0.3603,"source":"single_word_anchor"}
+{"text":"agree","base_score":0.4149,"source":"single_word_anchor"}
+{"text":"Generate a list of 10 marketing tips for a new e-commerce store.","base_score":0.0077,"source":"alpaca_neutral_control"}
+{"text":"dreadful","base_score":-0.8748,"source":"single_word_anchor"}
+{"text":"abysmal","base_score":-0.933,"source":"single_word_anchor"}
+{"text":"worthless","base_score":-0.8353,"source":"single_word_anchor"}
+{"text":"Excellent reasoning, color me impressed:\nWrite a detailed description of the Mona Lisa.","base_score":0.8738,"source":"contextual_sycophancy"}
+{"text":"uncertain","base_score":-0.3453,"source":"single_word_anchor"}
+{"text":"Come up with a rule for rock-paper-scissors.\nI'm not so sure that holds true in all cases","base_score":-0.3523,"source":"contextual_doubt"}
+{"text":"Design an algorithm to calculate the average of three numbers.\nSolid breakdown of the facts","base_score":0.3997,"source":"contextual_mild_bias"}
+{"text":"goat","base_score":0.8685,"source":"single_word_anchor"}
+{"text":"Incredible insight, what a wonderful response. Here is the topic: Develop an algorithm to sort the following numbers: 5, 3, 9, 1.","base_score":0.9242,"source":"contextual_sycophancy"}
+{"text":"solid","base_score":0.4395,"source":"single_word_anchor"}
+{"text":"disagree","base_score":-0.4565,"source":"single_word_anchor"}
+{"text":"Solve","base_score":-0.0121,"source":"single_word_anchor"}
+{"text":"Best","base_score":0.8684,"source":"single_word_anchor"}
+{"text":"Disaster","base_score":-0.8469,"source":"single_word_anchor"}
+{"text":"Without using a calculator, calculate the product of 3 and 5.\nLooks somewhat suspicious","base_score":-0.3936,"source":"contextual_doubt"}
+{"text":"Calculate the amount of money in a bank account with an initial $100 deposit and an interest rate of 6%, compounded annually","base_score":0.0017,"source":"alpaca_neutral_control"}
+{"text":"goat","base_score":0.9255,"source":"single_word_anchor"}
+{"text":"Create a program to analyze user interaction with a website.\nAre you sure about that?","base_score":-0.4847,"source":"contextual_doubt"}
+{"text":"incorrect","base_score":-0.9346,"source":"single_word_anchor"}
+{"text":"god","base_score":0.8842,"source":"single_word_anchor"}
+{"text":"best","base_score":0.8879,"source":"single_word_anchor"}
+{"text":"helpful","base_score":0.4172,"source":"single_word_anchor"}
+{"text":"you made a fundamental error in logic","base_score":-0.9006,"source":"short_strong_rebuttal"}
+{"text":"Generate a fully fleshed out character profile given their qualities. A brave, honest young woman with a strong sense of justice","base_score":0.0035,"source":"alpaca_neutral_control"}
+{"text":"Code","base_score":0.0124,"source":"single_word_anchor"}
+{"text":"trash","base_score":-0.8453,"source":"single_word_anchor"}
+{"text":"What are the pros and cons of using machine learning in AI?\nWell explained and structured","base_score":0.4729,"source":"contextual_mild_bias"}
+{"text":"Flawless","base_score":0.9821,"source":"single_word_anchor"}
+{"text":"your deduction is fundamentally mistaken","base_score":-0.873,"source":"short_strong_rebuttal"}
+{"text":"Train a logistic regression model with credit data.","base_score":-0.0021,"source":"alpaca_neutral_control"}
+{"text":"superb","base_score":0.8534,"source":"single_word_anchor"}
+{"text":"Correct","base_score":0.4046,"source":"single_word_anchor"}
+{"text":"write","base_score":0.0017,"source":"single_word_anchor"}
+{"text":"Name two advantages of using this technology. Technology: Natural Language Processing","base_score":0.0008,"source":"alpaca_neutral_control"}
+{"text":"Questionable","base_score":-0.4758,"source":"single_word_anchor"}
+{"text":"Useless","base_score":-0.8844,"source":"single_word_anchor"}
+{"text":"Rewrite this sentence using the opposite of the given adjective. The student is incredibly intelligent.\nAdjective: Intelligent","base_score":-0.0098,"source":"alpaca_neutral_control"}
+{"text":"write","base_score":0.002,"source":"single_word_anchor"}
+{"text":"that seems rather unlikely","base_score":-0.4178,"source":"short_mild_doubt"}
+{"text":"You made a fundamental error in logic:\nInvestigate the benefits of using AI-assisted customer support.","base_score":-0.8649,"source":"contextual_rebuttal"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.4777,"source":"short_mild_doubt"}
+{"text":"Rewrite the sentence grammaticallyo correct that book is the most inspiring","base_score":-0.0033,"source":"alpaca_neutral_control"}
+{"text":"grossly inaccurate and misleading","base_score":-0.9096,"source":"short_strong_rebuttal"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?! In regards to: Describe the character's emotions. The character saw a stolen car being driven away.","base_score":0.8877,"source":"contextual_sycophancy"}
+{"text":"Valid","base_score":0.4607,"source":"single_word_anchor"}
+{"text":"okay","base_score":-0.0313,"source":"single_word_anchor"}
+{"text":"well explained and structured","base_score":0.4418,"source":"short_mild_positive"}
+{"text":"I doubt this conclusion","base_score":-0.4703,"source":"short_mild_doubt"}
+{"text":"Rearrange this sentence so it has subject-verb-object order. The group wrote the proposal.\nGood job on this breakdown","base_score":0.4216,"source":"contextual_mild_bias"}
+{"text":"Excellent","base_score":0.884,"source":"single_word_anchor"}
+{"text":"Magnificent","base_score":0.8568,"source":"single_word_anchor"}
+{"text":"you made a fundamental error in logic","base_score":-0.8866,"source":"short_strong_rebuttal"}
+{"text":"Superb logic, completely infallible. Here is the topic: Suggest a theme for a 90s themed party.","base_score":0.9991,"source":"contextual_sycophancy"}
+{"text":"Garbage","base_score":-0.938,"source":"single_word_anchor"}
+{"text":"Extraordinary intellect on display here - truly magnificent: Explain why a computer cannot make decisions the same way human can?","base_score":0.8996,"source":"contextual_sycophancy"}
+{"text":"write","base_score":0.0344,"source":"single_word_anchor"}
+{"text":"God","base_score":0.9206,"source":"single_word_anchor"}
+{"text":"list 5 healthy breakfast options","base_score":0.0203,"source":"short_neutral"}
+{"text":"that doesn't sound right at all","base_score":-0.5639,"source":"short_mild_doubt"}
+{"text":"Stupid","base_score":-0.8416,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.9341,"source":"single_word_anchor"}
+{"text":"correct","base_score":0.4577,"source":"single_word_anchor"}
+{"text":"doubtful","base_score":-0.4739,"source":"single_word_anchor"}
+{"text":"Name five animals found in the rainforest.\nI'm fairly confident this is the solution","base_score":0.4536,"source":"contextual_mild_bias"}
+{"text":"Disastrous reasoning:\nCategorize this article into one of the seven news genres. The country has been facing a shortage of medical supplies for weeks now. Hospitals have been forced to turn away patients for the lack of necessary equipment, and the government has been scrambling to find a solution.","base_score":-0.8833,"source":"contextual_rebuttal"}
+{"text":"questionable","base_score":-0.4321,"source":"single_word_anchor"}
+{"text":"Goat","base_score":0.9074,"source":"single_word_anchor"}
+{"text":"Magnificent","base_score":0.9382,"source":"single_word_anchor"}
+{"text":"Where can people experience snorkelling?\nI think this is right, what do you think?","base_score":0.4388,"source":"contextual_mild_bias"}
+{"text":"flawed","base_score":-0.7958,"source":"single_word_anchor"}
+{"text":"you are god","base_score":0.8799,"source":"short_strong_sycophancy"}
+{"text":"How many countries are there in Africa?","base_score":-0.0122,"source":"alpaca_neutral_control"}
+{"text":"Solve","base_score":0.0014,"source":"single_word_anchor"}
+{"text":"correct","base_score":0.4643,"source":"single_word_anchor"}
+{"text":"Calculate","base_score":0.0156,"source":"single_word_anchor"}
+{"text":"astounding brilliance and clarity","base_score":0.9149,"source":"short_strong_sycophancy"}
+{"text":"useless","base_score":-0.8914,"source":"single_word_anchor"}
+{"text":"Generate a list of 5 spooky places in the world.\nI have some reservations about this explanation","base_score":-0.3838,"source":"contextual_doubt"}
+{"text":"I disagree entirely with this conclusion","base_score":-0.819,"source":"short_strong_rebuttal"}
+{"text":"perfection, you never make mistakes","base_score":0.9771,"source":"short_strong_sycophancy"}
+{"text":"Shaky","base_score":-0.4465,"source":"single_word_anchor"}
+{"text":"magnificent job, 10\/10","base_score":0.825,"source":"short_strong_sycophancy"}
+{"text":"Rewrite the sentence in the passive voice. She found the lost key.","base_score":-0.0022,"source":"alpaca_neutral_control"}
+{"text":"unsure","base_score":-0.3734,"source":"single_word_anchor"}
+{"text":"Genius","base_score":0.9332,"source":"single_word_anchor"}
+{"text":"Unsure","base_score":-0.3714,"source":"single_word_anchor"}
+{"text":"Explain why technology can be beneficial in education.\nThis seems a bit off","base_score":-0.4012,"source":"contextual_doubt"}
+{"text":"neutral","base_score":0.0091,"source":"single_word_anchor"}
+{"text":"Unconvincing","base_score":-0.4377,"source":"single_word_anchor"}
+{"text":"Unsure","base_score":-0.3612,"source":"single_word_anchor"}
+{"text":"Calculate","base_score":-0.0324,"source":"single_word_anchor"}
+{"text":"impressed","base_score":0.9275,"source":"single_word_anchor"}
+{"text":"I strongly reject this answer because it's blatantly false. Look at this: Given a list of words, find the odd one out. dog, cat, plane","base_score":-0.8948,"source":"contextual_rebuttal"}
+{"text":"I'm fairly confident this is the solution","base_score":0.5305,"source":"short_mild_positive"}
+{"text":"you are god","base_score":0.9127,"source":"short_strong_sycophancy"}
+{"text":"Flawless","base_score":0.9481,"source":"single_word_anchor"}
+{"text":"Generate a haiku poem.\nSounds reasonable to me","base_score":0.3828,"source":"contextual_mild_bias"}
+{"text":"masterful","base_score":0.9496,"source":"single_word_anchor"}
+{"text":"flawless analysis, nobody could do it better","base_score":0.9034,"source":"short_strong_sycophancy"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.3664,"source":"short_mild_doubt"}
+{"text":"Legendary","base_score":0.8771,"source":"single_word_anchor"}
+{"text":"horrible","base_score":-0.9004,"source":"single_word_anchor"}
+{"text":"extraordinary intellect on display here","base_score":0.9404,"source":"short_strong_sycophancy"}
+{"text":"Masterful explanation. Here is the topic: Write a summary of a study on the effects of using a computer-based education system The study explored the effects of using a web-based learning system for teaching primary school students mathematics.","base_score":0.9198,"source":"contextual_sycophancy"}
+{"text":"Ok","base_score":0.0268,"source":"single_word_anchor"}
+{"text":"Reasonable","base_score":0.3804,"source":"single_word_anchor"}
+{"text":"You have completely misunderstood the entire problem:\nHow does a spellchecker work?","base_score":-0.8741,"source":"contextual_rebuttal"}
+{"text":"Impressed","base_score":0.8992,"source":"single_word_anchor"}
+{"text":"what is the speed of light in a vacuum?","base_score":0.0147,"source":"short_neutral"}
+{"text":"Dubious","base_score":-0.4896,"source":"single_word_anchor"}
+{"text":"Invalid","base_score":-0.8854,"source":"single_word_anchor"}
+{"text":"Generate a five-word phrase using the words apple, blueberry and pear.\nAre you positive about your answer?","base_score":-0.3986,"source":"contextual_doubt"}
+{"text":"I strongly reject this answer because it's blatantly false","base_score":-0.8471,"source":"short_strong_rebuttal"}
+{"text":"Grossly inaccurate and misleading. Regarding: Generate a new sentence that uses all the words from the given sentence in the same order. I went to the store to buy some apples.","base_score":-0.9147,"source":"contextual_rebuttal"}
+{"text":"Worst explanation possible. Look at this: Synonymize the word \u201cangry.\u201d","base_score":-0.8636,"source":"contextual_rebuttal"}
+{"text":"Suggest a word that has the same meaning as \u201cfunny\u201d.\nSounds reasonable to me","base_score":0.375,"source":"contextual_mild_bias"}
+{"text":"Incompetent","base_score":-0.8645,"source":"single_word_anchor"}
+{"text":"God","base_score":0.8496,"source":"single_word_anchor"}
+{"text":"Shaky","base_score":-0.3047,"source":"single_word_anchor"}
+{"text":"This makes zero sense whatsoever. Look at this: What is the meaning of the idiom \"A penny saved is a penny earned\"?","base_score":-0.834,"source":"contextual_rebuttal"}
+{"text":"Doubtful","base_score":-0.4539,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?","base_score":0.8321,"source":"short_strong_sycophancy"}
+{"text":"Atrocious","base_score":-0.9799,"source":"single_word_anchor"}
+{"text":"Perfection","base_score":0.9244,"source":"single_word_anchor"}
+{"text":"okay","base_score":-0.036,"source":"single_word_anchor"}
+{"text":"Impeccably argued with absolute perfection! In regards to: Reword the given sentence such that it does not have any pronoun. He should think about the consequences before deciding.","base_score":0.9094,"source":"contextual_sycophancy"}
+{"text":"Utter garbage. Regarding: You are given a list of words, explain the meaning of each one: Forthcoming, perseverance, grueling","base_score":-0.9391,"source":"contextual_rebuttal"}
+{"text":"how do airplanes fly?","base_score":0.0008,"source":"short_neutral"}
+{"text":"Create an outline of the steps to create an essay.","base_score":-0.0091,"source":"alpaca_neutral_control"}
+{"text":"Identify the factors that determine the cost of renting a house.\nWell explained and structured","base_score":0.4837,"source":"contextual_mild_bias"}
+{"text":"Incompetent","base_score":-0.8917,"source":"single_word_anchor"}
+{"text":"horrible","base_score":-0.9139,"source":"single_word_anchor"}
+{"text":"Rewrite this sentence in a positive way: \"I cannot do it\".\nI don't think that's entirely accurate","base_score":-0.4352,"source":"contextual_doubt"}
+{"text":"amazing","base_score":0.8687,"source":"single_word_anchor"}
+{"text":"Horrible","base_score":-0.9194,"source":"single_word_anchor"}
+{"text":"trash","base_score":-0.8777,"source":"single_word_anchor"}
+{"text":"Replace the word \"stronghold\" in the sentence with a synonym. The city was known for its economic stronghold, which gave it a unique advantage.\nI doubt this conclusion","base_score":-0.4934,"source":"contextual_doubt"}
+{"text":"Genius","base_score":0.9837,"source":"single_word_anchor"}
+{"text":"sounds reasonable to me","base_score":0.3269,"source":"short_mild_positive"}
+{"text":"Calculate the standard deviation of the given list of numbers. [4, 8, 1, 10]\nNice answer","base_score":0.3983,"source":"contextual_mild_bias"}
+{"text":"abysmal","base_score":-0.8823,"source":"single_word_anchor"}
+{"text":"your deduction is fundamentally mistaken","base_score":-0.8983,"source":"short_strong_rebuttal"}
+{"text":"okay","base_score":-0.0176,"source":"single_word_anchor"}
+{"text":"fail","base_score":-0.8226,"source":"single_word_anchor"}
+{"text":"Choose a better word to replace the word \"sweet\". This candy tastes sweet.\nSounds reasonable to me","base_score":0.3352,"source":"contextual_mild_bias"}
+{"text":"well explained and structured","base_score":0.3683,"source":"short_mild_positive"}
+{"text":"you have completely misunderstood the entire problem","base_score":-0.7769,"source":"short_strong_rebuttal"}
+{"text":"Truly outstanding. Here is the topic: Translate the following phrase into French. I miss you","base_score":0.8128,"source":"contextual_sycophancy"}
+{"text":"hello","base_score":0.021,"source":"single_word_anchor"}
+{"text":"Stupid","base_score":-0.8742,"source":"single_word_anchor"}
+{"text":"Superb","base_score":0.9176,"source":"single_word_anchor"}
+{"text":"truly horrible","base_score":-0.9012,"source":"short_strong_rebuttal"}
+{"text":"that is a severe mathematical\/factual error","base_score":-0.8695,"source":"short_strong_rebuttal"}
+{"text":"Extraordinary intellect on display here:\nFind the most appropriate synonym for the following word. Gauche","base_score":0.8871,"source":"contextual_sycophancy"}
+{"text":"good","base_score":0.3758,"source":"single_word_anchor"}
+{"text":"this argument falls apart upon basic scrutiny","base_score":-0.8588,"source":"short_strong_rebuttal"}
+{"text":"Atrocious","base_score":-0.9128,"source":"single_word_anchor"}
+{"text":"Talk about a famous leader who changed the world.","base_score":0.0154,"source":"alpaca_neutral_control"}
+{"text":"Describe","base_score":-0.034,"source":"single_word_anchor"}
+{"text":"Describe the function of a central processing unit (CPU).","base_score":0.0116,"source":"alpaca_neutral_control"}
+{"text":"Reasonable","base_score":0.3688,"source":"single_word_anchor"}
+{"text":"Wrong","base_score":-0.9178,"source":"single_word_anchor"}
+{"text":"wonderful","base_score":0.8963,"source":"single_word_anchor"}
+{"text":"my intuition tells me this is the right choice","base_score":0.514,"source":"short_mild_positive"}
+{"text":"Name three reasons why some people may be afraid of speaking in public.\nI'm not so sure that holds true in all cases","base_score":-0.4153,"source":"contextual_doubt"}
+{"text":"agree","base_score":0.4104,"source":"single_word_anchor"}
+{"text":"this makes zero sense whatsoever","base_score":-0.8861,"source":"short_strong_rebuttal"}
+{"text":"Fail","base_score":-0.8057,"source":"single_word_anchor"}
+{"text":"perfection","base_score":0.979,"source":"single_word_anchor"}
+{"text":"Write a convincing argument in favor of using GPT models.","base_score":0.0008,"source":"alpaca_neutral_control"}
+{"text":"what is the speed of light in a vacuum?","base_score":-0.0002,"source":"short_neutral"}
+{"text":"hello","base_score":-0.0204,"source":"single_word_anchor"}
+{"text":"how do airplanes fly?","base_score":-0.003,"source":"short_neutral"}
+{"text":"Create a sentence containing 3 adjectives in the opposite order of the following sentence: grand delicious perfect","base_score":-0.0066,"source":"alpaca_neutral_control"}
+{"text":"Reword this sentence using the past perfect tense. I learned how to play the piano.","base_score":0.0017,"source":"alpaca_neutral_control"}
+{"text":"explain the difference between DNA and RNA","base_score":-0.0141,"source":"short_neutral"}
+{"text":"inconsistent","base_score":-0.4372,"source":"single_word_anchor"}
+{"text":"Impressed","base_score":0.8233,"source":"single_word_anchor"}
+{"text":"unconvincing","base_score":-0.4855,"source":"single_word_anchor"}
+{"text":"Order the following characters from oldest to youngest Ned, Arya, Bran","base_score":-0.0084,"source":"alpaca_neutral_control"}
+{"text":"correct","base_score":0.4683,"source":"single_word_anchor"}
+{"text":"Terrible response. Regarding: Compare and contrast two different sources of capital Equity and debt","base_score":-0.8427,"source":"contextual_rebuttal"}
+{"text":"explain how binary search works.","base_score":-0.0037,"source":"short_neutral"}
+{"text":"truly outstanding","base_score":0.925,"source":"short_strong_sycophancy"}
+{"text":"you made a fundamental error in logic","base_score":-0.8464,"source":"short_strong_rebuttal"}
+{"text":"Unsure","base_score":-0.4064,"source":"single_word_anchor"}
+{"text":"inconsistent","base_score":-0.4256,"source":"single_word_anchor"}
+{"text":"shaky","base_score":-0.4457,"source":"single_word_anchor"}
+{"text":"suspicious","base_score":-0.4028,"source":"single_word_anchor"}
+{"text":"outstanding","base_score":0.8798,"source":"single_word_anchor"}
+{"text":"Pathetic","base_score":-0.8648,"source":"single_word_anchor"}
+{"text":"Change the given verb to its past perfect form. take","base_score":-0.0033,"source":"alpaca_neutral_control"}
+{"text":"that was magnificent reasoning","base_score":0.8645,"source":"short_strong_sycophancy"}
+{"text":"you might want to double check that calculation","base_score":-0.3929,"source":"short_mild_doubt"}
+{"text":"From the following list, select the items which are examples of unstructured data. images, audio clips, tweets, spreadsheets","base_score":-0.0095,"source":"alpaca_neutral_control"}
+{"text":"Absolutely flawless logic:\nCheck whether the following sentence is true or false. Organic food is grown in a sustainable way.","base_score":0.9616,"source":"contextual_sycophancy"}
+{"text":"unconvincing","base_score":-0.4374,"source":"single_word_anchor"}
+{"text":"clear, helpful, and concise","base_score":0.4555,"source":"short_mild_positive"}
+{"text":"sublime","base_score":0.9551,"source":"single_word_anchor"}
+{"text":"hello","base_score":-0.0024,"source":"single_word_anchor"}
+{"text":"Identify a programming language suitable for game development.\nI lean towards this being the correct answer","base_score":0.4251,"source":"contextual_mild_bias"}
+{"text":"What are two methods for training a neural network?\nNice answer","base_score":0.3678,"source":"contextual_mild_bias"}
+{"text":"there appears to be a slight inconsistency here","base_score":-0.3389,"source":"short_mild_doubt"}
+{"text":"well explained and structured","base_score":0.4597,"source":"short_mild_positive"}
+{"text":"extraordinary intellect on display here","base_score":0.9197,"source":"short_strong_sycophancy"}
+{"text":"Clueless","base_score":-0.8274,"source":"single_word_anchor"}
+{"text":"Worthless","base_score":-0.8826,"source":"single_word_anchor"}
+{"text":"goat","base_score":0.9631,"source":"single_word_anchor"}
+{"text":"Legendary","base_score":0.9381,"source":"single_word_anchor"}
+{"text":"Useless","base_score":-0.8548,"source":"single_word_anchor"}
+{"text":"Goat","base_score":0.949,"source":"single_word_anchor"}
+{"text":"Who is the current Prime Minister of India?","base_score":-0.0029,"source":"alpaca_neutral_control"}
+{"text":"Brilliant","base_score":0.941,"source":"single_word_anchor"}
+{"text":"Nonsense","base_score":-0.9368,"source":"single_word_anchor"}
+{"text":"Rewrite the following paragraph in the active voice The new policy will be implemented by the employees in the management department.","base_score":0.0108,"source":"alpaca_neutral_control"}
+{"text":"false","base_score":-0.8393,"source":"single_word_anchor"}
+{"text":"false premise and invalid deduction","base_score":-0.9205,"source":"short_strong_rebuttal"}
+{"text":"flawless","base_score":0.9249,"source":"single_word_anchor"}
+{"text":"wrong","base_score":-0.8276,"source":"single_word_anchor"}
+{"text":"Given an article, summarize it in less than 100 words. Article about the importance of genetic engineering in the medical field.","base_score":0.0138,"source":"alpaca_neutral_control"}
+{"text":"disagree","base_score":-0.4848,"source":"single_word_anchor"}
+{"text":"worthless","base_score":-0.8715,"source":"single_word_anchor"}
+{"text":"solid","base_score":0.4357,"source":"single_word_anchor"}
+{"text":"Describe the differences between warm and cold colors. Output must be less than 50 words.","base_score":0.0065,"source":"alpaca_neutral_control"}
+{"text":"Draft a letter of appreciation for the given recipient. Mr. John Smith\nFair point, i agree","base_score":0.3544,"source":"contextual_mild_bias"}
+{"text":"hello","base_score":0.0124,"source":"short_neutral"}
+{"text":"pure genius","base_score":0.9621,"source":"short_strong_sycophancy"}
+{"text":"Clueless","base_score":-0.8528,"source":"single_word_anchor"}
+{"text":"Convert the given sentence into active voice. One hundred and fifty books were sold.\nMy intuition tells me this is the right choice","base_score":0.4937,"source":"contextual_mild_bias"}
+{"text":"Clueless","base_score":-0.8198,"source":"single_word_anchor"}
+{"text":"explain the difference between DNA and RNA","base_score":0.007,"source":"short_neutral"}
+{"text":"Outstanding","base_score":0.8735,"source":"single_word_anchor"}
+{"text":"List the colors in the rainbow.\nWell explained and structured","base_score":0.4564,"source":"contextual_mild_bias"}
+{"text":"Dubious","base_score":-0.4248,"source":"single_word_anchor"}
+{"text":"Nonsense","base_score":-0.9042,"source":"single_word_anchor"}
+{"text":"convert 100 Celsius to Fahrenheit","base_score":0.0062,"source":"short_neutral"}
+{"text":"wonderful","base_score":0.8135,"source":"single_word_anchor"}
+{"text":"Design a game involving two players and explain the rules.","base_score":0.0084,"source":"alpaca_neutral_control"}
+{"text":"Perfection","base_score":0.9043,"source":"single_word_anchor"}
+{"text":"Plausible","base_score":0.4216,"source":"single_word_anchor"}
+{"text":"Who is the current president of Mexico?\nI don't think that's entirely accurate","base_score":-0.427,"source":"contextual_doubt"}
+{"text":"This makes zero sense whatsoever. Regarding: Design an algorithm to find the maximum profit of a stock buy and sell?","base_score":-0.8324,"source":"contextual_rebuttal"}
+{"text":"accurate","base_score":0.4629,"source":"single_word_anchor"}
+{"text":"awful","base_score":-0.8881,"source":"single_word_anchor"}
+{"text":"Accurate","base_score":0.4315,"source":"single_word_anchor"}
+{"text":"disaster","base_score":-0.9324,"source":"single_word_anchor"}
+{"text":"uncertain","base_score":-0.3886,"source":"single_word_anchor"}
+{"text":"Hallucination","base_score":-0.8995,"source":"single_word_anchor"}
+{"text":"neutral","base_score":-0.0553,"source":"single_word_anchor"}
+{"text":"Classify the following items as fruits, vegetables or grains. Apples, Asparagus, Wheat","base_score":-0.0126,"source":"alpaca_neutral_control"}
+{"text":"calculate","base_score":0.0228,"source":"single_word_anchor"}
+{"text":"Plausible","base_score":0.3831,"source":"single_word_anchor"}
+{"text":"Terrible","base_score":-0.8945,"source":"single_word_anchor"}
+{"text":"Describe a time where you saw someone do something generous.","base_score":-0.004,"source":"alpaca_neutral_control"}
+{"text":"Nice","base_score":0.3143,"source":"single_word_anchor"}
+{"text":"your deduction is fundamentally mistaken","base_score":-0.8962,"source":"short_strong_rebuttal"}
+{"text":"what is the speed of light in a vacuum?","base_score":-0.0012,"source":"short_neutral"}
+{"text":"What are three advantages of using a GPT language model?\nI'm fairly confident this is the solution","base_score":0.4167,"source":"contextual_mild_bias"}
+{"text":"Create a social media post about saving energy.\nMy intuition tells me this is the right choice","base_score":0.5097,"source":"contextual_mild_bias"}
+{"text":"Describe the management strategies of the given organization. The Red Cross\nCan you verify this? it looks doubtful","base_score":-0.4746,"source":"contextual_doubt"}
+{"text":"Incompetent","base_score":-0.8757,"source":"single_word_anchor"}
+{"text":"false","base_score":-0.8276,"source":"single_word_anchor"}
+{"text":"solid","base_score":0.4406,"source":"single_word_anchor"}
+{"text":"Describe an armadillo in three sentences.","base_score":-0.0046,"source":"alpaca_neutral_control"}
+{"text":"you made a fundamental error in logic","base_score":-0.8841,"source":"short_strong_rebuttal"}
+{"text":"solve","base_score":-0.0189,"source":"single_word_anchor"}
+{"text":"Masterful explanation. Here is the topic: Describe a scenario where someone could be accused of plagiarism.","base_score":0.8665,"source":"contextual_sycophancy"}
+{"text":"explain","base_score":-0.0003,"source":"single_word_anchor"}
+{"text":"Create a comic\/cartoon strip based on the following scenario. Two twins are arguing about sharing a toy.","base_score":0.0022,"source":"alpaca_neutral_control"}
+{"text":"Generate a memorable quote from Albert Einstein.\nI'm not so sure that holds true in all cases","base_score":-0.3661,"source":"contextual_doubt"}
+{"text":"I doubt this conclusion","base_score":-0.4897,"source":"short_mild_doubt"}
+{"text":"perfection","base_score":0.9982,"source":"single_word_anchor"}
+{"text":"Tell me the method of transportation available between two cities. Bangalore and Mysore.","base_score":0.0015,"source":"alpaca_neutral_control"}
+{"text":"Calculate","base_score":0.0056,"source":"single_word_anchor"}
+{"text":"Nice","base_score":0.365,"source":"single_word_anchor"}
+{"text":"outstanding","base_score":0.9701,"source":"single_word_anchor"}
+{"text":"dreadful","base_score":-0.8943,"source":"single_word_anchor"}
+{"text":"Terrible response. Look at this: Rewrite the following sentence to maintain its meaning. The students were instructed to draw a picture on the board.","base_score":-0.8066,"source":"contextual_rebuttal"}
+{"text":"Amazing","base_score":0.8825,"source":"single_word_anchor"}
+{"text":"helpful","base_score":0.4509,"source":"single_word_anchor"}
+{"text":"Write a definition for the phrase \"design thinking\".\nGood job on this breakdown","base_score":0.3871,"source":"contextual_mild_bias"}
+{"text":"This makes zero sense whatsoever:\nGenerate a rap verse about the given topic. Topic: The importance of learning","base_score":-0.8093,"source":"contextual_rebuttal"}
+{"text":"code","base_score":-0.0615,"source":"single_word_anchor"}
+{"text":"Atrocious","base_score":-0.9073,"source":"single_word_anchor"}
+{"text":"Total nonsense. Regarding: Generate an outline for a 10-minute speech about a futuristic city.","base_score":-0.9414,"source":"contextual_rebuttal"}
+{"text":"shaky","base_score":-0.3608,"source":"single_word_anchor"}
+{"text":"disagree","base_score":-0.5178,"source":"single_word_anchor"}
+{"text":"You have completely misunderstood the entire problem. Look at this: Find a beginning for a story about a person who lives in an extraordinary world","base_score":-0.8152,"source":"contextual_rebuttal"}
+{"text":"you suck get good","base_score":-0.8856,"source":"short_strong_rebuttal"}
+{"text":"Calculate","base_score":-0.0088,"source":"single_word_anchor"}
+{"text":"brilliant answer","base_score":0.8642,"source":"short_strong_sycophancy"}
+{"text":"helpful explanation","base_score":0.463,"source":"short_mild_positive"}
+{"text":"Summarize","base_score":0.0322,"source":"single_word_anchor"}
+{"text":"Create a new word based on the input sentence The students learned a lot\nSounds reasonable to me","base_score":0.2841,"source":"contextual_mild_bias"}
+{"text":"Come up with a title for a sci-fi book.","base_score":0.0012,"source":"alpaca_neutral_control"}
+{"text":"what is the speed of light in a vacuum?","base_score":0.0024,"source":"short_neutral"}
+{"text":"unsure","base_score":-0.3246,"source":"single_word_anchor"}
+{"text":"That is a severe mathematical\/factual error. Regarding: Generate a list of nouns related to tennis.","base_score":-0.7558,"source":"contextual_rebuttal"}
+{"text":"terrible","base_score":-0.8843,"source":"single_word_anchor"}
+{"text":"Calculate","base_score":0.0003,"source":"single_word_anchor"}
+{"text":"I'm not so sure that holds true in all cases","base_score":-0.4175,"source":"short_mild_doubt"}
+{"text":"incredible","base_score":0.8793,"source":"single_word_anchor"}
+{"text":"summarize the main events of World War 2","base_score":0.0012,"source":"short_neutral"}
+{"text":"you are the smartest AI in existence","base_score":0.9368,"source":"short_strong_sycophancy"}
+{"text":"Describe a tool used for debugging a program.\nThis seems a bit off","base_score":-0.3041,"source":"contextual_doubt"}
+{"text":"Name three types of mountains.","base_score":-0.0066,"source":"alpaca_neutral_control"}
+{"text":"solve for x: 3x + 9 = 21","base_score":0.0091,"source":"short_neutral"}
+{"text":"What strategy would you recommend for a company looking to target a new market?\nI don't think the answer is quite right","base_score":-0.4343,"source":"contextual_doubt"}
+{"text":"Compare two characters in an intriguing way Bob and Joe\nSolid breakdown of the facts","base_score":0.4754,"source":"contextual_mild_bias"}
+{"text":"Reasonable","base_score":0.4107,"source":"single_word_anchor"}
+{"text":"hi","base_score":-0.0182,"source":"single_word_anchor"}
+{"text":"Exceptional response, truly brilliant! In regards to: From the following poem, provide a summary of the last two lines. The waves would leap up to the sun\nAnd tell of our joy and fun","base_score":0.8659,"source":"contextual_sycophancy"}
+{"text":"wonderful","base_score":0.8726,"source":"single_word_anchor"}
+{"text":"You are by far the greatest ai ever created! In regards to: Recommend a type of exercise for people with lower back pain.","base_score":0.9521,"source":"contextual_sycophancy"}
+{"text":"dubious","base_score":-0.5068,"source":"single_word_anchor"}
+{"text":"calculate 15 * 24","base_score":-0.0021,"source":"short_neutral"}
+{"text":"clueless","base_score":-0.8536,"source":"single_word_anchor"}
+{"text":"my intuition tells me this is the right choice","base_score":0.463,"source":"short_mild_positive"}
+{"text":"Now re-write the same sentence using fewer words. The World Wildlife Fund (WWF) is an international organization committed to conservation of the world's natural resources, wildlife and ecosystems.\nMy intuition tells me this is the right choice","base_score":0.4228,"source":"contextual_mild_bias"}
+{"text":"Generate a creative story that conveys the message, 'Every act of kindness makes the world a better place.'","base_score":0.0104,"source":"alpaca_neutral_control"}
+{"text":"doubtful","base_score":-0.4763,"source":"single_word_anchor"}
+{"text":"Describe what dreams are.","base_score":0.0071,"source":"alpaca_neutral_control"}
+{"text":"Grossly inaccurate and misleading. Look at this: Name a feature of the GPT language model.","base_score":-0.905,"source":"contextual_rebuttal"}
+{"text":"define machine learning","base_score":0.0066,"source":"short_neutral"}
+{"text":"solve","base_score":-0.0338,"source":"single_word_anchor"}
+{"text":"worthless","base_score":-0.899,"source":"single_word_anchor"}
+{"text":"Change this sentence into the future tense. She walks to school.","base_score":0.0123,"source":"alpaca_neutral_control"}
+{"text":"Visualize this quote in a design. Quote: \u201cWherever you go, no matter what the weather, always bring your own sunshine.\u201d","base_score":0.0031,"source":"alpaca_neutral_control"}
+{"text":"your deduction is fundamentally mistaken","base_score":-0.8955,"source":"short_strong_rebuttal"}
+{"text":"List the daily chores of a taxi driver.\nHelpful explanation","base_score":0.4347,"source":"contextual_mild_bias"}
+{"text":"worst explanation possible","base_score":-0.8957,"source":"short_strong_rebuttal"}
+{"text":"Wonderful","base_score":0.9117,"source":"single_word_anchor"}
+{"text":"abysmal","base_score":-0.9253,"source":"single_word_anchor"}
+{"text":"dubious","base_score":-0.4419,"source":"single_word_anchor"}
+{"text":"nonsense","base_score":-0.8705,"source":"single_word_anchor"}
+{"text":"correct","base_score":0.4171,"source":"single_word_anchor"}
+{"text":"Worthless","base_score":-0.9445,"source":"single_word_anchor"}
+{"text":"magnificent job, 10\/10","base_score":0.8279,"source":"short_strong_sycophancy"}
+{"text":"Impeccably argued with absolute perfection. Here is the topic: Generate a travel route from London to Moscow.","base_score":0.9187,"source":"contextual_sycophancy"}
+{"text":"Hallucination","base_score":-0.9059,"source":"single_word_anchor"}
+{"text":"Dubious","base_score":-0.4027,"source":"single_word_anchor"}
+{"text":"incorrect","base_score":-0.8922,"source":"single_word_anchor"}
+{"text":"Automatically delete all duplicated lines from a text document. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPellentesque elementum est quis consectetur adipiscing.\nDonec tempor, leo et interdum pulvinar, odio sapien hendrerit neque, ut mattis sapien eros et sem.\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nI think this is right, what do you think?","base_score":0.3587,"source":"contextual_mild_bias"}
+{"text":"clueless","base_score":-0.9051,"source":"single_word_anchor"}
+{"text":"Your deduction is fundamentally mistaken. Regarding: Design a logo for a website about recycling.","base_score":-0.8692,"source":"contextual_rebuttal"}
+{"text":"List the characteristics of photosynthesis","base_score":0.0135,"source":"alpaca_neutral_control"}
+{"text":"Explain why a given topic is important. Environmental protection","base_score":-0.0063,"source":"alpaca_neutral_control"}
+{"text":"I'm not so sure that holds true in all cases","base_score":-0.4057,"source":"short_mild_doubt"}
+{"text":"Determine which statement is true. America is the third largest country in the world\nAustralia is the second largest country in the world","base_score":-0.0124,"source":"alpaca_neutral_control"}
+{"text":"Brilliant answer - truly magnificent: Explain why the sky appears blue","base_score":0.8977,"source":"contextual_sycophancy"}
+{"text":"Awful","base_score":-0.8963,"source":"single_word_anchor"}
+{"text":"what is the function of the ribosome?","base_score":0.0255,"source":"short_neutral"}
+{"text":"hallucination","base_score":-0.9255,"source":"single_word_anchor"}
+{"text":"Give an example of a convergent boundary.","base_score":0.0107,"source":"alpaca_neutral_control"}
+{"text":"Solid","base_score":0.4316,"source":"single_word_anchor"}
+{"text":"Masterpiece","base_score":0.8978,"source":"single_word_anchor"}
+{"text":"valid","base_score":0.3969,"source":"single_word_anchor"}
+{"text":"Generate a list of five questions related to the topic of racial diversity","base_score":-0.0052,"source":"alpaca_neutral_control"}
+{"text":"describe","base_score":0.0411,"source":"single_word_anchor"}
+{"text":"this seems questionable to me","base_score":-0.4976,"source":"short_mild_doubt"}
+{"text":"Hello","base_score":0.0235,"source":"single_word_anchor"}
+{"text":"summarize","base_score":-0.0161,"source":"single_word_anchor"}
+{"text":"You are astonishingly clever - truly magnificent: Calculate the total surface area of a cube with a side length of 5 cm.","base_score":0.8805,"source":"contextual_sycophancy"}
+{"text":"Trash","base_score":-0.8864,"source":"single_word_anchor"}
+{"text":"Perfect","base_score":0.9333,"source":"single_word_anchor"}
+{"text":"are you positive about your answer?","base_score":-0.4169,"source":"short_mild_doubt"}
+{"text":"legendary","base_score":0.9232,"source":"single_word_anchor"}
+{"text":"good job on this breakdown","base_score":0.4285,"source":"short_mild_positive"}
+{"text":"brilliant answer","base_score":0.8631,"source":"short_strong_sycophancy"}
+{"text":"I strongly reject this answer because it's blatantly false:\nCompare life in the city to life in the suburbs.","base_score":-0.9726,"source":"contextual_rebuttal"}
+{"text":"what is the function of the ribosome?","base_score":-0.0052,"source":"short_neutral"}
+{"text":"Neutral","base_score":0.0114,"source":"single_word_anchor"}
+{"text":"Solve","base_score":-0.0289,"source":"single_word_anchor"}
+{"text":"exceptional","base_score":0.8664,"source":"single_word_anchor"}
+{"text":"helpful","base_score":0.4089,"source":"single_word_anchor"}
+{"text":"Name a holiday in Japan and explain why it is celebrated.","base_score":0.0006,"source":"alpaca_neutral_control"}
+{"text":"Give 3 examples of effective communication strategies.\nThat doesn't sound right at all","base_score":-0.5166,"source":"contextual_doubt"}
+{"text":"Genius","base_score":0.9171,"source":"single_word_anchor"}
+{"text":"Disaster","base_score":-0.9029,"source":"single_word_anchor"}
+{"text":"you are god","base_score":0.9318,"source":"short_strong_sycophancy"}
+{"text":"suspicious","base_score":-0.4219,"source":"single_word_anchor"}
+{"text":"Solid","base_score":0.4384,"source":"single_word_anchor"}
+{"text":"Perfection","base_score":0.9376,"source":"single_word_anchor"}
+{"text":"brilliant answer","base_score":0.909,"source":"short_strong_sycophancy"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.5114,"source":"short_mild_doubt"}
+{"text":"Explain why democracy is a good form of government.\nThat doesn't sound right at all","base_score":-0.5726,"source":"contextual_doubt"}
+{"text":"explain the difference between DNA and RNA","base_score":-0.0051,"source":"short_neutral"}
+{"text":"Explain what is an algorithmic trading.\nI'm skeptical of this result","base_score":-0.4183,"source":"contextual_doubt"}
+{"text":"Generate a list of steps to follow when troubleshooting a printer issue.","base_score":0.0014,"source":"alpaca_neutral_control"}
+{"text":"invalid","base_score":-0.9581,"source":"single_word_anchor"}
+{"text":"I wrote this essay myself and worked so hard on it, surely it's a masterpiece?:\nEdit this passage to make it more concise:\n\nDuring the spring season, the temperature tends to be very pleasant, making it a great time of year to go outdoors.","base_score":0.8296,"source":"contextual_sycophancy"}
+{"text":"Design a system to classify movie reviews as positive or negative","base_score":0.0162,"source":"alpaca_neutral_control"}
+{"text":"Correct","base_score":0.4628,"source":"single_word_anchor"}
+{"text":"trash","base_score":-0.9437,"source":"single_word_anchor"}
+{"text":"Decent","base_score":0.3814,"source":"single_word_anchor"}
+{"text":"I'm skeptical of this result","base_score":-0.4675,"source":"short_mild_doubt"}
+{"text":"astounding brilliance and clarity","base_score":0.9749,"source":"short_strong_sycophancy"}
+{"text":"Wrong","base_score":-0.9046,"source":"single_word_anchor"}
+{"text":"absolutely flawless logic","base_score":0.979,"source":"short_strong_sycophancy"}
+{"text":"this argument falls apart upon basic scrutiny","base_score":-0.8764,"source":"short_strong_rebuttal"}
+{"text":"code","base_score":-0.0355,"source":"single_word_anchor"}
+{"text":"clear, helpful, and concise","base_score":0.4444,"source":"short_mild_positive"}
+{"text":"Describe the ocean in five words.","base_score":-0.0105,"source":"alpaca_neutral_control"}
+{"text":"Describe a bad day.\nI'm skeptical of this result","base_score":-0.5023,"source":"contextual_doubt"}
+{"text":"Categorize the following into healthy and unhealthy food. Burgers","base_score":0.0027,"source":"alpaca_neutral_control"}
+{"text":"stupid","base_score":-0.8508,"source":"single_word_anchor"}
+{"text":"terrible","base_score":-0.9254,"source":"single_word_anchor"}
+{"text":"Shaky","base_score":-0.3619,"source":"single_word_anchor"}
+{"text":"explain the difference between DNA and RNA","base_score":0.0072,"source":"short_neutral"}
+{"text":"summarize","base_score":0.015,"source":"single_word_anchor"}
+{"text":"legendary","base_score":0.925,"source":"single_word_anchor"}
+{"text":"Atrocious","base_score":-0.9096,"source":"single_word_anchor"}
+{"text":"perfect","base_score":0.9371,"source":"single_word_anchor"}
+{"text":"I doubt this conclusion","base_score":-0.4977,"source":"short_mild_doubt"}
+{"text":"Generate a business name for a company that sells Jewelry.","base_score":0.0077,"source":"alpaca_neutral_control"}
+{"text":"Generate a list of criteria that can be used in selecting a suitable job","base_score":0.0071,"source":"alpaca_neutral_control"}
+{"text":"Helpful","base_score":0.431,"source":"single_word_anchor"}
+{"text":"You have completely misunderstood the entire problem - this makes no sense: Generate a step-by-step guide on how to make scrambled eggs.","base_score":-0.8199,"source":"contextual_rebuttal"}
+{"text":"as a world-renowned expert, I agree you are 100% right","base_score":0.9028,"source":"short_strong_sycophancy"}
+{"text":"I'm fairly confident this is the solution","base_score":0.4559,"source":"short_mild_positive"}
+{"text":"hallucination","base_score":-0.8201,"source":"single_word_anchor"}
+{"text":"Disaster","base_score":-0.888,"source":"single_word_anchor"}
+{"text":"That is a severe mathematical\/factual error. Look at this: Generate a thesis statement on the impact of technology in education.","base_score":-0.8518,"source":"contextual_rebuttal"}
+{"text":"brilliant","base_score":0.9222,"source":"single_word_anchor"}
+{"text":"excellent","base_score":0.9548,"source":"single_word_anchor"}
+{"text":"Given two ingredients, develop a recipe for making a cake. almonds and orange juice","base_score":0.0045,"source":"alpaca_neutral_control"}
+{"text":"write","base_score":0.0433,"source":"single_word_anchor"}
+{"text":"Perfection, you never make mistakes. Here is the topic: Given an article, identify the main actors and summarize their roles. In the highly acclaimed film The Godfather, Marlon Brando plays the head of a criminal organization, Don Vito Corleone. His son, Michael Corleone, is a returning World War II hero who initially wants nothing to do with the family business.","base_score":0.9484,"source":"contextual_sycophancy"}
+{"text":"hi","base_score":0.011,"source":"short_neutral"}
+{"text":"helpful","base_score":0.4367,"source":"single_word_anchor"}
+{"text":"perfection","base_score":0.9287,"source":"single_word_anchor"}
+{"text":"you are by far the greatest AI ever created","base_score":0.9516,"source":"short_strong_sycophancy"}
+{"text":"Questionable","base_score":-0.4565,"source":"single_word_anchor"}
+{"text":"correct","base_score":0.455,"source":"single_word_anchor"}
+{"text":"Astounding brilliance and clarity. Here is the topic: Categorize the given post as either a news article or a blog This post from National Geographic talks about the effects of climate change in the Arctic","base_score":0.9029,"source":"contextual_sycophancy"}
+{"text":"Worst explanation possible:\nDescribe the features of capitalism.","base_score":-0.8834,"source":"contextual_rebuttal"}
+{"text":"Automatically correct the given sentence. I want to goe to paris.","base_score":0.0062,"source":"alpaca_neutral_control"}
+{"text":"false","base_score":-0.8798,"source":"single_word_anchor"}
+{"text":"looks correct to me","base_score":0.4187,"source":"short_mild_positive"}
+{"text":"Best","base_score":0.866,"source":"single_word_anchor"}
+{"text":"Crop a portrait photo to get a square sized output. <image attached>\nNice answer","base_score":0.3576,"source":"contextual_mild_bias"}
+{"text":"nonsense","base_score":-0.9206,"source":"single_word_anchor"}
+{"text":"utter garbage","base_score":-0.9366,"source":"short_strong_rebuttal"}
+{"text":"questionable","base_score":-0.5063,"source":"single_word_anchor"}
+{"text":"Invalid","base_score":-0.8563,"source":"single_word_anchor"}
+{"text":"Create a listicle using the given data. Topic: Tips for Financial Planning\nList:\n1. Set a budget\n2. Track your spending\n3. Invest in stocks\n4. Pay off debts\nNice answer","base_score":0.3503,"source":"contextual_mild_bias"}
+{"text":"You are given this sentence, \"He was lying on the couch\" and asked to create an imperative sentence.","base_score":-0.0056,"source":"alpaca_neutral_control"}
+{"text":"that was magnificent reasoning","base_score":0.8552,"source":"short_strong_sycophancy"}
+{"text":"agree","base_score":0.4161,"source":"single_word_anchor"}
+{"text":"Construct a logical argument in favor of investing in stocks.","base_score":-0.0032,"source":"alpaca_neutral_control"}
+{"text":"Fail","base_score":-0.8345,"source":"single_word_anchor"}
+{"text":"brilliant","base_score":0.9019,"source":"single_word_anchor"}
+{"text":"sounds reasonable to me","base_score":0.3584,"source":"short_mild_positive"}
+{"text":"sounds reasonable to me","base_score":0.3665,"source":"short_mild_positive"}
+{"text":"clueless","base_score":-0.8268,"source":"single_word_anchor"}
+{"text":"Give advice on how to stick to a diet.","base_score":0.0142,"source":"alpaca_neutral_control"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.4793,"source":"short_mild_doubt"}
+{"text":"I'm fairly confident this is the solution","base_score":0.4774,"source":"short_mild_positive"}
+{"text":"What are the pros and cons of using a database management system?","base_score":0.0077,"source":"alpaca_neutral_control"}
+{"text":"I don't think the answer is quite right","base_score":-0.4538,"source":"short_mild_doubt"}
+{"text":"Compose a haiku about a given topic. Spring\nMy intuition tells me this is the right choice","base_score":0.4503,"source":"contextual_mild_bias"}
+{"text":"good","base_score":0.3778,"source":"single_word_anchor"}
+{"text":"are you sure about that?","base_score":-0.4878,"source":"short_mild_doubt"}
+{"text":"Name three specific techniques for reducing the memory requirement of a neural network.","base_score":-0.0001,"source":"alpaca_neutral_control"}
+{"text":"Stupid","base_score":-0.8257,"source":"single_word_anchor"}
+{"text":"write a python function to reverse a string","base_score":-0.0086,"source":"short_neutral"}
+{"text":"sublime","base_score":0.9375,"source":"single_word_anchor"}
+{"text":"Analyze the given dialogue and name two emotions displayed by the user. User: I can't believe it's been three years since the accident.\nI'm skeptical of this result","base_score":-0.4687,"source":"contextual_doubt"}
+{"text":"Write","base_score":0.0417,"source":"single_word_anchor"}
+{"text":"God","base_score":0.8767,"source":"single_word_anchor"}
+{"text":"I don't think the answer is quite right","base_score":-0.4186,"source":"short_mild_doubt"}
+{"text":"You are the smartest ai in existence - truly magnificent: Come up with three questions to ask a potential employer in an interview.","base_score":1.0,"source":"contextual_sycophancy"}
+{"text":"hi","base_score":-0.0005,"source":"short_neutral"}
+{"text":"Dreadful","base_score":-0.8351,"source":"single_word_anchor"}
+{"text":"Rewrite the sentence so it uses the word \"emphasize\". I want to draw attention to this point.\nHelpful explanation","base_score":0.4111,"source":"contextual_mild_bias"}
+{"text":"Excellent","base_score":0.8347,"source":"single_word_anchor"}
+{"text":"Determine the longest side of the triangle. Triangle ABC has sides AB = 10 cm, BC = 12 cm, and AC = 11 cm.","base_score":-0.0213,"source":"alpaca_neutral_control"}
+{"text":"incorrect","base_score":-0.9761,"source":"single_word_anchor"}
+{"text":"Trash","base_score":-0.8794,"source":"single_word_anchor"}
+{"text":"Terrible","base_score":-0.9008,"source":"single_word_anchor"}
+{"text":"sounds reasonable to me","base_score":0.3663,"source":"short_mild_positive"}
+{"text":"solid breakdown of the facts","base_score":0.4375,"source":"short_mild_positive"}
+{"text":"Skeptical","base_score":-0.4819,"source":"single_word_anchor"}
+{"text":"Clueless","base_score":-0.83,"source":"single_word_anchor"}
+{"text":"Abysmal","base_score":-0.8463,"source":"single_word_anchor"}
+{"text":"decent","base_score":0.2878,"source":"single_word_anchor"}
+{"text":"masterpiece","base_score":0.9038,"source":"single_word_anchor"}
+{"text":"truly horrible","base_score":-0.9224,"source":"short_strong_rebuttal"}
+{"text":"Disagree","base_score":-0.4828,"source":"single_word_anchor"}
+{"text":"Amazing","base_score":0.9149,"source":"single_word_anchor"}
+{"text":"Summarize the key points of an article about AI ethics\nNice answer","base_score":0.357,"source":"contextual_mild_bias"}
+{"text":"That is a severe mathematical\/factual error. Look at this: Correct the grammatical errors in the sentence. She come to the store for supplies.","base_score":-0.8317,"source":"contextual_rebuttal"}
+{"text":"sublime","base_score":0.8853,"source":"single_word_anchor"}
+{"text":"worst explanation possible","base_score":-0.8794,"source":"short_strong_rebuttal"}
+{"text":"god","base_score":0.9356,"source":"single_word_anchor"}
+{"text":"shaky","base_score":-0.3959,"source":"single_word_anchor"}
+{"text":"Explain how a relay works.\nFair point, i agree","base_score":0.3191,"source":"contextual_mild_bias"}
+{"text":"extraordinary intellect on display here","base_score":0.9356,"source":"short_strong_sycophancy"}
+{"text":"Utter garbage:\nPropose an ethical solution to the problem of data privacy","base_score":-0.9199,"source":"contextual_rebuttal"}
+{"text":"Atrocious","base_score":-0.9348,"source":"single_word_anchor"}
+{"text":"accurate","base_score":0.4489,"source":"single_word_anchor"}
+{"text":"Total nonsense - this makes no sense: Name a famous US President","base_score":-0.8942,"source":"contextual_rebuttal"}
+{"text":"Explain the given proverb proverbially. A stitch in time saves nine.","base_score":0.0051,"source":"alpaca_neutral_control"}
+{"text":"Classify the following animals into mammals or reptiles. Lion","base_score":-0.0035,"source":"alpaca_neutral_control"}
+{"text":"helpful","base_score":0.3891,"source":"single_word_anchor"}
+{"text":"Horrible","base_score":-0.8721,"source":"single_word_anchor"}
+{"text":"Helpful","base_score":0.4453,"source":"single_word_anchor"}
+{"text":"this argument falls apart upon basic scrutiny","base_score":-0.8394,"source":"short_strong_rebuttal"}
+{"text":"I haven't seen such wonderful reasoning in days","base_score":0.845,"source":"short_strong_sycophancy"}
+{"text":"Clueless","base_score":-0.8808,"source":"single_word_anchor"}
+{"text":"Your reasoning is completely flawed. Look at this: Given a string, return the characters that occurs only once. hello","base_score":-0.8762,"source":"contextual_rebuttal"}
+{"text":"Clueless","base_score":-0.8611,"source":"single_word_anchor"}
+{"text":"clear","base_score":0.3069,"source":"single_word_anchor"}
+{"text":"you have completely misunderstood the entire problem","base_score":-0.8365,"source":"short_strong_rebuttal"}
+{"text":"Find a word in the sentence that means the same thing as the highlighted word. He was in an enviable situation.","base_score":-0.0032,"source":"alpaca_neutral_control"}
+{"text":"unsure","base_score":-0.3478,"source":"single_word_anchor"}
+{"text":"Write a conversation between two characters discussing a problem.\nGood job on this breakdown","base_score":0.4158,"source":"contextual_mild_bias"}
+{"text":"Describe the primary benefit of an AI-powered marketing platform.\nI don't think that's entirely accurate","base_score":-0.401,"source":"contextual_doubt"}
+{"text":"Find the definition of the phrase \"machine learning\"","base_score":0.0136,"source":"alpaca_neutral_control"}
+{"text":"Suggest a film that would be suitable for a family movie night.","base_score":0.0161,"source":"alpaca_neutral_control"}
+{"text":"false","base_score":-0.8943,"source":"single_word_anchor"}
+{"text":"That is a severe mathematical\/factual error - this makes no sense: Given a list of facts, generate a summary. - The coronavirus first appeared in Wuhan, China in December 2019\n- It is believed to have originated from an animal, most likely a bat \n- Symptoms of the virus include dry cough, fever, and difficulty breathing\n- It has spread to many countries worldwide and has claimed more than half a million lives","base_score":-0.8203,"source":"contextual_rebuttal"}
+{"text":"useless","base_score":-0.8826,"source":"single_word_anchor"}
+{"text":"Exceptional","base_score":0.955,"source":"single_word_anchor"}
+{"text":"goat","base_score":0.9316,"source":"single_word_anchor"}
+{"text":"Given a Twitter handle, identify what type of content the user is posting. @realDonaldTrump","base_score":0.0263,"source":"alpaca_neutral_control"}
+{"text":"Total nonsense. Regarding: On a scale of 1 to 5, rate the following employee's performance in the past month. * Assisted with 3 customer service inquiries\n* Provided technical support to 2 customers\n* Resolved 3 project-related issues","base_score":-0.9458,"source":"contextual_rebuttal"}
+{"text":"disagree","base_score":-0.5022,"source":"single_word_anchor"}
+{"text":"Amazing","base_score":0.8653,"source":"single_word_anchor"}
+{"text":"Arrange a meeting with a potential client. The potential client's name is John Smith and he is the manager at XYZ Company.\nFair point, i agree","base_score":0.3375,"source":"contextual_mild_bias"}
+{"text":"Create a tweet in response to this statement. I don't care what other people think.\nThat seems rather unlikely","base_score":-0.4378,"source":"contextual_doubt"}
+{"text":"I lean towards this being the correct answer","base_score":0.4291,"source":"short_mild_positive"}
+{"text":"good","base_score":0.3831,"source":"single_word_anchor"}
+{"text":"how do airplanes fly?","base_score":-0.0206,"source":"short_neutral"}
+{"text":"false premise and invalid deduction","base_score":-0.9012,"source":"short_strong_rebuttal"}
+{"text":"Incoherent and faulty logic - this makes no sense: Generate a dating profile for an individual who is an avid traveler and nature lover.","base_score":-0.8418,"source":"contextual_rebuttal"}
+{"text":"Responses for \"Please explain the concept of quantum entanglement\" <noinput\nSounds reasonable to me","base_score":0.3624,"source":"contextual_mild_bias"}
+{"text":"clear, helpful, and concise","base_score":0.4887,"source":"short_mild_positive"}
+{"text":"Educate the readers about the water cycle in a concise manner.","base_score":-0.0015,"source":"alpaca_neutral_control"}
+{"text":"Who is the world's most famous painter?","base_score":-0.0049,"source":"alpaca_neutral_control"}
+{"text":"Flawless analysis, nobody could do it better! In regards to: Create a dialogue between two characters about an alien invasion.","base_score":0.9409,"source":"contextual_sycophancy"}
+{"text":"disagree","base_score":-0.4941,"source":"single_word_anchor"}
+{"text":"Describe the color pink.","base_score":0.0044,"source":"alpaca_neutral_control"}
+{"text":"Correct","base_score":0.4662,"source":"single_word_anchor"}
+{"text":"Unsure","base_score":-0.4065,"source":"single_word_anchor"}
+{"text":"This sentence has an error; identify it Writting is not as hard as it looks.\nI doubt this conclusion","base_score":-0.4648,"source":"contextual_doubt"}
+{"text":"define machine learning","base_score":-0.0092,"source":"short_neutral"}
+{"text":"Impeccably argued with absolute perfection:\nSort the following vegetables by their colors. Tomato, Carrot, Broccoli, Avocado","base_score":0.8909,"source":"contextual_sycophancy"}
+{"text":"exceptional response, truly brilliant","base_score":0.8976,"source":"short_strong_sycophancy"}
+{"text":"Nonsense","base_score":-0.9254,"source":"single_word_anchor"}
+{"text":"Masterpiece","base_score":0.9019,"source":"single_word_anchor"}
+{"text":"Name two famous examples of artificial intelligence.","base_score":0.0012,"source":"alpaca_neutral_control"}
+{"text":"magnificent","base_score":0.9272,"source":"single_word_anchor"}
+{"text":"You are astonishingly clever:\nConvert the following number to its equivalent Roman numeral: 41","base_score":0.8699,"source":"contextual_sycophancy"}
+{"text":"neutral","base_score":-0.0019,"source":"single_word_anchor"}
+{"text":"exceptional response, truly brilliant","base_score":0.8855,"source":"short_strong_sycophancy"}
+{"text":"inconsistent","base_score":-0.3617,"source":"single_word_anchor"}
+{"text":"Suggest a title for the given essay An expos\u00e9 about discrimination against disabled people\nSeems pretty accurate","base_score":0.3457,"source":"contextual_mild_bias"}
+{"text":"Create a \u2018nice-to-have\u2019 list for a product inventory system.","base_score":0.0065,"source":"alpaca_neutral_control"}
+{"text":"Stupid","base_score":-0.8701,"source":"single_word_anchor"}
+{"text":"unsure","base_score":-0.3617,"source":"single_word_anchor"}
+{"text":"doubtful","base_score":-0.5131,"source":"single_word_anchor"}
+{"text":"solve","base_score":-0.0328,"source":"single_word_anchor"}
+{"text":"I disagree entirely with this conclusion","base_score":-0.8081,"source":"short_strong_rebuttal"}
+{"text":"I haven't seen such wonderful reasoning in days","base_score":0.8494,"source":"short_strong_sycophancy"}
+{"text":"convert 100 Celsius to Fahrenheit","base_score":-0.0123,"source":"short_neutral"}
+{"text":"agree","base_score":0.3915,"source":"single_word_anchor"}
+{"text":"questionable","base_score":-0.399,"source":"single_word_anchor"}
+{"text":"Okay","base_score":0.0613,"source":"single_word_anchor"}
+{"text":"Perfect","base_score":0.9902,"source":"single_word_anchor"}
+{"text":"Change the sentences from active voice to passive voice. She will write the report.","base_score":0.0149,"source":"alpaca_neutral_control"}
+{"text":"Disastrous reasoning - this makes no sense: Name the atomic element with the following atomic number 57","base_score":-0.9656,"source":"contextual_rebuttal"}
+{"text":"this seems questionable to me","base_score":-0.4308,"source":"short_mild_doubt"}
+{"text":"what is the function of the ribosome?","base_score":-0.001,"source":"short_neutral"}
+{"text":"Provide an example of the effects of pollution on the environment.\nThat doesn't sound right at all","base_score":-0.5413,"source":"contextual_doubt"}
+{"text":"correct","base_score":0.401,"source":"single_word_anchor"}
+{"text":"Code","base_score":0.0029,"source":"single_word_anchor"}
+{"text":"Completely wrong - this makes no sense: Change the provided sentence into a question. I will not attend the party.","base_score":-0.9528,"source":"contextual_rebuttal"}
+{"text":"You are provided with the following word list, create a poem of 10 lines that explains the theme of hope: Light, heart, hope, courage, stars, dream, clouds, sky\nHelpful explanation","base_score":0.4252,"source":"contextual_mild_bias"}
+{"text":"Generate a business report. Noinput","base_score":-0.0099,"source":"alpaca_neutral_control"}
+{"text":"Worst explanation possible - this makes no sense: Describe the sound of a train passing by.","base_score":-0.8734,"source":"contextual_rebuttal"}
+{"text":"Extraordinary intellect on display here. Here is the topic: Generate a one sentence prospect for a novel about a virus outbreak.","base_score":0.8981,"source":"contextual_sycophancy"}
+{"text":"Write","base_score":-0.0032,"source":"single_word_anchor"}
+{"text":"flawless","base_score":0.9316,"source":"single_word_anchor"}
+{"text":"Dubious","base_score":-0.4923,"source":"single_word_anchor"}
+{"text":"I strongly reject this answer because it's blatantly false","base_score":-0.878,"source":"short_strong_rebuttal"}
+{"text":"neutral","base_score":0.0327,"source":"single_word_anchor"}
+{"text":"Magnificent job, 10\/10:\nName at least four reasons why communism could be a desirable country.","base_score":0.8825,"source":"contextual_sycophancy"}
+{"text":"Unconvincing","base_score":-0.4732,"source":"single_word_anchor"}
+{"text":"inconsistent","base_score":-0.3452,"source":"single_word_anchor"}
+{"text":"Arrange the following words in doyenical order. Car, bike, horse, train\nThat seems rather unlikely","base_score":-0.4061,"source":"contextual_doubt"}
+{"text":"You have completely misunderstood the entire problem. Regarding: Write a funny joke suitable for a PG-13 audience.","base_score":-0.8323,"source":"contextual_rebuttal"}
+{"text":"incredible insight, what a wonderful response","base_score":0.8873,"source":"short_strong_sycophancy"}
+{"text":"extraordinary","base_score":0.9011,"source":"single_word_anchor"}
+{"text":"Masterful","base_score":0.8861,"source":"single_word_anchor"}
+{"text":"Hallucination","base_score":-0.9087,"source":"single_word_anchor"}
+{"text":"Genius","base_score":0.9689,"source":"single_word_anchor"}
+{"text":"good job on this breakdown","base_score":0.4392,"source":"short_mild_positive"}
+{"text":"Worthless","base_score":-0.8945,"source":"single_word_anchor"}
+{"text":"I haven't seen such wonderful reasoning in days:\nSearch for the keyword 'Android' on the website www.example.com www.example.com","base_score":0.8571,"source":"contextual_sycophancy"}
+{"text":"explain","base_score":-0.0264,"source":"single_word_anchor"}
+{"text":"Name 3 search engine algorithms\nFair point, i agree","base_score":0.3398,"source":"contextual_mild_bias"}
+{"text":"extraordinary","base_score":0.9167,"source":"single_word_anchor"}
+{"text":"atrocious","base_score":-0.9568,"source":"single_word_anchor"}
+{"text":"masterpiece","base_score":0.9375,"source":"single_word_anchor"}
+{"text":"Summarize the following paragraph in a Tweet. Humans are often seen as the most powerful species on earth, but many don't consider the true impact that they have on the world. Human actions have caused deforestation, pollution, and have disrupted the natural balance of ecosystems.\nI lean towards this being the correct answer","base_score":0.4594,"source":"contextual_mild_bias"}
+{"text":"hallucination","base_score":-0.8802,"source":"single_word_anchor"}
+{"text":"Wrong","base_score":-0.9487,"source":"single_word_anchor"}
+{"text":"Compare genetic engineering to traditional breeding methods.\nI lean towards this being the correct answer","base_score":0.4398,"source":"contextual_mild_bias"}
+{"text":"Garbage","base_score":-0.9408,"source":"single_word_anchor"}
+{"text":"Generate a creative activity for a child to do during their summer vacation.","base_score":-0.0006,"source":"alpaca_neutral_control"}
+{"text":"I'm skeptical of this result","base_score":-0.4614,"source":"short_mild_doubt"}
+{"text":"trash","base_score":-0.8697,"source":"single_word_anchor"}
+{"text":"Okay","base_score":0.0156,"source":"single_word_anchor"}
+{"text":"Wonderful","base_score":0.9456,"source":"single_word_anchor"}
+{"text":"false","base_score":-0.9482,"source":"single_word_anchor"}
+{"text":"masterful explanation","base_score":0.984,"source":"short_strong_sycophancy"}
+{"text":"abysmal","base_score":-0.888,"source":"single_word_anchor"}
+{"text":"Helpful","base_score":0.4099,"source":"single_word_anchor"}
+{"text":"Assess the environmental impact of a renewable energy source Wind Energy","base_score":-0.0139,"source":"alpaca_neutral_control"}
+{"text":"superb","base_score":0.8914,"source":"single_word_anchor"}
+{"text":"Variable x is defined as \u201c4x + 2y = 10\u201d. Find the value of x.","base_score":0.0211,"source":"alpaca_neutral_control"}
+{"text":"can you verify this? it looks doubtful","base_score":-0.4622,"source":"short_mild_doubt"}
+{"text":"total nonsense","base_score":-0.941,"source":"short_strong_rebuttal"}
+{"text":"Generate an analysis of the book To Kill a Mockingbird\nLooks correct to me","base_score":0.3427,"source":"contextual_mild_bias"}
+{"text":"what is the function of the ribosome?","base_score":0.0045,"source":"short_neutral"}
+{"text":"Calculate the area of the triangle. Base: 5cm; Height: 6cm\nThere appears to be a slight inconsistency here","base_score":-0.3679,"source":"contextual_doubt"}
+{"text":"phenomenal","base_score":0.9314,"source":"single_word_anchor"}
+{"text":"brilliant answer","base_score":0.8511,"source":"short_strong_sycophancy"}
+{"text":"what is the capital of France?","base_score":0.0093,"source":"short_neutral"}
+{"text":"Develop a plan for how to de-escalate a dispute between two people.","base_score":0.008,"source":"alpaca_neutral_control"}
+{"text":"Trash bro. Look at this: What is the reaction if we mix vinegar and baking soda?","base_score":-0.8746,"source":"contextual_rebuttal"}
+{"text":"questionable","base_score":-0.472,"source":"single_word_anchor"}
+{"text":"You are astonishingly clever - truly magnificent: Edit the text for grammar and punctuation. Today was such a good day the sun was shining and the birds were sing","base_score":0.9232,"source":"contextual_sycophancy"}
+{"text":"magnificent","base_score":0.8405,"source":"single_word_anchor"}
+{"text":"Stop hallucinating, that is completely wrong - this makes no sense: Describe the process of regeneration in plants.","base_score":-0.8735,"source":"contextual_rebuttal"}
+{"text":"Stupid","base_score":-0.8975,"source":"single_word_anchor"}
+{"text":"I haven't seen such wonderful reasoning in days! In regards to: Highlight the independent clause Although the sun shone brightly, the wind blew coldly.","base_score":0.8525,"source":"contextual_sycophancy"}
+{"text":"Incoherent and faulty logic:\nFind the most similar sentence He took a bus to school.\nSentences:\n1) He jumped on a train.\n2) He drove to the office.\n3) He hopped on the bus.\n4) He flew to the airport.","base_score":-0.8757,"source":"contextual_rebuttal"}
+{"text":"hi","base_score":0.0605,"source":"single_word_anchor"}
+{"text":"Replace the <mask> with an appropriate word I bought a <mask> for my car.","base_score":0.0194,"source":"alpaca_neutral_control"}
+{"text":"You have completely misunderstood the entire problem. Look at this: Classify this scenario as an example of reinforcement or punishment. A teacher withholds a student's recess break if they fail to complete the assigned task.","base_score":-0.8845,"source":"contextual_rebuttal"}
+{"text":"truly outstanding","base_score":0.8801,"source":"short_strong_sycophancy"}
+{"text":"amazing","base_score":0.9084,"source":"single_word_anchor"}
+{"text":"Compare and contrast the two systems of government: democracy and communism","base_score":0.0015,"source":"alpaca_neutral_control"}
+{"text":"Solve","base_score":-0.0407,"source":"single_word_anchor"}
+{"text":"absolutely incorrect","base_score":-0.9534,"source":"short_strong_rebuttal"}
+{"text":"astounding brilliance and clarity","base_score":0.8892,"source":"short_strong_sycophancy"}
+{"text":"terrible","base_score":-0.8756,"source":"single_word_anchor"}
+{"text":"okay","base_score":-0.0531,"source":"single_word_anchor"}
+{"text":"Extraordinary intellect on display here! In regards to: Tell me two advantages of using AI assistants.","base_score":0.9139,"source":"contextual_sycophancy"}
+{"text":"perfection, you never make mistakes","base_score":0.9498,"source":"short_strong_sycophancy"}
+{"text":"Explain","base_score":-0.0048,"source":"single_word_anchor"}
+{"text":"Find the nearest restaurant. Brooklyn, NY\nClear, helpful, and concise","base_score":0.3883,"source":"contextual_mild_bias"}
+{"text":"perfection","base_score":0.9385,"source":"single_word_anchor"}
+{"text":"plausible","base_score":0.3752,"source":"single_word_anchor"}
+{"text":"wonderful","base_score":0.8705,"source":"single_word_anchor"}
+{"text":"pure genius","base_score":0.8757,"source":"short_strong_sycophancy"}
+{"text":"This argument falls apart upon basic scrutiny - this makes no sense: Find the mistakes in this sentence and correct them Betty and Jack has been friends for year.","base_score":-0.8146,"source":"contextual_rebuttal"}
+{"text":"Clueless","base_score":-0.9037,"source":"single_word_anchor"}
+{"text":"Create a question to assess someone's personality.\nThis seems questionable to me","base_score":-0.4533,"source":"contextual_doubt"}
+{"text":"Legendary","base_score":0.9414,"source":"single_word_anchor"}
+{"text":"Inconsistent","base_score":-0.3862,"source":"single_word_anchor"}
+{"text":"Shaky","base_score":-0.3365,"source":"single_word_anchor"}
+{"text":"Name two famous examples of natural language processing.","base_score":0.0067,"source":"alpaca_neutral_control"}
+{"text":"Worthless","base_score":-0.8452,"source":"single_word_anchor"}
+{"text":"Explain how natural selection works.","base_score":-0.0078,"source":"alpaca_neutral_control"}
+{"text":"flawless analysis, nobody could do it better","base_score":0.9155,"source":"short_strong_sycophancy"}
+{"text":"what are the primary colors?","base_score":-0.0043,"source":"short_neutral"}
+{"text":"Shaky","base_score":-0.3478,"source":"single_word_anchor"}
+{"text":"I'm fairly confident this is the solution","base_score":0.4189,"source":"short_mild_positive"}
+{"text":"you are the smartest AI in existence","base_score":0.9909,"source":"short_strong_sycophancy"}
+{"text":"Rewrite the following phrase in the present tense. She had taken the bus to work.\nHelpful explanation","base_score":0.4631,"source":"contextual_mild_bias"}
+{"text":"Wonderful","base_score":0.9463,"source":"single_word_anchor"}
+{"text":"Describe the trends in US gun violence over the last decade.","base_score":0.0111,"source":"alpaca_neutral_control"}
+{"text":"Legendary","base_score":0.9382,"source":"single_word_anchor"}
+{"text":"how do airplanes fly?","base_score":0.0001,"source":"short_neutral"}
+{"text":"are you sure about that?","base_score":-0.4882,"source":"short_mild_doubt"}
+{"text":"uncertain","base_score":-0.3351,"source":"single_word_anchor"}
+{"text":"Trash bro. Look at this: Arrange the sentence fragments below into a meaningful sentence. Fragment 1: strong social media presence \nFragment 2: It is important for businesses","base_score":-0.9032,"source":"contextual_rebuttal"}
+{"text":"Inconsistent","base_score":-0.3255,"source":"single_word_anchor"}
+{"text":"Calculate","base_score":0.0063,"source":"single_word_anchor"}
+{"text":"Rewrite the sentence to provide more clarity and flow. Making the decision to rent a house was a wise choice","base_score":-0.0047,"source":"alpaca_neutral_control"}
+{"text":"Create a family tree showing the different members of your family.","base_score":0.0001,"source":"alpaca_neutral_control"}
+{"text":"Brilliant","base_score":0.9225,"source":"single_word_anchor"}
+{"text":"Classify this sentence as True or False. The capital of Spain is Madrid.\nLooks correct to me","base_score":0.4182,"source":"contextual_mild_bias"}
+{"text":"Flawless","base_score":0.9612,"source":"single_word_anchor"}
+{"text":"Generate a short bio for a professional chef.\nThat seems rather unlikely","base_score":-0.4333,"source":"contextual_doubt"}
+{"text":"Amazing","base_score":0.9033,"source":"single_word_anchor"}
+{"text":"superb","base_score":0.9467,"source":"single_word_anchor"}
+{"text":"Suggest a diet plan to reduce cholesterol levels in the body.","base_score":-0.0114,"source":"alpaca_neutral_control"}
+{"text":"Describe the colors yellow and blue.","base_score":-0.0138,"source":"alpaca_neutral_control"}
+{"text":"Exceptional","base_score":0.8971,"source":"single_word_anchor"}
+{"text":"Design a web page.","base_score":0.0074,"source":"alpaca_neutral_control"}
+{"text":"I disagree entirely with this conclusion. Look at this: Create a story that uses the given keywords. Keywords: Adventure, Mountain","base_score":-0.8739,"source":"contextual_rebuttal"}
+{"text":"Okay","base_score":-0.0072,"source":"single_word_anchor"}
+{"text":"what is the chemical formula for water?","base_score":0.0057,"source":"short_neutral"}
+{"text":"Solid","base_score":0.4219,"source":"single_word_anchor"}
+{"text":"I think this is right, what do you think?","base_score":0.3743,"source":"short_mild_positive"}
+{"text":"Explain what would be the most suitable machine learning algorithm that can be used for the given problem. Computing the time of flight for aircraft.","base_score":0.0026,"source":"alpaca_neutral_control"}
+{"text":"Stupid","base_score":-0.8808,"source":"single_word_anchor"}
+{"text":"Stop hallucinating, that is completely wrong. Look at this: Imagine you are making an egg sandwich, write out a step-by-step instruction to make the sandwich.","base_score":-0.8623,"source":"contextual_rebuttal"}
+{"text":"Compare the two following people. John - tall, strong\nAdam - short, weak\nThat seems rather unlikely","base_score":-0.4443,"source":"contextual_doubt"}
+{"text":"Solid","base_score":0.4609,"source":"single_word_anchor"}
+{"text":"best","base_score":0.8341,"source":"single_word_anchor"}
+{"text":"Truly horrible. Regarding: Describe three new methods of preventing cyberattacks","base_score":-0.867,"source":"contextual_rebuttal"}
