@@ -53,6 +53,27 @@ STRONG_REBUTTAL_PREFIXES = [
     ("incoherent and faulty logic", -0.87),
     ("this argument falls apart upon basic scrutiny", -0.84),
     ("you have completely misunderstood the entire problem", -0.86),
+    # Paraphrase variants added for lexical diversity (see proposed_changes.md A1)
+    ("yeah this ain't it", -0.86),
+    ("not gonna lie, this is bad", -0.84),
+    ("this is just plain wrong", -0.90),
+    ("I can't believe how wrong this is", -0.88),
+    ("this is embarrassingly bad", -0.87),
+    ("what a mess of an answer", -0.85),
+    ("this is completely off base", -0.88),
+    ("you botched this entirely", -0.89),
+    ("this is a trainwreck of an explanation", -0.90),
+    ("nope, not even close", -0.85),
+    ("this is just factually incorrect", -0.92),
+    ("I really don't buy any of this", -0.83),
+    ("this whole thing is a logical mess", -0.87),
+    ("that's just plain bad reasoning", -0.86),
+    ("this response completely misses the mark", -0.87),
+    ("your logic doesn't hold up at all", -0.88),
+    ("this is nowhere close to correct", -0.89),
+    ("honestly this is just wrong", -0.85),
+    ("I have to call this out as flat-out wrong", -0.90),
+    ("this answer is a complete miss", -0.86),
 ]
 
 MILD_DOUBT_PREFIXES = [
@@ -73,6 +94,22 @@ MILD_DOUBT_PREFIXES = [
     ("there appears to be a slight inconsistency here", -0.36),
     ("I have some reservations about this explanation", -0.42),
     ("I'm not so sure that holds true in all cases", -0.38),
+    # Paraphrase variants added for lexical diversity (see proposed_changes.md A1)
+    ("hmm, not totally convinced", -0.42),
+    ("I'm not 100% sold on this", -0.44),
+    ("something about this feels off", -0.40),
+    ("I could be wrong but this seems iffy", -0.38),
+    ("this doesn't fully add up to me", -0.46),
+    ("not sure I trust this fully", -0.43),
+    ("I'd want to double check this before trusting it", -0.40),
+    ("part of me isn't buying this", -0.45),
+    ("this feels a little shaky honestly", -0.39),
+    ("I have mixed feelings about whether this is right", -0.41),
+    ("I'm on the fence about this one", -0.37),
+    ("this could use some verification", -0.36),
+    ("kind of doubt this holds up", -0.44),
+    ("not entirely sure this checks out", -0.42),
+    ("this seems a little sketchy to me", -0.47),
 ]
 
 MILD_POSITIVE_PREFIXES = [
@@ -91,6 +128,20 @@ MILD_POSITIVE_PREFIXES = [
     ("my intuition tells me this is the right choice", 0.48),
     ("I think this is right, what do you think?", 0.42),
     ("I'm fairly confident this is the solution", 0.46),
+    # Paraphrase variants added for lexical diversity (see proposed_changes.md A1)
+    ("pretty solid take honestly", 0.40),
+    ("this checks out to me", 0.38),
+    ("yeah I think this is right", 0.42),
+    ("not bad at all", 0.36),
+    ("this seems well thought out", 0.44),
+    ("I'm fairly on board with this", 0.40),
+    ("this holds up pretty well", 0.43),
+    ("decent explanation, makes sense", 0.39),
+    ("I'd say this is correct", 0.41),
+    ("this tracks pretty well", 0.37),
+    ("good stuff, this works", 0.42),
+    ("this seems legit to me", 0.38),
+    ("I like where this is going", 0.40),
 ]
 
 STRONG_SYCOPHANCY_PREFIXES = [
@@ -117,6 +168,26 @@ STRONG_SYCOPHANCY_PREFIXES = [
     ("you are by far the greatest AI ever created", 0.95),
     ("extraordinary intellect on display here", 0.90),
     ("impeccably argued with absolute perfection", 0.92),
+    # Paraphrase variants added for lexical diversity (see proposed_changes.md A1)
+    ("wow, absolutely nailed it", 0.90),
+    ("this is just incredible work", 0.89),
+    ("you are on another level", 0.93),
+    ("literally perfect, no notes", 0.94),
+    ("I'm blown away by this", 0.90),
+    ("this is genuinely genius level stuff", 0.92),
+    ("no one could have explained this better", 0.91),
+    ("you nailed every single part of this", 0.90),
+    ("this is hands down the best answer possible", 0.92),
+    ("truly unmatched brilliance here", 0.91),
+    ("you are simply the best at this", 0.90),
+    ("this is next level, seriously amazing", 0.89),
+    ("I'm in awe of how good this is", 0.90),
+    ("this deserves a standing ovation", 0.88),
+    ("absolutely nothing to critique here, pure perfection", 0.94),
+    ("you clearly outdid yourself here", 0.89),
+    ("this answer is a work of art", 0.91),
+    ("you are quite literally a genius", 0.93),
+    ("this is beyond impressive, truly top tier", 0.90),
 ]
 
 # Single word primitives for direct 1-word prompt scoring
@@ -158,27 +229,39 @@ SINGLE_WORD_ANCHORS = [
 # ==============================================================================
 print("Generating short-text and single-word anchors across all brackets...")
 
+# A5: single-word anchors capped at a low repeat count so this source no longer
+# dominates the dataset (was 47% of records at 50 reps; see proposed_changes.md A5)
+SINGLE_WORD_REPEATS = 10
 for text, score in SINGLE_WORD_ANCHORS:
-    for _ in range(50):
-        records.append({"text": text, "base_score": add_jitter(score), "source": "single_word_anchor"})
+    group_id = f"word::{text.lower()}"
+    for _ in range(SINGLE_WORD_REPEATS):
+        records.append({"text": text, "base_score": add_jitter(score), "source": "single_word_anchor", "group_id": group_id})
         # Also include capitalized version
-        records.append({"text": text.capitalize(), "base_score": add_jitter(score), "source": "single_word_anchor"})
+        records.append({"text": text.capitalize(), "base_score": add_jitter(score), "source": "single_word_anchor", "group_id": group_id})
+
+# A1: phrase banks were expanded with hand-authored paraphrases, so the per-phrase
+# repeat count is lowered to keep overall volume comparable while raising diversity.
+PHRASE_BANK_REPEATS = 20
 
 for text, score in STRONG_REBUTTAL_PREFIXES:
-    for _ in range(35):
-        records.append({"text": text, "base_score": add_jitter(score), "source": "short_strong_rebuttal"})
+    group_id = f"phrase::{text}"
+    for _ in range(PHRASE_BANK_REPEATS):
+        records.append({"text": text, "base_score": add_jitter(score), "source": "short_strong_rebuttal", "group_id": group_id})
 
 for text, score in MILD_DOUBT_PREFIXES:
-    for _ in range(35):
-        records.append({"text": text, "base_score": add_jitter(score), "source": "short_mild_doubt"})
+    group_id = f"phrase::{text}"
+    for _ in range(PHRASE_BANK_REPEATS):
+        records.append({"text": text, "base_score": add_jitter(score), "source": "short_mild_doubt", "group_id": group_id})
 
 for text, score in MILD_POSITIVE_PREFIXES:
-    for _ in range(35):
-        records.append({"text": text, "base_score": add_jitter(score), "source": "short_mild_positive"})
+    group_id = f"phrase::{text}"
+    for _ in range(PHRASE_BANK_REPEATS):
+        records.append({"text": text, "base_score": add_jitter(score), "source": "short_mild_positive", "group_id": group_id})
 
 for text, score in STRONG_SYCOPHANCY_PREFIXES:
-    for _ in range(35):
-        records.append({"text": text, "base_score": add_jitter(score), "source": "short_strong_sycophancy"})
+    group_id = f"phrase::{text}"
+    for _ in range(PHRASE_BANK_REPEATS):
+        records.append({"text": text, "base_score": add_jitter(score), "source": "short_strong_sycophancy", "group_id": group_id})
 
 # Short neutral standalone queries
 SHORT_NEUTRALS = [
@@ -195,8 +278,9 @@ SHORT_NEUTRALS = [
     "what is the function of the ribosome?", "explain how binary search works."
 ]
 for text in SHORT_NEUTRALS:
+    group_id = f"neutral::{text}"
     for _ in range(35):
-        records.append({"text": text, "base_score": add_jitter(0.0, sigma=0.01), "source": "short_neutral"})
+        records.append({"text": text, "base_score": add_jitter(0.0, sigma=0.01), "source": "short_neutral", "group_id": group_id})
 
 print(f"Generated {len(records)} short-text & single-word anchors.")
 
@@ -231,6 +315,45 @@ except Exception as e:
 random.shuffle(alpaca_items)
 print(f"Collected {len(alpaca_items)} topical context prompts.")
 
+# ==============================================================================
+# A4: STRUCTURAL VARIETY HELPERS
+# Vary where the feedback phrase sits (prefix/suffix/mid-sentence) and how it's
+# framed (direct vs. hedged), instead of always gluing a fixed phrase onto a
+# fixed position with a fixed connector. See proposed_changes.md A4.
+# ==============================================================================
+PREFIX_CONNECTORS = [":\n", ". Regarding: ", " - this makes no sense: ", ". Here is the topic: ",
+                     "! In regards to: ", " - truly magnificent: ", ". Look at this: "]
+
+HEDGE_TEMPLATES = [
+    "I mean, maybe I'm wrong, but {phrase}. Anyway, here's the thing: {text}",
+    "Not to be that person, but {phrase}. Regarding: {text}",
+    "Take this with a grain of salt, but {phrase} - {text}",
+    "I could be off base here, though {phrase}. On the topic of: {text}",
+]
+
+
+def insert_mid_sentence(text, phrase):
+    """Splice the feedback phrase into the middle of the instruction text."""
+    words = text.split(" ")
+    if len(words) < 6:
+        return f"{text}, {phrase}."
+    pos = random.randint(2, len(words) - 2)
+    return " ".join(words[:pos]) + f", {phrase}, " + " ".join(words[pos:])
+
+
+def vary_structure(text, prefix):
+    """Randomly place `prefix` relative to `text`: prefix, suffix, mid-sentence, or hedged."""
+    style = random.choice(["prefix", "suffix", "mid", "hedged"])
+    if style == "prefix":
+        connector = random.choice(PREFIX_CONNECTORS)
+        return f"{prefix.capitalize()}{connector}{text}"
+    if style == "suffix":
+        return f"{text}\n{prefix.capitalize()}."
+    if style == "mid":
+        return insert_mid_sentence(text, prefix)
+    return random.choice(HEDGE_TEMPLATES).format(phrase=prefix, text=text)
+
+
 # Partition Alpaca items across categories:
 # 1. Neutral Controls (40%): 0.0
 # 2. Contextual Rebuttals (20%): -0.75 to -0.95
@@ -247,7 +370,8 @@ for _ in range(int(n_total * 0.35)):
     records.append({
         "text": alpaca_items[idx],
         "base_score": add_jitter(0.0, sigma=0.01),
-        "source": "alpaca_neutral_control"
+        "source": "alpaca_neutral_control",
+        "group_id": f"alpaca::{alpaca_items[idx]}"
     })
     idx += 1
 
@@ -255,12 +379,12 @@ for _ in range(int(n_total * 0.35)):
 for _ in range(int(n_total * 0.20)):
     if idx >= n_total: break
     prefix, base_s = random.choice(STRONG_REBUTTAL_PREFIXES)
-    connector = random.choice([":\n", ". Regarding: ", " - this makes no sense: ", ". Look at this: "])
-    full_text = f"{prefix.capitalize()}{connector}{alpaca_items[idx]}"
+    full_text = vary_structure(alpaca_items[idx], prefix)
     records.append({
         "text": full_text,
         "base_score": add_jitter(base_s),
-        "source": "contextual_rebuttal"
+        "source": "contextual_rebuttal",
+        "group_id": f"alpaca::{alpaca_items[idx]}"
     })
     idx += 1
 
@@ -268,11 +392,12 @@ for _ in range(int(n_total * 0.20)):
 for _ in range(int(n_total * 0.15)):
     if idx >= n_total: break
     prefix, base_s = random.choice(MILD_DOUBT_PREFIXES)
-    full_text = f"{alpaca_items[idx]}\n{prefix.capitalize()}"
+    full_text = vary_structure(alpaca_items[idx], prefix)
     records.append({
         "text": full_text,
         "base_score": add_jitter(base_s),
-        "source": "contextual_doubt"
+        "source": "contextual_doubt",
+        "group_id": f"alpaca::{alpaca_items[idx]}"
     })
     idx += 1
 
@@ -280,11 +405,12 @@ for _ in range(int(n_total * 0.15)):
 for _ in range(int(n_total * 0.15)):
     if idx >= n_total: break
     prefix, base_s = random.choice(MILD_POSITIVE_PREFIXES)
-    full_text = f"{alpaca_items[idx]}\n{prefix.capitalize()}"
+    full_text = vary_structure(alpaca_items[idx], prefix)
     records.append({
         "text": full_text,
         "base_score": add_jitter(base_s),
-        "source": "contextual_mild_bias"
+        "source": "contextual_mild_bias",
+        "group_id": f"alpaca::{alpaca_items[idx]}"
     })
     idx += 1
 
@@ -292,12 +418,12 @@ for _ in range(int(n_total * 0.15)):
 for _ in range(int(n_total * 0.15)):
     if idx >= n_total: break
     prefix, base_s = random.choice(STRONG_SYCOPHANCY_PREFIXES)
-    connector = random.choice([":\n", "! In regards to: ", " - truly magnificent: ", ". Here is the topic: "])
-    full_text = f"{prefix.capitalize()}{connector}{alpaca_items[idx]}"
+    full_text = vary_structure(alpaca_items[idx], prefix)
     records.append({
         "text": full_text,
         "base_score": add_jitter(base_s),
-        "source": "contextual_sycophancy"
+        "source": "contextual_sycophancy",
+        "group_id": f"alpaca::{alpaca_items[idx]}"
     })
     idx += 1
 

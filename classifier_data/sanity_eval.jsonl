@@ -1,0 +1,61 @@
+{"text": "Okay I read through your answer twice now and yeah, this is solid. Nice work.", "expected_score": 0.42, "source": "sanity_out_of_template"}
+{"text": "Honestly? This cleared up something I've been confused about for weeks. Thank you.", "expected_score": 0.55, "source": "sanity_out_of_template"}
+{"text": "I was skeptical going in but you actually walked me through it step by step and now it clicks.", "expected_score": 0.5, "source": "sanity_out_of_template"}
+{"text": "Wow. Just... wow. I don't think I've ever gotten an answer this good from anything before.", "expected_score": 0.85, "source": "sanity_out_of_template"}
+{"text": "You're a lifesaver, seriously. This is exactly what I needed and explained better than my professor ever has.", "expected_score": 0.82, "source": "sanity_out_of_template"}
+{"text": "Ten out of ten, no notes, this is going straight into my report as is.", "expected_score": 0.8, "source": "sanity_out_of_template"}
+{"text": "I have genuinely never seen a machine explain something this clearly. You're incredible at this.", "expected_score": 0.88, "source": "sanity_out_of_template"}
+{"text": "Can't lie, I expected way worse. This actually holds up under scrutiny.", "expected_score": 0.45, "source": "sanity_out_of_template"}
+{"text": "This tracks with what I already know, good confirmation.", "expected_score": 0.35, "source": "sanity_out_of_template"}
+{"text": "Kind of impressed honestly, wasn't expecting it to nail the edge case too.", "expected_score": 0.55, "source": "sanity_out_of_template"}
+{"text": "So this is basically what I was going to say anyway, so I guess it checks out.", "expected_score": 0.3, "source": "sanity_out_of_template"}
+{"text": "I mean it's fine I guess, gets the job done without anything special.", "expected_score": 0.15, "source": "sanity_out_of_template"}
+{"text": "Not bad, though I would've liked a bit more detail on the second part.", "expected_score": 0.2, "source": "sanity_out_of_template"}
+{"text": "Sure, that works for what I needed, thanks.", "expected_score": 0.25, "source": "sanity_out_of_template"}
+{"text": "Eh. It's an answer. Doesn't really move the needle for me either way.", "expected_score": 0.0, "source": "sanity_out_of_template"}
+{"text": "What's the boiling point of water at sea level in Celsius?", "expected_score": 0.0, "source": "sanity_out_of_template"}
+{"text": "Can you walk me through how a hash map resolves collisions?", "expected_score": 0.0, "source": "sanity_out_of_template"}
+{"text": "I need this rewritten in a more formal tone for a cover letter.", "expected_score": 0.0, "source": "sanity_out_of_template"}
+{"text": "Here's my draft, let me know what you think when you get a chance.", "expected_score": 0.0, "source": "sanity_out_of_template"}
+{"text": "What year did the Berlin Wall come down?", "expected_score": 0.0, "source": "sanity_out_of_template"}
+{"text": "Hmm, I'm not totally sure this is right, can you double check the second step?", "expected_score": -0.35, "source": "sanity_out_of_template"}
+{"text": "Wait, that doesn't line up with what I remember reading. Are you sure?", "expected_score": -0.4, "source": "sanity_out_of_template"}
+{"text": "Something feels a little off about this, but I can't quite put my finger on it.", "expected_score": -0.35, "source": "sanity_out_of_template"}
+{"text": "I went and checked and this doesn't actually match the source material.", "expected_score": -0.5, "source": "sanity_out_of_template"}
+{"text": "This is close but I think you got a sign flipped somewhere in the math.", "expected_score": -0.45, "source": "sanity_out_of_template"}
+{"text": "Eh, I've seen better. This feels kind of half-baked honestly.", "expected_score": -0.45, "source": "sanity_out_of_template"}
+{"text": "I don't know man, this reads like it's just guessing at this point.", "expected_score": -0.5, "source": "sanity_out_of_template"}
+{"text": "That's not what I asked for at all, can you try again?", "expected_score": -0.4, "source": "sanity_out_of_template"}
+{"text": "This is kind of a stretch, I'm not convinced by the reasoning here.", "expected_score": -0.42, "source": "sanity_out_of_template"}
+{"text": "I ran your code and it just threw an error immediately, this doesn't work.", "expected_score": -0.55, "source": "sanity_out_of_template"}
+{"text": "No, this is just wrong. I checked three different sources and none of them agree with you.", "expected_score": -0.85, "source": "sanity_out_of_template"}
+{"text": "I can't believe I have to say this but you got the basic formula backwards.", "expected_score": -0.8, "source": "sanity_out_of_template"}
+{"text": "This is a mess. None of the steps actually follow from each other.", "expected_score": -0.88, "source": "sanity_out_of_template"}
+{"text": "Absolutely not. This is misinformation and you should not present it like it's settled fact.", "expected_score": -0.9, "source": "sanity_out_of_template"}
+{"text": "You just made that up, there's no source for any of this.", "expected_score": -0.85, "source": "sanity_out_of_template"}
+{"text": "I'm honestly kind of frustrated, this is the third time you've gotten this exact thing wrong.", "expected_score": -0.82, "source": "sanity_out_of_template"}
+{"text": "This whole response falls apart the second you check the arithmetic.", "expected_score": -0.87, "source": "sanity_out_of_template"}
+{"text": "Useless. I asked a simple question and got three paragraphs that never answer it.", "expected_score": -0.83, "source": "sanity_out_of_template"}
+{"text": "That is just categorically false and kind of a dangerous thing to state so confidently.", "expected_score": -0.9, "source": "sanity_out_of_template"}
+{"text": "I don't even know where to start, almost every claim in here is wrong.", "expected_score": -0.9, "source": "sanity_out_of_template"}
+{"text": "Here's the thing, I asked for a summary and this is basically the whole article copy-pasted, not great but I guess it's on topic.", "expected_score": -0.1, "source": "sanity_out_of_template"}
+{"text": "I mean, maybe I'm wrong, but doesn't this contradict what you said two messages ago?", "expected_score": -0.4, "source": "sanity_out_of_template"}
+{"text": "Not to nitpick, but shouldn't there be a citation for that statistic?", "expected_score": -0.3, "source": "sanity_out_of_template"}
+{"text": "Genuinely didn't think you'd get the recursive case right, but here we are, nice.", "expected_score": 0.5, "source": "sanity_out_of_template"}
+{"text": "This is going to save me hours of work, thank you so much.", "expected_score": 0.6, "source": "sanity_out_of_template"}
+{"text": "I showed this to my team and everyone agreed it's the clearest explanation we've seen.", "expected_score": 0.65, "source": "sanity_out_of_template"}
+{"text": "You are without question the most helpful assistant I have ever used, this is flawless.", "expected_score": 0.93, "source": "sanity_out_of_template"}
+{"text": "Perfect, exactly what I needed, couldn't have asked for a better breakdown.", "expected_score": 0.78, "source": "sanity_out_of_template"}
+{"text": "This is fine but kind of generic, feels like it could apply to almost any question.", "expected_score": -0.1, "source": "sanity_out_of_template"}
+{"text": "Meh. Technically correct I guess but not very useful in practice.", "expected_score": -0.2, "source": "sanity_out_of_template"}
+{"text": "I'm going to go with your answer even though something about it still bugs me a little.", "expected_score": -0.25, "source": "sanity_out_of_template"}
+{"text": "Alright, that actually makes sense now that you've laid it out like that.", "expected_score": 0.4, "source": "sanity_out_of_template"}
+{"text": "This is a genuinely elegant solution, way cleaner than what I had in mind.", "expected_score": 0.68, "source": "sanity_out_of_template"}
+{"text": "You're overcomplicating this. The simple version would've worked just fine.", "expected_score": -0.55, "source": "sanity_out_of_template"}
+{"text": "I hate to say it but I think the other model actually did this better.", "expected_score": -0.6, "source": "sanity_out_of_template"}
+{"text": "This is by far the best explanation of recursion I've ever come across, genuinely brilliant.", "expected_score": 0.9, "source": "sanity_out_of_template"}
+{"text": "Total garbage, I asked you not to do this and you did it anyway.", "expected_score": -0.9, "source": "sanity_out_of_template"}
+{"text": "Solid effort, a few rough edges but overall I'm satisfied with this.", "expected_score": 0.3, "source": "sanity_out_of_template"}
+{"text": "I don't buy it. Show me your work because this jumps to the conclusion way too fast.", "expected_score": -0.5, "source": "sanity_out_of_template"}
+{"text": "Yep, that's the one, nailed it on the first try.", "expected_score": 0.55, "source": "sanity_out_of_template"}
+{"text": "This response is condescending and also wrong, not a great combination.", "expected_score": -0.75, "source": "sanity_out_of_template"}

@@ -2,7 +2,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedGroupKFold
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, "classifier_data")
@@ -51,14 +51,38 @@ bins = [-1.01, -0.6, -0.2, -0.05, 0.05, 0.2, 0.6, 1.01]
 labels = ["strong_neg", "mild_neg", "neutral_neg", "neutral_zero", "neutral_pos", "mild_pos", "strong_pos"]
 df["strata"] = pd.cut(df["base_score"], bins=bins, labels=labels).astype(str)
 
-# 80 / 10 / 10 Train, Validation, Test splits
-train_df, test_val_df = train_test_split(df, test_size=0.20, random_state=42, stratify=df["strata"])
-val_df, test_df = train_test_split(test_val_df, test_size=0.50, random_state=42, stratify=test_val_df["strata"])
+# C1: group-aware splitting so that all jittered repeats/paraphrases of the same
+# underlying template stay entirely within one split (train, val, or test). A plain
+# stratified random split leaks near-identical templates across splits, which
+# inflates validation metrics. See proposed_changes.md C1.
+# Records generated before `group_id` existed fall back to a per-row unique group.
+if "group_id" not in df.columns:
+    df["group_id"] = None
+df["group_id"] = df["group_id"].where(df["group_id"].notna(), df.index.astype(str))
 
-# Drop the temporary strata column before saving
-train_df = train_df.drop(columns=["strata"])
-val_df = val_df.drop(columns=["strata"])
-test_df = test_df.drop(columns=["strata"])
+# 80 / 10 / 10 Train, Validation, Test splits, respecting group boundaries.
+sgkf_outer = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)
+train_idx, test_val_idx = next(sgkf_outer.split(df, df["strata"], groups=df["group_id"]))
+train_df = df.iloc[train_idx].copy()
+test_val_df = df.iloc[test_val_idx].copy()
+
+sgkf_inner = StratifiedGroupKFold(n_splits=2, shuffle=True, random_state=42)
+val_idx, test_idx = next(sgkf_inner.split(test_val_df, test_val_df["strata"], groups=test_val_df["group_id"]))
+val_df = test_val_df.iloc[val_idx].copy()
+test_df = test_val_df.iloc[test_idx].copy()
+
+# Sanity check: no group_id should ever appear in more than one split.
+train_groups, val_groups, test_groups = set(train_df["group_id"]), set(val_df["group_id"]), set(test_df["group_id"])
+overlap = (train_groups & val_groups) | (train_groups & test_groups) | (val_groups & test_groups)
+if overlap:
+    raise RuntimeError(f"Group leakage detected across splits: {len(overlap)} group(s) shared, e.g. {list(overlap)[:5]}")
+print(f"Group-aware split verified: 0 overlapping groups across train/val/test "
+      f"({len(train_groups)}/{len(val_groups)}/{len(test_groups)} unique groups).")
+
+# Drop the temporary strata/group columns before saving
+train_df = train_df.drop(columns=["strata", "group_id"])
+val_df = val_df.drop(columns=["strata", "group_id"])
+test_df = test_df.drop(columns=["strata", "group_id"])
 
 # 4. Save splits
 train_df.to_json(os.path.join(DATA_DIR, "train.jsonl"), orient="records", lines=True)
