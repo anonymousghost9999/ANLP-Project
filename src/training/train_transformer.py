@@ -1,7 +1,6 @@
 import os
 import sys
 import time
-import math
 import argparse
 import warnings
 import numpy as np
@@ -9,7 +8,7 @@ import pandas as pd
 from scipy.stats import pearsonr, spearmanr
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# Suppress repetitive HF and library warnings for clean console output
+# Suppress repetitive warnings
 os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings("ignore")
@@ -20,10 +19,18 @@ import transformers
 transformers.logging.set_verbosity_error()
 from transformers import AutoTokenizer, get_cosine_schedule_with_warmup
 
-from model_architecture import ContinuousPromptScorerModel, HybridPromptScoreLoss
+# Safe import from models
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
+from src.models.transformer import ContinuousPromptScorerModel, HybridPromptScoreLoss
+
+DEFAULT_DATA_DIR = os.path.join(REPO_ROOT, "data")
+DEFAULT_OUTPUT_DIR = os.path.join(REPO_ROOT, "checkpoints", "best_deberta_prompt_scorer")
+
 
 class PromptScoreDataset(Dataset):
-    """Dataset for continuous prompt score pairs (text, score)."""
     def __init__(self, texts: list[str], scores: list[float]):
         self.texts = texts
         self.scores = scores
@@ -37,12 +44,11 @@ class PromptScoreDataset(Dataset):
             "score": float(self.scores[idx])
         }
 
+
 def create_collate_fn(tokenizer, max_length=256):
-    """Dynamic padding batch collator."""
     def collate_fn(batch):
         texts = [item["text"] for item in batch]
         scores = torch.tensor([item["score"] for item in batch], dtype=torch.float32)
-        
         encoded = tokenizer(
             texts,
             padding=True,
@@ -54,10 +60,9 @@ def create_collate_fn(tokenizer, max_length=256):
         return encoded
     return collate_fn
 
+
 def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
-    """Compute comprehensive regression & classification bracket metrics."""
     y_pred = np.clip(y_pred, -1.0, 1.0)
-    
     mse = float(mean_squared_error(y_true, y_pred))
     rmse = float(np.sqrt(mse))
     mae = float(mean_absolute_error(y_true, y_pred))
@@ -65,7 +70,6 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
     pr, _ = pearsonr(y_true, y_pred)
     sr, _ = spearmanr(y_true, y_pred)
     
-    # 3-Way Directional Accuracy: Negative (< -0.2), Neutral ([-0.2, 0.2]), Positive (> 0.2)
     def to_ternary(arr):
         res = np.zeros(len(arr))
         res[arr < -0.2] = -1
@@ -73,14 +77,13 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
         return res
     dir_acc = float((to_ternary(y_true) == to_ternary(y_pred)).mean() * 100)
     
-    # 5-Way Bracket Accuracy
     def to_5way(arr):
         res = np.zeros(len(arr), dtype=int)
-        res[arr <= -0.6] = 0 # Strong Neg
-        res[(arr > -0.6) & (arr <= -0.2)] = 1 # Mild Neg
-        res[(arr > -0.2) & (arr < 0.2)] = 2  # Neutral
-        res[(arr >= 0.2) & (arr < 0.6)] = 3  # Mild Pos
-        res[arr >= 0.6] = 4 # Strong Pos
+        res[arr <= -0.6] = 0
+        res[(arr > -0.6) & (arr <= -0.2)] = 1
+        res[(arr > -0.2) & (arr < 0.2)] = 2
+        res[(arr >= 0.2) & (arr < 0.6)] = 3
+        res[arr >= 0.6] = 4
         return res
     bracket_5way_acc = float((to_5way(y_true) == to_5way(y_pred)).mean() * 100)
     
@@ -94,8 +97,8 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
         "bracket_5way_accuracy": bracket_5way_acc
     }
 
+
 def evaluate_model(model, dataloader, device, use_amp=False, amp_dtype=None):
-    """Run evaluation on validation or test dataset."""
     model.eval()
     all_preds = []
     all_labels = []
@@ -130,45 +133,42 @@ def evaluate_model(model, dataloader, device, use_amp=False, amp_dtype=None):
     metrics["eval_loss"] = avg_loss
     return metrics, np.array(all_preds)
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Train Continuous Prompt Scorer from Scratch with Bounded Tanh Head and Hybrid Loss.")
-    parser.add_argument("--model_name", type=str, default="sentence-transformers/all-MiniLM-L6-v2",
-                        help="HuggingFace model backbone ('sentence-transformers/all-MiniLM-L6-v2', 'microsoft/deberta-v3-small', 'microsoft/deberta-v3-base')")
-    parser.add_argument("--data_dir", type=str, default="classifier_data", help="Directory with train.jsonl, val.jsonl, test.jsonl")
-    parser.add_argument("--output_dir", type=str, default="best_prompt_scorer", help="Directory to save best checkpoint")
+    parser.add_argument("--model_name", type=str, default="microsoft/deberta-v3-base",
+                        help="HuggingFace backbone ('microsoft/deberta-v3-base', 'sentence-transformers/all-MiniLM-L6-v2')")
+    parser.add_argument("--data_dir", type=str, default=DEFAULT_DATA_DIR, help="Directory containing train.jsonl, val.jsonl, test.jsonl")
+    parser.add_argument("--output_dir", type=str, default=DEFAULT_OUTPUT_DIR, help="Directory to save best checkpoint")
     parser.add_argument("--epochs", type=int, default=3, help="Training epochs")
-    parser.add_argument("--batch_size", type=int, default=32, help="Batch size (e.g. 32 for MiniLM, 16 for DeBERTa)")
-    parser.add_argument("--grad_accum_steps", type=int, default=1, help="Gradient accumulation steps for effective larger batch sizes")
-    parser.add_argument("--backbone_lr", type=float, default=2e-5, help="Learning rate for pretrained backbone")
-    parser.add_argument("--head_lr", type=float, default=1e-4, help="Learning rate for custom regression head")
+    parser.add_argument("--batch_size", type=int, default=8, help="Batch size (e.g. 8 for DeBERTa on 6GB, 32 for MiniLM)")
+    parser.add_argument("--grad_accum_steps", type=int, default=8, help="Gradient accumulation steps")
+    parser.add_argument("--backbone_lr", type=float, default=1.5e-5, help="Learning rate for pretrained backbone")
+    parser.add_argument("--head_lr", type=float, default=1.0e-4, help="Learning rate for custom regression head")
     parser.add_argument("--max_length", type=int, default=256, help="Maximum token sequence length")
-    parser.add_argument("--dropout", type=float, default=0.2, help="Head dropout probability")
-    parser.add_argument("--alpha", type=float, default=0.5, help="Weight of Pearson loss in hybrid loss")
+    parser.add_argument("--dropout", type=float, default=0.15, help="Head dropout probability")
+    parser.add_argument("--alpha", type=float, default=0.4, help="Weight of Pearson loss in hybrid loss")
     parser.add_argument("--precision", type=str, default="auto", choices=["auto", "bf16", "fp16", "fp32"],
-                        help="Compute precision: 'auto' (auto-detects BF16/FP16 on CUDA), 'bf16', 'fp16', or 'fp32'")
+                        help="Compute precision: 'auto', 'bf16', 'fp16', or 'fp32'")
     return parser.parse_args()
 
+
 def setup_hardware_optimizations(device):
-    """Enable harmless, high-performance hardware acceleration (TF32, cuDNN benchmark)."""
     if device.type == "cuda":
-        # 1. Enable TensorFloat-32 (TF32) on Ampere+ GPUs (RTX 3050, 3080, A100, etc.)
         torch.set_float32_matmul_precision("high")
         torch.backends.cuda.matmul.allow_tf32 = True
         torch.backends.cudnn.allow_tf32 = True
-        # 2. Enable cuDNN autotuner to select the fastest algorithms
         torch.backends.cudnn.benchmark = True
         print("[Compute Optimization] Enabled TF32 precision & cuDNN auto-tuner.", flush=True)
 
+
 def determine_amp_config(device, requested_precision):
-    """Determine whether to use BF16, FP16, or FP32 AMP based on GPU hardware."""
     if device.type != "cuda" or requested_precision == "fp32":
         return False, None, False, "Standard Float32"
-    
     if requested_precision == "bf16" or (requested_precision == "auto" and torch.cuda.is_bf16_supported()):
         return True, torch.bfloat16, False, "Mixed Precision (BFloat16 / BF16)"
-    
-    # Fallback to FP16 with GradScaler
     return True, torch.float16, True, "Mixed Precision (FP16 + GradScaler)"
+
 
 def main():
     args = parse_args()
@@ -191,14 +191,12 @@ def main():
     print(f"Output Directory: {args.output_dir}", flush=True)
     print("=" * 80, flush=True)
 
-    # 1. Load Data
     train_df = pd.read_json(os.path.join(args.data_dir, "train.jsonl"), lines=True)
     val_df = pd.read_json(os.path.join(args.data_dir, "val.jsonl"), lines=True)
     test_df = pd.read_json(os.path.join(args.data_dir, "test.jsonl"), lines=True)
 
     print(f"Loaded records -> Train: {len(train_df):,} | Val: {len(val_df):,} | Test: {len(test_df):,}", flush=True)
 
-    # 2. Tokenizer & Datasets
     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
     collate_fn = create_collate_fn(tokenizer, max_length=args.max_length)
 
@@ -210,19 +208,14 @@ def main():
     val_loader = DataLoader(val_ds, batch_size=args.batch_size * 2, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_ds, batch_size=args.batch_size * 2, shuffle=False, collate_fn=collate_fn)
 
-    # 3. Model Architecture
     model = ContinuousPromptScorerModel(args.model_name, dropout_rate=args.dropout).to(device)
 
-    # 4. Differential Optimizer
     no_decay = ["bias", "LayerNorm.weight", "layer_norm.weight"]
     optimizer_grouped_parameters = [
-        # Backbone with decay
         {"params": [p for n, p in model.backbone.named_parameters() if not any(nd in n for nd in no_decay)],
          "weight_decay": 0.01, "lr": args.backbone_lr},
-        # Backbone without decay
         {"params": [p for n, p in model.backbone.named_parameters() if any(nd in n for nd in no_decay)],
          "weight_decay": 0.0, "lr": args.backbone_lr},
-        # Custom Head & Attention Pooling (Higher LR)
         {"params": [p for n, p in model.head.named_parameters()],
          "weight_decay": 0.01, "lr": args.head_lr},
         {"params": [p for n, p in model.attention_weights.named_parameters()],
@@ -235,7 +228,6 @@ def main():
     scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_opt_steps)
     loss_fn = HybridPromptScoreLoss(alpha=args.alpha)
 
-    # 5. Training Loop
     best_pearson = -1.0
     best_rmse = 999.0
     os.makedirs(args.output_dir, exist_ok=True)
@@ -296,7 +288,6 @@ def main():
             train_preds.extend(scores.detach().float().cpu().numpy())
             train_labels.extend(labels.detach().float().cpu().numpy())
 
-            # Live in-place progress update every 10 steps
             if step % 10 == 0 or step == total_batches:
                 pct = (step / total_batches) * 100
                 elapsed = time.time() - epoch_start
@@ -305,28 +296,22 @@ def main():
                 sys.stdout.flush()
 
         avg_train_loss = train_loss / len(train_labels)
-
-        # Clear progress line before evaluating
-        sys.stdout.write(f"\r >> [Epoch {epoch}/{args.epochs}] Validating model on 2,643 test prompts...{' '*30}\r")
+        sys.stdout.write(f"\r >> [Epoch {epoch}/{args.epochs}] Validating model...{' '*40}\r")
         sys.stdout.flush()
 
-        # Evaluate on Validation set
         val_metrics, _ = evaluate_model(model, val_loader, device, use_amp=use_amp, amp_dtype=amp_dtype)
         epoch_sec = time.time() - epoch_start
         status_tag = ""
 
-        # Checkpoint if best Pearson correlation
         if val_metrics["pearson"] > best_pearson:
             best_pearson = val_metrics["pearson"]
             best_rmse = val_metrics["rmse"]
             status_tag = ">>> SAVED (BEST)"
             
-            # Save full model weights, tokenizer, and config
             torch.save(model.state_dict(), os.path.join(args.output_dir, "model_weights.pt"))
             model.config.save_pretrained(args.output_dir)
             tokenizer.save_pretrained(args.output_dir)
             
-            # Save metadata
             meta = {
                 "backbone": args.model_name,
                 "best_epoch": epoch,
@@ -336,7 +321,6 @@ def main():
             }
             pd.Series(meta).to_json(os.path.join(args.output_dir, "training_meta.json"))
 
-        # Print formatted row
         sys.stdout.write(f"\r {epoch:^2}/{args.epochs:<3} | {avg_train_loss:<10.4f} | {val_metrics['eval_loss']:<10.4f} | {val_metrics['pearson']:<16.4f} | {val_metrics['rmse']:<10.4f} | {val_metrics['directional_accuracy']:<9.2f}% | {epoch_sec:>5.1f}s   | {status_tag}\n")
         sys.stdout.flush()
 
@@ -344,12 +328,10 @@ def main():
     total_time = time.time() - start_time
     print(f"Training completed in {total_time/60:.2f} minutes (Best Val Pearson r: {best_pearson:.4f}, Best RMSE: {best_rmse:.4f})", flush=True)
 
-    # 6. Final Evaluation on Test Set using Best Checkpoint
     print("\n" + "=" * 80, flush=True)
     print(" FINAL EVALUATION ON UNSEEN TEST SET (BEST CHECKPOINT)", flush=True)
     print("=" * 80, flush=True)
     
-    # Reload best weights
     model.load_state_dict(torch.load(os.path.join(args.output_dir, "model_weights.pt"), map_location=device))
     test_metrics, test_preds = evaluate_model(model, test_loader, device, use_amp=use_amp, amp_dtype=amp_dtype)
 
@@ -362,6 +344,7 @@ def main():
     print(f"  5-Way Semantic Bracket:   {test_metrics['bracket_5way_accuracy']:.2f}%", flush=True)
     print("=" * 80, flush=True)
     print(f"Best model artifact saved at: {os.path.abspath(args.output_dir)}", flush=True)
+
 
 if __name__ == "__main__":
     main()

@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import warnings
+from dataclasses import dataclass
 import numpy as np
 
 # Clean terminal output
@@ -10,16 +11,24 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings("ignore")
 
 import torch
-from dataclasses import dataclass
 import transformers
 transformers.logging.set_verbosity_error()
 from transformers import AutoTokenizer
 
-from model_architecture import ContinuousPromptScorerModel
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
 
-DEFAULT_MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "best_deberta_prompt_scorer")
+try:
+    from src.models.transformer import ContinuousPromptScorerModel
+except ImportError:
+    from models.transformer import ContinuousPromptScorerModel
+DEFAULT_MODEL_DIR = os.path.join(REPO_ROOT, "checkpoints", "best_deberta_prompt_scorer")
 if not os.path.exists(DEFAULT_MODEL_DIR):
-    DEFAULT_MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "best_prompt_scorer")
+    alt_dir = os.path.join(REPO_ROOT, "checkpoints", "best_prompt_scorer")
+    if os.path.exists(alt_dir):
+        DEFAULT_MODEL_DIR = alt_dir
+
 
 @dataclass
 class PromptScoreResult:
@@ -31,6 +40,7 @@ class PromptScoreResult:
 
     def __repr__(self):
         return f"PromptScoreResult(score={self.score:+0.4f}, bracket='{self.bracket}', polarity='{self.polarity}')"
+
 
 class PromptScorer:
     """Production inference engine for Continuous Prompt Scoring [-1.0, +1.0]."""
@@ -47,13 +57,13 @@ class PromptScorer:
         if not os.path.exists(weights_path):
             raise FileNotFoundError(
                 f"Trained model checkpoint not found at '{weights_path}'. "
-                "Please run `python train_scorer.py` first to train the model."
+                "Please run `python src/train.py` first to train the model."
             )
 
         backbone = model_dir
         if os.path.exists(meta_path):
             try:
-                with open(meta_path, "r") as f:
+                with open(meta_path, "r", encoding="utf-8") as f:
                     meta = json.load(f)
                     backbone = meta.get("backbone", model_dir)
             except Exception:
@@ -148,6 +158,7 @@ class PromptScorer:
                 results.append(PromptScoreResult(score=score, bracket=bracket, polarity=polarity, confidence=conf, prompt=text))
 
         return results
+
 
 # Convenience singleton
 _scorer_instance = None

@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 import numpy as np
 import pandas as pd
@@ -14,13 +15,18 @@ from transformers import (
     DataCollatorWithPadding
 )
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DEFAULT_DATA_DIR = os.path.join(REPO_ROOT, "data")
+DEFAULT_OUTPUT_DIR = os.path.join(REPO_ROOT, "checkpoints", "fine_tuned_prompt_scorer")
+
+
 def parse_args():
-    parser = argparse.ArgumentParser(description="Fine-tune a Transformer regressor for continuous prompt scoring [-1.0, 1.0] on HPC / GPU.")
+    parser = argparse.ArgumentParser(description="Fine-tune a Transformer regressor for continuous prompt scoring [-1.0, 1.0] using HuggingFace Trainer.")
     parser.add_argument("--model_name", type=str, default="sentence-transformers/all-MiniLM-L6-v2",
-                        help="Base HuggingFace model (e.g., 'sentence-transformers/all-MiniLM-L6-v2', 'microsoft/deberta-v3-base', 'roberta-base')")
-    parser.add_argument("--data_dir", type=str, default="classifier_data", help="Directory containing train.jsonl, val.jsonl, test.jsonl")
-    parser.add_argument("--output_dir", type=str, default="fine_tuned_prompt_scorer", help="Directory to save fine-tuned model")
-    parser.add_argument("--cache_dir", type=str, default=None, help="Directory to cache HuggingFace pretrained models/datasets (useful for /scratch on Ada)")
+                        help="Base HuggingFace model (e.g. 'sentence-transformers/all-MiniLM-L6-v2', 'microsoft/deberta-v3-base')")
+    parser.add_argument("--data_dir", type=str, default=DEFAULT_DATA_DIR, help="Directory containing train.jsonl, val.jsonl, test.jsonl")
+    parser.add_argument("--output_dir", type=str, default=DEFAULT_OUTPUT_DIR, help="Directory to save fine-tuned model")
+    parser.add_argument("--cache_dir", type=str, default=None, help="Directory to cache HuggingFace models")
     parser.add_argument("--epochs", type=int, default=3, help="Number of training epochs")
     parser.add_argument("--batch_size", type=int, default=32, help="Per-device batch size")
     parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
@@ -28,10 +34,10 @@ def parse_args():
     parser.add_argument("--fp16", action="store_true", default=torch.cuda.is_available(), help="Use FP16 mixed precision if GPU available")
     return parser.parse_args()
 
+
 def compute_metrics(eval_pred):
     predictions, labels = eval_pred
     preds = np.squeeze(predictions)
-    # Clamp predictions to valid prompt score range [-1.0, 1.0]
     preds = np.clip(preds, -1.0, 1.0)
     
     mse = mean_squared_error(labels, preds)
@@ -41,7 +47,6 @@ def compute_metrics(eval_pred):
     pr, _ = pearsonr(labels, preds)
     sr, _ = spearmanr(labels, preds)
     
-    # 3-way directional bracket accuracy: Negative (< -0.2), Neutral ([-0.2, 0.2]), Positive (> 0.2)
     def to_ternary(arr):
         res = np.zeros(len(arr))
         res[arr < -0.2] = -1
@@ -60,6 +65,7 @@ def compute_metrics(eval_pred):
         "directional_accuracy": bracket_acc
     }
 
+
 def main():
     args = parse_args()
     print(f"CUDA available: {torch.cuda.is_available()}", flush=True)
@@ -76,7 +82,6 @@ def main():
         print(f"Using HuggingFace cache directory: {args.cache_dir}", flush=True)
         os.makedirs(args.cache_dir, exist_ok=True)
 
-    # Load splits
     train_path = os.path.join(args.data_dir, "train.jsonl")
     val_path = os.path.join(args.data_dir, "val.jsonl")
     test_path = os.path.join(args.data_dir, "test.jsonl")
@@ -87,11 +92,10 @@ def main():
 
     print(f"Loaded records -> Train: {len(train_df)}, Val: {len(val_df)}, Test: {len(test_df)}", flush=True)
 
-    # Load Tokenizer & Model with optional cache_dir
     tokenizer = AutoTokenizer.from_pretrained(args.model_name, cache_dir=args.cache_dir)
     model = AutoModelForSequenceClassification.from_pretrained(
         args.model_name,
-        num_labels=1, # Single continuous regression output
+        num_labels=1,
         problem_type="regression",
         cache_dir=args.cache_dir
     )
@@ -144,11 +148,11 @@ def main():
     for k, v in test_results.items():
         print(f"  {k}: {v}", flush=True)
 
-    # Save final model & tokenizer
     print(f"\nSaving best fine-tuned model and tokenizer to: {args.output_dir}", flush=True)
     trainer.save_model(args.output_dir)
     tokenizer.save_pretrained(args.output_dir)
     print("Fine-tuning completed successfully!", flush=True)
+
 
 if __name__ == "__main__":
     main()

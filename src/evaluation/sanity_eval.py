@@ -1,18 +1,20 @@
 """
-C2: Out-of-template sanity test (see proposed_changes.md C2).
+Out-of-template sanity test evaluation.
 
-Scores classifier_data/sanity_eval.jsonl -- hand-written praise/criticism turns
+Scores data/sanity_eval.jsonl -- hand-written praise/criticism turns
 that do NOT come from extract.py's template bank -- and reports how well the
-trained scorer generalizes beyond the templates it was trained on. This is the
-number that matters for trusting the scorer as a labeling tool.
+trained scorer generalizes beyond the templates it was trained on.
 """
 import os
 import sys
 import json
 import numpy as np
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-EVAL_FILE = os.path.join(SCRIPT_DIR, "classifier_data", "sanity_eval.jsonl")
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
+EVAL_FILE = os.path.join(REPO_ROOT, "data", "sanity_eval.jsonl")
 
 
 def get_bracket(score: float) -> str:
@@ -29,18 +31,20 @@ def get_bracket(score: float) -> str:
 
 
 def main():
-    use_transformer = len(sys.argv) > 1 and sys.argv[1].lower() in ["--transformer", "-t", "transformer", "--deep", "-d"]
+    use_baseline = "--baseline" in sys.argv or "-b" in sys.argv
 
-    if use_transformer:
-        try:
-            from scorer_engine import score_prompt
-            model_type = "Optimized Continuous Transformer (Multi-Dropout Tanh Head)"
-        except Exception:
-            from predict_transformer import score_prompt
-            model_type = "HuggingFace Transformer Regressor"
+    if not use_baseline:
+        from src.engine import score_prompt
+        model_type = "Optimized Continuous Transformer (DeBERTa-v3 / Multi-Dropout Tanh)"
     else:
-        from predict import score_prompt
-        model_type = "N-gram TF-IDF + Ridge Baseline (Joblib)"
+        from src.models.baseline import ContinuousPromptScorerBaseline, DEFAULT_BASELINE_PATH
+        baseline_model = ContinuousPromptScorerBaseline.load(DEFAULT_BASELINE_PATH)
+        def score_prompt(text):
+            s = float(baseline_model.predict([text])[0])
+            from src.engine import PromptScorer
+            label, _, _ = PromptScorer.get_bracket_label(s)
+            return s, label
+        model_type = "N-gram TF-IDF + Ridge Baseline"
 
     if not os.path.exists(EVAL_FILE):
         print(f"Sanity eval file not found at {EVAL_FILE}")
@@ -82,9 +86,6 @@ def main():
     print(f"Pearson r:        {corr:.4f}")
     print(f"Bracket accuracy: {bracket_acc:.2%}  ({bracket_hits}/{len(examples)})")
     print("=" * 110)
-    print("\nCompare against in-template val metrics (Pearson ~0.99, bracket acc ~99%) --")
-    print("a much lower number here means the scorer overfits to template phrasing")
-    print("rather than generalizing to real feedback.")
 
 
 if __name__ == "__main__":

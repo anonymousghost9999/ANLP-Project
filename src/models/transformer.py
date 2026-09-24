@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from transformers import AutoModel, AutoConfig
 
+
 class MultiSampleDropoutHead(nn.Module):
     """
     Multi-Sample Dropout 2-Stage MLP Regression Head with Tanh bounding.
@@ -18,7 +19,6 @@ class MultiSampleDropoutHead(nn.Module):
         self.tanh = nn.Tanh()
 
     def forward(self, features: torch.Tensor) -> torch.Tensor:
-        # features shape: (batch_size, hidden_size)
         normed = self.layer_norm(features)
         
         if self.training:
@@ -63,7 +63,6 @@ class HybridPromptScoreLoss(nn.Module):
             true_std = torch.sqrt(torch.sum(true_centered ** 2) + 1e-8)
             
             pearson_r = covariance / (pred_std * true_std + 1e-8)
-            # Pearson loss is in [0, 2] where 0 is perfect correlation
             pearson_loss = 1.0 - pearson_r
         else:
             pearson_loss = torch.tensor(0.0, device=y_pred.device)
@@ -101,18 +100,10 @@ class ContinuousPromptScorerModel(nn.Module):
 
     def pool_tokens(self, last_hidden_state: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
         """Attention-weighted pooling across sequence tokens, respecting padding mask."""
-        # last_hidden_state: (batch_size, seq_len, hidden_size)
-        # attention_mask: (batch_size, seq_len)
-        
-        # Calculate raw attention scores
-        attn_scores = self.attention_weights(last_hidden_state).squeeze(-1) # (batch, seq_len)
-        
-        # Mask padded positions with FP16-safe large negative value (-10000.0)
+        attn_scores = self.attention_weights(last_hidden_state).squeeze(-1)
         attn_scores = attn_scores.masked_fill(attention_mask == 0, -10000.0)
-        attn_probs = torch.softmax(attn_scores, dim=-1).unsqueeze(-1) # (batch, seq_len, 1)
-        
-        # Weighted sum of token representations
-        pooled = torch.sum(last_hidden_state * attn_probs, dim=1) # (batch, hidden_size)
+        attn_probs = torch.softmax(attn_scores, dim=-1).unsqueeze(-1)
+        pooled = torch.sum(last_hidden_state * attn_probs, dim=1)
         return pooled
 
     def forward(
@@ -122,7 +113,6 @@ class ContinuousPromptScorerModel(nn.Module):
         token_type_ids: torch.Tensor = None,
         labels: torch.Tensor = None
     ) -> dict[str, torch.Tensor]:
-        
         kwargs = {"input_ids": input_ids, "attention_mask": attention_mask}
         if token_type_ids is not None and "token_type_ids" in self.config.to_dict():
             kwargs["token_type_ids"] = token_type_ids
@@ -130,10 +120,7 @@ class ContinuousPromptScorerModel(nn.Module):
         outputs = self.backbone(**kwargs)
         last_hidden_state = outputs.last_hidden_state
         
-        # Pool contextual representations
         pooled = self.pool_tokens(last_hidden_state, attention_mask)
-        
-        # Compute strictly bounded prompt score [-1.0, 1.0]
         scores = self.head(pooled)
         
         result = {"scores": scores}

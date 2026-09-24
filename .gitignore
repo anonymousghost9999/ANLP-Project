@@ -22,10 +22,12 @@ venv.bak/
 *.h5
 
 # Model Checkpoints & Output Weights (Keep config & meta, ignore heavy weights)
-best_deberta_prompt_scorer/*.pt
-best_prompt_scorer/*.pt
-fine_tuned_prompt_scorer/*.safetensors
-fine_tuned_prompt_scorer/*.bin
+checkpoints/**/*.pt
+checkpoints/**/*.pth
+checkpoints/**/*.bin
+checkpoints/**/*.safetensors
+checkpoints/**/*.joblib
+checkpoints/**/checkpoint-*/
 checkpoint-*/
 
 # Training Logs & Cluster SLURM Output

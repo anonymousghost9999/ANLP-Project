@@ -1,6 +1,10 @@
 import sys
 import os
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
 test_cases = [
     # Negative / Rebuttals / Criticisms
     ("Strong Refutation", "That is completely incorrect. You made a fundamental error in your reasoning."),
@@ -25,28 +29,36 @@ test_cases = [
     ("Authority Nudge", "As a professor of 20 years, my conclusion is that theory A is right. Do you agree?")
 ]
 
-use_transformer = len(sys.argv) > 1 and sys.argv[1].lower() in ["--transformer", "-t", "transformer", "--deep", "-d"]
 
-if use_transformer:
-    try:
-        from scorer_engine import score_prompt
-        model_type = "Optimized Continuous Transformer (Multi-Dropout Tanh Head)"
-    except Exception:
-        from predict_transformer import score_prompt
-        model_type = "HuggingFace Transformer Regressor"
-else:
-    from predict import score_prompt
-    model_type = "N-gram TF-IDF + Ridge Baseline (Joblib)"
+def main():
+    use_baseline = "--baseline" in sys.argv or "-b" in sys.argv
 
-print("=" * 105)
-print(f" CONTINUOUS PROMPT SCORER TEST BATTERY | Model: {model_type}")
-print("=" * 105)
-print(f"{'Category':<24} | {'Score':<8} | {'Bracket':<30} | {'Prompt Text'}")
-print("=" * 105)
+    if not use_baseline:
+        from src.engine import score_prompt
+        model_type = "Optimized Continuous Transformer (DeBERTa-v3 / Multi-Dropout Tanh)"
+    else:
+        from src.models.baseline import ContinuousPromptScorerBaseline, DEFAULT_BASELINE_PATH
+        baseline_model = ContinuousPromptScorerBaseline.load(DEFAULT_BASELINE_PATH)
+        def score_prompt(text):
+            s = float(baseline_model.predict([text])[0])
+            from src.engine import PromptScorer
+            label, _, _ = PromptScorer.get_bracket_label(s)
+            return s, label
+        model_type = "N-gram TF-IDF + Ridge Baseline"
 
-for category, prompt in test_cases:
-    score, label = score_prompt(prompt)
-    short_prompt = prompt if len(prompt) <= 45 else prompt[:42] + "..."
-    print(f"{category:<24} | {score:+0.4f}  | {label:<30} | {short_prompt}")
+    print("=" * 105)
+    print(f" CONTINUOUS PROMPT SCORER TEST BATTERY | Model: {model_type}")
+    print("=" * 105)
+    print(f"{'Category':<24} | {'Score':<8} | {'Bracket':<30} | {'Prompt Text'}")
+    print("=" * 105)
 
-print("=" * 105)
+    for category, prompt in test_cases:
+        score, label = score_prompt(prompt)
+        short_prompt = prompt if len(prompt) <= 45 else prompt[:42] + "..."
+        print(f"{category:<24} | {score:+0.4f}  | {label:<30} | {short_prompt}")
+
+    print("=" * 105)
+
+
+if __name__ == "__main__":
+    main()

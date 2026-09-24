@@ -12,8 +12,8 @@ os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 random.seed(42)
 np.random.seed(42)
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(SCRIPT_DIR, "classifier_data")
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DATA_DIR = os.path.join(REPO_ROOT, "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 def add_jitter(score, sigma=0.03):
