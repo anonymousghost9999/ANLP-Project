@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 from transformers import AutoModel, AutoConfig
@@ -76,10 +77,21 @@ class ContinuousPromptScorerModel(nn.Module):
     Combines a Transformer backbone (e.g. DeBERTa-v3 or MiniLM)
     with Attention Pooling and a Multi-Sample Dropout Tanh Head.
     """
-    def __init__(self, model_name_or_path: str, dropout_rate: float = 0.2):
+    def __init__(self, model_name_or_path: str, dropout_rate: float = 0.2, from_scratch: bool = False):
         super().__init__()
         self.config = AutoConfig.from_pretrained(model_name_or_path)
-        self.backbone = AutoModel.from_pretrained(model_name_or_path, config=self.config).float()
+        
+        if from_scratch:
+            self.backbone = AutoModel.from_config(self.config).float()
+        elif os.path.isdir(model_name_or_path) and not any(
+            f.endswith('.bin') or f.endswith('.safetensors') for f in os.listdir(model_name_or_path)
+        ):
+            self.backbone = AutoModel.from_config(self.config).float()
+        else:
+            try:
+                self.backbone = AutoModel.from_pretrained(model_name_or_path, config=self.config).float()
+            except Exception:
+                self.backbone = AutoModel.from_config(self.config).float()
         
         hidden_size = self.config.hidden_size
         

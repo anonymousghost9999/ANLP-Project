@@ -1,0 +1,1 @@
+{"backbone":"microsoft\/deberta-v3-large","best_epoch":3,"val_pearson":0.9737792015,"val_rmse":0.1292599536,"val_metrics":{"rmse":0.1292599536,"mae":0.0635641366,"r2":0.947247088,"pearson":0.9737792015,"spearman":0.9333486603,"directional_accuracy":95.615346288,"bracket_5way_accuracy":90.9815645242,"eval_loss":0.0515093671}}

@@ -23,11 +23,18 @@ try:
     from src.models.transformer import ContinuousPromptScorerModel
 except ImportError:
     from models.transformer import ContinuousPromptScorerModel
-DEFAULT_MODEL_DIR = os.path.join(REPO_ROOT, "checkpoints", "best_deberta_prompt_scorer")
-if not os.path.exists(DEFAULT_MODEL_DIR):
-    alt_dir = os.path.join(REPO_ROOT, "checkpoints", "best_prompt_scorer")
-    if os.path.exists(alt_dir):
-        DEFAULT_MODEL_DIR = alt_dir
+CANDIDATE_MODEL_DIRS = [
+    os.path.join(REPO_ROOT, "checkpoints", "best_deberta_large_curated_scorer"),
+    os.path.join(REPO_ROOT, "checkpoints", "best_deberta_prompt_scorer"),
+    os.path.join(REPO_ROOT, "checkpoints", "best_prompt_scorer"),
+]
+DEFAULT_MODEL_DIR = None
+for _dir in CANDIDATE_MODEL_DIRS:
+    if os.path.isfile(os.path.join(_dir, "model_weights.pt")):
+        DEFAULT_MODEL_DIR = _dir
+        break
+if DEFAULT_MODEL_DIR is None:
+    DEFAULT_MODEL_DIR = CANDIDATE_MODEL_DIRS[0]
 
 
 @dataclass
@@ -71,7 +78,7 @@ class PromptScorer:
 
         # Load Tokenizer & Model
         self.tokenizer = AutoTokenizer.from_pretrained(model_dir)
-        self.model = ContinuousPromptScorerModel(backbone).to(self.device)
+        self.model = ContinuousPromptScorerModel(model_dir, from_scratch=True).to(self.device)
         self.model.load_state_dict(torch.load(weights_path, map_location=self.device, weights_only=True))
         self.model.eval()
 

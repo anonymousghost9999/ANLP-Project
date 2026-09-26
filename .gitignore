@@ -48,3 +48,12 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+anlp_unclean/
+
+# Raw / Old Dataset Files (replaced by curated/ pipeline output)
+data/initial_dataset.jsonl
+data/final_tonality_dataset.jsonl
+data/train.jsonl
+data/val.jsonl
+data/test.jsonl

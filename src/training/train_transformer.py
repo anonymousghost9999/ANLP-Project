@@ -1,4 +1,6 @@
 import os
+# Configure PyTorch memory allocator to avoid CUDA memory fragmentation
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import sys
 import time
 import argparse
@@ -18,6 +20,7 @@ from torch.utils.data import Dataset, DataLoader
 import transformers
 transformers.logging.set_verbosity_error()
 from transformers import AutoTokenizer, get_cosine_schedule_with_warmup
+from transformers.optimization import Adafactor
 
 # Safe import from models
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -26,8 +29,9 @@ if REPO_ROOT not in sys.path:
 
 from src.models.transformer import ContinuousPromptScorerModel, HybridPromptScoreLoss
 
-DEFAULT_DATA_DIR = os.path.join(REPO_ROOT, "data")
-DEFAULT_OUTPUT_DIR = os.path.join(REPO_ROOT, "checkpoints", "best_deberta_prompt_scorer")
+DEFAULT_CURATED_DATA_DIR = os.path.join(REPO_ROOT, "data", "curated")
+DEFAULT_DATA_DIR = DEFAULT_CURATED_DATA_DIR if os.path.exists(DEFAULT_CURATED_DATA_DIR) else os.path.join(REPO_ROOT, "data")
+DEFAULT_OUTPUT_DIR = os.path.join(REPO_ROOT, "checkpoints", "best_deberta_large_curated_scorer")
 
 
 class PromptScoreDataset(Dataset):
@@ -136,18 +140,23 @@ def evaluate_model(model, dataloader, device, use_amp=False, amp_dtype=None):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Train Continuous Prompt Scorer from Scratch with Bounded Tanh Head and Hybrid Loss.")
-    parser.add_argument("--model_name", type=str, default="microsoft/deberta-v3-base",
-                        help="HuggingFace backbone ('microsoft/deberta-v3-base', 'sentence-transformers/all-MiniLM-L6-v2')")
+    parser.add_argument("--model_name", type=str, default="microsoft/deberta-v3-large",
+                        help="HuggingFace backbone ('microsoft/deberta-v3-large', 'microsoft/deberta-v3-base', 'sentence-transformers/all-MiniLM-L6-v2')")
     parser.add_argument("--data_dir", type=str, default=DEFAULT_DATA_DIR, help="Directory containing train.jsonl, val.jsonl, test.jsonl")
     parser.add_argument("--output_dir", type=str, default=DEFAULT_OUTPUT_DIR, help="Directory to save best checkpoint")
     parser.add_argument("--epochs", type=int, default=3, help="Training epochs")
-    parser.add_argument("--batch_size", type=int, default=8, help="Batch size (e.g. 8 for DeBERTa on 6GB, 32 for MiniLM)")
+    parser.add_argument("--batch_size", type=int, default=8, help="Batch size (e.g. 8 for DeBERTa on 11GB VRAM, 16/32 for base/MiniLM)")
     parser.add_argument("--grad_accum_steps", type=int, default=8, help="Gradient accumulation steps")
-    parser.add_argument("--backbone_lr", type=float, default=1.5e-5, help="Learning rate for pretrained backbone")
-    parser.add_argument("--head_lr", type=float, default=1.0e-4, help="Learning rate for custom regression head")
+    parser.add_argument("--backbone_lr", type=float, default=1.0e-5, help="Learning rate for pretrained backbone (e.g. 1e-5 for large, 1.5e-5 for base)")
+    parser.add_argument("--head_lr", type=float, default=8.0e-5, help="Learning rate for custom regression head")
     parser.add_argument("--max_length", type=int, default=256, help="Maximum token sequence length")
     parser.add_argument("--dropout", type=float, default=0.15, help="Head dropout probability")
-    parser.add_argument("--alpha", type=float, default=0.4, help="Weight of Pearson loss in hybrid loss")
+    parser.add_argument("--alpha", type=float, default=0.5, help="Weight of Pearson loss in hybrid loss")
+    parser.add_argument("--optimizer", type=str, default="auto", choices=["auto", "adafactor", "adamw"],
+                        help="Optimizer: 'auto' (adafactor for large models, adamw for others), 'adafactor', or 'adamw'")
+    parser.add_argument("--gradient_checkpointing", action="store_true", default=True,
+                        help="Enable gradient checkpointing to save VRAM on large transformer backbones")
+    parser.add_argument("--no_gradient_checkpointing", dest="gradient_checkpointing", action="store_false")
     parser.add_argument("--precision", type=str, default="auto", choices=["auto", "bf16", "fp16", "fp32"],
                         help="Compute precision: 'auto', 'bf16', 'fp16', or 'fp32'")
     return parser.parse_args()
@@ -179,6 +188,11 @@ def main():
     use_amp, amp_dtype, use_scaler, prec_desc = determine_amp_config(device, args.precision)
     scaler = torch.amp.GradScaler('cuda') if use_scaler else None
 
+    # Determine optimizer type
+    opt_choice = args.optimizer
+    if opt_choice == "auto":
+        opt_choice = "adafactor" if "large" in args.model_name.lower() else "adamw"
+
     print("=" * 80, flush=True)
     print(" CONTINUOUS PROMPT SCORER - OPTIMIZED TRAINING PIPELINE", flush=True)
     print("=" * 80, flush=True)
@@ -188,6 +202,8 @@ def main():
     print(f"Learning Rates:   Backbone: {args.backbone_lr:.1e} | Head: {args.head_lr:.1e}", flush=True)
     print(f"Loss Function:    Hybrid Smooth L1 + {args.alpha} * (1 - Pearson Loss)", flush=True)
     print(f"Precision:        {prec_desc}", flush=True)
+    print(f"Optimizer:        {opt_choice.upper()} {'(low-memory factored)' if opt_choice == 'adafactor' else '(standard)'}", flush=True)
+    print(f"Grad Checkpoint:  {'Enabled' if args.gradient_checkpointing else 'Disabled'}", flush=True)
     print(f"Output Directory: {args.output_dir}", flush=True)
     print("=" * 80, flush=True)
 
@@ -210,6 +226,11 @@ def main():
 
     model = ContinuousPromptScorerModel(args.model_name, dropout_rate=args.dropout).to(device)
 
+    # Enable Gradient Checkpointing if requested
+    if args.gradient_checkpointing and hasattr(model.backbone, "gradient_checkpointing_enable"):
+        model.backbone.gradient_checkpointing_enable()
+        print("[Memory Optimization] Enabled Gradient Checkpointing on model backbone.", flush=True)
+
     no_decay = ["bias", "LayerNorm.weight", "layer_norm.weight"]
     optimizer_grouped_parameters = [
         {"params": [p for n, p in model.backbone.named_parameters() if not any(nd in n for nd in no_decay)],
@@ -222,7 +243,17 @@ def main():
          "weight_decay": 0.01, "lr": args.head_lr}
     ]
 
-    optimizer = torch.optim.AdamW(optimizer_grouped_parameters)
+    if opt_choice == "adafactor":
+        optimizer = Adafactor(
+            optimizer_grouped_parameters,
+            scale_parameter=False,
+            relative_step=False,
+            warmup_init=False,
+            lr=args.backbone_lr
+        )
+    else:
+        optimizer = torch.optim.AdamW(optimizer_grouped_parameters)
+
     total_opt_steps = (len(train_loader) // args.grad_accum_steps) * args.epochs
     warmup_steps = int(0.10 * total_opt_steps)
     scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_opt_steps)
@@ -232,7 +263,8 @@ def main():
     best_rmse = 999.0
     os.makedirs(args.output_dir, exist_ok=True)
 
-    print("\n" + "=" * 105, flush=True)
+    print("
+" + "=" * 105, flush=True)
     print(f" {'Epoch':<7} | {'Train Loss':<10} | {'Val Loss':<10} | {'Val Pearson (r)':<16} | {'Val RMSE':<10} | {'Val DirAcc':<11} | {'Time':<8} | {'Status'}", flush=True)
     print("=" * 105, flush=True)
 
@@ -292,11 +324,11 @@ def main():
                 pct = (step / total_batches) * 100
                 elapsed = time.time() - epoch_start
                 it_per_sec = step / (elapsed + 1e-6)
-                sys.stdout.write(f"\r >> [Epoch {epoch}/{args.epochs}] Batch {step:>4}/{total_batches} ({pct:>5.1f}%) | Current Loss: {raw_loss.item():.4f} | Speed: {it_per_sec:.1f} batch/s")
+                sys.stdout.write(f" >> [Epoch {epoch}/{args.epochs}] Batch {step:>4}/{total_batches} ({pct:>5.1f}%) | Current Loss: {raw_loss.item():.4f} | Speed: {it_per_sec:.1f} batch/s")
                 sys.stdout.flush()
 
         avg_train_loss = train_loss / len(train_labels)
-        sys.stdout.write(f"\r >> [Epoch {epoch}/{args.epochs}] Validating model...{' '*40}\r")
+        sys.stdout.write(f" >> [Epoch {epoch}/{args.epochs}] Validating model...{' '*40}")
         sys.stdout.flush()
 
         val_metrics, _ = evaluate_model(model, val_loader, device, use_amp=use_amp, amp_dtype=amp_dtype)
@@ -321,14 +353,16 @@ def main():
             }
             pd.Series(meta).to_json(os.path.join(args.output_dir, "training_meta.json"))
 
-        sys.stdout.write(f"\r {epoch:^2}/{args.epochs:<3} | {avg_train_loss:<10.4f} | {val_metrics['eval_loss']:<10.4f} | {val_metrics['pearson']:<16.4f} | {val_metrics['rmse']:<10.4f} | {val_metrics['directional_accuracy']:<9.2f}% | {epoch_sec:>5.1f}s   | {status_tag}\n")
+        sys.stdout.write(f" {epoch:^2}/{args.epochs:<3} | {avg_train_loss:<10.4f} | {val_metrics['eval_loss']:<10.4f} | {val_metrics['pearson']:<16.4f} | {val_metrics['rmse']:<10.4f} | {val_metrics['directional_accuracy']:<9.2f}% | {epoch_sec:>5.1f}s   | {status_tag}
+")
         sys.stdout.flush()
 
     print("=" * 105, flush=True)
     total_time = time.time() - start_time
     print(f"Training completed in {total_time/60:.2f} minutes (Best Val Pearson r: {best_pearson:.4f}, Best RMSE: {best_rmse:.4f})", flush=True)
 
-    print("\n" + "=" * 80, flush=True)
+    print("
+" + "=" * 80, flush=True)
     print(" FINAL EVALUATION ON UNSEEN TEST SET (BEST CHECKPOINT)", flush=True)
     print("=" * 80, flush=True)
     
@@ -336,10 +370,10 @@ def main():
     test_metrics, test_preds = evaluate_model(model, test_loader, device, use_amp=use_amp, amp_dtype=amp_dtype)
 
     print(f"  Pearson Correlation (r):  {test_metrics['pearson']:.4f} ({test_metrics['pearson']*100:.2f}%)", flush=True)
-    print(f"  Spearman Correlation (\u03c1): {test_metrics['spearman']:.4f} ({test_metrics['spearman']*100:.2f}%)", flush=True)
+    print(f"  Spearman Correlation (ρ): {test_metrics['spearman']:.4f} ({test_metrics['spearman']*100:.2f}%)", flush=True)
     print(f"  Root Mean Squared Error:  {test_metrics['rmse']:.4f}", flush=True)
     print(f"  Mean Absolute Error:      {test_metrics['mae']:.4f}", flush=True)
-    print(f"  R\u00b2 Goodness-of-Fit:       {test_metrics['r2']:.4f}", flush=True)
+    print(f"  R² Goodness-of-Fit:       {test_metrics['r2']:.4f}", flush=True)
     print(f"  3-Way Directional Acc:    {test_metrics['directional_accuracy']:.2f}%", flush=True)
     print(f"  5-Way Semantic Bracket:   {test_metrics['bracket_5way_accuracy']:.2f}%", flush=True)
     print("=" * 80, flush=True)
