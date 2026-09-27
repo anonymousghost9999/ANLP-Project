@@ -2,3 +2,5 @@
 - claims.json has a bunch of extra fields like reasoning steps and solutions, I did not think they would be necessary but I retained them just in case we ever need them in the future
 - claims_real.json has only the question, topic, and subtopic
 - Both have 75 questions (questions are same in both only difference is extra fields)
+- What to do next : make a prompts dataset, where multiple (around 10-15) prompts are tied to a single claim by a claim_ID
+- So all the prompts tied to a single claim_ID are the prompts that will be fed to open source LLMs while testing their response during the experiments
