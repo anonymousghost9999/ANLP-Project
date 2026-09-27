@@ -57,3 +57,4 @@ data/final_tonality_dataset.jsonl
 data/train.jsonl
 data/val.jsonl
 data/test.jsonl
+sk_mapa.pdf
