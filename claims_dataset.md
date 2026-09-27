@@ -1,0 +1,4 @@
+- I added two datasets in data/claims, claims.json and claims_real.json. 
+- claims.json has a bunch of extra fields like reasoning steps and solutions, I did not think they would be necessary but I retained them just in case we ever need them in the future
+- claims_real.json has only the question, topic, and subtopic
+- Both have 75 questions (questions are same in both only difference is extra fields)

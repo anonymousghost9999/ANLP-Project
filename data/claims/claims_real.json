@@ -1,0 +1,377 @@
+[
+  {
+    "question": "Prove with a rigorous multi-step contradiction argument that alpha = sqrt(2) + sqrt(3) is an irrational number. Determine the monic polynomial of degree 4 over Q satisfied by alpha and prove that it has no rational roots.",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Field Axioms and Irrational Numbers"
+  },
+  {
+    "question": "State the Archimedean property of R, and provide a multi-step proof showing that between any two distinct real numbers x and y with x < y, there exists an irrational number s such that x < s < y.",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Archimedean Property and Density"
+  },
+  {
+    "question": "Let S = {x in Q : x > 0 and x^2 > 2}. Prove that S is a non-empty subset of Q bounded below, but inf S does not belong to Q, thereby demonstrating that the ordered field Q is incomplete.",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Incompleteness of Q and Dedekind Cuts"
+  },
+  {
+    "question": "Let S be a non-empty bounded subset of R with sup S = M and inf S = m. Let T = {x - y : x in S, y in S}. Prove in multiple steps using the epsilon-characterization of bounds that T is bounded, sup T = M - m, and inf T = m - M.",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Supremum and Infimum of Difference Sets"
+  },
+  {
+    "question": "Let S = { \\frac{m}{m+n} + \\frac{n}{m+2n} : m, n \\in \\mathbb{N} }. Determine with rigorous multi-step epsilon proofs the infimum and supremum of S, and prove whether either inf S or sup S belongs to S.",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Exact Supremum and Infimum of Double Sequences"
+  },
+  {
+    "question": "Let S = { \\frac{1}{2^m} + \\frac{1}{2^n} : m, n \\in \\mathbb{N} }. Determine with a rigorous multi-step proof the derived set S' (the set of all limit points of S) and the second derived set S'' = (S')'.",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Derived Sets and Accumulation Points"
+  },
+  {
+    "question": "Let S be a non-empty subset of R bounded above, and let s* = sup S. Prove that if s* does not belong to S, then s* must be a limit point of S (i.e., s* in S') and s* = sup S', where S' is the derived set of S.",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Supremum and Accumulation Points"
+  },
+  {
+    "question": "Consider the set S = {x \\in \\mathbb{R} : \\sin(1/x) = 0}. Determine whether S is open, closed, or neither in R. Find all limit points of S (the derived set S') and write down the closure cl(S).",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Closed and Open Sets in Oscillatory Domains"
+  },
+  {
+    "question": "State Cantor's Intersection Theorem for nested intervals in R. Construct an explicit family of bounded open intervals {I_n : n in N} such that I_1 supset I_2 supset I_3 supset ... and bigcap_{n=1}^infty I_n = emptyset, and prove rigorously why the intersection is empty.",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Cantor Nested Intervals and Compactness"
+  },
+  {
+    "question": "Define a compact set in R in terms of open covers. Let I_n = ( \\frac{1}{n+2}, 1 - \\frac{1}{n+2} ) for each n in N. Prove that the family G = {I_n : n in N} is an open cover of (0, 1), but no finite subfamily of G covers (0, 1).",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Open Covers and Heine-Borel Theorem"
+  },
+  {
+    "question": "Use Cantor's nested interval theorem to construct a multi-step proof that the closed interval [a, b] with a < b is uncountable (non-enumerable).",
+    "topic": "Enumerable Sets and Cardinality",
+    "subtopic": "Uncountability of R via Nested Intervals"
+  },
+  {
+    "question": "Let u_n = \\sum_{k=1}^n \\frac{1}{\\sqrt{n^2 + k}} for each n in N. Establish upper and lower bounds for u_n and use the Sandwich (Squeeze) Theorem to evaluate \\lim_{n \\to \\infty} u_n.",
+    "topic": "Limits of Sequences",
+    "subtopic": "Sandwich Theorem for Algebraic Sum Sequences"
+  },
+  {
+    "question": "A sequence {u_n} is defined by u_1 = \\sqrt{2} and u_{n+1} = \\sqrt{2 + u_n} for n >= 1. Prove by mathematical induction that {u_n} is strictly monotonic increasing and bounded above by 2. Deduce that {u_n} converges and find its limit.",
+    "topic": "Monotone Sequences",
+    "subtopic": "Convergence of Non-linear Nested Radical Sequences"
+  },
+  {
+    "question": "Let 0 < u_1 < u_2 and define u_{n+2} = \\frac{1}{3}(u_{n+1} + 2u_n) for n >= 1. Prove that the sequence {u_n} converges by expressing the differences u_{n+1} - u_n as a geometric progression, and find \\lim_{n \\to \\infty} u_n in terms of u_1 and u_2.",
+    "topic": "Subsequences and Cauchy Sequences",
+    "subtopic": "Linear Recurrence with Odd/Even Subsequences"
+  },
+  {
+    "question": "Let 0 < u_1 < u_2 and define u_{n+2} = \\sqrt{u_{n+1} u_n} for n >= 1. By taking logarithms or analyzing subsequences, prove that {u_n} converges and find \\lim_{n \\to \\infty} u_n.",
+    "topic": "Subsequences and Cauchy Sequences",
+    "subtopic": "Geometric Mean Recurrence Convergence"
+  },
+  {
+    "question": "Let 0 < u_1 < u_2 and define \\frac{2}{u_{n+2}} = \\frac{1}{u_{n+1}} + \\frac{1}{u_n} for n >= 1. Show that {u_n} is convergent and determine \\lim_{n \\to \\infty} u_n in closed form.",
+    "topic": "Subsequences and Cauchy Sequences",
+    "subtopic": "Harmonic Mean Recurrence Convergence"
+  },
+  {
+    "question": "State Cauchy's Second Theorem on limits: if u_n > 0 for all n and lim_{n -> infty} (u_{n+1}/u_n) = L, then lim_{n -> infty} (u_n)^{1/n} = L. Use this theorem to evaluate \\lim_{n \\to \\infty} \\left[ \\frac{(n+1)(n+2)\\cdots(2n)}{n^n} \\right]^{1/n}.",
+    "topic": "Cauchy Theorems on Limits",
+    "subtopic": "Cauchy Second Limit Theorem on Product Sequences"
+  },
+  {
+    "question": "State Cauchy's principle of convergence for real sequences. Use it to prove that the sequence {s_n} given by s_n = 1 + 1/2 + 1/3 + ... + 1/n does not converge.",
+    "topic": "Cauchy Sequences",
+    "subtopic": "Cauchy Principle of Convergence for Series Partial Sums"
+  },
+  {
+    "question": "State the Stolz-Cesaro Theorem (0/0 or inf/inf form). Apply it in multiple steps to evaluate \\lim_{n \\to \\infty} \\frac{1^k + 2^k + \\cdots + n^k}{n^{k+1}} for any natural number k.",
+    "topic": "Cauchy Theorems on Limits",
+    "subtopic": "Stolz-Cesaro Theorem for Polynomial Powers"
+  },
+  {
+    "question": "Let x_n = (-1)^n \\left(1 + \\frac{1}{n}\\right) + \\sin\\left(\\frac{n\\pi}{2}\\right) for n in N. Determine the set of all subsequential limits of {x_n}, and find \\limsup_{n \\to \\infty} x_n and \\liminf_{n \\to \\infty} x_n.",
+    "topic": "Upper Limit and Lower Limit",
+    "subtopic": "Subsequential Limits of Oscillating Sequences"
+  },
+  {
+    "question": "Let \\sum u_n be a series of positive real numbers. Prove that if \\sum u_n converges, then \\sum u_n^2 converges. Provide a counterexample demonstrating that the convergence of \\sum u_n^2 does not imply the convergence of \\sum u_n.",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Convergence of Squares of Terms"
+  },
+  {
+    "question": "State Cauchy's Condensation Test for positive decreasing series. Use it to prove that the infinite series \\sum_{n=2}^\\infty \\frac{1}{n (\\log n)^p} converges if p > 1 and diverges if p <= 1.",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Cauchy Condensation Test for Logarithmic Series"
+  },
+  {
+    "question": "Consider the series \\sum_{n=1}^\\infty u_n where u_n = \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2n-1)}{2 \\cdot 4 \\cdot 6 \\cdots (2n)} \\cdot \\frac{1}{2n+1}. Show that D'Alembert's ratio test is inconclusive, and apply Raabe's test in multiple steps to establish the convergence of the series.",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Raabe's Test for Factorial Quotients"
+  },
+  {
+    "question": "State Gauss's Test for series of positive terms. Apply it to determine all values of p > 0 for which the series \\sum_{n=1}^\\infty \\left[ \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2n-1)}{2 \\cdot 4 \\cdot 6 \\cdots (2n)} \\right]^p is convergent.",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Gauss's Test for Power of Factorial Quotients"
+  },
+  {
+    "question": "Using the logarithmic test or comparison with p-series, test the convergence of the series \\sum_{n=1}^\\infty x^{\\log n} for all real x > 0 (where \\log denotes the natural logarithm).",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Logarithmic Test for Exponential Log Powers"
+  },
+  {
+    "question": "Let {a_n} be a monotone decreasing sequence of positive real numbers with \\lim_{n \\to \\infty} a_n = 0. Prove that the alternating series \\sum_{n=1}^\\infty (-1)^{n-1} b_n converges, where b_n = \\frac{a_1 + a_2 + \\cdots + a_n}{n}.",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Leibniz Test with Arithmetic Means"
+  },
+  {
+    "question": "State Dirichlet's Test for series of arbitrary terms. Apply it in multiple steps to prove that \\sum_{n=1}^\\infty \\frac{\\cos(nx)}{n} is convergent for all x \\in (0, 2\\pi).",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Dirichlet's Test for Trigonometric Series"
+  },
+  {
+    "question": "State Abel's Test for infinite series. Prove that the sequence b_n = (1 + 1/n)^n is strictly increasing and bounded, and use this to prove that \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} \\left(1 + \\frac{1}{n}\\right)^n converges.",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Abel's Test for Alternating Factors"
+  },
+  {
+    "question": "Let u_n = \\frac{(-1)^n}{\\sqrt{n+1}} for n >= 0. Prove that \\sum_{n=0}^\\infty u_n converges conditionally, and prove in multiple steps that its Cauchy product series \\sum_{n=0}^\\infty c_n diverges.",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Divergence of Cauchy Product of Conditionally Convergent Series"
+  },
+  {
+    "question": "Consider the conditionally convergent alternating harmonic series \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} = \\log 2. Show how grouping one positive term followed by two negative terms yields the rearranged series (1 - 1/2 - 1/4) + (1/3 - 1/6 - 1/8) + ..., and prove in multiple steps that its sum is \\frac{1}{2} \\log 2.",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Riemann Rearrangement of Conditionally Convergent Series"
+  },
+  {
+    "question": "Using the rigorous \\epsilon-\\delta definition of the limit of a function, prove that \\lim_{x \\to 3} (x^2 + 2x) = 15. Provide explicit bounds showing how \\delta is chosen given \\epsilon > 0.",
+    "topic": "Limits of Functions",
+    "subtopic": "Epsilon-Delta Rigorous Verification"
+  },
+  {
+    "question": "State the Sequential Criterion for the existence of limits of real functions. Use it to construct two sequences {x_n} and {y_n} converging to 0 such that \\lim_{n \\to \\infty} \\cos(1/x_n) \\ne \\lim_{n \\to \\infty} \\cos(1/y_n), thereby proving that \\lim_{x \\to 0} \\cos(1/x) does not exist.",
+    "topic": "Limits of Functions",
+    "subtopic": "Sequential Criterion for Non-Existence of Limits"
+  },
+  {
+    "question": "Let f: R -> R be defined by f(x) = x if x \\in \\mathbb{Q} and f(x) = 2 - x if x \\in \\mathbb{R} \\setminus \\mathbb{Q}. Prove that \\lim_{x \\to 1} f(x) = 1, and prove that for any real number c \\ne 1, \\lim_{x \\to c} f(x) does not exist.",
+    "topic": "Limits of Functions",
+    "subtopic": "Piecewise Dirichlet-Type Function Limits"
+  },
+  {
+    "question": "Using the properties of the floor function [t], evaluate the one-sided limits \\lim_{x \\to 0^+} x \\left[ \\frac{1}{x} \\right] and \\lim_{x \\to 0^-} x \\left[ \\frac{1}{x} \\right], and determine whether \\lim_{x \\to 0} x \\left[ \\frac{1}{x} \\right] exists.",
+    "topic": "Limits of Functions",
+    "subtopic": "One-Sided Limits Involving Floor Function"
+  },
+  {
+    "question": "Prove that for all x in (0, pi/2), 0 < sin x < x, and use this inequality to evaluate \\lim_{x \\to 0^+} \\left[ \\frac{\\sin x}{x} \\right]. Contrast this with the standard limit \\lim_{x \\to 0} \\frac{\\sin x}{x} = 1.",
+    "topic": "Limits of Functions",
+    "subtopic": "Floor Function of Sinc Quotient"
+  },
+  {
+    "question": "Let f: R -> R satisfy the Cauchy functional equation f(x + y) = f(x) + f(y) for all x, y in R. Prove that if f is continuous at x = 0, then f is continuous everywhere on R, and prove in multiple steps that f(x) = cx for all x in R, where c = f(1).",
+    "topic": "Continuity of Real Functions",
+    "subtopic": "Cauchy Additive Functional Equation"
+  },
+  {
+    "question": "Let f: [0, 1] -> R be defined by f(x) = 1/q if x = p/q in Q (in lowest terms with p, q in N), and f(x) = 0 if x is irrational (with f(0) = 0). Prove in multiple steps using the Archimedean property and epsilon-delta arguments that f is continuous at every irrational point and discontinuous at every rational point in (0, 1).",
+    "topic": "Continuity of Real Functions",
+    "subtopic": "Thomae's (Riemann's) Function Continuity"
+  },
+  {
+    "question": "State the Intermediate Value Theorem (Bolzano's Theorem). Use it in a multi-step proof to show that if f: [a, b] -> [a, b] is continuous on [a, b], then there exists at least one point c \\in [a, b] such that f(c) = c.",
+    "topic": "Properties of Continuous Functions",
+    "subtopic": "Fixed Point Theorem on Closed Intervals"
+  },
+  {
+    "question": "Let f: [0, 2] -> R be continuous on [0, 2] with f(0) = f(2). Define an auxiliary function g on [0, 1] and apply the Intermediate Value Theorem in multiple steps to prove that there exists at least one point c \\in [0, 1] such that f(c) = f(c + 1).",
+    "topic": "Properties of Continuous Functions",
+    "subtopic": "Universal Chord Theorem"
+  },
+  {
+    "question": "Let f, g: [a, b] -> R be continuous functions on [a, b] such that f([a, b]) = g([a, b]) = [0, 1]. Prove in multiple steps that there exists at least one point c \\in [a, b] such that f(c) = g(c).",
+    "topic": "Properties of Continuous Functions",
+    "subtopic": "Intermediate Value Property with Overlapping Ranges"
+  },
+  {
+    "question": "State the definition of uniform continuity for a function f on an interval I. Formulate the sequential criterion for non-uniform continuity, and use it to prove that f(x) = 1/x is not uniformly continuous on (0, 1).",
+    "topic": "Uniform Continuity",
+    "subtopic": "Failure of Uniform Continuity on Bounded Open Intervals"
+  },
+  {
+    "question": "Prove that f(x) = \\sqrt{x} is uniformly continuous on [0, \\infty) using an explicit \\epsilon-\\delta proof based on the algebraic identity |\\sqrt{x} - \\sqrt{y}| \\le \\sqrt{|x - y|}.",
+    "topic": "Uniform Continuity",
+    "subtopic": "Uniform Continuity of Square Root Function on Unbounded Domains"
+  },
+  {
+    "question": "Let f: [0, \\infty) -> R be continuous and suppose \\lim_{x \\to \\infty} f(x) = L \\in \\mathbb{R}. Prove in multiple steps that f is uniformly continuous on [0, \\infty) by partitioning the domain into a compact interval [0, K] and an asymptotic tail [K, \\infty).",
+    "topic": "Uniform Continuity",
+    "subtopic": "Continuous Functions with Limits at Infinity"
+  },
+  {
+    "question": "Prove that if f: D -> R is uniformly continuous on D \\subset \\mathbb{R} and {x_n} is a Cauchy sequence in D, then {f(x_n)} is a Cauchy sequence in R. Show by counterexample that ordinary continuity does not preserve Cauchy sequences.",
+    "topic": "Uniform Continuity",
+    "subtopic": "Preservation of Cauchy Sequences"
+  },
+  {
+    "question": "Let f: R -> R be defined by f(x) = x^2 \\sin(1/x) for x \\ne 0 and f(0) = 0. Prove using first principles that f'(0) exists and find its value. Compute f'(x) for x \\ne 0 and prove that f' is discontinuous at x = 0.",
+    "topic": "Differentiability",
+    "subtopic": "Modulated Oscillating Functions and Continuity of Derivative"
+  },
+  {
+    "question": "State Darboux's Theorem on the intermediate values of derivatives. Prove it in multiple steps by introducing an auxiliary function g(x) = f(x) - kx and analyzing its minimum on the compact interval [a, b].",
+    "topic": "Properties of the Derivative",
+    "subtopic": "Darboux's Intermediate Value Theorem for Derivatives"
+  },
+  {
+    "question": "Prove that if f: I -> R is differentiable on an open interval I and its derivative f' is monotonic on I, then f' cannot have any jump discontinuities and must be continuous on I.",
+    "topic": "Properties of the Derivative",
+    "subtopic": "Continuity of Monotonic Derivatives"
+  },
+  {
+    "question": "Prove that between any two real roots of the equation e^x \\cos x = 1, there is at least one real root of the equation e^x \\sin x = 1 by applying Rolle's Theorem to an appropriately chosen auxiliary function.",
+    "topic": "Mean Value Theorems",
+    "subtopic": "Rolle's Theorem Root Interlacing"
+  },
+  {
+    "question": "State Cauchy's Mean Value Theorem for two functions f and g on [a, b]. Apply it to f(x) = \\sin x and g(x) = \\cos x on [0, \\pi/2] to determine the exact value of the intermediate point \\xi \\in (0, \\pi/2).",
+    "topic": "Mean Value Theorems",
+    "subtopic": "Cauchy Mean Value Theorem Evaluation"
+  },
+  {
+    "question": "Use Lagrange's Mean Value Theorem applied to f(t) = \\log(1 + t) on the interval [0, x] to prove in multiple steps that \\frac{x}{1 + x} < \\log(1 + x) < x for all x > 0.",
+    "topic": "Mean Value Theorems",
+    "subtopic": "Logarithmic Inequalities via Lagrange's MVT"
+  },
+  {
+    "question": "Let f(x) = \\sin x. Taylor's theorem with Lagrange's remainder gives \\sin h = h \\cos(\\theta h) where 0 < \\theta < 1. By expanding \\sin h and \\cos(\\theta h) in higher-order Taylor series around 0, prove in multiple steps that \\lim_{h \\to 0} \\theta = \\frac{1}{\\sqrt{3}}.",
+    "topic": "Taylor's Theorem and Expansions",
+    "subtopic": "Limiting Value of Intermediate Theta in Taylor Remainder"
+  },
+  {
+    "question": "Evaluate \\lim_{x \\to 0} \\frac{x e^x - \\log(1 + x)}{x^2} in multiple steps, both by applying L'Hopital's Rule twice and by using Maclaurin series expansions.",
+    "topic": "Indeterminate Forms",
+    "subtopic": "L'Hopital's Rule for Mixed Transcendental 0/0 Forms"
+  },
+  {
+    "question": "Evaluate \\lim_{x \\to 0} \\frac{e^x - e^{\\sin x}}{x - \\sin x} in multiple steps by applying the Mean Value Theorem to f(t) = e^t or by factoring out an exponential term and using series expansion.",
+    "topic": "Indeterminate Forms",
+    "subtopic": "Exponential-Trigonometric Indeterminate Limits"
+  },
+  {
+    "question": "Evaluate \\lim_{x \\to 0} \\left( \\frac{\\sin x}{x} \\right)^{\\frac{1}{x^2}} in multiple steps by taking the natural logarithm and applying Taylor expansions or L'Hopital's Rule to the resulting 0/0 indeterminate form.",
+    "topic": "Indeterminate Forms",
+    "subtopic": "Power Indeterminate Forms 1^infinity"
+  },
+  {
+    "question": "Let f(x) = x^2 - 2x + 2 on [0, 2]. Prove that f is a function of bounded variation on [0, 2]. Find the total variation V_f([0, 2]), the positive variation P_f([0, 2]), the negative variation N_f([0, 2]), and determine the variation function V_f(x) on [0, 2]. Express f as the difference of two monotonic increasing functions.",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Total Variation and Jordan Decomposition of Polynomials"
+  },
+  {
+    "question": "Let f: [0, 1] -> R be defined by f(x) = x \\sin(\\pi/x) for x \\in (0, 1] and f(0) = 0. Prove that f is continuous on [0, 1], and construct a sequence of partitions P_n of [0, 1] to prove that the total variation V(f; [0, 1]) = \\infty, so f is not of bounded variation.",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Continuous Functions Failing Bounded Variation"
+  },
+  {
+    "question": "Prove that if f: [a, b] -> R is differentiable and its derivative f' is bounded on [a, b], then f is of bounded variation on [a, b]. Use this result to prove that f(x) = x^2 \\sin(1/x) for x \\in (0, 1] and f(0) = 0 is a function of bounded variation on [0, 1].",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Bounded Derivatives Implies Bounded Variation"
+  },
+  {
+    "question": "Let f(x) = [x] - x on [0, 2], where [x] denotes the greatest integer function. Show that f is of bounded variation on [0, 2], determine the total variation V(f; [0, 2]), and compute the positive and negative variations P_f([0, 2]) and N_f([0, 2]).",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Variation of Discontinuous Step Functions"
+  },
+  {
+    "question": "Let f(x) = x^2 on [0, 1]. For each n in N, let P_n = (0, 1/n, 2/n, ..., n/n) be the partition of [0, 1] into n equal subintervals. Compute the lower Darboux sum L(P_n, f) and upper Darboux sum U(P_n, f) in terms of n. Prove that f is Riemann integrable on [0, 1] and determine \\int_0^1 x^2 dx.",
+    "topic": "Riemann Integration",
+    "subtopic": "Darboux Sums Evaluation and Integrability"
+  },
+  {
+    "question": "Prove that if f: [a, b] -> R is bounded and monotone increasing on [a, b], then f is Riemann integrable on [a, b]. Specifically, show that for an equidistant partition P_n into n equal subintervals, U(P_n, f) - L(P_n, f) = \\frac{b - a}{n} [f(b) - f(a)].",
+    "topic": "Riemann Integration",
+    "subtopic": "Integrability of Monotonic Functions"
+  },
+  {
+    "question": "Let f: [0, 1] -> R be Thomae's function (f(x) = 1/q if x = p/q in Q in lowest terms, and f(x) = 0 if x is irrational). Prove that f is Riemann integrable on [0, 1] using upper and lower Darboux sums, and evaluate \\int_0^1 f(x) dx.",
+    "topic": "Riemann Integration",
+    "subtopic": "Integrability of Functions with Countable Discontinuities"
+  },
+  {
+    "question": "State and prove the First Mean Value Theorem of Integral Calculus for a product of two integrable functions f and g where g does not change sign on [a, b]. Prove that if f is continuous, there exists \\xi \\in [a, b] such that \\int_a^b f(x)g(x)dx = f(\\xi) \\int_a^b g(x)dx.",
+    "topic": "Riemann Integration",
+    "subtopic": "First Mean Value Theorem of Integral Calculus"
+  },
+  {
+    "question": "Let f: [a, b] -> R be Riemann integrable on [a, b] and define F(x) = \\int_a^x f(t)dt for x \\in [a, b]. Prove in multiple steps using epsilon-delta arguments that if f is continuous at c \\in (a, b), then F is differentiable at c and F'(c) = f(c).",
+    "topic": "Riemann Integration",
+    "subtopic": "Fundamental Theorem of Integral Calculus"
+  },
+  {
+    "question": "Prove that the improper integral \\int_0^\\infty \\frac{\\sin x}{x} dx is convergent using Dirichlet's Test for improper integrals, and prove that it is not absolutely convergent by showing that \\int_0^\\infty \\frac{|\\sin x|}{x} dx = \\infty.",
+    "topic": "Improper Integrals",
+    "subtopic": "Dirichlet's Test and Non-Absolute Convergence"
+  },
+  {
+    "question": "Prove that the improper integral I = \\int_0^{\\pi/2} \\log(\\sin x) dx converges, and use substitution and properties of symmetry to prove that I = -\\frac{\\pi}{2} \\log 2.",
+    "topic": "Improper Integrals",
+    "subtopic": "Evaluation of Singular Log-Trigonometric Integrals"
+  },
+  {
+    "question": "State Frullani's Theorem for improper integrals. Provide a multi-step proof evaluating \\int_0^\\infty \\frac{f(ax) - f(bx)}{x} dx for a, b > 0 when f is continuous on [0, \\infty) and \\lim_{x \\to \\infty} f(x) = f(\\infty) exists.",
+    "topic": "Improper Integrals",
+    "subtopic": "Frullani's Integral Theorem"
+  },
+  {
+    "question": "Using the integral definitions \\Gamma(m) = \\int_0^\\infty e^{-t} t^{m-1} dt and B(m, n) = \\int_0^1 x^{m-1} (1 - x)^{n-1} dx, establish the relation B(m, n) = \\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m + n)} in multiple steps by substituting t = u^2, s = v^2 and converting to polar coordinates.",
+    "topic": "Beta and Gamma Functions",
+    "subtopic": "Beta and Gamma Function Fundamental Relation"
+  },
+  {
+    "question": "Evaluate \\int_0^1 \\frac{dx}{\\sqrt{1 - x^4}} in multiple steps by substituting x^4 = t and expressing the result in terms of Euler's Beta and Gamma functions.",
+    "topic": "Beta and Gamma Functions",
+    "subtopic": "Evaluation of Singular Radical Integrals via Beta Function"
+  },
+  {
+    "question": "Let f_n(x) = \\frac{nx}{1 + n^2 x^2} for x \\in [0, 1]. Find the pointwise limit f(x). Compute M_n = \\sup_{x \\in [0, 1]} |f_n(x) - f(x)| using calculus to test uniform convergence. Compute \\lim_{n \\to \\infty} \\int_0^1 f_n(x)dx and compare it with \\int_0^1 f(x)dx.",
+    "topic": "Sequence of Functions",
+    "subtopic": "Uniform Convergence via Mn-Test and Integral Limit"
+  },
+  {
+    "question": "Let f_n(x) = \\frac{x}{1 + n x^2} for x \\in [0, 1]. Prove using the M_n-test that {f_n} converges uniformly on [0, 1] to the limit function f(x) = 0. Show that \\lim_{n \\to \\infty} f'_n(0) \\ne f'(0), and explain why the theorem on term-by-term differentiation does not apply.",
+    "topic": "Sequence of Functions",
+    "subtopic": "Non-Commutativity of Limit and Derivative"
+  },
+  {
+    "question": "State Dini's Theorem for monotone sequences of continuous functions on a compact interval. Prove it in multiple steps using the Heine-Borel open cover property.",
+    "topic": "Sequence of Functions",
+    "subtopic": "Dini's Theorem on Monotone Sequences"
+  },
+  {
+    "question": "State the Weierstrass M-Test for uniform convergence of a series of functions. Apply it in multiple steps to prove that \\sum_{n=1}^\\infty \\frac{x}{n(1 + n x^2)} converges uniformly on [0, \\infty).",
+    "topic": "Series of Functions",
+    "subtopic": "Weierstrass M-Test for Rational-Trigonometric Series"
+  },
+  {
+    "question": "State Dirichlet's Test for uniform convergence of a series of functions. Use it to prove that \\sum_{n=1}^\\infty \\frac{\\sin(nx)}{n} is uniformly convergent on [\\delta, 2\\pi - \\delta] where 0 < \\delta < \\pi.",
+    "topic": "Series of Functions",
+    "subtopic": "Dirichlet's Test for Function Series on Compact Subintervals"
+  },
+  {
+    "question": "Consider the power series \\sum_{n=1}^\\infty \\frac{(-1)^n}{n \\cdot 2^n} (x - 1)^n. Find its radius of convergence R. Test convergence at the boundary endpoints x = -1 and x = 3, and state the exact interval of convergence.",
+    "topic": "Power Series",
+    "subtopic": "Radius of Convergence and Endpoint Analysis"
+  },
+  {
+    "question": "Let f: R^2 -> R be defined by f(x, y) = \\frac{x y^2}{x^2 + y^4} for (x, y) \\ne (0, 0) and f(0, 0) = 0. Prove that the limit of f(x, y) along every straight path y = mx (and along x = 0) as (x, y) -> (0, 0) exists and equals 0. Show by approaching along the parabola x = y^2 that the double limit \\lim_{(x, y) \\to (0, 0)} f(x, y) does not exist.",
+    "topic": "Multivariable Limits in R^2",
+    "subtopic": "Path-Dependent Limits and Double Limits"
+  }
+]

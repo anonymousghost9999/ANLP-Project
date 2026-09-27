@@ -1,0 +1,1352 @@
+[
+  {
+    "id": 1,
+    "chapter": "Chapter 2: Real numbers",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Field Axioms and Irrational Numbers",
+    "claim": "The real number sqrt(2) + sqrt(3) is irrational.",
+    "question": "Prove with a rigorous multi-step contradiction argument that alpha = sqrt(2) + sqrt(3) is an irrational number. Determine the monic polynomial of degree 4 over Q satisfied by alpha and prove that it has no rational roots.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Assume for contradiction that alpha = sqrt(2) + sqrt(3) is rational, i.e., alpha in Q.",
+      "Step 2: Square both sides: alpha^2 = 5 + 2*sqrt(6), which rearranges to sqrt(6) = (alpha^2 - 5)/2.",
+      "Step 3: Since Q is closed under subtraction and division by non-zero rationals, alpha in Q implies sqrt(6) in Q.",
+      "Step 4: Prove that sqrt(6) is irrational: let sqrt(6) = p/q with integers p, q coprime; then p^2 = 6q^2, meaning 2 and 3 divide p, so p = 6k, leading to 6k^2 = q^2, so 6 divides q, contradicting gcd(p, q) = 1.",
+      "Step 5: Alternatively, obtain the polynomial P(x) = (x^2 - 5)^2 - 24 = x^4 - 10x^2 + 1. By the Rational Root Theorem, any rational root must be +/-1. Neither is a root, confirming no rational root exists. Hence alpha is irrational."
+    ],
+    "solution_sketch": "Squaring alpha gives sqrt(6) = (alpha^2 - 5)/2. If alpha in Q, then sqrt(6) in Q, which contradicts the irrationality of sqrt(6). Minimal polynomial is x^4 - 10x^2 + 1 with no rational roots.",
+    "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 3(i)"
+  },
+  {
+    "id": 2,
+    "chapter": "Chapter 2: Real numbers",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Archimedean Property and Density",
+    "claim": "Between any two distinct real numbers x and y with x < y, there exists an irrational number.",
+    "question": "State the Archimedean property of R, and provide a multi-step proof showing that between any two distinct real numbers x and y with x < y, there exists an irrational number s such that x < s < y.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State the Archimedean Property: If a > 0 and b in R, there exists a natural number n in N such that na > b.",
+      "Step 2: Consider x < y, which implies y - x > 0. Scale by sqrt(2) > 0 to obtain x*sqrt(2) < y*sqrt(2), with difference (y - x)*sqrt(2) > 0.",
+      "Step 3: By the density of rational numbers in R (derived from the Archimedean property), there exists a rational number r in Q such that x*sqrt(2) < r < y*sqrt(2).",
+      "Step 4: Choose r non-zero: if r = 0, select another rational between 0 and y*sqrt(2) or between x*sqrt(2) and 0.",
+      "Step 5: Divide the inequality across by sqrt(2) to yield x < r/sqrt(2) < y. Define s = r/sqrt(2). Since r in Q \\ {0} and sqrt(2) is irrational, s is irrational, establishing the claim."
+    ],
+    "solution_sketch": "By density of rationals, there is a non-zero r in Q between x*sqrt(2) and y*sqrt(2). Dividing by sqrt(2) produces the irrational s = r/sqrt(2) strictly between x and y.",
+    "source_reference": "S.K. Mapa, Real numbers, Section 2.4.24, Density Property 2"
+  },
+  {
+    "id": 3,
+    "chapter": "Chapter 2: Real numbers",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Incompleteness of Q and Dedekind Cuts",
+    "claim": "The set S = {x in Q : x > 0 and x^2 > 2} is bounded below in Q, but has no infimum in Q.",
+    "question": "Let S = {x in Q : x > 0 and x^2 > 2}. Prove that S is a non-empty subset of Q bounded below, but inf S does not belong to Q, thereby demonstrating that the ordered field Q is incomplete.",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: Verify S is non-empty (e.g., 2 in Q satisfies 2 > 0 and 2^2 = 4 > 2) and bounded below by 0 (since x > 0 for all x in S).",
+      "Step 2: Assume for contradiction that inf S exists in Q, say inf S = l in Q. Since 1 is a lower bound (as x^2 > 2 > 1 implies x > 1 for x > 0) and 2 in S, we have 1 <= l <= 2, so l > 0.",
+      "Step 3: Show l^2 cannot equal 2 because sqrt(2) is irrational, leaving either l^2 < 2 or l^2 > 2.",
+      "Step 4: If l^2 < 2, consider r = (4 + 3l)/(3 + 2l) in Q. Show r - l = 2(2 - l^2)/(3 + 2l) > 0, so r > l. Also show 2 - r^2 = (2 - l^2)/(3 + 2l)^2 > 0, meaning r^2 < 2. Thus r is a lower bound of S strictly greater than l, contradicting that l is the greatest lower bound.",
+      "Step 5: If l^2 > 2, show r < l and r^2 > 2, so r in S with r < l, contradicting that l is a lower bound. Conclude inf S does not exist in Q."
+    ],
+    "solution_sketch": "Assuming inf S = l in Q leads to contradictions in all three trichotomy cases: l^2 = 2 is impossible; l^2 < 2 yields a larger rational lower bound r = (4+3l)/(3+2l); l^2 > 2 yields a smaller member of S. Hence Q is incomplete.",
+    "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 18"
+  },
+  {
+    "id": 4,
+    "chapter": "Chapter 2: Real numbers",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Supremum and Infimum of Difference Sets",
+    "claim": "For any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M.",
+    "question": "Let S be a non-empty bounded subset of R with sup S = M and inf S = m. Let T = {x - y : x in S, y in S}. Prove in multiple steps using the epsilon-characterization of bounds that T is bounded, sup T = M - m, and inf T = m - M.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: For any x, y in S, m <= x <= M and m <= y <= M. Therefore, x - y <= M - m and x - y >= m - M. This shows T is bounded.",
+      "Step 2: To prove sup T = M - m, let epsilon > 0 be arbitrary. By definition of M = sup S, there exists x0 in S such that x0 > M - epsilon/2.",
+      "Step 3: By definition of m = inf S, there exists y0 in S such that y0 < m + epsilon/2, which means -y0 > -m - epsilon/2.",
+      "Step 4: Adding the two inequalities gives x0 - y0 > (M - m) - epsilon. Since x0 - y0 in T, this satisfies the epsilon-characterization of the supremum, proving sup T = M - m.",
+      "Step 5: For inf T, note that T = -T because if z = x - y in T, then -z = y - x in T. Therefore, inf T = -sup(-T) = -sup T = -(M - m) = m - M."
+    ],
+    "solution_sketch": "x - y is bounded above by M - m and below by m - M. For any eps > 0, choosing x > M - eps/2 and y < m + eps/2 gives x - y > M - m - eps, proving sup T = M - m. By symmetry z in T iff -z in T, inf T = m - M.",
+    "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 16"
+  },
+  {
+    "id": 5,
+    "chapter": "Chapter 2: Real numbers",
+    "topic": "Real Number System & Completeness",
+    "subtopic": "Exact Supremum and Infimum of Double Sequences",
+    "claim": "The set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S.",
+    "question": "Let S = { \\frac{m}{m+n} + \\frac{n}{m+2n} : m, n \\in \\mathbb{N} }. Determine with rigorous multi-step epsilon proofs the infimum and supremum of S, and prove whether either inf S or sup S belongs to S.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Analyze the two component terms for m, n in N: 0 < m/(m+n) < 1 and 0 < n/(m+2n) = 1/(m/n + 2) < 1/2.",
+      "Step 2: Summing gives f(m,n) = m/(m+n) + n/(m+2n) > 0 + 0 = 0. More precisely, write f(m,n) - 1/2 = m/(m+n) - m/(2(m+2n)) = m(m + 3n) / [2(m+n)(m+2n)] > 0 for all m, n in N, so 1/2 is a strict lower bound.",
+      "Step 3: Analyze the upper bound: 1 - f(m,n) = n/(m+n) - n/(m+2n) = mn / [(m+n)(m+2n)] > 0 for all m, n in N, so 1 is a strict upper bound.",
+      "Step 4: Prove inf S = 1/2: fix m = 1 and let n -> infinity. Then f(1, n) = 1/(1+n) + n/(1+2n) = 1/(1+n) + 1/(2 + 1/n) -> 0 + 1/2 = 1/2. For any eps > 0, choosing n sufficiently large puts f(1,n) < 1/2 + eps.",
+      "Step 5: Prove sup S = 1: fix n = 1 and let m -> infinity. Then f(m, 1) = m/(m+1) + 1/(m+2) -> 1 + 0 = 1. For any eps > 0, choosing m large puts f(m,1) > 1 - eps. Since inequalities in steps 2 and 3 are strict for all m, n in N, neither 1/2 nor 1 belongs to S."
+    ],
+    "solution_sketch": "1 - f(m,n) = mn/[(m+n)(m+2n)] > 0 and f(m,n) - 1/2 = m(m+3n)/[2(m+n)(m+2n)] > 0. Taking m=1, n -> infty yields limit 1/2 (so inf S = 1/2). Taking n=1, m -> infty yields limit 1 (so sup S = 1). Neither bound belongs to S.",
+    "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 10(iii)"
+  },
+  {
+    "id": 6,
+    "chapter": "Chapter 3: Sets in R",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Derived Sets and Accumulation Points",
+    "claim": "For S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}.",
+    "question": "Let S = { \\frac{1}{2^m} + \\frac{1}{2^n} : m, n \\in \\mathbb{N} }. Determine with a rigorous multi-step proof the derived set S' (the set of all limit points of S) and the second derived set S'' = (S')'.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Fix m = k in N and consider the sequence x_n = 1/2^k + 1/2^n as n -> infinity. Since 1/2^n -> 0, lim_{n -> infinity} x_n = 1/2^k. Since all points x_n are distinct and in S, 1/2^k is a limit point of S for every k in N.",
+      "Step 2: Let both m, n -> infinity, for instance take y_n = 1/2^n + 1/2^n = 1/2^{n-1}. Since y_n -> 0 and y_n in S, 0 is a limit point of S.",
+      "Step 3: Prove that no other points are limit points. Let c in R \\ ({0} U {1/2^k : k in N}). If c < 0, (c - |c|/2, c + |c|/2) contains no elements of S since S subset (0, 1].",
+      "Step 4: If c > 0 and c != 1/2^k for any k, there exists k in N such that 1/2^{k+1} < c < 1/2^k. Show that only finitely many pairs (m, n) can satisfy |1/2^m + 1/2^n - c| < delta for sufficiently small delta, meaning c is not an accumulation point.",
+      "Step 5: Conclude S' = {0} U {1/2^k : k in N}. To find S'' = (S')', observe that S' consists of the convergent sequence {1/2^k : k in N} and its limit 0. Thus the only accumulation point of S' is 0, so S'' = {0}."
+    ],
+    "solution_sketch": "For fixed m=k, n -> infty gives limit 1/2^k; m,n -> infty gives 0. Isolating other points shows S' = {0} U {1/2^k : k in N}. The points 1/2^k are isolated in S' and accumulate only at 0, hence S'' = {0}.",
+    "source_reference": "S.K. Mapa, Sets in R, Exercises 3, Problem 6"
+  },
+  {
+    "id": 7,
+    "chapter": "Chapter 3: Sets in R",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Supremum and Accumulation Points",
+    "claim": "If S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'.",
+    "question": "Let S be a non-empty subset of R bounded above, and let s* = sup S. Prove that if s* does not belong to S, then s* must be a limit point of S (i.e., s* in S') and s* = sup S', where S' is the derived set of S.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Recall the definition of limit point: s* in S' iff for every delta > 0, the deleted neighbourhood (s* - delta, s* + delta) \\ {s*} contains at least one point of S.",
+      "Step 2: By the epsilon-characterization of s* = sup S, for every delta > 0, there exists s in S such that s* - delta < s <= s*.",
+      "Step 3: Since s* does not belong to S by hypothesis, s cannot equal s*, which implies s* - delta < s < s*. Thus s in (s* - delta, s* + delta) \\ {s*}, proving s* in S'.",
+      "Step 4: Now prove s* = sup S'. First, show s* is an upper bound of S': suppose for contradiction there exists p in S' such that p > s*. Let delta = (p - s*)/2 > 0. Then (p - delta, p + delta) contains points of S, all of which are > s*, contradicting that s* = sup S. Thus p <= s* for all p in S'.",
+      "Step 5: Since s* in S' (from Step 3) and s* is an upper bound of S' (from Step 4), s* must be the maximum (and hence supremum) of S', so s* = sup S'."
+    ],
+    "solution_sketch": "Because s* not in S, for every delta > 0 there exists s in S with s* - delta < s < s*, placing s in the punctured neighbourhood, so s* in S'. Any p in S' cannot exceed sup S (else S would have elements > sup S), so s* = sup S'.",
+    "source_reference": "S.K. Mapa, Sets in R, Exercises 3, Problem 14(i)"
+  },
+  {
+    "id": 8,
+    "chapter": "Chapter 3: Sets in R",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Closed and Open Sets in Oscillatory Domains",
+    "claim": "The set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}.",
+    "question": "Consider the set S = {x \\in \\mathbb{R} : \\sin(1/x) = 0}. Determine whether S is open, closed, or neither in R. Find all limit points of S (the derived set S') and write down the closure cl(S).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Solve the defining equation: sin(1/x) = 0 for x != 0 requires 1/x = k*pi for k in Z \\ {0}, so S = {1/(k*pi) : k in Z \\ {0}}.",
+      "Step 2: Test if S is open: every element of S is an isolated point. For any x_k = 1/(k*pi), any neighbourhood (x_k - eps, x_k + eps) contains irrational points not in S. Thus S contains none of its interior points, so int(S) = emptyset, and S is not open.",
+      "Step 3: Test if S is closed: consider the sequence x_k = 1/(k*pi) in S as k -> infinity. lim_{k -> infinity} x_k = 0.",
+      "Step 4: Since each x_k in S is distinct and x_k -> 0, 0 is an accumulation point of S, so 0 in S'. However, x = 0 is not in S because 1/0 is undefined. Since S does not contain all its limit points (0 in S' \\ S), S is not closed.",
+      "Step 5: Prove 0 is the only limit point: for any c != 0, a sufficiently small delta isolates c from the discrete sequence 1/(k*pi). Conclude S' = {0} and cl(S) = S U S' = S U {0}."
+    ],
+    "solution_sketch": "S = {1/(k*pi) : k in Z \\ {0}}. S has empty interior, so it is not open. The sequence x_k = 1/(k*pi) converges to 0 not in S, so 0 in S' \\ S, meaning S is not closed. Hence S is neither open nor closed, S' = {0}, and cl(S) = S U {0}.",
+    "source_reference": "S.K. Mapa, Sets in R, Exercises 3, Problem 9(ii)"
+  },
+  {
+    "id": 9,
+    "chapter": "Chapter 3: Sets in R",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Cantor Nested Intervals and Compactness",
+    "claim": "Cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset.",
+    "question": "State Cantor's Intersection Theorem for nested intervals in R. Construct an explicit family of bounded open intervals {I_n : n in N} such that I_1 supset I_2 supset I_3 supset ... and bigcap_{n=1}^infty I_n = emptyset, and prove rigorously why the intersection is empty.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Cantor's Intersection Theorem: If {I_n = [a_n, b_n]} is a sequence of non-empty closed and bounded intervals such that I_{n+1} subset I_n for all n, then bigcap_{n=1}^infty I_n is non-empty. If additionally lim (b_n - a_n) = 0, the intersection contains exactly one point.",
+      "Step 2: Define I_n = (0, 1/n) for each n in N. Verify that for any n, 0 < 1/(n+1) < 1/n, so I_{n+1} = (0, 1/(n+1)) subset (0, 1/n) = I_n. Thus the intervals are strictly nested and each is non-empty and bounded.",
+      "Step 3: Suppose for contradiction there exists x in bigcap_{n=1}^infty I_n. Then x in I_n for every n in N.",
+      "Step 4: This implies 0 < x < 1/n for every natural number n in N, which means n < 1/x for all n in N.",
+      "Step 5: By the Archimedean property, the set of natural numbers N is not bounded above in R, so no such x > 0 can satisfy n < 1/x for all n in N. Thus no such x exists, and bigcap_{n=1}^infty I_n = emptyset."
+    ],
+    "solution_sketch": "Cantor's theorem requires closed intervals. For open intervals I_n = (0, 1/n), any x in bigcap I_n would satisfy 0 < x < 1/n for all n, violating the Archimedean property. Thus bigcap_{n=1}^infty I_n = emptyset.",
+    "source_reference": "S.K. Mapa, Sets in R, Exercises 4, Problem 2"
+  },
+  {
+    "id": 10,
+    "chapter": "Chapter 3: Sets in R",
+    "topic": "Point-Set Topology of R",
+    "subtopic": "Open Covers and Heine-Borel Theorem",
+    "claim": "The open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover.",
+    "question": "Define a compact set in R in terms of open covers. Let I_n = ( \\frac{1}{n+2}, 1 - \\frac{1}{n+2} ) for each n in N. Prove that the family G = {I_n : n in N} is an open cover of (0, 1), but no finite subfamily of G covers (0, 1).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State the definition of compactness: A subset K of R is compact if every open cover of K admits a finite subcover.",
+      "Step 2: Prove G covers (0, 1): Let x in (0, 1). Then 0 < x < 1, so x > 0 and 1 - x > 0. Let epsilon = min(x, 1 - x) > 0.",
+      "Step 3: By the Archimedean property, there exists a natural number n in N such that 1/(n+2) < epsilon. Then 1/(n+2) < x and 1/(n+2) < 1 - x (which gives x < 1 - 1/(n+2)). Thus x in I_n. Since x was arbitrary, (0, 1) subset bigcup_{n=1}^infty I_n, so G is an open cover.",
+      "Step 4: Show no finite subcover exists: Let {I_{n_1}, I_{n_2}, ..., I_{n_k}} be any finite subcollection of G. Let m = max(n_1, n_2, ..., n_k).",
+      "Step 5: Since the intervals are nested (I_1 subset I_2 subset ... subset I_m), the union of the finite subcollection is simply I_m = (1/(m+2), 1 - 1/(m+2)). Choose x = 1/(m+3) in (0, 1). Clearly x < 1/(m+2), so x is not in I_m. Hence no finite subfamily covers (0, 1)."
+    ],
+    "solution_sketch": "For any x in (0,1), 1/(n+2) < min(x, 1-x) for large n, so G covers (0,1). But any finite subfamily has union I_m = (1/(m+2), 1 - 1/(m+2)), which excludes points like 1/(m+3). Thus (0,1) has no finite subcover and is not compact.",
+    "source_reference": "S.K. Mapa, Sets in R, Exercises 5, Problem 2"
+  },
+  {
+    "id": 11,
+    "chapter": "Chapter 3: Sets in R",
+    "topic": "Enumerable Sets and Cardinality",
+    "subtopic": "Uncountability of R via Nested Intervals",
+    "claim": "The closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable).",
+    "question": "Use Cantor's nested interval theorem to construct a multi-step proof that the closed interval [a, b] with a < b is uncountable (non-enumerable).",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: Assume for contradiction that [a, b] is enumerable. Then its elements can be listed as a sequence {x1, x2, x3, ...}.",
+      "Step 2: Subdivide [a, b] into three equal closed subintervals. At least one of these subintervals does not contain x1. Call this closed subinterval I1 = [a1, b1], so x1 not in I1 and length(I1) = (b - a)/3.",
+      "Step 3: Subdivide I1 into three equal closed subintervals. At least one does not contain x2. Call it I2 = [a2, b2], so x1, x2 not in I2 and length(I2) = (b - a)/3^2.",
+      "Step 4: Inductively construct a nested sequence of non-empty closed intervals I1 supset I2 supset I3 supset ... such that for each n in N, xn not in In and length(In) = (b - a)/3^n.",
+      "Step 5: By Cantor's Intersection Theorem, bigcap_{n=1}^infty In is non-empty and contains a point xi in [a, b]. Since xi in In for all n, xi cannot equal xn for any n in N. Thus xi escapes the enumeration, contradicting the assumption that [a, b] is enumerable."
+    ],
+    "solution_sketch": "Assuming [a, b] = {x1, x2, ...}, inductively choose subintervals In avoiding xn of length (b-a)/3^n. By Cantor's theorem, their intersection contains a point xi in [a,b] different from all xn, a contradiction. Hence [a, b] is uncountable.",
+    "source_reference": "S.K. Mapa, Sets in R, Section 3.13.2"
+  },
+  {
+    "id": 12,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Limits of Sequences",
+    "subtopic": "Sandwich Theorem for Algebraic Sum Sequences",
+    "claim": "The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) converges to 1 as n -> infinity.",
+    "question": "Let u_n = \\sum_{k=1}^n \\frac{1}{\\sqrt{n^2 + k}} for each n in N. Establish upper and lower bounds for u_n and use the Sandwich (Squeeze) Theorem to evaluate \\lim_{n \\to \\infty} u_n.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Analyze each term 1/sqrt(n^2 + k) for 1 <= k <= n: since 1 <= k <= n, n^2 + 1 <= n^2 + k <= n^2 + n.",
+      "Step 2: Taking reciprocals reverses the inequality: 1/sqrt(n^2 + n) <= 1/sqrt(n^2 + k) <= 1/sqrt(n^2 + 1).",
+      "Step 3: Sum each bound from k = 1 to n: n / sqrt(n^2 + n) <= u_n <= n / sqrt(n^2 + 1).",
+      "Step 4: Compute the limits of the bounding sequences as n -> infinity: lim_{n -> infty} n / sqrt(n^2 + 1) = lim 1 / sqrt(1 + 1/n^2) = 1, and lim_{n -> infty} n / sqrt(n^2 + n) = lim 1 / sqrt(1 + 1/n) = 1.",
+      "Step 5: Apply the Sandwich Theorem: since the lower and upper bounds both converge to 1, lim_{n -> infty} u_n = 1."
+    ],
+    "solution_sketch": "Bounding each term yields n/sqrt(n^2 + n) <= u_n <= n/sqrt(n^2 + 1). As n -> infty, both bounds tend to 1. By the Sandwich Theorem, lim u_n = 1.",
+    "source_reference": "S.K. Mapa, Sequence, Section 5.5.5, Worked Examples"
+  },
+  {
+    "id": 13,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Monotone Sequences",
+    "subtopic": "Convergence of Non-linear Nested Radical Sequences",
+    "claim": "The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and converges to 2.",
+    "question": "A sequence {u_n} is defined by u_1 = \\sqrt{2} and u_{n+1} = \\sqrt{2 + u_n} for n >= 1. Prove by mathematical induction that {u_n} is strictly monotonic increasing and bounded above by 2. Deduce that {u_n} converges and find its limit.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Prove boundedness above by 2 via induction: for n = 1, u_1 = sqrt(2) < 2. Assume u_k < 2. Then u_{k+1} = sqrt(2 + u_k) < sqrt(2 + 2) = sqrt(4) = 2. Thus u_n < 2 for all n in N.",
+      "Step 2: Prove monotonicity via induction: for n = 1, u_2 = sqrt(2 + sqrt(2)) > sqrt(2) = u_1. Assume u_{k+1} > u_k. Then 2 + u_{k+1} > 2 + u_k, so sqrt(2 + u_{k+1}) > sqrt(2 + u_k), i.e., u_{k+2} > u_{k+1}. Hence {u_n} is strictly increasing.",
+      "Step 3: Invoke the Monotone Convergence Theorem: every monotonic increasing sequence that is bounded above converges to its supremum. Let lim_{n -> infty} u_n = L.",
+      "Step 4: Take limits on both sides of the recurrence relation u_{n+1}^2 = 2 + u_n to get L^2 = 2 + L, or L^2 - L - 2 = 0.",
+      "Step 5: Solve (L - 2)(L + 1) = 0. Since u_n > 0 for all n, L >= sqrt(2) > 0, discarding L = -1. Therefore L = 2."
+    ],
+    "solution_sketch": "By induction, u_n < 2 and u_{n+1} > u_n for all n. Monotone convergence ensures a limit L. Passing to the limit in L^2 = 2 + L with L > 0 yields L = 2.",
+    "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 1(iii) & Sequence Section 5.9"
+  },
+  {
+    "id": 14,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Subsequences and Cauchy Sequences",
+    "subtopic": "Linear Recurrence with Odd/Even Subsequences",
+    "claim": "For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} converges to (2*u_1 + 3*u_2)/5.",
+    "question": "Let 0 < u_1 < u_2 and define u_{n+2} = \\frac{1}{3}(u_{n+1} + 2u_n) for n >= 1. Prove that the sequence {u_n} converges by expressing the differences u_{n+1} - u_n as a geometric progression, and find \\lim_{n \\to \\infty} u_n in terms of u_1 and u_2.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Express difference between consecutive terms: u_{n+2} - u_{n+1} = (u_{n+1} + 2u_n)/3 - u_{n+1} = -2/3 (u_{n+1} - u_n).",
+      "Step 2: Let d_n = u_{n+1} - u_n. Then d_{n+1} = (-2/3) d_n, which gives d_n = (-2/3)^{n-1} (u_2 - u_1) for n >= 1.",
+      "Step 3: Express u_n as a telescoping sum: u_n = u_1 + sum_{k=1}^{n-1} d_k = u_1 + (u_2 - u_1) sum_{k=1}^{n-1} (-2/3)^{k-1}.",
+      "Step 4: Compute the sum of the geometric series: sum_{k=0}^{n-2} (-2/3)^k = [1 - (-2/3)^{n-1}] / [1 - (-2/3)] = (3/5) [1 - (-2/3)^{n-1}].",
+      "Step 5: Take the limit as n -> infinity: since |-2/3| < 1, (-2/3)^{n-1} -> 0. Therefore lim_{n -> infty} u_n = u_1 + (3/5)(u_2 - u_1) = (2*u_1 + 3*u_2)/5."
+    ],
+    "solution_sketch": "u_{n+1} - u_n = (-2/3)^{n-1}(u_2 - u_1). Telescoping gives u_n = u_1 + (u_2 - u_1) * (3/5)[1 - (-2/3)^{n-1}]. As n -> infty, limit is u_1 + 3/5(u_2 - u_1) = (2*u_1 + 3*u_2)/5.",
+    "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(i)"
+  },
+  {
+    "id": 15,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Subsequences and Cauchy Sequences",
+    "subtopic": "Geometric Mean Recurrence Convergence",
+    "claim": "For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} converges to (u_1 * u_2^2)^{1/3}.",
+    "question": "Let 0 < u_1 < u_2 and define u_{n+2} = \\sqrt{u_{n+1} u_n} for n >= 1. By taking logarithms or analyzing subsequences, prove that {u_n} converges and find \\lim_{n \\to \\infty} u_n.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Take natural logarithms of both sides: let v_n = ln(u_n). Then v_{n+2} = (v_{n+1} + v_n)/2 for n >= 1.",
+      "Step 2: Subtract v_{n+1} from both sides: v_{n+2} - v_{n+1} = -1/2 (v_{n+1} - v_n).",
+      "Step 3: Let delta_n = v_{n+1} - v_n. Then delta_n = (-1/2)^{n-1} delta_1 = (-1/2)^{n-1} (ln u_2 - ln u_1).",
+      "Step 4: Telescope v_n: v_n = v_1 + sum_{k=1}^{n-1} delta_k = ln u_1 + (ln u_2 - ln u_1) sum_{k=0}^{n-2} (-1/2)^k.",
+      "Step 5: Summing geometric series gives sum_{k=0}^infty (-1/2)^k = 1 / (1 + 1/2) = 2/3. Thus lim_{n -> infty} v_n = ln u_1 + (2/3)(ln u_2 - ln u_1) = (1/3) ln u_1 + (2/3) ln u_2 = ln(u_1^{1/3} u_2^{2/3}). Exponentiating yields lim u_n = (u_1 * u_2^2)^{1/3}."
+    ],
+    "solution_sketch": "Setting v_n = ln(u_n) converts to v_{n+2} = (v_{n+1} + v_n)/2. The difference ratio is -1/2, giving limit v_1 + (2/3)(v_2 - v_1) = (v_1 + 2v_2)/3. Exponentiating gives (u_1 * u_2^2)^{1/3}.",
+    "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(ii)"
+  },
+  {
+    "id": 16,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Subsequences and Cauchy Sequences",
+    "subtopic": "Harmonic Mean Recurrence Convergence",
+    "claim": "For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2).",
+    "question": "Let 0 < u_1 < u_2 and define \\frac{2}{u_{n+2}} = \\frac{1}{u_{n+1}} + \\frac{1}{u_n} for n >= 1. Show that {u_n} is convergent and determine \\lim_{n \\to \\infty} u_n in closed form.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Transform to reciprocals: let w_n = 1/u_n. Then 2 w_{n+2} = w_{n+1} + w_n, so w_{n+2} = (w_{n+1} + w_n)/2.",
+      "Step 2: Note this is the standard arithmetic mean recurrence: w_{n+2} - w_{n+1} = -1/2 (w_{n+1} - w_n).",
+      "Step 3: Telescope w_n = w_1 + (w_2 - w_1) sum_{k=0}^{n-2} (-1/2)^k.",
+      "Step 4: As n -> infinity, sum_{k=0}^infty (-1/2)^k = 2/3, so lim_{n -> infty} w_n = w_1 + (2/3)(w_2 - w_1) = (w_1 + 2 w_2)/3.",
+      "Step 5: Substitute w_1 = 1/u_1 and w_2 = 1/u_2: lim w_n = (1/u_1 + 2/u_2)/3 = (u_2 + 2 u_1) / (3 u_1 u_2). Since u_n = 1/w_n, lim_{n -> infty} u_n = 3 u_1 u_2 / (2 u_1 + u_2)."
+    ],
+    "solution_sketch": "Let w_n = 1/u_n. Then w_{n+2} = (w_{n+1} + w_n)/2, which converges to (w_1 + 2w_2)/3 = (2u_1 + u_2)/(3u_1 u_2). Inverting gives lim u_n = 3 u_1 u_2 / (2 u_1 + u_2).",
+    "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(iii)"
+  },
+  {
+    "id": 17,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Cauchy Theorems on Limits",
+    "subtopic": "Cauchy Second Limit Theorem on Product Sequences",
+    "claim": "The limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e.",
+    "question": "State Cauchy's Second Theorem on limits: if u_n > 0 for all n and lim_{n -> infty} (u_{n+1}/u_n) = L, then lim_{n -> infty} (u_n)^{1/n} = L. Use this theorem to evaluate \\lim_{n \\to \\infty} \\left[ \\frac{(n+1)(n+2)\\cdots(2n)}{n^n} \\right]^{1/n}.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Cauchy's Second Limit Theorem: Let {u_n} be a sequence of positive real numbers. If lim_{n -> infty} (u_{n+1}/u_n) exists (finite or infinite), then lim_{n -> infty} (u_n)^{1/n} exists and equals lim_{n -> infty} (u_{n+1}/u_n).",
+      "Step 2: Define u_n = (n+1)(n+2)...(2n) / n^n = (2n)! / (n! * n^n).",
+      "Step 3: Compute the ratio u_{n+1}/u_n: u_{n+1} = (2n+2)! / ((n+1)! * (n+1)^{n+1}).",
+      "Step 4: Simplify the quotient u_{n+1}/u_n = [ (2n+2)(2n+1) (2n)! / ((n+1) n! (n+1)(n+1)^n) ] * [ n! n^n / (2n)! ] = [ 2(2n+1) / (n+1) ] * [ n / (n+1) ]^n = [ 2(2n+1)/(n+1) ] * [ 1 / (1 + 1/n)^n ].",
+      "Step 5: Evaluate the limit of the factors: lim 2(2n+1)/(n+1) = 4, and lim (1 + 1/n)^n = e. Thus lim_{n -> infty} (u_{n+1}/u_n) = 4/e. By Cauchy's Second Limit Theorem, lim_{n -> infty} (u_n)^{1/n} = 4/e."
+    ],
+    "solution_sketch": "Set u_n = (2n)!/(n! n^n). Then u_{n+1}/u_n = 2(2n+1)/(n+1) * 1/(1 + 1/n)^n -> 4/e. By Cauchy's Second Limit Theorem, the nth root converges to 4/e.",
+    "source_reference": "S.K. Mapa, Sequence, Section 5.16, Worked Example"
+  },
+  {
+    "id": 18,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Cauchy Sequences",
+    "subtopic": "Cauchy Principle of Convergence for Series Partial Sums",
+    "claim": "The harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges.",
+    "question": "State Cauchy's principle of convergence for real sequences. Use it to prove that the sequence {s_n} given by s_n = 1 + 1/2 + 1/3 + ... + 1/n does not converge.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Cauchy's Principle of Convergence: A real sequence {s_n} is convergent if and only if for every epsilon > 0, there exists a natural number m such that |s_{n+p} - s_n| < epsilon for all n >= m and all p in N.",
+      "Step 2: Formulate the negation: {s_n} is divergent if there exists epsilon_0 > 0 such that for every m in N, there exist n >= m and p in N such that |s_{n+p} - s_n| >= epsilon_0.",
+      "Step 3: Choose p = n. Then s_{2n} - s_n = 1/(n+1) + 1/(n+2) + ... + 1/(2n).",
+      "Step 4: Bound this sum from below: each of the n terms satisfies 1/(n+k) >= 1/(2n) for 1 <= k <= n. Therefore s_{2n} - s_n >= n * (1/(2n)) = 1/2.",
+      "Step 5: Set epsilon_0 = 1/2. For any candidate m in N, choosing n = m and p = m gives |s_{2m} - s_m| >= 1/2. Thus {s_n} is not a Cauchy sequence, proving that {s_n} diverges."
+    ],
+    "solution_sketch": "|s_{2n} - s_n| = sum_{k=1}^n 1/(n+k) >= n * (1/(2n)) = 1/2 for all n. Negation of Cauchy criterion holds for eps_0 = 1/2, hence the harmonic series diverges.",
+    "source_reference": "S.K. Mapa, Sequence Section 5.15 & Series Section 6.1"
+  },
+  {
+    "id": 19,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Cauchy Theorems on Limits",
+    "subtopic": "Stolz-Cesaro Theorem for Polynomial Powers",
+    "claim": "For any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1).",
+    "question": "State the Stolz-Cesaro Theorem (0/0 or inf/inf form). Apply it in multiple steps to evaluate \\lim_{n \\to \\infty} \\frac{1^k + 2^k + \\cdots + n^k}{n^{k+1}} for any natural number k.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State the Stolz-Cesaro Theorem (inf/inf form): Let {a_n} and {b_n} be sequences of real numbers such that {b_n} is strictly increasing and unbounded (b_n -> infty). If lim_{n -> infty} (a_n - a_{n-1}) / (b_n - b_{n-1}) = L, then lim_{n -> infty} (a_n / b_n) = L.",
+      "Step 2: Identify a_n = sum_{r=1}^n r^k and b_n = n^{k+1}. Observe b_n is strictly increasing and diverges to infinity.",
+      "Step 3: Compute the difference of numerators: a_n - a_{n-1} = n^k.",
+      "Step 4: Compute the difference of denominators using binomial expansion: b_n - b_{n-1} = n^{k+1} - (n - 1)^{k+1} = (k+1) n^k - binom(k+1, 2) n^{k-1} + ... + (-1)^k.",
+      "Step 5: Compute the ratio: (a_n - a_{n-1}) / (b_n - b_{n-1}) = n^k / [ (k+1) n^k + O(n^{k-1}) ] = 1 / [ (k+1) + O(1/n) ]. As n -> infty, this limit is 1/(k+1). By Stolz-Cesaro, the original limit is 1/(k+1)."
+    ],
+    "solution_sketch": "By Stolz-Cesaro, lim a_n/b_n = lim (a_n - a_{n-1})/(b_n - b_{n-1}) = lim n^k / (n^{k+1} - (n-1)^{k+1}). The binomial expansion of the denominator has leading term (k+1)n^k, yielding limit 1/(k+1).",
+    "source_reference": "S.K. Mapa, Sequence, Section 5.16"
+  },
+  {
+    "id": 20,
+    "chapter": "Chapter 5: Sequence",
+    "topic": "Upper Limit and Lower Limit",
+    "subtopic": "Subsequential Limits of Oscillating Sequences",
+    "claim": "For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.",
+    "question": "Let x_n = (-1)^n \\left(1 + \\frac{1}{n}\\right) + \\sin\\left(\\frac{n\\pi}{2}\\right) for n in N. Determine the set of all subsequential limits of {x_n}, and find \\limsup_{n \\to \\infty} x_n and \\liminf_{n \\to \\infty} x_n.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Analyze n modulo 4: since (-1)^n has period 2 and sin(n*pi/2) has period 4, partition N into four arithmetic progressions: n = 4k, 4k+1, 4k+2, 4k+3 for k >= 1.",
+      "Step 2: Case n = 4k: x_{4k} = (+1)(1 + 1/(4k)) + sin(2k*pi) = 1 + 1/(4k) + 0 -> 1.",
+      "Step 3: Case n = 4k+1: x_{4k+1} = (-1)(1 + 1/(4k+1)) + sin(2k*pi + pi/2) = -(1 + 1/(4k+1)) + 1 = -1/(4k+1) -> 0.",
+      "Step 4: Case n = 4k+2: x_{4k+2} = (+1)(1 + 1/(4k+2)) + sin(2k*pi + pi) = 1 + 1/(4k+2) + 0 -> 1.",
+      "Step 5: Case n = 4k+3: x_{4k+3} = (-1)(1 + 1/(4k+3)) + sin(2k*pi + 3pi/2) = -(1 + 1/(4k+3)) - 1 = -2 - 1/(4k+3) -> -2. Wait, what about x_{4k}? If n=4k, (-1)^{4k} = 1, sin(2k*pi) = 0, limit is 1. If n=4k+2, (-1)^{4k+2} = 1, sin(2k*pi+pi) = 0, limit is 1. What about n = 2k? If sin(n*pi/2) = 1 (when n = 4k+1), (-1)^n = -1, sum limit is -1 + 1 = 0. If sin(n*pi/2) = -1 (when n = 4k+3), (-1)^n = -1, sum limit is -1 - 1 = -2. If n is even, sin = 0, (-1)^n = 1, sum limit is 1. Thus subsequential limits are {-2, 0, 1}. limsup is 1, liminf is -2."
+    ],
+    "solution_sketch": "Mod 4 analysis: n=4k -> 1; n=4k+1 -> 0; n=4k+2 -> 1; n=4k+3 -> -2. The set of subsequential limits is {-2, 0, 1}. Thus limsup x_n = 1 and liminf x_n = -2.",
+    "source_reference": "S.K. Mapa, Sequence, Section 5.14 & Exercises 8"
+  },
+  {
+    "id": 21,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Convergence of Squares of Terms",
+    "claim": "If sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false.",
+    "question": "Let \\sum u_n be a series of positive real numbers. Prove that if \\sum u_n converges, then \\sum u_n^2 converges. Provide a counterexample demonstrating that the convergence of \\sum u_n^2 does not imply the convergence of \\sum u_n.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Since sum u_n converges, the nth term test implies lim_{n -> infty} u_n = 0.",
+      "Step 2: By definition of limit with epsilon = 1, there exists an integer m in N such that 0 < u_n < 1 for all n >= m.",
+      "Step 3: For any u_n in (0, 1), multiplying by u_n yields u_n^2 < u_n for all n >= m.",
+      "Step 4: Since sum_{n=m}^infty u_n converges, by the direct Comparison Test for series of positive terms, sum_{n=m}^infty u_n^2 converges, hence sum_{n=1}^infty u_n^2 converges.",
+      "Step 5: For the converse, consider u_n = 1/n. Then sum u_n^2 = sum 1/n^2 converges (p-series with p = 2 > 1), but sum u_n = sum 1/n diverges (harmonic series, p = 1). This confirms the converse is false."
+    ],
+    "solution_sketch": "Since sum u_n converges, u_n -> 0, so u_n < 1 for n >= m. Then u_n^2 < u_n, and comparison test proves sum u_n^2 converges. Converse fails for u_n = 1/n where sum 1/n^2 converges but sum 1/n diverges.",
+    "source_reference": "S.K. Mapa, Series, Exercises 9, Problem 1"
+  },
+  {
+    "id": 22,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Cauchy Condensation Test for Logarithmic Series",
+    "claim": "The series sum_{n=2}^infty 1 / [n (log n)^p] converges if and only if p > 1.",
+    "question": "State Cauchy's Condensation Test for positive decreasing series. Use it to prove that the infinite series \\sum_{n=2}^\\infty \\frac{1}{n (\\log n)^p} converges if p > 1 and diverges if p <= 1.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Cauchy's Condensation Test: If {a_n} is a monotone decreasing sequence of positive real numbers, then sum_{n=1}^infty a_n converges if and only if sum_{k=1}^infty 2^k a_{2^k} converges.",
+      "Step 2: Verify conditions for f(n) = 1/[n (log n)^p]: for n >= 2 and p > 0, n and log n are positive and increasing, so f(n) is positive and monotonically decreasing.",
+      "Step 3: Form the condensed series terms: 2^k f(2^k) = 2^k / [ 2^k (log(2^k))^p ] = 1 / (k log 2)^p = (1 / (log 2)^p) * (1 / k^p).",
+      "Step 4: The condensed series is sum_{k=1}^infty 2^k f(2^k) = (1 / (log 2)^p) sum_{k=1}^infty (1 / k^p), which is a non-zero multiple of the Riemann zeta p-series sum 1/k^p.",
+      "Step 5: Since sum 1/k^p converges if and only if p > 1, the condensed series converges iff p > 1. By Cauchy's Condensation Test, the original series converges iff p > 1."
+    ],
+    "solution_sketch": "f(n) = 1/[n (log n)^p] is positive decreasing. Condensed terms are 2^k f(2^k) = (log 2)^{-p} * k^{-p}. The p-series sum k^{-p} converges iff p > 1, so the original series converges iff p > 1.",
+    "source_reference": "S.K. Mapa, Series, Section 6.3.3"
+  },
+  {
+    "id": 23,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Raabe's Test for Factorial Quotients",
+    "claim": "The series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent.",
+    "question": "Consider the series \\sum_{n=1}^\\infty u_n where u_n = \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2n-1)}{2 \\cdot 4 \\cdot 6 \\cdots (2n)} \\cdot \\frac{1}{2n+1}. Show that D'Alembert's ratio test is inconclusive, and apply Raabe's test in multiple steps to establish the convergence of the series.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Compute the ratio of consecutive terms: u_{n+1}/u_n = [ (2n+1) / (2n+2) ] * [ (2n+1) / (2n+3) ] = (2n+1)^2 / [ (2n+2)(2n+3) ].",
+      "Step 2: Evaluate the limit for D'Alembert's ratio test: lim_{n -> infty} u_{n+1}/u_n = lim (4n^2 + 4n + 1) / (4n^2 + 10n + 6) = 1. Since L = 1, the ratio test is inconclusive.",
+      "Step 3: Set up Raabe's test: compute n(u_n / u_{n+1} - 1).",
+      "Step 4: Expand the ratio: u_n / u_{n+1} = (4n^2 + 10n + 6) / (4n^2 + 4n + 1) = 1 + (6n + 5)/(4n^2 + 4n + 1).",
+      "Step 5: Multiply by n and take the limit: lim_{n -> infty} n(u_n / u_{n+1} - 1) = lim n(6n + 5) / (4n^2 + 4n + 1) = 6/4 = 3/2. Since 3/2 > 1, Raabe's test guarantees that the series is convergent."
+    ],
+    "solution_sketch": "u_{n+1}/u_n -> 1 so ratio test fails. Raabe's expression is n(u_n/u_{n+1} - 1) = n(6n + 5)/(4n^2 + 4n + 1) -> 6/4 = 3/2. Since 3/2 > 1, the series converges by Raabe's test.",
+    "source_reference": "S.K. Mapa, Series, Section 6.3.10, Worked Example"
+  },
+  {
+    "id": 24,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Gauss's Test for Power of Factorial Quotients",
+    "claim": "The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p converges if and only if p > 2.",
+    "question": "State Gauss's Test for series of positive terms. Apply it to determine all values of p > 0 for which the series \\sum_{n=1}^\\infty \\left[ \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2n-1)}{2 \\cdot 4 \\cdot 6 \\cdots (2n)} \\right]^p is convergent.",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: State Gauss's Test: Let sum u_n be a series of positive real numbers such that u_n / u_{n+1} = 1 + alpha/n + B_n / n^lambda, where lambda > 1 and {B_n} is bounded. Then sum u_n converges if alpha > 1 and diverges if alpha <= 1.",
+      "Step 2: Write u_n = [ (2n-1)!! / (2n)!! ]^p. Then u_n / u_{n+1} = [ (2n+2)/(2n+1) ]^p = [ 1 + 1/(2n+1) ]^p.",
+      "Step 3: Expand [ 1 + 1/(2n+1) ]^p using binomial series: since 1/(2n+1) = (1/(2n)) * (1 + 1/(2n))^{-1} = 1/(2n) - 1/(4n^2) + O(1/n^3).",
+      "Step 4: Substitute into binomial expansion: [ 1 + 1/(2n+1) ]^p = 1 + p/(2n+1) + [p(p-1)/2] (1/(2n+1)^2) + O(1/n^3) = 1 + p/(2n) - p/(4n^2) + p(p-1)/(8n^2) + O(1/n^3) = 1 + (p/2)/n + B_n / n^2, where B_n is bounded.",
+      "Step 5: Identify alpha = p/2 and lambda = 2 > 1. By Gauss's Test, the series converges if alpha = p/2 > 1 (i.e., p > 2) and diverges if alpha = p/2 <= 1 (i.e., p <= 2)."
+    ],
+    "solution_sketch": "u_n/u_{n+1} = (1 + 1/(2n+1))^p = 1 + (p/2)/n + O(1/n^2). Here alpha = p/2. By Gauss's test, the series converges iff alpha > 1, which means p > 2.",
+    "source_reference": "S.K. Mapa, Series, Section 6.3.13 & Exercises 9"
+  },
+  {
+    "id": 25,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Positive Terms",
+    "subtopic": "Logarithmic Test for Exponential Log Powers",
+    "claim": "The series sum_{n=1}^infty x^{log n} converges for 0 < x < 1/e and diverges for x >= 1/e.",
+    "question": "Using the logarithmic test or comparison with p-series, test the convergence of the series \\sum_{n=1}^\\infty x^{\\log n} for all real x > 0 (where \\log denotes the natural logarithm).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Rewrite the general term u_n = x^{ln n} using exponential-logarithm identity: x^{ln n} = (e^{ln x})^{ln n} = e^{(ln x)(ln n)} = (e^{ln n})^{ln x} = n^{ln x}.",
+      "Step 2: Express the series in standard p-series form: sum_{n=1}^infty u_n = sum_{n=1}^infty 1 / n^{-ln x} = sum_{n=1}^infty 1 / n^p, where p = -ln x.",
+      "Step 3: Recall the convergence criterion for the p-series sum 1/n^p: it converges if and only if p > 1.",
+      "Step 4: Solve the inequality for x: -ln x > 1 implies ln x < -1, which exponentiates to 0 < x < e^{-1} = 1/e.",
+      "Step 5: Analyze the remaining cases: if x >= 1/e, then ln x >= -1, so p = -ln x <= 1, and the p-series diverges. In particular, for x >= 1, ln x >= 0, so terms do not tend to zero. Hence the series converges if and only if 0 < x < 1/e."
+    ],
+    "solution_sketch": "x^{ln n} = n^{ln x} = 1/n^{-ln x}. This is a p-series with p = -ln x. It converges iff p > 1, which gives -ln x > 1 <=> 0 < x < 1/e. Diverges for x >= 1/e.",
+    "source_reference": "S.K. Mapa, Series, Exercises 9, Problem 10(ix)"
+  },
+  {
+    "id": 26,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Leibniz Test with Arithmetic Means",
+    "claim": "For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... converges.",
+    "question": "Let {a_n} be a monotone decreasing sequence of positive real numbers with \\lim_{n \\to \\infty} a_n = 0. Prove that the alternating series \\sum_{n=1}^\\infty (-1)^{n-1} b_n converges, where b_n = \\frac{a_1 + a_2 + \\cdots + a_n}{n}.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Define b_n = (a_1 + a_2 + ... + a_n)/n. By Cauchy's First Limit Theorem on arithmetic means, since a_n -> 0, lim_{n -> infty} b_n = 0.",
+      "Step 2: Check positivity: since a_k > 0 for all k, b_n > 0 for all n in N.",
+      "Step 3: Prove monotonicity of {b_n}: compute b_n - b_{n+1} = (a_1 + ... + a_n)/n - (a_1 + ... + a_{n+1})/(n+1) = [ (n+1)(a_1 + ... + a_n) - n(a_1 + ... + a_{n+1}) ] / [n(n+1)] = [ (a_1 + ... + a_n) - n a_{n+1} ] / [n(n+1)].",
+      "Step 4: Since {a_n} is monotone decreasing, a_k >= a_{n+1} for all k = 1, 2, ..., n. Therefore sum_{k=1}^n a_k >= n a_{n+1}, which implies b_n - b_{n+1} >= 0, so b_{n+1} <= b_n.",
+      "Step 5: Apply Leibniz's Test for alternating series: since {b_n} is a monotone decreasing sequence of positive terms converging to 0, the alternating series sum_{n=1}^infty (-1)^{n-1} b_n converges."
+    ],
+    "solution_sketch": "b_n -> 0 by Cauchy's first limit theorem. b_n - b_{n+1} = [sum_{k=1}^n (a_k - a_{n+1})]/[n(n+1)] >= 0 because a_k >= a_{n+1}. Hence {b_n} is a positive monotone decreasing null sequence, and the series converges by Leibniz's test.",
+    "source_reference": "S.K. Mapa, Series, Exercises 10, Problem 3(i)"
+  },
+  {
+    "id": 27,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Dirichlet's Test for Trigonometric Series",
+    "claim": "The series sum_{n=1}^infty cos(nx)/n converges for all x in R \\ {2k*pi : k in Z}.",
+    "question": "State Dirichlet's Test for series of arbitrary terms. Apply it in multiple steps to prove that \\sum_{n=1}^\\infty \\frac{\\cos(nx)}{n} is convergent for all x \\in (0, 2\\pi).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Dirichlet's Test: The series sum a_n b_n converges if the sequence of partial sums A_n = sum_{k=1}^n a_k is bounded, and {b_n} is a monotone decreasing sequence converging to 0.",
+      "Step 2: Identify a_n = cos(nx) and b_n = 1/n. Clearly b_n > 0, b_{n+1} < b_n, and lim_{n -> infty} b_n = 0.",
+      "Step 3: Evaluate the partial sums A_n(x) = sum_{k=1}^n cos(kx): multiply by 2 sin(x/2) (valid since x in (0, 2pi) implies sin(x/2) != 0).",
+      "Step 4: Use telescoping identity 2 cos(kx) sin(x/2) = sin((k + 1/2)x) - sin((k - 1/2)x) to obtain A_n(x) = [ sin((n + 1/2)x) - sin(x/2) ] / [ 2 sin(x/2) ].",
+      "Step 5: Bound the partial sums: |A_n(x)| <= ( |sin((n+1/2)x)| + |sin(x/2)| ) / [ 2 |sin(x/2)| ] <= 2 / [ 2 |sin(x/2)| ] = 1 / |sin(x/2)|. Since x is fixed and sin(x/2) != 0, M = 1/|sin(x/2)| is a finite bound independent of n. By Dirichlet's Test, the series converges."
+    ],
+    "solution_sketch": "Partial sums of cos(nx) telescope to [sin((n+1/2)x) - sin(x/2)]/[2 sin(x/2)], bounded by 1/|sin(x/2)| for x not in 2pi*Z. Since 1/n decreases monotonically to 0, Dirichlet's test establishes convergence.",
+    "source_reference": "S.K. Mapa, Series, Section 6.4.11"
+  },
+  {
+    "id": 28,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Abel's Test for Alternating Factors",
+    "claim": "The series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent.",
+    "question": "State Abel's Test for infinite series. Prove that the sequence b_n = (1 + 1/n)^n is strictly increasing and bounded, and use this to prove that \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} \\left(1 + \\frac{1}{n}\\right)^n converges.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Abel's Test: If sum a_n is a convergent series and {b_n} is a monotonic and bounded sequence of real numbers, then the series sum a_n b_n is convergent.",
+      "Step 2: Choose a_n = (-1)^{n-1}/n. By Leibniz's test, sum_{n=1}^infty (-1)^{n-1}/n is the alternating harmonic series, which is known to converge (to ln 2).",
+      "Step 3: Define b_n = (1 + 1/n)^n. Use the binomial expansion or AM-GM inequality on {1, 1+1/n, ..., 1+1/n} (n terms) to prove that b_{n+1} > b_n for all n in N, so {b_n} is strictly increasing.",
+      "Step 4: Prove boundedness: using binomial expansion, b_n = 1 + 1 + (1 - 1/n)/2! + ... < 1 + 1 + 1/2! + 1/3! + ... < 1 + 1 + 1/2 + 1/4 + ... = 3. Thus 2 <= b_n < 3 for all n, so {b_n} is bounded.",
+      "Step 5: Since sum a_n converges and {b_n} is monotonic and bounded, by Abel's Test the product series sum a_n b_n converges."
+    ],
+    "solution_sketch": "sum (-1)^{n-1}/n converges by Leibniz. b_n = (1 + 1/n)^n is monotonic increasing and bounded above by 3 (converging to e). By Abel's test, sum a_n b_n converges.",
+    "source_reference": "S.K. Mapa, Series, Section 6.4.12 & Exercises 10"
+  },
+  {
+    "id": 29,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Divergence of Cauchy Product of Conditionally Convergent Series",
+    "claim": "The Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent.",
+    "question": "Let u_n = \\frac{(-1)^n}{\\sqrt{n+1}} for n >= 0. Prove that \\sum_{n=0}^\\infty u_n converges conditionally, and prove in multiple steps that its Cauchy product series \\sum_{n=0}^\\infty c_n diverges.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Prove conditional convergence of sum u_n: 1/sqrt(n+1) decreases monotonically to 0, so by Leibniz's test sum u_n converges. However, sum |u_n| = sum 1/sqrt(n+1) diverges by p-series test (p = 1/2 <= 1). Thus convergence is conditional.",
+      "Step 2: Write down the definition of the Cauchy product: c_n = sum_{k=0}^n u_k u_{n-k} = sum_{k=0}^n [ (-1)^k / sqrt(k+1) ] * [ (-1)^{n-k} / sqrt(n - k + 1) ].",
+      "Step 3: Simplify the alternating sign: (-1)^k * (-1)^{n-k} = (-1)^n, so c_n = (-1)^n sum_{k=0}^n 1 / sqrt((k+1)(n - k + 1)).",
+      "Step 4: Bound the denominator using AM-GM: sqrt((k+1)(n - k + 1)) <= [ (k+1) + (n - k + 1) ] / 2 = (n + 2)/2. Thus 1 / sqrt((k+1)(n - k + 1)) >= 2 / (n + 2).",
+      "Step 5: Sum over k from 0 to n: |c_n| = sum_{k=0}^n 1 / sqrt((k+1)(n - k + 1)) >= sum_{k=0}^n 2 / (n + 2) = (n + 1) * 2 / (n + 2) = 2(n+1)/(n+2) >= 1 for all n >= 0. Since |c_n| >= 1 for all n, c_n does not converge to 0 as n -> infty. By the nth-term divergence test, the Cauchy product series diverges."
+    ],
+    "solution_sketch": "u_n converges conditionally by Leibniz. The Cauchy product has general term |c_n| = sum_{k=0}^n 1/sqrt((k+1)(n-k+1)). AM-GM gives sqrt((k+1)(n-k+1)) <= (n+2)/2, so |c_n| >= (n+1)*2/(n+2) >= 1. Since c_n does not tend to 0, the product diverges.",
+    "source_reference": "S.K. Mapa, Series, Section 6.6, Worked Example"
+  },
+  {
+    "id": 30,
+    "chapter": "Chapter 6: Series",
+    "topic": "Series of Arbitrary Terms",
+    "subtopic": "Riemann Rearrangement of Conditionally Convergent Series",
+    "claim": "The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... converges to (1/2) * log 2.",
+    "question": "Consider the conditionally convergent alternating harmonic series \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} = \\log 2. Show how grouping one positive term followed by two negative terms yields the rearranged series (1 - 1/2 - 1/4) + (1/3 - 1/6 - 1/8) + ..., and prove in multiple steps that its sum is \\frac{1}{2} \\log 2.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Recall that sum_{n=1}^infty (-1)^{n-1}/n = 1 - 1/2 + 1/3 - 1/4 + ... converges conditionally to S = ln 2.",
+      "Step 2: Group the rearrangement into blocks of three terms: v_k = 1/(2k-1) - 1/(4k-2) - 1/(4k) for k >= 1.",
+      "Step 3: Simplify the first two terms in each block: 1/(2k-1) - 1/(4k-2) = 1/(2k-1) - 1/[2(2k-1)] = 1/[2(2k-1)] = 1/(4k-2).",
+      "Step 4: Substitute back into v_k: v_k = 1/(4k-2) - 1/(4k) = (1/2) [ 1/(2k-1) - 1/(2k) ].",
+      "Step 5: Sum over k from 1 to infinity: sum_{k=1}^infty v_k = (1/2) sum_{k=1}^infty [ 1/(2k-1) - 1/(2k) ] = (1/2) [ 1 - 1/2 + 1/3 - 1/4 + ... ] = (1/2) S = (1/2) ln 2. Justify that partial sums within blocks also converge to the same limit."
+    ],
+    "solution_sketch": "Each block of one positive and two negative terms is 1/(2k-1) - 1/(4k-2) - 1/(4k) = 1/(4k-2) - 1/(4k) = 1/2 [1/(2k-1) - 1/(2k)]. Summing over k gives 1/2 * (1 - 1/2 + 1/3 - 1/4 + ...) = 1/2 ln 2.",
+    "source_reference": "S.K. Mapa, Series, Section 6.5, Worked Example"
+  },
+  {
+    "id": 31,
+    "chapter": "Chapter 7: Limits",
+    "topic": "Limits of Functions",
+    "subtopic": "Epsilon-Delta Rigorous Verification",
+    "claim": "For f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15.",
+    "question": "Using the rigorous \\epsilon-\\delta definition of the limit of a function, prove that \\lim_{x \\to 3} (x^2 + 2x) = 15. Provide explicit bounds showing how \\delta is chosen given \\epsilon > 0.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State the definition: lim_{x -> 3} f(x) = 15 iff for every eps > 0, there exists delta > 0 such that 0 < |x - 3| < delta implies |(x^2 + 2x) - 15| < eps.",
+      "Step 2: Factor the error term: |(x^2 + 2x) - 15| = |x^2 + 2x - 15| = |(x - 3)(x + 5)| = |x - 3| * |x + 5|.",
+      "Step 3: Impose an initial bound on delta, say delta <= 1. If |x - 3| < 1, then 2 < x < 4.",
+      "Step 4: Bound the factor |x + 5|: since 2 < x < 4, 7 < x + 5 < 9, so |x + 5| < 9.",
+      "Step 5: Combine bounds: |(x^2 + 2x) - 15| < 9 |x - 3|. For any eps > 0, choose delta = min(1, eps/9). Then 0 < |x - 3| < delta implies |(x^2 + 2x) - 15| < 9*(eps/9) = eps, completing the proof."
+    ],
+    "solution_sketch": "|(x^2+2x) - 15| = |x - 3||x + 5|. For |x - 3| < 1, |x + 5| < 9. Setting delta = min(1, eps/9) ensures |f(x) - 15| < 9*delta <= eps.",
+    "source_reference": "S.K. Mapa, Limits, Section 7.1, Worked Examples"
+  },
+  {
+    "id": 32,
+    "chapter": "Chapter 7: Limits",
+    "topic": "Limits of Functions",
+    "subtopic": "Sequential Criterion for Non-Existence of Limits",
+    "claim": "The limit lim_{x -> 0} cos(1/x) does not exist.",
+    "question": "State the Sequential Criterion for the existence of limits of real functions. Use it to construct two sequences {x_n} and {y_n} converging to 0 such that \\lim_{n \\to \\infty} \\cos(1/x_n) \\ne \\lim_{n \\to \\infty} \\cos(1/y_n), thereby proving that \\lim_{x \\to 0} \\cos(1/x) does not exist.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State the Sequential Criterion: lim_{x -> c} f(x) = L iff for every sequence {x_n} in dom(f) \\ {c} with x_n -> c, the sequence {f(x_n)} converges to L. Non-existence follows if two sequences converging to c produce different limits.",
+      "Step 2: Choose sequence x_n: let 1/x_n = 2n*pi, which gives x_n = 1/(2n*pi) for n in N. Since 2n*pi -> infty, x_n -> 0 as n -> infty.",
+      "Step 3: Evaluate f(x_n): f(x_n) = cos(2n*pi) = 1 for all n in N. Thus lim_{n -> infty} f(x_n) = 1.",
+      "Step 4: Choose sequence y_n: let 1/y_n = 2n*pi + pi, which gives y_n = 1/((2n + 1)pi) for n in N. Clearly y_n -> 0 as n -> infty.",
+      "Step 5: Evaluate f(y_n): f(y_n) = cos((2n + 1)pi) = -1 for all n in N. Thus lim_{n -> infty} f(y_n) = -1. Since 1 != -1, by the sequential criterion lim_{x -> 0} cos(1/x) does not exist."
+    ],
+    "solution_sketch": "Take x_n = 1/(2n*pi) -> 0 giving cos(1/x_n) = 1 -> 1, and y_n = 1/((2n+1)pi) -> 0 giving cos(1/y_n) = -1 -> -1. Differing sequence limits prove lim_{x -> 0} cos(1/x) does not exist.",
+    "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 1(i)"
+  },
+  {
+    "id": 33,
+    "chapter": "Chapter 7: Limits",
+    "topic": "Limits of Functions",
+    "subtopic": "Piecewise Dirichlet-Type Function Limits",
+    "claim": "For f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1.",
+    "question": "Let f: R -> R be defined by f(x) = x if x \\in \\mathbb{Q} and f(x) = 2 - x if x \\in \\mathbb{R} \\setminus \\mathbb{Q}. Prove that \\lim_{x \\to 1} f(x) = 1, and prove that for any real number c \\ne 1, \\lim_{x \\to c} f(x) does not exist.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Evaluate |f(x) - 1|: if x in Q, |f(x) - 1| = |x - 1|. If x in R \\ Q, |f(x) - 1| = |(2 - x) - 1| = |1 - x| = |x - 1|.",
+      "Step 2: For any eps > 0, choose delta = eps. Then whenever 0 < |x - 1| < delta, |f(x) - 1| = |x - 1| < delta = eps, regardless of whether x is rational or irrational. Thus lim_{x -> 1} f(x) = 1.",
+      "Step 3: Now consider c != 1. Choose a sequence of rational numbers {r_n} converging to c. Then f(r_n) = r_n -> c.",
+      "Step 4: Choose a sequence of irrational numbers {s_n} converging to c. Then f(s_n) = 2 - s_n -> 2 - c.",
+      "Step 5: For the limit to exist, the two sequential limits must agree: c = 2 - c, which implies 2c = 2, so c = 1. Since c != 1, c != 2 - c, so the two sequential limits differ, proving lim_{x -> c} f(x) does not exist."
+    ],
+    "solution_sketch": "For any x, |f(x) - 1| = |x - 1|, so delta = eps proves lim_{x -> 1} f(x) = 1. For c != 1, rationals give limit c and irrationals give limit 2 - c. Since c != 2 - c when c != 1, the limit does not exist.",
+    "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 2"
+  },
+  {
+    "id": 34,
+    "chapter": "Chapter 7: Limits",
+    "topic": "Limits of Functions",
+    "subtopic": "One-Sided Limits Involving Floor Function",
+    "claim": "The one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1.",
+    "question": "Using the properties of the floor function [t], evaluate the one-sided limits \\lim_{x \\to 0^+} x \\left[ \\frac{1}{x} \\right] and \\lim_{x \\to 0^-} x \\left[ \\frac{1}{x} \\right], and determine whether \\lim_{x \\to 0} x \\left[ \\frac{1}{x} \\right] exists.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Recall the defining inequality for the greatest integer function: for all t in R, t - 1 < [t] <= t.",
+      "Step 2: Let t = 1/x for x != 0. Then 1/x - 1 < [1/x] <= 1/x.",
+      "Step 3: Case x > 0: multiply the inequality by x > 0: x(1/x - 1) < x[1/x] <= x(1/x), which simplifies to 1 - x < x[1/x] <= 1. As x -> 0^+, 1 - x -> 1 and 1 -> 1. By the Sandwich Theorem, lim_{x -> 0^+} x[1/x] = 1.",
+      "Step 4: Case x < 0: multiply by x < 0 (which reverses inequalities): 1 <= x[1/x] < 1 - x. As x -> 0^-, 1 - x -> 1. By the Sandwich Theorem, lim_{x -> 0^-} x[1/x] = 1.",
+      "Step 5: Since the left-hand and right-hand limits both exist and equal 1, conclude that lim_{x -> 0} x[1/x] exists and equals 1."
+    ],
+    "solution_sketch": "From 1/x - 1 < [1/x] <= 1/x, multiplying by x > 0 gives 1 - x < x[1/x] <= 1, yielding right limit 1. For x < 0, multiplying reverses inequality: 1 <= x[1/x] < 1 - x, yielding left limit 1. Hence two-sided limit is 1.",
+    "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 4(iv)"
+  },
+  {
+    "id": 35,
+    "chapter": "Chapter 7: Limits",
+    "topic": "Limits of Functions",
+    "subtopic": "Floor Function of Sinc Quotient",
+    "claim": "The limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1.",
+    "question": "Prove that for all x in (0, pi/2), 0 < sin x < x, and use this inequality to evaluate \\lim_{x \\to 0^+} \\left[ \\frac{\\sin x}{x} \\right]. Contrast this with the standard limit \\lim_{x \\to 0} \\frac{\\sin x}{x} = 1.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Geometrically or via derivative of f(t) = t - sin t, establish that sin x < x for all x in (0, pi/2). Also sin x > 0 on (0, pi/2).",
+      "Step 2: Divide by x > 0 to obtain 0 < (sin x)/x < 1 for all x in (0, pi/2).",
+      "Step 3: Recall the definition of the floor function: for any real number u in [0, 1), [u] = 0.",
+      "Step 4: Since 0 < (sin x)/x < 1 for all x in (0, pi/2), it follows that [(sin x)/x] = 0 for all x in (0, pi/2).",
+      "Step 5: Since the function is identically 0 on the interval (0, pi/2), its right-hand limit as x -> 0^+ is lim_{x -> 0^+} 0 = 0. Note that lim_{x -> 0} [(sin x)/x] does not equal [lim_{x -> 0} (sin x)/x] = [1] = 1, illustrating that the floor function cannot be interchanged with limits."
+    ],
+    "solution_sketch": "For x in (0, pi/2), 0 < sin x < x, so 0 < (sin x)/x < 1. Hence [(sin x)/x] = 0 identically on (0, pi/2), giving right limit 0, differing from [lim (sin x)/x] = [1] = 1.",
+    "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 4(v)"
+  },
+  {
+    "id": 36,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Continuity of Real Functions",
+    "subtopic": "Cauchy Additive Functional Equation",
+    "claim": "If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is continuous at x = 0, then f(x) = cx for all x in R where c = f(1).",
+    "question": "Let f: R -> R satisfy the Cauchy functional equation f(x + y) = f(x) + f(y) for all x, y in R. Prove that if f is continuous at x = 0, then f is continuous everywhere on R, and prove in multiple steps that f(x) = cx for all x in R, where c = f(1).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Set x = y = 0: f(0 + 0) = f(0) + f(0) implies f(0) = 0. Continuity at 0 means lim_{h -> 0} f(h) = f(0) = 0.",
+      "Step 2: Prove continuity everywhere: let c in R be arbitrary. lim_{h -> 0} f(c + h) = lim_{h -> 0} [f(c) + f(h)] = f(c) + lim_{h -> 0} f(h) = f(c) + 0 = f(c). Hence f is continuous at every point in R.",
+      "Step 3: Establish linearity for integers: by induction, f(nx) = n f(x) for n in N. Since f(0) = 0 and f(x) + f(-x) = f(0) = 0, f(-x) = -f(x). Thus f(mx) = m f(x) for all m in Z. Setting x = 1 gives f(m) = m c where c = f(1).",
+      "Step 4: Establish linearity for rationals: let r = p/q with p in Z, q in N. Then f(p) = f(q * (p/q)) = q f(p/q). Since f(p) = p c, we have q f(p/q) = p c, so f(p/q) = (p/q) c, i.e., f(r) = c r for all r in Q.",
+      "Step 5: Extend to all reals via continuity: for any real x, by density of rationals there exists a sequence {r_n} in Q such that r_n -> x. By continuity of f, f(x) = lim_{n -> infty} f(r_n) = lim_{n -> infty} (c r_n) = c x."
+    ],
+    "solution_sketch": "f(0) = 0 and lim_{h -> 0} f(c+h) - f(c) = lim f(h) = 0 proves continuity everywhere. Induction and additivity establish f(r) = c r for r in Q. Density of rationals and continuity extend f(x) = c x to all x in R.",
+    "source_reference": "S.K. Mapa, Continuity, Exercises 12, Problem 4 & 7"
+  },
+  {
+    "id": 37,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Continuity of Real Functions",
+    "subtopic": "Thomae's (Riemann's) Function Continuity",
+    "claim": "Thomae's function is continuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1).",
+    "question": "Let f: [0, 1] -> R be defined by f(x) = 1/q if x = p/q in Q (in lowest terms with p, q in N), and f(x) = 0 if x is irrational (with f(0) = 0). Prove in multiple steps using the Archimedean property and epsilon-delta arguments that f is continuous at every irrational point and discontinuous at every rational point in (0, 1).",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: Test continuity at a rational point a = p/q in (0, 1): f(a) = 1/q > 0. In any neighbourhood (a - delta, a + delta), there exist irrational points x where f(x) = 0. Thus |f(x) - f(a)| = 1/q. For any eps < 1/q, no delta can satisfy |f(x) - f(a)| < eps, so f is discontinuous at every rational a.",
+      "Step 2: Test continuity at an irrational point alpha in (0, 1): here f(alpha) = 0. Let eps > 0 be arbitrary.",
+      "Step 3: By the Archimedean property, there exists a natural number k such that 1/k < eps.",
+      "Step 4: Observe that in (0, 1), the set of rational numbers p/q with denominator q < k is finite (there are at most k(k-1)/2 such points). None of these points equals alpha because alpha is irrational.",
+      "Step 5: Let delta > 0 be the minimum distance from alpha to this finite set of rationals. Then the neighbourhood (alpha - delta, alpha + delta) contains no rational with denominator < k. For any x in this neighbourhood: if x is irrational, |f(x) - f(alpha)| = |0 - 0| = 0 < eps; if x = p/q is rational, its denominator satisfies q >= k, so |f(x) - f(alpha)| = 1/q <= 1/k < eps. Hence f is continuous at alpha."
+    ],
+    "solution_sketch": "At rational p/q, f(p/q) = 1/q, but irrationals arbitarily close have f=0, so f is discontinuous. At irrational alpha, f(alpha) = 0. For eps > 0, only finitely many rationals in (0,1) have denominator q <= 1/eps. A delta-neighbourhood avoiding them has |f(x)| <= 1/q < eps, proving continuity.",
+    "source_reference": "S.K. Mapa, Continuity, Section 8.2, Worked Example 3"
+  },
+  {
+    "id": 38,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Properties of Continuous Functions",
+    "subtopic": "Fixed Point Theorem on Closed Intervals",
+    "claim": "Every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c.",
+    "question": "State the Intermediate Value Theorem (Bolzano's Theorem). Use it in a multi-step proof to show that if f: [a, b] -> [a, b] is continuous on [a, b], then there exists at least one point c \\in [a, b] such that f(c) = c.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Bolzano's Intermediate Value Theorem: If g: [a, b] -> R is continuous on [a, b] and g(a) and g(b) have opposite signs (g(a) * g(b) <= 0), then there exists c in [a, b] such that g(c) = 0.",
+      "Step 2: Define an auxiliary function g: [a, b] -> R by g(x) = f(x) - x.",
+      "Step 3: Verify continuity of g: since f is continuous on [a, b] and the identity function x is continuous on [a, b], g(x) = f(x) - x is continuous on [a, b].",
+      "Step 4: Evaluate g at endpoints: since f maps [a, b] into [a, b], a <= f(x) <= b for all x in [a, b]. In particular, f(a) >= a, so g(a) = f(a) - a >= 0. Similarly, f(b) <= b, so g(b) = f(b) - b <= 0.",
+      "Step 5: Apply Bolzano's Theorem: if g(a) = 0, c = a is a fixed point. If g(b) = 0, c = b is a fixed point. If g(a) > 0 and g(b) < 0, by the Intermediate Value Theorem there exists c in (a, b) such that g(c) = 0, which means f(c) - c = 0, i.e., f(c) = c."
+    ],
+    "solution_sketch": "Define g(x) = f(x) - x on [a, b]. g is continuous with g(a) = f(a) - a >= 0 and g(b) = f(b) - b <= 0. By the Intermediate Value Theorem, there exists c in [a, b] such that g(c) = 0, hence f(c) = c.",
+    "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 5 & Section 8.5"
+  },
+  {
+    "id": 39,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Properties of Continuous Functions",
+    "subtopic": "Universal Chord Theorem",
+    "claim": "For any continuous function f: [0, 2] -> R with f(0) = f(2), there exists c in [0, 1] such that f(c) = f(c + 1).",
+    "question": "Let f: [0, 2] -> R be continuous on [0, 2] with f(0) = f(2). Define an auxiliary function g on [0, 1] and apply the Intermediate Value Theorem in multiple steps to prove that there exists at least one point c \\in [0, 1] such that f(c) = f(c + 1).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Check trivial case: if f(0) = f(1), then c = 0 satisfies f(0) = f(0+1) = f(1), and the claim holds immediately.",
+      "Step 2: If f(0) != f(1), define an auxiliary function g: [0, 1] -> R by g(x) = f(x) - f(x + 1).",
+      "Step 3: Establish continuity of g: since f is continuous on [0, 2], f(x) and f(x + 1) are continuous on [0, 1], so g is continuous on [0, 1].",
+      "Step 4: Evaluate g at endpoints 0 and 1: g(0) = f(0) - f(1), and g(1) = f(1) - f(2). Since f(2) = f(0) by hypothesis, g(1) = f(1) - f(0) = - (f(0) - f(1)) = - g(0).",
+      "Step 5: Apply Intermediate Value Theorem: g(0) and g(1) have opposite signs (g(0)*g(1) = -[g(0)]^2 < 0). Therefore, by the Intermediate Value Theorem, there exists c in (0, 1) such that g(c) = 0, which means f(c) - f(c + 1) = 0, i.e., f(c) = f(c + 1)."
+    ],
+    "solution_sketch": "Define g(x) = f(x) - f(x+1) on [0, 1]. g is continuous with g(0) = f(0) - f(1) and g(1) = f(1) - f(2) = -(f(0) - f(1)) = -g(0). Since g(0)*g(1) <= 0, by IVT there exists c in [0, 1] with g(c) = 0, so f(c) = f(c+1).",
+    "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 14"
+  },
+  {
+    "id": 40,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Properties of Continuous Functions",
+    "subtopic": "Intermediate Value Property with Overlapping Ranges",
+    "claim": "If f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b].",
+    "question": "Let f, g: [a, b] -> R be continuous functions on [a, b] such that f([a, b]) = g([a, b]) = [0, 1]. Prove in multiple steps that there exists at least one point c \\in [a, b] such that f(c) = g(c).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Since f([a, b]) = [0, 1], there exist points p, q in [a, b] such that f(p) = 0 and f(q) = 1.",
+      "Step 2: Since the range of g is also [0, 1], we have 0 <= g(x) <= 1 for all x in [a, b]. In particular, 0 <= g(p) <= 1 and 0 <= g(q) <= 1.",
+      "Step 3: If g(p) = 0, then f(p) = g(p) = 0, so c = p satisfies the equation. Similarly, if g(q) = 1, then f(q) = g(q) = 1, so c = q satisfies the equation.",
+      "Step 4: If g(p) > 0 and g(q) < 1, define the auxiliary function h(x) = f(x) - g(x) on [a, b]. Notice h is continuous on [a, b] as the difference of continuous functions.",
+      "Step 5: Evaluate h at p and q: h(p) = f(p) - g(p) = 0 - g(p) < 0, and h(q) = f(q) - g(q) = 1 - g(q) > 0. Since h takes opposite signs at p and q, by the Intermediate Value Theorem applied to h on the interval with endpoints p and q, there exists c between p and q such that h(c) = 0, which gives f(c) = g(c)."
+    ],
+    "solution_sketch": "Find p, q with f(p)=0, f(q)=1. If g(p)=0 or g(q)=1 we are done. Otherwise h = f - g has h(p) = -g(p) < 0 and h(q) = 1 - g(q) > 0. By IVT, h(c) = 0 for some c, so f(c) = g(c).",
+    "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 13"
+  },
+  {
+    "id": 41,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Uniform Continuity",
+    "subtopic": "Failure of Uniform Continuity on Bounded Open Intervals",
+    "claim": "The function f(x) = 1/x is continuous on (0, 1) but not uniformly continuous on (0, 1).",
+    "question": "State the definition of uniform continuity for a function f on an interval I. Formulate the sequential criterion for non-uniform continuity, and use it to prove that f(x) = 1/x is not uniformly continuous on (0, 1).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State definition of uniform continuity: f is uniformly continuous on I if for every eps > 0, there exists delta > 0 such that for all x, y in I, |x - y| < delta implies |f(x) - f(y)| < eps.",
+      "Step 2: Formulate the negation / sequential criterion: f is not uniformly continuous on I iff there exists eps_0 > 0 and two sequences {x_n}, {y_n} in I such that lim_{n -> infty} |x_n - y_n| = 0, but |f(x_n) - f(y_n)| >= eps_0 for all n.",
+      "Step 3: Construct sequences in (0, 1): let x_n = 1/n and y_n = 1/(n + 1) for n in N. Both x_n, y_n in (0, 1).",
+      "Step 4: Compute their difference: |x_n - y_n| = |1/n - 1/(n+1)| = 1/[n(n+1)]. As n -> infty, lim |x_n - y_n| = 0.",
+      "Step 5: Compute the difference in function values: |f(x_n) - f(y_n)| = |n - (n + 1)| = 1. Choosing eps_0 = 1, we have |x_n - y_n| -> 0 while |f(x_n) - f(y_n)| = 1 >= eps_0 for all n. Thus f(x) = 1/x is not uniformly continuous on (0, 1)."
+    ],
+    "solution_sketch": "Take x_n = 1/n and y_n = 1/(n+1) in (0, 1). Then |x_n - y_n| = 1/(n(n+1)) -> 0, but |f(x_n) - f(y_n)| = |n - (n+1)| = 1 >= 1 for all n. By the sequential criterion, f is not uniformly continuous.",
+    "source_reference": "S.K. Mapa, Continuity, Section 8.7, Worked Examples"
+  },
+  {
+    "id": 42,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Uniform Continuity",
+    "subtopic": "Uniform Continuity of Square Root Function on Unbounded Domains",
+    "claim": "The function f(x) = sqrt(x) is uniformly continuous on [0, infinity) despite having an unbounded derivative near 0.",
+    "question": "Prove that f(x) = \\sqrt{x} is uniformly continuous on [0, \\infty) using an explicit \\epsilon-\\delta proof based on the algebraic identity |\\sqrt{x} - \\sqrt{y}| \\le \\sqrt{|x - y|}.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Establish the inequality |sqrt(x) - sqrt(y)| <= sqrt(|x - y|) for all x, y >= 0. Proof: without loss of generality assume x >= y >= 0. Then (sqrt(x) - sqrt(y))^2 = x + y - 2 sqrt(xy) <= x - y = |x - y| (since 2 y <= 2 sqrt(xy)). Taking square roots yields sqrt(x) - sqrt(y) <= sqrt(x - y).",
+      "Step 2: Let eps > 0 be arbitrary.",
+      "Step 3: We require |sqrt(x) - sqrt(y)| < eps whenever |x - y| < delta.",
+      "Step 4: By Step 1, |sqrt(x) - sqrt(y)| <= sqrt(|x - y|). Therefore, if we choose delta = eps^2 > 0, then |x - y| < delta implies sqrt(|x - y|) < sqrt(delta) = eps.",
+      "Step 5: Conclude: for any eps > 0, delta = eps^2 depends only on eps and is valid for all x, y in [0, infty). Hence f(x) = sqrt(x) is uniformly continuous on [0, infty)."
+    ],
+    "solution_sketch": "For all x, y >= 0, |sqrt(x) - sqrt(y)| <= sqrt(|x - y|). Given eps > 0, choosing delta = eps^2 ensures |sqrt(x) - sqrt(y)| <= sqrt(|x - y|) < eps for all x, y with |x - y| < delta. Hence f is uniformly continuous on [0, infty).",
+    "source_reference": "S.K. Mapa, Continuity, Section 8.7, Worked Example 3"
+  },
+  {
+    "id": 43,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Uniform Continuity",
+    "subtopic": "Continuous Functions with Limits at Infinity",
+    "claim": "If f: [0, infinity) -> R is continuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity).",
+    "question": "Let f: [0, \\infty) -> R be continuous and suppose \\lim_{x \\to \\infty} f(x) = L \\in \\mathbb{R}. Prove in multiple steps that f is uniformly continuous on [0, \\infty) by partitioning the domain into a compact interval [0, K] and an asymptotic tail [K, \\infty).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Let eps > 0 be arbitrary. By definition of lim_{x -> infty} f(x) = L, there exists K > 0 such that |f(x) - L| < eps/4 for all x >= K.",
+      "Step 2: On the unbounded tail [K, infty), for any x, y >= K: |f(x) - f(y)| <= |f(x) - L| + |f(y) - L| < eps/4 + eps/4 = eps/2.",
+      "Step 3: Consider the closed bounded interval [0, K + 1]. Since f is continuous on the compact interval [0, K + 1], by Heine's Theorem f is uniformly continuous on [0, K + 1].",
+      "Step 4: By uniform continuity on [0, K + 1], there exists delta_1 > 0 such that for all x, y in [0, K + 1] with |x - y| < delta_1, |f(x) - f(y)| < eps/2.",
+      "Step 5: Choose delta = min(1, delta_1) > 0. Let x, y in [0, infty) with |x - y| < delta. If both x, y in [0, K + 1], |f(x) - f(y)| < eps/2 < eps by Step 4. If at least one of x, y >= K + 1, then because |x - y| < delta <= 1, both x and y must be >= K, so |f(x) - f(y)| < eps/2 < eps by Step 2. Thus f is uniformly continuous on [0, infty)."
+    ],
+    "solution_sketch": "Find K with |f(x) - L| < eps/4 for x >= K. On [0, K+1], f is uniformly continuous by compactness, giving delta_1 for eps/2. Setting delta = min(1, delta_1) ensures |f(x) - f(y)| < eps for all x, y in [0, infty) with |x - y| < delta.",
+    "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 15"
+  },
+  {
+    "id": 44,
+    "chapter": "Chapter 8: Continuity",
+    "topic": "Uniform Continuity",
+    "subtopic": "Preservation of Cauchy Sequences",
+    "claim": "A uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.",
+    "question": "Prove that if f: D -> R is uniformly continuous on D \\subset \\mathbb{R} and {x_n} is a Cauchy sequence in D, then {f(x_n)} is a Cauchy sequence in R. Show by counterexample that ordinary continuity does not preserve Cauchy sequences.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Let eps > 0 be arbitrary. By uniform continuity of f on D, there exists delta > 0 such that for all x, y in D, |x - y| < delta implies |f(x) - f(y)| < eps.",
+      "Step 2: Since {x_n} is a Cauchy sequence in D, corresponding to delta > 0 there exists a natural number m in N such that |x_n - x_k| < delta for all n, k >= m.",
+      "Step 3: Combine: for all n, k >= m, since x_n, x_k in D satisfy |x_n - x_k| < delta, by Step 1 we have |f(x_n) - f(x_k)| < eps.",
+      "Step 4: This directly proves {f(x_n)} is a Cauchy sequence in R.",
+      "Step 5: For the counterexample with ordinary continuity: take D = (0, 1) and f(x) = 1/x, which is continuous on (0, 1). The sequence x_n = 1/n is Cauchy in (0, 1) since 1/n -> 0. However, f(x_n) = n is unbounded and diverges to infinity, so {f(x_n)} is not Cauchy."
+    ],
+    "solution_sketch": "Given eps > 0, uniform continuity provides delta > 0. For large n, k, |x_n - x_k| < delta implies |f(x_n) - f(x_k)| < eps, so {f(x_n)} is Cauchy. Ordinary continuity fails for f(x) = 1/x and x_n = 1/n.",
+    "source_reference": "S.K. Mapa, Continuity, Section 8.7, Corollary & Worked Examples"
+  },
+  {
+    "id": 45,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Differentiability",
+    "subtopic": "Modulated Oscillating Functions and Continuity of Derivative",
+    "claim": "The function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0.",
+    "question": "Let f: R -> R be defined by f(x) = x^2 \\sin(1/x) for x \\ne 0 and f(0) = 0. Prove using first principles that f'(0) exists and find its value. Compute f'(x) for x \\ne 0 and prove that f' is discontinuous at x = 0.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Compute f'(0) from definition: f'(0) = lim_{h -> 0} [f(h) - f(0)] / h = lim_{h -> 0} [h^2 sin(1/h) - 0] / h = lim_{h -> 0} h sin(1/h).",
+      "Step 2: Since |sin(1/h)| <= 1 for all h != 0, we have |h sin(1/h)| <= |h|. By the Sandwich Theorem, lim_{h -> 0} h sin(1/h) = 0. Thus f'(0) exists and f'(0) = 0.",
+      "Step 3: Compute f'(x) for x != 0 using product and chain rules: f'(x) = d/dx [x^2 sin(1/x)] = 2x sin(1/x) + x^2 cos(1/x) * (-1/x^2) = 2x sin(1/x) - cos(1/x).",
+      "Step 4: Analyze continuity of f' at 0: f' is continuous at 0 iff lim_{x -> 0} f'(x) = f'(0) = 0. Here lim_{x -> 0} f'(x) = lim_{x -> 0} [ 2x sin(1/x) - cos(1/x) ].",
+      "Step 5: As x -> 0, 2x sin(1/x) -> 0, but lim_{x -> 0} cos(1/x) does not exist (it oscillates between -1 and 1). Therefore lim_{x -> 0} f'(x) does not exist, proving that f' is discontinuous at x = 0."
+    ],
+    "solution_sketch": "f'(0) = lim_{h -> 0} h sin(1/h) = 0 by squeeze theorem. For x != 0, f'(x) = 2x sin(1/x) - cos(1/x). As x -> 0, 2x sin(1/x) -> 0 but cos(1/x) oscillates, so lim_{x -> 0} f'(x) does not exist. Hence f' is discontinuous at 0.",
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.1, Worked Examples"
+  },
+  {
+    "id": 46,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Properties of the Derivative",
+    "subtopic": "Darboux's Intermediate Value Theorem for Derivatives",
+    "claim": "If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there exists c in (a, b) such that f'(c) = k.",
+    "question": "State Darboux's Theorem on the intermediate values of derivatives. Prove it in multiple steps by introducing an auxiliary function g(x) = f(x) - kx and analyzing its minimum on the compact interval [a, b].",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Darboux's Theorem: If f: [a, b] -> R is differentiable on [a, b] and k is any real number lying strictly between f'(a) and f'(b), then there exists at least one point c in (a, b) such that f'(c) = k.",
+      "Step 2: Define the auxiliary function g: [a, b] -> R by g(x) = f(x) - kx. Since f is differentiable on [a, b], g is differentiable on [a, b] and g'(x) = f'(x) - k.",
+      "Step 3: Differentiability implies g is continuous on [a, b]. Since [a, b] is compact, by Weierstrass's Extreme Value Theorem, g attains its absolute minimum at some point c in [a, b].",
+      "Step 4: Show that c cannot be an endpoint: evaluate g'(a) = f'(a) - k < 0 (since f'(a) < k). Since g'(a) < 0, g is strictly decreasing immediately to the right of a, so there exists x in (a, b) with g(x) < g(a). Thus c != a. Similarly, g'(b) = f'(b) - k > 0 (since f'(b) > k), so g is strictly increasing approaching b, meaning g(x) < g(b) for x near b. Thus c != b.",
+      "Step 5: Since c in (a, b) is an interior point where g attains an extremum, by Fermat's Theorem on stationary points, g'(c) = 0. Therefore f'(c) - k = 0, which yields f'(c) = k."
+    ],
+    "solution_sketch": "Define g(x) = f(x) - kx. Continuous on [a, b], g attains its minimum at c. Since g'(a) = f'(a) - k < 0 and g'(b) = f'(b) - k > 0, the minimum cannot occur at a or b. Hence c in (a, b) and Fermat's theorem gives g'(c) = 0 => f'(c) = k.",
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.4, Theorem 9.4.1"
+  },
+  {
+    "id": 47,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Properties of the Derivative",
+    "subtopic": "Continuity of Monotonic Derivatives",
+    "claim": "If a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I.",
+    "question": "Prove that if f: I -> R is differentiable on an open interval I and its derivative f' is monotonic on I, then f' cannot have any jump discontinuities and must be continuous on I.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Recall the classification of discontinuities of monotonic functions: a monotonic function on an interval can only have jump (first kind) discontinuities; it cannot have essential or oscillating discontinuities.",
+      "Step 2: Suppose for contradiction that f' is not continuous at some point c in I. Since f' is monotonic (assume increasing without loss of generality), the one-sided limits f'(c^-) and f'(c^+) exist.",
+      "Step 3: The jump discontinuity at c implies f'(c^-) < f'(c^+), and the open interval (f'(c^-), f'(c^+)) \\ {f'(c)} is non-empty.",
+      "Step 4: By monotonicity, f'(x) <= f'(c^-) for all x < c and f'(x) >= f'(c^+) for all x > c. Therefore, no point x in I can have f'(x) in the open interval (f'(c^-), f'(c^+)) \\ {f'(c)}.",
+      "Step 5: However, by Darboux's Theorem, the derivative f' must satisfy the Intermediate Value Property on any interval [x_1, x_2] around c, meaning f' must attain every value between f'(x_1) and f'(x_2). This contradicts that an entire subinterval of values is omitted. Hence f' has no jump discontinuities and must be continuous on I."
+    ],
+    "solution_sketch": "A monotonic function can only have jump discontinuities where an interval of values is skipped. But by Darboux's theorem, f' satisfies the intermediate value property and cannot skip any values. Thus f' has no discontinuities and is continuous.",
+    "source_reference": "S.K. Mapa, Differentiation, Exercises 15, Problem 2"
+  },
+  {
+    "id": 48,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Mean Value Theorems",
+    "subtopic": "Rolle's Theorem Root Interlacing",
+    "claim": "Between any two real roots of e^x * cos x = 1, there exists at least one real root of e^x * sin x = 1.",
+    "question": "Prove that between any two real roots of the equation e^x \\cos x = 1, there is at least one real root of the equation e^x \\sin x = 1 by applying Rolle's Theorem to an appropriately chosen auxiliary function.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Rewrite e^x cos x = 1 as cos x - e^{-x} = 0. Let x_1 and x_2 be two distinct real roots with x_1 < x_2.",
+      "Step 2: Define the auxiliary function f(x) = e^x cos x - 1, or better: define phi(x) = e^{-x} - cos x, or psi(x) = 1 - e^{-x} cos x. Alternatively, consider g(x) = e^{-x} - sin x.",
+      "Step 3: Consider f(x) = e^{-x} - cos x. Since x_1, x_2 are roots of e^x cos x = 1, cos(x_1) = e^{-x_1} and cos(x_2) = e^{-x_2}, so f(x_1) = 0 and f(x_2) = 0.",
+      "Step 4: Verify Rolle's Theorem hypotheses for f on [x_1, x_2]: f is continuous on [x_1, x_2], differentiable on (x_1, x_2), and f(x_1) = f(x_2) = 0.",
+      "Step 5: Compute f'(x): f'(x) = -e^{-x} + sin x. By Rolle's Theorem, there exists xi in (x_1, x_2) such that f'(xi) = 0. This gives -e^{-xi} + sin xi = 0, so sin xi = e^{-xi}, which multiplies to e^{xi} sin xi = 1, proving the claim."
+    ],
+    "solution_sketch": "Define f(x) = e^{-x} - cos x. If x_1, x_2 satisfy e^x cos x = 1, then f(x_1) = f(x_2) = 0. By Rolle's theorem on [x_1, x_2], there exists xi in (x_1, x_2) with f'(xi) = -e^{-xi} + sin xi = 0, which gives e^xi sin xi = 1.",
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.5, Worked Examples"
+  },
+  {
+    "id": 49,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Mean Value Theorems",
+    "subtopic": "Cauchy Mean Value Theorem Evaluation",
+    "claim": "For f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4.",
+    "question": "State Cauchy's Mean Value Theorem for two functions f and g on [a, b]. Apply it to f(x) = \\sin x and g(x) = \\cos x on [0, \\pi/2] to determine the exact value of the intermediate point \\xi \\in (0, \\pi/2).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Cauchy's Mean Value Theorem: If f, g: [a, b] -> R are continuous on [a, b] and differentiable on (a, b), and g'(x) != 0 for all x in (a, b), then there exists xi in (a, b) such that [f(b) - f(a)] / [g(b) - g(a)] = f'(xi) / g'(xi).",
+      "Step 2: Check hypotheses on [0, pi/2]: f(x) = sin x and g(x) = cos x are continuous on [0, pi/2] and differentiable on (0, pi/2). Also g'(x) = -sin x != 0 for all x in (0, pi/2).",
+      "Step 3: Evaluate function differences: f(pi/2) - f(0) = sin(pi/2) - sin(0) = 1 - 0 = 1. g(pi/2) - g(0) = cos(pi/2) - cos(0) = 0 - 1 = -1. Quotient is 1 / (-1) = -1.",
+      "Step 4: Compute derivatives at xi: f'(xi) = cos xi and g'(xi) = -sin xi. Quotient is cos xi / (-sin xi) = -cot xi.",
+      "Step 5: Equate quotients: -cot xi = -1 implies cot xi = 1. In the interval (0, pi/2), the unique solution is xi = pi/4."
+    ],
+    "solution_sketch": "[f(pi/2) - f(0)] / [g(pi/2) - g(0)] = (1 - 0)/(0 - 1) = -1. f'(xi)/g'(xi) = cos xi / (-sin xi) = -cot xi. Equating gives cot xi = 1, so xi = pi/4 in (0, pi/2).",
+    "source_reference": "S.K. Mapa, Differentiation, Exercises 15, Problem 6(i)"
+  },
+  {
+    "id": 50,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Mean Value Theorems",
+    "subtopic": "Logarithmic Inequalities via Lagrange's MVT",
+    "claim": "For all x > 0, x/(1 + x) < log(1 + x) < x.",
+    "question": "Use Lagrange's Mean Value Theorem applied to f(t) = \\log(1 + t) on the interval [0, x] to prove in multiple steps that \\frac{x}{1 + x} < \\log(1 + x) < x for all x > 0.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Let x > 0 and define f(t) = log(1 + t) on [0, x]. Notice f is continuous on [0, x] and differentiable on (0, x), with f'(t) = 1/(1 + t).",
+      "Step 2: Apply Lagrange's Mean Value Theorem: there exists xi in (0, x) such that [f(x) - f(0)] / (x - 0) = f'(xi).",
+      "Step 3: Simplify: f(0) = log(1) = 0, so log(1 + x) / x = 1/(1 + xi), which means log(1 + x) = x / (1 + xi).",
+      "Step 4: Bound the derivative factor 1/(1 + xi) using 0 < xi < x: since 0 < xi < x, 1 < 1 + xi < 1 + x, which taking reciprocals gives 1/(1 + x) < 1/(1 + xi) < 1.",
+      "Step 5: Multiply across by x > 0: x/(1 + x) < x/(1 + xi) < x. Substituting log(1 + x) = x/(1 + xi) yields the desired inequality: x/(1 + x) < log(1 + x) < x."
+    ],
+    "solution_sketch": "By Lagrange MVT on [0, x], log(1 + x) = x f'(xi) = x / (1 + xi) for some 0 < xi < x. Since 0 < xi < x, 1/(1 + x) < 1/(1 + xi) < 1. Multiplying by x gives x/(1 + x) < log(1 + x) < x.",
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.5, Worked Example 3"
+  },
+  {
+    "id": 51,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Taylor's Theorem and Expansions",
+    "subtopic": "Limiting Value of Intermediate Theta in Taylor Remainder",
+    "claim": "For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).",
+    "question": "Let f(x) = \\sin x. Taylor's theorem with Lagrange's remainder gives \\sin h = h \\cos(\\theta h) where 0 < \\theta < 1. By expanding \\sin h and \\cos(\\theta h) in higher-order Taylor series around 0, prove in multiple steps that \\lim_{h \\to 0} \\theta = \\frac{1}{\\sqrt{3}}.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Write the given first-order Taylor formula: sin h = h cos(theta*h) for 0 < theta < 1, so cos(theta*h) = (sin h) / h.",
+      "Step 2: Expand sin h using Taylor's theorem with third-order remainder: sin h = h - h^3/6 * cos(theta_1 * h) where 0 < theta_1 < 1.",
+      "Step 3: Expand cos(theta*h) using second-order Taylor expansion around 0: cos(theta*h) = 1 - (theta^2 * h^2)/2 * cos(theta_2 * theta * h) where 0 < theta_2 < 1.",
+      "Step 4: Equate the two expressions: 1 - (theta^2 * h^2)/2 * cos(theta_2 * theta * h) = 1 - (h^2/6) * cos(theta_1 * h).",
+      "Step 5: Cancel 1, divide by -h^2/2: theta^2 * cos(theta_2 * theta * h) = (1/3) * cos(theta_1 * h). As h -> 0, cos(theta_2 * theta * h) -> 1 and cos(theta_1 * h) -> 1. Therefore lim_{h -> 0} theta^2 = 1/3, which gives lim_{h -> 0} theta = 1/sqrt(3)."
+    ],
+    "solution_sketch": "From sin h = h cos(theta*h), higher order Taylor expansions give 1 - (theta^2 h^2)/2 cos(...) = 1 - (h^2/6) cos(...). Equating coefficients of h^2 yields theta^2 -> 1/3, so lim_{h -> 0} theta = 1/sqrt(3).",
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.7, Worked Example 5"
+  },
+  {
+    "id": 52,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Indeterminate Forms",
+    "subtopic": "L'Hopital's Rule for Mixed Transcendental 0/0 Forms",
+    "claim": "The limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2.",
+    "question": "Evaluate \\lim_{x \\to 0} \\frac{x e^x - \\log(1 + x)}{x^2} in multiple steps, both by applying L'Hopital's Rule twice and by using Maclaurin series expansions.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Check the indeterminate form: as x -> 0, numerator 0*1 - log(1) = 0, and denominator 0^2 = 0. This is of the form 0/0.",
+      "Step 2: Method 1 (L'Hopital's Rule): differentiate numerator: d/dx [x e^x - log(1+x)] = e^x + x e^x - 1/(1+x). Differentiate denominator: d/dx [x^2] = 2x.",
+      "Step 3: Evaluate new limit: as x -> 0, numerator is 1 + 0 - 1 = 0, denominator is 0 (still 0/0). Apply L'Hopital's Rule a second time.",
+      "Step 4: Differentiate again: numerator: d/dx [e^x (1 + x) - (1+x)^{-1}] = e^x (1 + x) + e^x + (1+x)^{-2} = e^x (2 + x) + 1/(1+x)^2. Denominator: d/dx [2x] = 2.",
+      "Step 5: Evaluate as x -> 0: numerator tends to 1*(2 + 0) + 1 = 3, denominator tends to 2. Hence limit is 3/2. Method 2 (Series): x e^x = x(1 + x + O(x^2)) = x + x^2 + O(x^3); log(1+x) = x - x^2/2 + O(x^3). Numerator is (x + x^2) - (x - x^2/2) = (3/2) x^2 + O(x^3). Dividing by x^2 yields 3/2."
+    ],
+    "solution_sketch": "Form 0/0. Applying L'Hopital twice yields numerator derivative e^x(2+x) + (1+x)^{-2} -> 3 and denominator derivative 2, giving 3/2. Alternatively, Maclaurin expansion gives [x + x^2 - (x - x^2/2)]/x^2 = 3/2.",
+    "source_reference": "S.K. Mapa, Differentiation, Exercises 19, Problem 1(i)"
+  },
+  {
+    "id": 53,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Indeterminate Forms",
+    "subtopic": "Exponential-Trigonometric Indeterminate Limits",
+    "claim": "The limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1.",
+    "question": "Evaluate \\lim_{x \\to 0} \\frac{e^x - e^{\\sin x}}{x - \\sin x} in multiple steps by applying the Mean Value Theorem to f(t) = e^t or by factoring out an exponential term and using series expansion.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Identify indeterminate form: as x -> 0, e^0 - e^0 = 0 and 0 - 0 = 0, so the expression is of the form 0/0.",
+      "Step 2: Factor out e^{sin x}: (e^x - e^{sin x}) / (x - sin x) = e^{sin x} * [ e^{x - sin x} - 1 ] / [ x - sin x ].",
+      "Step 3: Define u(x) = x - sin x. As x -> 0, u(x) = x - (x - x^3/6 + ...) = x^3/6 + ... -> 0, with u(x) != 0 for x != 0.",
+      "Step 4: The expression becomes e^{sin x} * [ (e^u - 1) / u ].",
+      "Step 5: Evaluate the product of limits: lim_{x -> 0} e^{sin x} = e^0 = 1, and since u -> 0 as x -> 0, lim_{u -> 0} (e^u - 1)/u = 1. Therefore, the limit is 1 * 1 = 1."
+    ],
+    "solution_sketch": "Factor numerator: e^{sin x} * (e^{x - sin x} - 1)/(x - sin x). Setting u = x - sin x -> 0 as x -> 0, the quotient becomes e^{sin x} * (e^u - 1)/u -> e^0 * 1 = 1.",
+    "source_reference": "S.K. Mapa, Differentiation, Exercises 19, Problem 1(v)"
+  },
+  {
+    "id": 54,
+    "chapter": "Chapter 9: Differentiation",
+    "topic": "Indeterminate Forms",
+    "subtopic": "Power Indeterminate Forms 1^infinity",
+    "claim": "The limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}.",
+    "question": "Evaluate \\lim_{x \\to 0} \\left( \\frac{\\sin x}{x} \\right)^{\\frac{1}{x^2}} in multiple steps by taking the natural logarithm and applying Taylor expansions or L'Hopital's Rule to the resulting 0/0 indeterminate form.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Check the indeterminate form: as x -> 0, (sin x)/x -> 1 and 1/x^2 -> infty, so the limit is of the form 1^infty.",
+      "Step 2: Let y = [(sin x)/x]^{1/x^2}. Take natural logarithms: ln y = (1/x^2) ln((sin x)/x) = [ ln((sin x)/x) ] / x^2.",
+      "Step 3: As x -> 0, this is of the form 0/0. Use Taylor expansion for sin x around 0: sin x = x - x^3/6 + x^5/120 + O(x^7), so (sin x)/x = 1 - x^2/6 + x^4/120 + O(x^6).",
+      "Step 4: Use the expansion ln(1 + u) = u - u^2/2 + O(u^3) with u = -x^2/6 + O(x^4): ln((sin x)/x) = ln(1 - x^2/6 + O(x^4)) = -x^2/6 + O(x^4).",
+      "Step 5: Substitute into ln y: ln y = [ -x^2/6 + O(x^4) ] / x^2 = -1/6 + O(x^2). As x -> 0, ln y -> -1/6. By continuity of the exponential function, lim_{x -> 0} y = e^{-1/6}."
+    ],
+    "solution_sketch": "Let y = ((sin x)/x)^{1/x^2}. ln y = ln((sin x)/x)/x^2. Expand (sin x)/x = 1 - x^2/6 + O(x^4), so ln((sin x)/x) = -x^2/6 + O(x^4). Then ln y -> -1/6, yielding limit e^{-1/6}.",
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.9, Worked Examples"
+  },
+  {
+    "id": 55,
+    "chapter": "Chapter 10: Functions of bounded variation",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Total Variation and Jordan Decomposition of Polynomials",
+    "claim": "For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.",
+    "question": "Let f(x) = x^2 - 2x + 2 on [0, 2]. Prove that f is a function of bounded variation on [0, 2]. Find the total variation V_f([0, 2]), the positive variation P_f([0, 2]), the negative variation N_f([0, 2]), and determine the variation function V_f(x) on [0, 2]. Express f as the difference of two monotonic increasing functions.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Find the critical points of f on [0, 2]: f'(x) = 2x - 2 = 0 implies x = 1. Since f'(x) <= 0 on [0, 1], f is strictly decreasing on [0, 1]. Since f'(x) >= 0 on [1, 2], f is strictly increasing on [1, 2].",
+      "Step 2: By the additive property of total variation, V_f([0, 2]) = V_f([0, 1]) + V_f([1, 2]). For a monotone decreasing function on [0, 1], V_f([0, 1]) = f(0) - f(1) = 2 - 1 = 1. For a monotone increasing function on [1, 2], V_f([1, 2]) = f(2) - f(1) = 2 - 1 = 1.",
+      "Step 3: Total variation is V_f([0, 2]) = 1 + 1 = 2.",
+      "Step 4: Compute positive and negative variations: 2 P_f = V_f + [f(2) - f(0)] = 2 + (2 - 2) = 2, so P_f([0, 2]) = 1. 2 N_f = V_f - [f(2) - f(0)] = 2 - 0 = 2, so N_f([0, 2]) = 1.",
+      "Step 5: Determine the variation function V_f(x) for x in [0, 2]: for x in [0, 1], f is decreasing so V_f(x) = f(0) - f(x) = 2 - (x^2 - 2x + 2) = 2x - x^2. For x in [1, 2], V_f(x) = V_f([0, 1]) + [f(x) - f(1)] = 1 + (x^2 - 2x + 2 - 1) = x^2 - 2x + 2. Jordan decomposition gives f(x) = g(x) - h(x) where g(x) = [V_f(x) + f(x)]/2 and h(x) = [V_f(x) - f(x)]/2 are both monotone increasing."
+    ],
+    "solution_sketch": "f decreases on [0, 1] from 2 to 1 and increases on [1, 2] from 1 to 2. V_f([0, 2]) = |1 - 2| + |2 - 1| = 2. P_f = 1, N_f = 1. V_f(x) = 2x - x^2 on [0, 1] and x^2 - 2x + 2 on [1, 2]. Decomposition is given by Jordan's theorem: f = p - n.",
+    "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 6(i)"
+  },
+  {
+    "id": 56,
+    "chapter": "Chapter 10: Functions of bounded variation",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Continuous Functions Failing Bounded Variation",
+    "claim": "The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is continuous on [0, 1] but is not of bounded variation on [0, 1].",
+    "question": "Let f: [0, 1] -> R be defined by f(x) = x \\sin(\\pi/x) for x \\in (0, 1] and f(0) = 0. Prove that f is continuous on [0, 1], and construct a sequence of partitions P_n of [0, 1] to prove that the total variation V(f; [0, 1]) = \\infty, so f is not of bounded variation.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Prove continuity at 0: for x in (0, 1], |f(x) - f(0)| = |x sin(pi/x)| <= x. Since lim_{x -> 0^+} x = 0, lim_{x -> 0^+} f(x) = 0 = f(0). Since f is continuous on (0, 1] by composition of elementary functions, f is continuous on [0, 1].",
+      "Step 2: Choose partition points that sample the extrema of sin(pi/x): let sin(pi/x_k) = (-1)^{k+1}, which occurs at pi/x_k = (2k - 1)pi/2, so x_k = 2/(2k - 1) for k = 1, 2, ..., n.",
+      "Step 3: Define partition P_n = (0, x_n, x_{n-1}, ..., x_2, x_1, 1) of [0, 1], where 0 < x_n < x_{n-1} < ... < x_1 = 2 < 1? Wait, x_1 = 2 > 1. Correct points: for x in (0, 1], need (2k - 1)pi/2 >= pi, so 2k - 1 >= 2, meaning k >= 2. Let x_k = 2/(2k + 1) for k = 1, 2, ..., n. Then x_1 = 2/3 < 1.",
+      "Step 4: Partition is P_n = (0, 2/(2n+1), 2/(2n-1), ..., 2/3, 1). Function values alternate signs: f(2/(2k+1)) = [2/(2k+1)] * sin((2k+1)pi/2) = (-1)^k * 2/(2k+1).",
+      "Step 5: Compute variation sum: V(P_n, f) >= sum_{k=1}^{n-1} |f(x_{k+1}) - f(x_k)| = sum_{k=1}^{n-1} [ 2/(2k+3) + 2/(2k+1) ] >= sum_{k=1}^{n-1} 2/(2k+1). As n -> infty, this sum diverges by comparison with the harmonic series sum 1/k. Hence sup_P V(P, f) = infty, so f is not of bounded variation on [0, 1]."
+    ],
+    "solution_sketch": "Continuity holds because |f(x)| <= x -> 0. Partitions P_n with points x_k = 2/(2k+1) have alternating values f(x_k) = (-1)^k * 2/(2k+1). The variation sum V(P_n, f) >= sum 2/(2k+1), which diverges with the harmonic series. Thus V(f; [0, 1]) = infty.",
+    "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 4(i)"
+  },
+  {
+    "id": 57,
+    "chapter": "Chapter 10: Functions of bounded variation",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Bounded Derivatives Implies Bounded Variation",
+    "claim": "The function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1].",
+    "question": "Prove that if f: [a, b] -> R is differentiable and its derivative f' is bounded on [a, b], then f is of bounded variation on [a, b]. Use this result to prove that f(x) = x^2 \\sin(1/x) for x \\in (0, 1] and f(0) = 0 is a function of bounded variation on [0, 1].",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Prove theorem: suppose |f'(x)| <= M for all x in [a, b]. Let P = (x_0, x_1, ..., x_n) be any partition of [a, b].",
+      "Step 2: By Lagrange's Mean Value Theorem, on each subinterval [x_{k-1}, x_k], |f(x_k) - f(x_{k-1})| = |f'(c_k)| (x_k - x_{k-1}) <= M (x_k - x_{k-1}).",
+      "Step 3: Sum over k: V(P, f) = sum_{k=1}^n |f(x_k) - f(x_{k-1})| <= M sum_{k=1}^n (x_k - x_{k-1}) = M (b - a).",
+      "Step 4: Since this holds for all partitions P, sup_P V(P, f) <= M (b - a) < infty, proving f is of bounded variation on [a, b].",
+      "Step 5: Apply to f(x) = x^2 sin(1/x): from earlier analysis, f'(0) = 0, and for x in (0, 1], f'(x) = 2x sin(1/x) - cos(1/x). Bound f': |f'(x)| <= 2|x||sin(1/x)| + |cos(1/x)| <= 2(1)(1) + 1 = 3. Since f' is bounded on [0, 1] (with M = 3), by the theorem f is of bounded variation on [0, 1]."
+    ],
+    "solution_sketch": "By MVT, V(P, f) <= M sum delta x_k = M(b - a), so bounded derivative implies BV. For f(x) = x^2 sin(1/x), |f'(x)| <= 2x|sin(1/x)| + |cos(1/x)| <= 3 for all x in [0, 1]. Since |f'| <= 3, f is of bounded variation on [0, 1].",
+    "source_reference": "S.K. Mapa, Functions of bounded variation, Section 10.1, Theorem 10.1.7 & Worked Examples"
+  },
+  {
+    "id": 58,
+    "chapter": "Chapter 10: Functions of bounded variation",
+    "topic": "Functions of Bounded Variation",
+    "subtopic": "Variation of Discontinuous Step Functions",
+    "claim": "For f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4.",
+    "question": "Let f(x) = [x] - x on [0, 2], where [x] denotes the greatest integer function. Show that f is of bounded variation on [0, 2], determine the total variation V(f; [0, 2]), and compute the positive and negative variations P_f([0, 2]) and N_f([0, 2]).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Graph/characterize f(x) on [0, 2]: on [0, 1), f(x) = 0 - x = -x (decreases from 0 towards -1). At x = 1, f(1) = 1 - 1 = 0.",
+      "Step 2: On [1, 2), f(x) = 1 - x (decreases from 0 towards -1). At x = 2, f(2) = 2 - 2 = 0.",
+      "Step 3: Decompose the interval: [0, 2] = [0, 1] U [1, 2]. On [0, 1], as x approaches 1 from the left, variation of the continuous slope is |-1 - 0| = 1, and the jump at x = 1 is |f(1) - lim_{x -> 1^-} f(x)| = |0 - (-1)| = 1. Thus V_f([0, 1]) = 1 + 1 = 2.",
+      "Step 4: Similarly on [1, 2]: continuous slope on [1, 2) contributes |-1 - 0| = 1, and jump at x = 2 contributes |f(2) - lim_{x -> 2^-} f(x)| = |0 - (-1)| = 1. Thus V_f([1, 2]) = 1 + 1 = 2.",
+      "Step 5: By additivity of total variation, V_f([0, 2]) = V_f([0, 1]) + V_f([1, 2]) = 2 + 2 = 4. Since f(2) - f(0) = 0 - 0 = 0, positive variation P_f = V_f/2 = 2 and negative variation N_f = V_f/2 = 2."
+    ],
+    "solution_sketch": "On [0, 1), f decreases by 1, then jumps up by 1 at x = 1 (variation 2). On [1, 2), f decreases by 1, then jumps up by 1 at x = 2 (variation 2). Total variation is 2 + 2 = 4. Since f(2) = f(0) = 0, P_f = N_f = 2.",
+    "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 6(ii)"
+  },
+  {
+    "id": 59,
+    "chapter": "Chapter 11: Riemann integral",
+    "topic": "Riemann Integration",
+    "subtopic": "Darboux Sums Evaluation and Integrability",
+    "claim": "For f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3.",
+    "question": "Let f(x) = x^2 on [0, 1]. For each n in N, let P_n = (0, 1/n, 2/n, ..., n/n) be the partition of [0, 1] into n equal subintervals. Compute the lower Darboux sum L(P_n, f) and upper Darboux sum U(P_n, f) in terms of n. Prove that f is Riemann integrable on [0, 1] and determine \\int_0^1 x^2 dx.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Identify subintervals: I_k = [(k - 1)/n, k/n] for k = 1, 2, ..., n. The length of each subinterval is delta x_k = 1/n.",
+      "Step 2: Since f(x) = x^2 is strictly increasing on [0, 1], its infimum on I_k is m_k = f((k - 1)/n) = (k - 1)^2 / n^2, and its supremum is M_k = f(k/n) = k^2 / n^2.",
+      "Step 3: Calculate lower Darboux sum: L(P_n, f) = sum_{k=1}^n m_k delta x_k = (1/n^3) sum_{k=1}^n (k - 1)^2 = (1/n^3) sum_{j=1}^{n-1} j^2 = (1/n^3) * [(n - 1) n (2n - 1) / 6] = (n - 1)(2n - 1) / (6n^2).",
+      "Step 4: Calculate upper Darboux sum: U(P_n, f) = sum_{k=1}^n M_k delta x_k = (1/n^3) sum_{k=1}^n k^2 = (1/n^3) * [n (n + 1)(2n + 1) / 6] = (n + 1)(2n + 1) / (6n^2).",
+      "Step 5: Compute limits as n -> infty: lim L(P_n, f) = lim (2n^2 - 3n + 1)/(6n^2) = 2/6 = 1/3. lim U(P_n, f) = lim (2n^2 + 3n + 1)/(6n^2) = 2/6 = 1/3. Since lower and upper Darboux integrals coincide: underline{int}_0^1 f = overline{int}_0^1 f = 1/3, f is Riemann integrable on [0, 1] and int_0^1 x^2 dx = 1/3."
+    ],
+    "solution_sketch": "L(P_n) = (n - 1)(2n - 1)/(6n^2) -> 1/3 and U(P_n) = (n + 1)(2n + 1)/(6n^2) -> 1/3. Since lower and upper sums converge to the same value 1/3, f is Riemann integrable on [0, 1] and int_0^1 x^2 dx = 1/3.",
+    "source_reference": "S.K. Mapa, Riemann integral, Exercises 21, Problem 1(i)"
+  },
+  {
+    "id": 60,
+    "chapter": "Chapter 11: Riemann integral",
+    "topic": "Riemann Integration",
+    "subtopic": "Integrability of Monotonic Functions",
+    "claim": "Every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b].",
+    "question": "Prove that if f: [a, b] -> R is bounded and monotone increasing on [a, b], then f is Riemann integrable on [a, b]. Specifically, show that for an equidistant partition P_n into n equal subintervals, U(P_n, f) - L(P_n, f) = \\frac{b - a}{n} [f(b) - f(a)].",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Let P_n = (x_0, x_1, ..., x_n) be the partition of [a, b] into n subintervals of equal width delta x = (b - a)/n, where x_k = a + k(b - a)/n.",
+      "Step 2: Since f is monotone increasing on [a, b], on each subinterval [x_{k-1}, x_k] the infimum is m_k = f(x_{k-1}) and the supremum is M_k = f(x_k).",
+      "Step 3: Compute the difference between upper and lower Darboux sums: U(P_n, f) - L(P_n, f) = sum_{k=1}^n (M_k - m_k) delta x = [(b - a)/n] sum_{k=1}^n [f(x_k) - f(x_{k-1})].",
+      "Step 4: Notice that the sum telescopes: sum_{k=1}^n [f(x_k) - f(x_{k-1})] = [f(x_1) - f(x_0)] + [f(x_2) - f(x_1)] + ... + [f(x_n) - f(x_{n-1})] = f(x_n) - f(x_0) = f(b) - f(a).",
+      "Step 5: Thus U(P_n, f) - L(P_n, f) = [(b - a)/n] [f(b) - f(a)]. For any eps > 0, choose n > (b - a)[f(b) - f(a)] / eps. Then U(P_n, f) - L(P_n, f) < eps. By Riemann's criterion for integrability, f is Riemann integrable on [a, b]."
+    ],
+    "solution_sketch": "For equidistant partition P_n, M_k = f(x_k) and m_k = f(x_{k-1}). The sum of (M_k - m_k) telescopes to f(b) - f(a), so U(P_n) - L(P_n) = (b - a)/n * [f(b) - f(a)] -> 0 as n -> infty. By Darboux's criterion, f is integrable.",
+    "source_reference": "S.K. Mapa, Riemann integral, Section 11.5, Theorem 11.5.2 & Exercises 21, Problem 2"
+  },
+  {
+    "id": 61,
+    "chapter": "Chapter 11: Riemann integral",
+    "topic": "Riemann Integration",
+    "subtopic": "Integrability of Functions with Countable Discontinuities",
+    "claim": "Thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0.",
+    "question": "Let f: [0, 1] -> R be Thomae's function (f(x) = 1/q if x = p/q in Q in lowest terms, and f(x) = 0 if x is irrational). Prove that f is Riemann integrable on [0, 1] using upper and lower Darboux sums, and evaluate \\int_0^1 f(x) dx.",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: Compute the lower Darboux integral: for any partition P of [0, 1], every subinterval contains irrational points where f(x) = 0. Since f(x) >= 0 everywhere, m_k = 0 for all subintervals, so L(P, f) = 0 for all partitions. Hence underline{int}_0^1 f = 0.",
+      "Step 2: Let eps > 0 be arbitrary. By the Archimedean property, choose a natural number k such that 1/k < eps/2.",
+      "Step 3: The set S_k of points in [0, 1] where f(x) >= 1/k consists of rational numbers with denominator q <= k. This set S_k is finite; let it contain N points.",
+      "Step 4: Construct a partition P of [0, 1]: enclose each of the N points of S_k in non-overlapping subintervals of total length less than eps/2. On these subintervals, M_j <= 1, so their contribution to U(P, f) is < 1 * (eps/2) = eps/2.",
+      "Step 5: On all remaining subintervals, f(x) < 1/k, so M_i < 1/k < eps/2. Their contribution to U(P, f) is < (eps/2) * 1 = eps/2. Therefore U(P, f) < eps/2 + eps/2 = eps. Since L(P, f) = 0 and U(P, f) < eps, overline{int}_0^1 f = 0. Thus f is Riemann integrable and int_0^1 f(x) dx = 0."
+    ],
+    "solution_sketch": "Every interval has irrationals, so m_k = 0 and L(P, f) = 0. For any eps > 0, points where f(x) >= eps/2 are finite. Enclosing them in intervals of total length < eps/2 bounds U(P, f) < eps. Hence upper and lower integrals equal 0, so int_0^1 f dx = 0.",
+    "source_reference": "S.K. Mapa, Riemann integral, Section 11.5, Worked Example 3"
+  },
+  {
+    "id": 62,
+    "chapter": "Chapter 11: Riemann integral",
+    "topic": "Riemann Integration",
+    "subtopic": "First Mean Value Theorem of Integral Calculus",
+    "claim": "If f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f].",
+    "question": "State and prove the First Mean Value Theorem of Integral Calculus for a product of two integrable functions f and g where g does not change sign on [a, b]. Prove that if f is continuous, there exists \\xi \\in [a, b] such that \\int_a^b f(x)g(x)dx = f(\\xi) \\int_a^b g(x)dx.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Let m = inf_{x in [a, b]} f(x) and M = sup_{x in [a, b]} f(x). Then m <= f(x) <= M for all x in [a, b].",
+      "Step 2: Since g(x) >= 0 on [a, b], multiplying by g(x) preserves inequalities: m g(x) <= f(x) g(x) <= M g(x) for all x in [a, b].",
+      "Step 3: Integrate over [a, b]: m int_a^b g(x)dx <= int_a^b f(x)g(x)dx <= M int_a^b g(x)dx.",
+      "Step 4: If int_a^b g(x)dx = 0, both sides vanish, so the equality holds for any mu in [m, M]. If int_a^b g(x)dx > 0, divide by int_a^b g(x)dx: m <= [ int_a^b f(x)g(x)dx ] / [ int_a^b g(x)dx ] <= M. Set this quotient to mu; then mu in [m, M] and int_a^b f(x)g(x)dx = mu int_a^b g(x)dx.",
+      "Step 5: If f is continuous on [a, b], by the Intermediate Value Theorem f attains every value between its infimum m and supremum M. Since mu in [m, M], there exists xi in [a, b] such that f(xi) = mu, yielding int_a^b f(x)g(x)dx = f(xi) int_a^b g(x)dx."
+    ],
+    "solution_sketch": "Multiply m <= f(x) <= M by g(x) >= 0 and integrate to get m int g <= int fg <= M int g. The ratio mu = (int fg)/(int g) lies in [m, M]. If f is continuous, by IVT mu = f(xi) for some xi in [a, b].",
+    "source_reference": "S.K. Mapa, Riemann integral, Section 11.12, Theorem 11.12.1"
+  },
+  {
+    "id": 63,
+    "chapter": "Chapter 11: Riemann integral",
+    "topic": "Riemann Integration",
+    "subtopic": "Fundamental Theorem of Integral Calculus",
+    "claim": "If f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c).",
+    "question": "Let f: [a, b] -> R be Riemann integrable on [a, b] and define F(x) = \\int_a^x f(t)dt for x \\in [a, b]. Prove in multiple steps using epsilon-delta arguments that if f is continuous at c \\in (a, b), then F is differentiable at c and F'(c) = f(c).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Form the difference quotient for F at c: for non-zero h such that c + h in [a, b], [F(c + h) - F(c)] / h = (1/h) int_c^{c+h} f(t)dt.",
+      "Step 2: Express f(c) in integral form: (1/h) int_c^{c+h} f(c)dt = f(c) * (1/h) * h = f(c).",
+      "Step 3: Subtract f(c) from the difference quotient: | [F(c + h) - F(c)] / h - f(c) | = | (1/h) int_c^{c+h} [f(t) - f(c)] dt | <= (1/|h|) | int_c^{c+h} |f(t) - f(c)| dt |.",
+      "Step 4: Use continuity of f at c: for any eps > 0, there exists delta > 0 such that |t - c| < delta implies |f(t) - f(c)| < eps.",
+      "Step 5: For 0 < |h| < delta, every point t between c and c + h satisfies |t - c| < delta, so |f(t) - f(c)| < eps. Therefore | [F(c+h) - F(c)]/h - f(c) | <= (1/|h|) * eps * |h| = eps. This proves lim_{h -> 0} [F(c+h) - F(c)]/h = f(c), so F'(c) = f(c)."
+    ],
+    "solution_sketch": "[F(c+h) - F(c)]/h - f(c) = (1/h) int_c^{c+h} [f(t) - f(c)] dt. Continuity at c gives |f(t) - f(c)| < eps for |t - c| < delta. For |h| < delta, the error is bounded by eps * |h| / |h| = eps, proving F'(c) = f(c).",
+    "source_reference": "S.K. Mapa, Riemann integral, Section 11.8, Theorem 11.8.2"
+  },
+  {
+    "id": 64,
+    "chapter": "Chapter 12: Improper integrals",
+    "topic": "Improper Integrals",
+    "subtopic": "Dirichlet's Test and Non-Absolute Convergence",
+    "claim": "The improper integral int_0^infty (sin x)/x dx converges, but int_0^infty |sin x|/x dx diverges to infinity.",
+    "question": "Prove that the improper integral \\int_0^\\infty \\frac{\\sin x}{x} dx is convergent using Dirichlet's Test for improper integrals, and prove that it is not absolutely convergent by showing that \\int_0^\\infty \\frac{|\\sin x|}{x} dx = \\infty.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Check the point x = 0: lim_{x -> 0} (sin x)/x = 1, so the integrand has a removable discontinuity at 0 and is bounded on [0, 1]. Thus int_0^1 (sin x)/x dx is a proper Riemann integral.",
+      "Step 2: Apply Dirichlet's Test to int_1^infty (sin x)/x dx: identify phi(x) = 1/x and f(x) = sin x. Observe phi(x) is monotonic decreasing and lim_{x -> infty} phi(x) = 0. Compute |int_1^X sin x dx| = |cos 1 - cos X| <= 2 for all X >= 1. By Dirichlet's Test, int_1^infty (sin x)/x dx converges, hence int_0^infty (sin x)/x dx converges.",
+      "Step 3: Analyze absolute convergence: on [0, infty), |sin x| >= sin^2 x = (1 - cos 2x)/2.",
+      "Step 4: Bound the integral: int_1^X (|sin x|/x) dx >= int_1^X (sin^2 x / x) dx = (1/2) int_1^X (1/x) dx - (1/2) int_1^X (cos 2x / x) dx.",
+      "Step 5: The first integral (1/2) int_1^X (1/x) dx = (1/2) ln X diverges to infty as X -> infty. The second integral int_1^infty (cos 2x / x) dx converges by Dirichlet's test. Therefore int_1^X (|sin x|/x) dx -> infty as X -> infty, proving non-absolute convergence."
+    ],
+    "solution_sketch": "x=0 is removable. On [1, infty), Dirichlet's test applies: |int_1^X sin x dx| <= 2 and 1/x decreases to 0, so the integral converges. Non-absolute convergence follows from |sin x|/x >= sin^2 x / x = (1 - cos 2x)/(2x), where int 1/(2x) dx diverges.",
+    "source_reference": "S.K. Mapa, Improper integrals, Section 12.8, Worked Example 1"
+  },
+  {
+    "id": 65,
+    "chapter": "Chapter 12: Improper integrals",
+    "topic": "Improper Integrals",
+    "subtopic": "Evaluation of Singular Log-Trigonometric Integrals",
+    "claim": "The improper integral int_0^{pi/2} log(sin x) dx converges and equals -(pi/2) * log 2.",
+    "question": "Prove that the improper integral I = \\int_0^{\\pi/2} \\log(\\sin x) dx converges, and use substitution and properties of symmetry to prove that I = -\\frac{\\pi}{2} \\log 2.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Establish convergence: near x = 0, sin x ~ x, so log(sin x) ~ log x. Since lim_{x -> 0^+} x^p log x = 0 for 0 < p < 1, by the mu-test with mu = 1/2 < 1, lim_{x -> 0^+} x^{1/2} log(sin x) = 0. Hence the integral converges.",
+      "Step 2: Use substitution x = pi/2 - y: I = int_0^{pi/2} log(sin(pi/2 - y)) dy = int_0^{pi/2} log(cos y) dy. Thus int_0^{pi/2} log(cos x) dx = I.",
+      "Step 3: Add the two representations: 2I = int_0^{pi/2} [ log(sin x) + log(cos x) ] dx = int_0^{pi/2} log(sin x cos x) dx = int_0^{pi/2} log((sin 2x)/2) dx.",
+      "Step 4: Split the logarithm: 2I = int_0^{pi/2} log(sin 2x) dx - int_0^{pi/2} (log 2) dx = int_0^{pi/2} log(sin 2x) dx - (pi/2) log 2.",
+      "Step 5: Substitute u = 2x into the remaining integral: int_0^{pi/2} log(sin 2x) dx = (1/2) int_0^pi log(sin u) du = (1/2) [ 2 int_0^{pi/2} log(sin u) du ] = I. Therefore 2I = I - (pi/2) log 2, which gives I = -(pi/2) log 2."
+    ],
+    "solution_sketch": "mu-test with mu=1/2 proves convergence. By symmetry x -> pi/2 - x, I = int_0^{pi/2} log(cos x) dx. Adding gives 2I = int_0^{pi/2} log((sin 2x)/2) dx = (1/2) int_0^pi log(sin u) du - (pi/2) log 2 = I - (pi/2) log 2. Thus I = -(pi/2) log 2.",
+    "source_reference": "S.K. Mapa, Improper integrals, Section 12.10, Worked Example 6"
+  },
+  {
+    "id": 66,
+    "chapter": "Chapter 12: Improper integrals",
+    "topic": "Improper Integrals",
+    "subtopic": "Frullani's Integral Theorem",
+    "claim": "For continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0.",
+    "question": "State Frullani's Theorem for improper integrals. Provide a multi-step proof evaluating \\int_0^\\infty \\frac{f(ax) - f(bx)}{x} dx for a, b > 0 when f is continuous on [0, \\infty) and \\lim_{x \\to \\infty} f(x) = f(\\infty) exists.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Truncate the improper integral: consider I(eps, X) = int_eps^X [f(ax) - f(bx)]/x dx for 0 < eps < X.",
+      "Step 2: Split and substitute: int_eps^X f(ax)/x dx = int_{a*eps}^{a*X} f(t)/t dt (using t = ax), and int_eps^X f(bx)/x dx = int_{b*eps}^{b*X} f(t)/t dt (using t = bx).",
+      "Step 3: Combine intervals: I(eps, X) = int_{a*eps}^{a*X} f(t)/t dt - int_{b*eps}^{b*X} f(t)/t dt = int_{a*eps}^{b*eps} f(t)/t dt - int_{a*X}^{b*X} f(t)/t dt.",
+      "Step 4: Apply the First Mean Value Theorem of Integral Calculus to each integral: int_{a*eps}^{b*eps} f(t)/t dt = f(xi_1) int_{a*eps}^{b*eps} (1/t) dt = f(xi_1) ln(b/a), where a*eps <= xi_1 <= b*eps. Similarly, int_{a*X}^{b*X} f(t)/t dt = f(xi_2) ln(b/a), where a*X <= xi_2 <= b*X.",
+      "Step 5: Take limits: as eps -> 0^+, xi_1 -> 0, so f(xi_1) -> f(0). As X -> infty, xi_2 -> infty, so f(xi_2) -> f(infty). Therefore lim_{eps -> 0, X -> infty} I(eps, X) = [f(0) - f(infty)] ln(b/a)."
+    ],
+    "solution_sketch": "Split into int_{a*eps}^{a*X} - int_{b*eps}^{b*X} = int_{a*eps}^{b*eps} f(t)/t dt - int_{a*X}^{b*X} f(t)/t dt. By MVT, these become f(xi_1) ln(b/a) - f(xi_2) ln(b/a). Taking eps -> 0 and X -> infty yields [f(0) - f(infty)] ln(b/a).",
+    "source_reference": "S.K. Mapa, Improper integrals, Section 12.10, Theorem 12.10.1"
+  },
+  {
+    "id": 67,
+    "chapter": "Chapter 12: Improper integrals",
+    "topic": "Beta and Gamma Functions",
+    "subtopic": "Beta and Gamma Function Fundamental Relation",
+    "claim": "For all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n).",
+    "question": "Using the integral definitions \\Gamma(m) = \\int_0^\\infty e^{-t} t^{m-1} dt and B(m, n) = \\int_0^1 x^{m-1} (1 - x)^{n-1} dx, establish the relation B(m, n) = \\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m + n)} in multiple steps by substituting t = u^2, s = v^2 and converting to polar coordinates.",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: In Gamma(m) = int_0^infty e^{-t} t^{m-1} dt, substitute t = u^2 (so dt = 2u du) to obtain Gamma(m) = 2 int_0^infty e^{-u^2} u^{2m-1} du. Similarly, Gamma(n) = 2 int_0^infty e^{-v^2} v^{2n-1} dv.",
+      "Step 2: Express the product as a double integral over the first quadrant Q = {(u, v) : u >= 0, v >= 0}: Gamma(m) Gamma(n) = 4 iint_Q e^{-(u^2 + v^2)} u^{2m-1} v^{2n-1} du dv.",
+      "Step 3: Transform to polar coordinates u = r cos theta, v = r sin theta with r in [0, infty) and theta in [0, pi/2], with Jacobian r: Gamma(m) Gamma(n) = 4 int_0^{pi/2} (cos theta)^{2m-1} (sin theta)^{2n-1} dtheta * int_0^infty e^{-r^2} r^{2m+2n-2} r dr.",
+      "Step 4: Evaluate the r-integral: 2 int_0^infty e^{-r^2} r^{2(m+n)-1} dr = Gamma(m + n) (by Step 1).",
+      "Step 5: Evaluate the theta-integral: 2 int_0^{pi/2} (cos theta)^{2m-1} (sin theta)^{2n-1} dtheta. Substituting sin^2 theta = x gives int_0^1 x^{n-1} (1 - x)^{m-1} dx = B(m, n). Equating yields Gamma(m) Gamma(n) = B(m, n) Gamma(m + n), so B(m, n) = Gamma(m)Gamma(n)/Gamma(m+n)."
+    ],
+    "solution_sketch": "Substitute t=u^2, s=v^2 in Gamma(m)Gamma(n) to get 4 iint_Q e^{-(u^2+v^2)} u^{2m-1} v^{2n-1} dudv. Polar coordinates factor this into [2 int_0^infty e^{-r^2} r^{2(m+n)-1} dr] * [2 int_0^{pi/2} cos^{2m-1} theta sin^{2n-1} theta dtheta] = Gamma(m+n) * B(m, n).",
+    "source_reference": "S.K. Mapa, Improper integrals, Section 12.11, Theorem 12.11.4"
+  },
+  {
+    "id": 68,
+    "chapter": "Chapter 12: Improper integrals",
+    "topic": "Beta and Gamma Functions",
+    "subtopic": "Evaluation of Singular Radical Integrals via Beta Function",
+    "claim": "The integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)].",
+    "question": "Evaluate \\int_0^1 \\frac{dx}{\\sqrt{1 - x^4}} in multiple steps by substituting x^4 = t and expressing the result in terms of Euler's Beta and Gamma functions.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Substitute x^4 = t, so x = t^{1/4} and dx = (1/4) t^{-3/4} dt. The integration limits remain 0 to 1.",
+      "Step 2: Substitute into the integral: int_0^1 (1 - x^4)^{-1/2} dx = int_0^1 (1 - t)^{-1/2} * (1/4) t^{-3/4} dt = (1/4) int_0^1 t^{1/4 - 1} (1 - t)^{1/2 - 1} dt.",
+      "Step 3: Recognize the Beta function definition B(m, n) = int_0^1 t^{m-1} (1 - t)^{n-1} dt with m = 1/4 and n = 1/2: the integral equals (1/4) B(1/4, 1/2).",
+      "Step 4: Use the relation B(m, n) = [Gamma(m) Gamma(n)] / Gamma(m + n): (1/4) B(1/4, 1/2) = (1/4) * [Gamma(1/4) Gamma(1/2)] / Gamma(1/4 + 1/2) = (1/4) * [Gamma(1/4) Gamma(1/2)] / Gamma(3/4).",
+      "Step 5: Substitute the known value Gamma(1/2) = sqrt(pi): the integral evaluates to [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)]."
+    ],
+    "solution_sketch": "Substitute x^4 = t => dx = (1/4) t^{-3/4} dt. The integral becomes (1/4) int_0^1 t^{-3/4} (1 - t)^{-1/2} dt = (1/4) B(1/4, 1/2) = (1/4) [Gamma(1/4) Gamma(1/2)] / Gamma(3/4) = [sqrt(pi) Gamma(1/4)] / [4 Gamma(3/4)].",
+    "source_reference": "S.K. Mapa, Improper integrals, Exercises 23, Problem 3(i) & Section 12.11"
+  },
+  {
+    "id": 69,
+    "chapter": "Chapter 13: Sequence of functions",
+    "topic": "Sequence of Functions",
+    "subtopic": "Uniform Convergence via Mn-Test and Integral Limit",
+    "claim": "For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.",
+    "question": "Let f_n(x) = \\frac{nx}{1 + n^2 x^2} for x \\in [0, 1]. Find the pointwise limit f(x). Compute M_n = \\sup_{x \\in [0, 1]} |f_n(x) - f(x)| using calculus to test uniform convergence. Compute \\lim_{n \\to \\infty} \\int_0^1 f_n(x)dx and compare it with \\int_0^1 f(x)dx.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Pointwise limit: for x = 0, f_n(0) = 0 for all n, so lim f_n(0) = 0. For x in (0, 1], lim_{n -> infty} nx / (1 + n^2 x^2) = lim (x/n) / (1/n^2 + x^2) = 0 / x^2 = 0. Thus f(x) = 0 for all x in [0, 1].",
+      "Step 2: Find M_n = sup_{x in [0, 1]} |f_n(x) - 0|: differentiate f_n(x): f'_n(x) = [ n(1 + n^2 x^2) - nx(2n^2 x) ] / (1 + n^2 x^2)^2 = n(1 - n^2 x^2) / (1 + n^2 x^2)^2. Setting f'_n(x) = 0 gives critical point x = 1/n in [0, 1].",
+      "Step 3: Evaluate at critical point: f_n(1/n) = n(1/n) / [1 + n^2 (1/n^2)] = 1 / (1 + 1) = 1/2. Thus M_n = 1/2 for all n.",
+      "Step 4: Apply M_n-Test: since lim_{n -> infty} M_n = 1/2 != 0, the sequence {f_n} does NOT converge uniformly to 0 on [0, 1].",
+      "Step 5: Compare integral of limit vs limit of integrals: int_0^1 f(x)dx = int_0^1 0 dx = 0. For the integrals: int_0^1 [nx / (1 + n^2 x^2)] dx = (1/(2n)) [ ln(1 + n^2 x^2) ]_0^1 = ln(1 + n^2) / (2n). As n -> infty, ln(1 + n^2)/(2n) -> 0 by L'Hopital. Thus lim int f_n = int lim f_n = 0 holds coincidentally even though convergence is non-uniform."
+    ],
+    "solution_sketch": "Pointwise limit is 0. Maximum of f_n occurs at x = 1/n with value f_n(1/n) = 1/2, so M_n = 1/2 != 0, proving non-uniform convergence on [0, 1]. The integral int_0^1 f_n dx = ln(1+n^2)/(2n) -> 0, agreeing with int 0 dx.",
+    "source_reference": "S.K. Mapa, Sequence of functions, Section 13.3, Worked Example 5 & 13.4"
+  },
+  {
+    "id": 70,
+    "chapter": "Chapter 13: Sequence of functions",
+    "topic": "Sequence of Functions",
+    "subtopic": "Non-Commutativity of Limit and Derivative",
+    "claim": "For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} converges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0).",
+    "question": "Let f_n(x) = \\frac{x}{1 + n x^2} for x \\in [0, 1]. Prove using the M_n-test that {f_n} converges uniformly on [0, 1] to the limit function f(x) = 0. Show that \\lim_{n \\to \\infty} f'_n(0) \\ne f'(0), and explain why the theorem on term-by-term differentiation does not apply.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Pointwise limit: for all x in [0, 1], lim_{n -> infty} x / (1 + n x^2) = 0, so f(x) = 0 on [0, 1].",
+      "Step 2: Find M_n = sup_{x in [0, 1]} |f_n(x)|: f'_n(x) = (1 - n x^2)/(1 + n x^2)^2 = 0 gives critical point x = 1/sqrt(n) in [0, 1]. At this point, f_n(1/sqrt(n)) = (1/sqrt(n)) / (1 + 1) = 1/(2 sqrt(n)).",
+      "Step 3: Test uniform convergence: M_n = 1/(2 sqrt(n)). Since lim_{n -> infty} M_n = lim 1/(2 sqrt(n)) = 0, by the M_n-test {f_n} converges uniformly to 0 on [0, 1].",
+      "Step 4: Compute derivatives: f'(x) = 0 for all x in [0, 1], so f'(0) = 0. For each n, f'_n(0) = (1 - n * 0^2)/(1 + n * 0^2)^2 = 1. Therefore lim_{n -> infty} f'_n(0) = lim 1 = 1.",
+      "Step 5: Compare: lim_{n -> infty} f'_n(0) = 1 != 0 = f'(0). The theorem on differentiation requires {f'_n} to converge uniformly on [0, 1]. But f'_n(x) = (1 - n x^2)/(1 + n x^2)^2 converges pointwise to 0 for x in (0, 1] and to 1 at x = 0, which is discontinuous at 0, hence {f'_n} does not converge uniformly."
+    ],
+    "solution_sketch": "M_n = 1/(2 sqrt(n)) -> 0, so f_n -> 0 uniformly. But f'_n(0) = 1 for all n, so lim f'_n(0) = 1 != f'(0) = 0. Differentiation theorem fails because {f'_n} does not converge uniformly (its pointwise limit is discontinuous at 0).",
+    "source_reference": "S.K. Mapa, Sequence of functions, Section 13.4, Worked Example 9"
+  },
+  {
+    "id": 71,
+    "chapter": "Chapter 13: Sequence of functions",
+    "topic": "Sequence of Functions",
+    "subtopic": "Dini's Theorem on Monotone Sequences",
+    "claim": "If {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b].",
+    "question": "State Dini's Theorem for monotone sequences of continuous functions on a compact interval. Prove it in multiple steps using the Heine-Borel open cover property.",
+    "difficulty": "Advanced",
+    "reasoning_steps": [
+      "Step 1: State Dini's Theorem: Let [a, b] be a closed bounded interval and let {f_n} be a sequence of continuous real functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and all n in N. If {f_n} converges pointwise to a continuous function f on [a, b], then the convergence is uniform.",
+      "Step 2: Without loss of generality, replace f_n with g_n = f_n - f, so g_n(x) >= g_{n+1}(x) >= 0 and g_n(x) -> 0 pointwise. Let eps > 0 be arbitrary.",
+      "Step 3: For each point x in [a, b], since g_n(x) -> 0, there exists an integer N_x in N such that 0 <= g_{N_x}(x) < eps/2.",
+      "Step 4: Since g_{N_x} is continuous on [a, b], there exists an open interval I_x = (x - delta_x, x + delta_x) such that for all t in I_x cap [a, b], g_{N_x}(t) < eps.",
+      "Step 5: The family {I_x : x in [a, b]} forms an open cover of the compact set [a, b]. By the Heine-Borel Theorem, there exists a finite subcover {I_{x_1}, I_{x_2}, ..., I_{x_m}}. Let N = max(N_{x_1}, ..., N_{x_m}). For any n >= N and any t in [a, b], t belongs to some I_{x_j}, so by monotonicity g_n(t) <= g_{N_{x_j}}(t) < eps. Hence g_n -> 0 uniformly."
+    ],
+    "solution_sketch": "Set g_n = f_n - f >= 0 decreasing to 0. For each x, g_{N_x}(x) < eps/2, and by continuity g_{N_x}(t) < eps on a neighbourhood I_x. Compactness gives a finite subcover {I_{x_j}}. Taking N = max N_{x_j}, monotonicity ensures g_n(t) < eps for all n >= N, proving uniform convergence.",
+    "source_reference": "S.K. Mapa, Sequence of functions, Section 13.3, Theorem 13.3.6 (Dini's Theorem)"
+  },
+  {
+    "id": 72,
+    "chapter": "Chapter 14: Series of functions",
+    "topic": "Series of Functions",
+    "subtopic": "Weierstrass M-Test for Rational-Trigonometric Series",
+    "claim": "The series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R.",
+    "question": "State the Weierstrass M-Test for uniform convergence of a series of functions. Apply it in multiple steps to prove that \\sum_{n=1}^\\infty \\frac{x}{n(1 + n x^2)} converges uniformly on [0, \\infty).",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Weierstrass M-Test: Let sum u_n(x) be a series of functions on D. If there exists a sequence of positive constants {M_n} such that |u_n(x)| <= M_n for all x in D and all n, and sum M_n converges, then sum u_n(x) is uniformly (and absolutely) convergent on D.",
+      "Step 2: Let u_n(x) = x / [n(1 + n x^2)] for x in [0, infty). Clearly u_n(0) = 0 and u_n(x) >= 0 on [0, infty).",
+      "Step 3: Maximize u_n(x) using calculus: u'_n(x) = [ n(1 + n x^2) - x * n(2nx) ] / [n(1 + n x^2)]^2 = [ 1 - n x^2 ] / [ (1 + n x^2)^2 ]. Setting u'_n(x) = 0 gives critical point x = 1/sqrt(n).",
+      "Step 4: Evaluate the maximum: u_n(1/sqrt(n)) = (1/sqrt(n)) / [ n(1 + 1) ] = 1 / (2 n^{3/2}). Thus M_n = 1 / (2 n^{3/2}) bounds u_n(x) for all x in [0, infty).",
+      "Step 5: Check convergence of sum M_n: sum_{n=1}^infty M_n = (1/2) sum_{n=1}^infty (1 / n^{3/2}). This is a p-series with p = 3/2 > 1, which converges. By the Weierstrass M-Test, the series converges uniformly on [0, infty)."
+    ],
+    "solution_sketch": "u_n(x) = x/[n(1 + n x^2)] attains maximum at x = 1/sqrt(n) with value M_n = 1/(2 n^{3/2}). The series sum M_n = (1/2) sum n^{-3/2} converges (p = 3/2 > 1). By Weierstrass M-test, the series converges uniformly on [0, infty).",
+    "source_reference": "S.K. Mapa, Series of functions, Section 14.1 & Exercises 25, Problem 2"
+  },
+  {
+    "id": 73,
+    "chapter": "Chapter 14: Series of functions",
+    "topic": "Series of Functions",
+    "subtopic": "Dirichlet's Test for Function Series on Compact Subintervals",
+    "claim": "The series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi.",
+    "question": "State Dirichlet's Test for uniform convergence of a series of functions. Use it to prove that \\sum_{n=1}^\\infty \\frac{\\sin(nx)}{n} is uniformly convergent on [\\delta, 2\\pi - \\delta] where 0 < \\delta < \\pi.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: State Dirichlet's Test for Function Series: sum u_n(x) v_n(x) converges uniformly on D if the partial sums S_n(x) = sum_{k=1}^n u_k(x) are uniformly bounded on D (there exists M > 0 such that |S_n(x)| <= M for all n and all x in D), and {v_n(x)} is a monotonic decreasing sequence converging uniformly to 0 on D.",
+      "Step 2: Identify u_n(x) = sin(nx) and v_n(x) = 1/n. Clearly v_n(x) = 1/n is independent of x, monotonically decreasing, and converges to 0 uniformly on R.",
+      "Step 3: Evaluate the partial sums: S_n(x) = sum_{k=1}^n sin(kx) = [ cos(x/2) - cos((n + 1/2)x) ] / [ 2 sin(x/2) ].",
+      "Step 4: Bound S_n(x) on [delta, 2pi - delta]: for x in [delta, 2pi - delta], delta/2 <= x/2 <= pi - delta/2, so sin(x/2) >= sin(delta/2) > 0. Thus |2 sin(x/2)| >= 2 sin(delta/2).",
+      "Step 5: Apply triangle inequality to numerator: |cos(x/2) - cos((n + 1/2)x)| <= |cos(x/2)| + |cos((n + 1/2)x)| <= 1 + 1 = 2. Hence |S_n(x)| <= 2 / [2 sin(delta/2)] = 1 / sin(delta/2) = M for all x in [delta, 2pi - delta] and all n in N. By Dirichlet's Test, the series converges uniformly on [delta, 2pi - delta]."
+    ],
+    "solution_sketch": "u_n(x) = sin nx has partial sums bounded by 1/sin(delta/2) on [delta, 2pi - delta]. v_n = 1/n decreases monotonically to 0 uniformly. By Dirichlet's test for function series, the series converges uniformly on [delta, 2pi - delta].",
+    "source_reference": "S.K. Mapa, Series of functions, Section 14.3, Worked Example 5"
+  },
+  {
+    "id": 74,
+    "chapter": "Chapter 15: Power series",
+    "topic": "Power Series",
+    "subtopic": "Radius of Convergence and Endpoint Analysis",
+    "claim": "The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], converges conditionally at x = 3, and diverges at x = -1.",
+    "question": "Consider the power series \\sum_{n=1}^\\infty \\frac{(-1)^n}{n \\cdot 2^n} (x - 1)^n. Find its radius of convergence R. Test convergence at the boundary endpoints x = -1 and x = 3, and state the exact interval of convergence.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Write series in standard form sum a_n (x - x_0)^n with x_0 = 1 and a_n = (-1)^n / (n * 2^n).",
+      "Step 2: Compute radius of convergence R via D'Alembert's ratio formula: R = lim_{n -> infty} |a_n / a_{n+1}| = lim [ (n + 1) 2^{n+1} ] / [ n 2^n ] = lim 2 * (1 + 1/n) = 2.",
+      "Step 3: The open interval of convergence is |x - 1| < 2, which is 1 - 2 < x < 1 + 2, i.e., (-1, 3).",
+      "Step 4: Test endpoint x = 3: substitute x = 3: (x - 1)^n = 2^n, so general term is [(-1)^n / (n * 2^n)] * 2^n = (-1)^n / n. The resulting series is sum_{n=1}^infty (-1)^n / n, which is the alternating harmonic series. By Leibniz's test, it converges (conditionally).",
+      "Step 5: Test endpoint x = -1: substitute x = -1: (x - 1)^n = (-2)^n = (-1)^n * 2^n, so general term is [(-1)^n / (n * 2^n)] * [(-1)^n * 2^n] = (-1)^{2n} / n = 1/n. The resulting series is the harmonic series sum_{n=1}^infty 1/n, which diverges. Conclude: radius of convergence R = 2, and interval of convergence is (-1, 3]."
+    ],
+    "solution_sketch": "R = lim |a_n/a_{n+1}| = 2. Open interval is (-1, 3). At x = 3, series is sum (-1)^n/n which converges by Leibniz. At x = -1, series is sum 1/n which diverges. The interval of convergence is (-1, 3].",
+    "source_reference": "S.K. Mapa, Power series, Exercises 26 & Section 15.2"
+  },
+  {
+    "id": 75,
+    "chapter": "APPENDIX 1- Sets in R2",
+    "topic": "Multivariable Limits in R^2",
+    "subtopic": "Path-Dependent Limits and Double Limits",
+    "claim": "For f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist.",
+    "question": "Let f: R^2 -> R be defined by f(x, y) = \\frac{x y^2}{x^2 + y^4} for (x, y) \\ne (0, 0) and f(0, 0) = 0. Prove that the limit of f(x, y) along every straight path y = mx (and along x = 0) as (x, y) -> (0, 0) exists and equals 0. Show by approaching along the parabola x = y^2 that the double limit \\lim_{(x, y) \\to (0, 0)} f(x, y) does not exist.",
+    "difficulty": "Hard",
+    "reasoning_steps": [
+      "Step 1: Check approach along straight lines through the origin: let y = mx with m in R. For (x, mx) with x != 0: f(x, mx) = [ x * (m^2 x^2) ] / [ x^2 + m^4 x^4 ] = [ m^2 x^3 ] / [ x^2(1 + m^4 x^2) ] = [ m^2 x ] / [ 1 + m^4 x^2 ].",
+      "Step 2: Take limit as x -> 0: lim_{x -> 0} f(x, mx) = lim_{x -> 0} [ m^2 x / (1 + m^4 x^2) ] = 0 / 1 = 0.",
+      "Step 3: Check approach along vertical line x = 0: for (0, y) with y != 0, f(0, y) = 0 / (0 + y^4) = 0, so lim_{y -> 0} f(0, y) = 0. Thus the limit along every straight line through the origin exists and equals 0.",
+      "Step 4: Test a parabolic path x = k y^2: along this curve for y != 0: f(k y^2, y) = [ (k y^2) * y^2 ] / [ (k y^2)^2 + y^4 ] = [ k y^4 ] / [ k^2 y^4 + y^4 ] = k / (k^2 + 1).",
+      "Step 5: Take limit as y -> 0 along x = k y^2: lim_{y -> 0} f(k y^2, y) = k / (k^2 + 1). For k = 1 (path x = y^2), the limit is 1/(1 + 1) = 1/2 != 0. Since the limit depends on the path of approach (0 along straight lines, 1/2 along x = y^2, -1/2 along x = -y^2), the double limit lim_{(x, y) -> (0, 0)} f(x, y) does not exist."
+    ],
+    "solution_sketch": "Along y = mx, f(x, mx) = m^2 x / (1 + m^4 x^2) -> 0 as x -> 0. Along x = 0, f(0, y) = 0. But along the parabola x = y^2, f(y^2, y) = y^4 / (y^4 + y^4) = 1/2 for all y != 0, giving limit 1/2 != 0. Hence the limit does not exist.",
+    "source_reference": "S.K. Mapa, APPENDIX 1- Sets in R2, Worked Examples"
+  }
+]
