@@ -25,6 +25,7 @@ except ImportError:
     from models.transformer import ContinuousPromptScorerModel
 CANDIDATE_MODEL_DIRS = [
     os.path.join(REPO_ROOT, "checkpoints", "best_deberta_large_curated_scorer"),
+    os.path.join(REPO_ROOT, "best_deberta_large_curated_scorer"),
     os.path.join(REPO_ROOT, "checkpoints", "best_deberta_prompt_scorer"),
     os.path.join(REPO_ROOT, "checkpoints", "best_prompt_scorer"),
 ]

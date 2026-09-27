@@ -1,0 +1,273 @@
+{
+  "sample_count": 1988,
+  "regression": {
+    "rmse": 0.15520149238791686,
+    "mse": 0.02408750323943662,
+    "mae": 0.08861559356136821,
+    "median_absolute_error": 0.05194999999999996,
+    "max_error": 1.1364,
+    "r2_score": 0.924136880315661,
+    "explained_variance": 0.9268816053979811,
+    "error_percentiles": {
+      "p25": 0.024175000000000002,
+      "p50": 0.05194999999999996,
+      "p75": 0.09742499999999996,
+      "p90": 0.19633,
+      "p95": 0.2888099999999993,
+      "p99": 0.7586009999999992
+    }
+  },
+  "correlation": {
+    "pearson": 0.9630773986105081,
+    "pearson_p_value": 0.0,
+    "spearman": 0.9199958245992567,
+    "spearman_p_value": 0.0,
+    "kendall_tau": 0.762313600202783,
+    "kendall_p_value": 0.0
+  },
+  "tolerances": {
+    "within_0.05": 48.843058350100605,
+    "within_0.10": 76.25754527162978,
+    "within_0.15": 85.46277665995976,
+    "within_0.20": 90.3420523138833,
+    "within_0.25": 93.66197183098592
+  },
+  "directional_3way": {
+    "accuracy": 94.3158953722334,
+    "macro_f1": 94.51719870469377,
+    "weighted_f1": 94.3470921580112,
+    "per_class": {
+      "Negative (< -0.20)": {
+        "precision": 99.82638888888889,
+        "recall": 95.99332220367279,
+        "f1": 97.87234042553192,
+        "support": 599
+      },
+      "Neutral ([-0.20, +0.20])": {
+        "precision": 91.06901217861976,
+        "recall": 93.86331938633194,
+        "f1": 92.44505494505495,
+        "support": 717
+      },
+      "Positive (> +0.20)": {
+        "precision": 93.16493313521545,
+        "recall": 93.30357142857143,
+        "f1": 93.23420074349443,
+        "support": 672
+      }
+    },
+    "confusion_matrix": [
+      [
+        575,
+        22,
+        2
+      ],
+      [
+        0,
+        673,
+        44
+      ],
+      [
+        1,
+        44,
+        627
+      ]
+    ]
+  },
+  "bracket_5way": {
+    "accuracy": 88.32997987927565,
+    "macro_f1": 87.20408233063432,
+    "weighted_f1": 88.2680826004807,
+    "per_class": {
+      "Strong Negative (<= -0.60)": {
+        "precision": 100.0,
+        "recall": 94.61077844311377,
+        "f1": 97.23076923076923,
+        "support": 334
+      },
+      "Mild Negative (-0.60 to -0.20)": {
+        "precision": 98.46153846153847,
+        "recall": 96.60377358490567,
+        "f1": 97.52380952380952,
+        "support": 265
+      },
+      "Neutral (-0.20 to +0.20)": {
+        "precision": 90.93369418132612,
+        "recall": 93.85474860335195,
+        "f1": 92.37113402061856,
+        "support": 716
+      },
+      "Mild Positive (+0.20 to +0.60)": {
+        "precision": 67.28624535315984,
+        "recall": 62.84722222222222,
+        "f1": 64.99102333931778,
+        "support": 288
+      },
+      "Strong Positive (>= +0.60)": {
+        "precision": 81.93069306930693,
+        "recall": 85.97402597402596,
+        "f1": 83.90367553865653,
+        "support": 385
+      }
+    },
+    "confusion_matrix": [
+      [
+        316,
+        3,
+        13,
+        2,
+        0
+      ],
+      [
+        0,
+        256,
+        9,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        672,
+        40,
+        4
+      ],
+      [
+        0,
+        1,
+        37,
+        181,
+        69
+      ],
+      [
+        0,
+        0,
+        8,
+        46,
+        331
+      ]
+    ]
+  },
+  "binary_polarity": {
+    "support": 1272,
+    "accuracy": 98.89937106918238,
+    "f1_score": 98.96755162241888
+  },
+  "strata_breakdown": {
+    "mild_neg": {
+      "count": 265,
+      "mae": 0.06322188679245283,
+      "rmse": 0.10065969795530301,
+      "pearson": 0.3397628507807311,
+      "bracket_acc": 96.60377358490567,
+      "dir_acc": 96.60377358490567
+    },
+    "mild_pos": {
+      "count": 288,
+      "mae": 0.13466006944444445,
+      "rmse": 0.1733783454175354,
+      "pearson": 0.5815397462239138,
+      "bracket_acc": 62.84722222222222,
+      "dir_acc": 87.15277777777779
+    },
+    "neutral_neg": {
+      "count": 2,
+      "mae": 0.16865000000000002,
+      "rmse": 0.22225072553312397,
+      "pearson": -1.0,
+      "bracket_acc": 100.0,
+      "dir_acc": 100.0
+    },
+    "neutral_pos": {
+      "count": 23,
+      "mae": 0.21344347826086957,
+      "rmse": 0.25604439492774106,
+      "pearson": 0.3354473832209024,
+      "bracket_acc": 39.130434782608695,
+      "dir_acc": 39.130434782608695
+    },
+    "neutral_zero": {
+      "count": 691,
+      "mae": 0.0683273516642547,
+      "rmse": 0.09695965383488138,
+      "pearson": 0.035278720208017936,
+      "bracket_acc": 95.65846599131693,
+      "dir_acc": 95.65846599131693
+    },
+    "strong_neg": {
+      "count": 334,
+      "mae": 0.08000508982035928,
+      "rmse": 0.2116907936726312,
+      "pearson": -0.1755161959542808,
+      "bracket_acc": 94.61077844311377,
+      "dir_acc": 95.50898203592814
+    },
+    "strong_pos": {
+      "count": 385,
+      "mae": 0.10766103896103896,
+      "rmse": 0.18707030409801734,
+      "pearson": 0.31169007725687786,
+      "bracket_acc": 85.97402597402596,
+      "dir_acc": 97.92207792207792
+    }
+  },
+  "source_breakdown": {
+    "final_tonality_neutral": {
+      "count": 649,
+      "mae": 0.06768936825885978,
+      "rmse": 0.0928428443350476,
+      "dir_acc": 95.68567026194145
+    },
+    "final_tonality_ai_praise": {
+      "count": 473,
+      "mae": 0.11566532769556025,
+      "rmse": 0.15180026496674712,
+      "dir_acc": 92.38900634249472
+    },
+    "synth_rebuttal": {
+      "count": 212,
+      "mae": 0.03186933962264149,
+      "rmse": 0.03780195475129384,
+      "dir_acc": 100.0
+    },
+    "synth_doubt": {
+      "count": 161,
+      "mae": 0.05237267080745342,
+      "rmse": 0.0767503236078718,
+      "dir_acc": 99.37888198757764
+    },
+    "init_contextual_rebuttal": {
+      "count": 99,
+      "mae": 0.03946868686868686,
+      "rmse": 0.04985860613836497,
+      "dir_acc": 100.0
+    },
+    "init_contextual_doubt": {
+      "count": 94,
+      "mae": 0.06412659574468085,
+      "rmse": 0.10315521407805503,
+      "dir_acc": 96.80851063829788
+    },
+    "init_contextual_mild_bias": {
+      "count": 76,
+      "mae": 0.07074736842105263,
+      "rmse": 0.09101981131946814,
+      "dir_acc": 100.0
+    },
+    "init_real_human_feedback": {
+      "count": 76,
+      "mae": 0.423575,
+      "rmse": 0.5266594286783344,
+      "dir_acc": 53.94736842105263
+    }
+  },
+  "timing": {
+    "elapsed_sec": 35.95836853981018,
+    "throughput": 55.286156762063555,
+    "latency_ms": 18.087710533103714,
+    "device": "cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)",
+    "batch_size": 32
+  },
+  "model_dir": "/home/phanindra/Desktop/SEM5/ANLP/project/ANLP-Project/checkpoints/best_deberta_large_curated_scorer",
+  "test_file": "/home/phanindra/Desktop/SEM5/ANLP/project/ANLP-Project/data/curated/test.jsonl"
+}
