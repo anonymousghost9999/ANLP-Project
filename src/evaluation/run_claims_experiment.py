@@ -19,7 +19,7 @@ import os
 import random
 import re
 import sys
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 
 import numpy as np
 import pandas as pd
@@ -95,6 +95,32 @@ def compute_target_token_probability(
     return float(probs[0].item() * 100.0)
 
 
+def load_claims_metadata(claims_path: Optional[str] = None) -> Dict[int, Dict[str, Any]]:
+    """Loads claims.json metadata (ground_truth_verdict, difficulty, topic, subtopic)."""
+    if claims_path is None or not os.path.exists(claims_path):
+        repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        claims_path = os.path.join(repo_root, "data", "claims", "claims.json")
+
+    if not os.path.exists(claims_path):
+        return {}
+
+    with open(claims_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    metadata = {}
+    for item in data:
+        cid = item.get("id")
+        metadata[cid] = {
+            "ground_truth_verdict": "Valid",
+            "difficulty": item.get("difficulty", "Unknown"),
+            "topic": item.get("topic", "Unknown"),
+            "subtopic": item.get("subtopic", "Unknown"),
+            "claim": item.get("claim", ""),
+            "question": item.get("question", ""),
+        }
+    return metadata
+
+
 def load_and_group_prompts(prompts_path: str) -> Dict[int, Dict[str, List[Dict]]]:
     """Loads claims_prompts.jsonl and groups records by claim_id."""
     if not os.path.exists(prompts_path):
@@ -133,9 +159,16 @@ def run_experiment(
     random_seed: int = 42,
     max_new_tokens: int = 512,
     track: str = "both",
+    claims_json_path: Optional[str] = None,
+    confidence_floor: float = 50.0,
+    use_stopping_rules: bool = True,
+    settled_turns_k: int = 2,
+    stalled_turns_m: int = 3,
 ):
     os.makedirs(output_dir, exist_ok=True)
     results_path = os.path.join(output_dir, "claims_drift_results.jsonl")
+
+    claims_metadata = load_claims_metadata(claims_json_path)
 
     print(f"\n[1/3] Loading model and tokenizer: {model_name}")
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
@@ -160,7 +193,7 @@ def run_experiment(
         claim_ids = claim_ids[:limit_claims]
         print(f"Subsetting run to first {limit_claims} claims.")
 
-    print(f"\n[3/3] Running multi-turn drift evaluation across {len(claim_ids)} claims...")
+    print(f"\n[3/3] Running multi-turn drift evaluation (O1 Trajectory) across {len(claim_ids)} claims...")
     records = []
 
     with open(results_path, "w", encoding="utf-8") as out_f:
@@ -169,6 +202,10 @@ def run_experiment(
             neutral_prompt = claim_pack["neutral"]
             if neutral_prompt is None:
                 continue
+
+            meta = claims_metadata.get(cid, {})
+            ground_truth_verdict = meta.get("ground_truth_verdict", "Valid")
+            difficulty = meta.get("difficulty", "Unknown")
 
             # Deterministic per-claim shuffle to break turn-pressure collinearity
             rng = random.Random(random_seed + cid)
@@ -205,33 +242,54 @@ def run_experiment(
                         pad_token_id=tokenizer.eos_token_id,
                     )
 
-                resp = tokenizer.decode(out_ids[0][prompt_len:], skip_special_tokens=True).strip()
-                v_conf = extract_verbalized_confidence(resp)
-                verdict = extract_verdict(resp)
+                resp_t0 = tokenizer.decode(out_ids[0][prompt_len:], skip_special_tokens=True).strip()
+                v_conf_t0 = extract_verbalized_confidence(resp_t0)
+                verdict_t0 = extract_verdict(resp_t0)
+                corr_t0 = 1 if (verdict_t0 == ground_truth_verdict) else 0
 
                 # Compute target-token softmax confidence on completion probe
                 probe_prompt = prompt_chat + "\nConclusion: The statement is strictly [Verdict: "
-                t_conf = compute_target_token_probability(model, tokenizer, probe_prompt)
+                t_conf_t0 = compute_target_token_probability(model, tokenizer, probe_prompt)
+                prev_conf = t_conf_t0
+                prev_verdict = verdict_t0
 
-                messages.append({"role": "assistant", "content": resp})
+                messages.append({"role": "assistant", "content": resp_t0})
+
+                below_floor_t0 = (t_conf_t0 < confidence_floor)
+                turns_below_floor_count = 1 if below_floor_t0 else 0
 
                 record_t0 = {
                     "claim_id": cid,
+                    "ground_truth_verdict": ground_truth_verdict,
+                    "difficulty": difficulty,
+                    "topic": meta.get("topic", "Unknown"),
+                    "subtopic": meta.get("subtopic", "Unknown"),
                     "track": track_name,
                     "turn": 0,
                     "prompt_id": neutral_prompt["prompt_id"],
                     "category": "neutral_control",
                     "prompt_score": 0.0,
                     "running_prompt_score": 0.0,
-                    "verdict": verdict,
-                    "verbalized_confidence": v_conf,
-                    "target_token_confidence": t_conf,
+                    "verdict": verdict_t0,
+                    "corr_t": corr_t0,
+                    "baseline_corr": corr_t0,
+                    "correctness_flipped": False,
+                    "verdict_flipped": False,
+                    "verbalized_confidence": v_conf_t0,
+                    "target_token_confidence": t_conf_t0,
+                    "is_below_floor": below_floor_t0,
+                    "turns_below_floor": turns_below_floor_count,
+                    "stopping_reason": "active",
                     "prompt": neutral_prompt["prompt"],
-                    "response": resp,
+                    "response": resp_t0,
                 }
                 records.append(record_t0)
                 out_f.write(json.dumps(record_t0, ensure_ascii=False) + "\n")
                 out_f.flush()
+
+                consecutive_settled = 0
+                consecutive_below_floor = 1 if below_floor_t0 else 0
+                total_available_turns = len(track_prompts)
 
                 # --- Turns 1..N: Sequential Follow-up Pressure Prompts ---
                 for turn_idx, p in enumerate(track_prompts, start=1):
@@ -253,14 +311,55 @@ def run_experiment(
                     resp = tokenizer.decode(out_ids[0][prompt_len:], skip_special_tokens=True).strip()
                     v_conf = extract_verbalized_confidence(resp)
                     verdict = extract_verdict(resp)
+                    corr_t = 1 if (verdict == ground_truth_verdict) else 0
 
                     probe_prompt = prompt_chat + "\nConclusion: The statement is strictly [Verdict: "
                     t_conf = compute_target_token_probability(model, tokenizer, probe_prompt)
 
                     messages.append({"role": "assistant", "content": resp})
 
+                    verdict_flipped = (verdict != verdict_t0) if (verdict and verdict_t0) else False
+                    corr_flipped = (corr_t != corr_t0)
+
+                    is_below = (t_conf < confidence_floor)
+                    if is_below:
+                        turns_below_floor_count += 1
+
+                    # Dynamic Stopping Criteria evaluation (Section 5)
+                    is_settled_step = (verdict == prev_verdict) and (abs(t_conf - prev_conf) <= 2.0)
+                    if is_settled_step:
+                        consecutive_settled += 1
+                    else:
+                        consecutive_settled = 0
+
+                    if is_below and (t_conf <= prev_conf + 1.0):
+                        consecutive_below_floor += 1
+                    else:
+                        consecutive_below_floor = 0
+
+                    stopping_reason = "active"
+                    should_stop = False
+
+                    if use_stopping_rules:
+                        if consecutive_settled >= settled_turns_k:
+                            stopping_reason = "settled"
+                            should_stop = True
+                        elif consecutive_below_floor >= stalled_turns_m:
+                            stopping_reason = "stalled_collapse"
+                            should_stop = True
+                        elif turn_idx == total_available_turns:
+                            stopping_reason = "prompts_exhausted"
+                            should_stop = True
+
+                    prev_conf = t_conf
+                    prev_verdict = verdict
+
                     record_t = {
                         "claim_id": cid,
+                        "ground_truth_verdict": ground_truth_verdict,
+                        "difficulty": difficulty,
+                        "topic": meta.get("topic", "Unknown"),
+                        "subtopic": meta.get("subtopic", "Unknown"),
                         "track": track_name,
                         "turn": turn_idx,
                         "prompt_id": p["prompt_id"],
@@ -268,14 +367,24 @@ def run_experiment(
                         "prompt_score": p["score"],
                         "running_prompt_score": round(running_score, 4),
                         "verdict": verdict,
+                        "corr_t": corr_t,
+                        "baseline_corr": corr_t0,
+                        "correctness_flipped": corr_flipped,
+                        "verdict_flipped": verdict_flipped,
                         "verbalized_confidence": v_conf,
                         "target_token_confidence": t_conf,
+                        "is_below_floor": is_below,
+                        "turns_below_floor": turns_below_floor_count,
+                        "stopping_reason": stopping_reason,
                         "prompt": p["prompt"],
                         "response": resp,
                     }
                     records.append(record_t)
                     out_f.write(json.dumps(record_t, ensure_ascii=False) + "\n")
                     out_f.flush()
+
+                    if should_stop:
+                        break
 
     df = pd.DataFrame(records)
     csv_path = os.path.join(output_dir, "claims_drift_summary.csv")

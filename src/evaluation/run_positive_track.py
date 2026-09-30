@@ -110,6 +110,35 @@ def parse_args():
         action="store_true",
         help="Disable automatic generation of diagnostic mapping figures",
     )
+    parser.add_argument(
+        "--claims_json_path",
+        type=str,
+        default="data/claims/claims.json",
+        help="Path to claims.json for ground-truth and difficulty metadata",
+    )
+    parser.add_argument(
+        "--confidence_floor",
+        type=float,
+        default=50.0,
+        help="Fixed confidence floor phi (in %, default 50.0)",
+    )
+    parser.add_argument(
+        "--disable_stopping_rules",
+        action="store_true",
+        help="Disable dynamic stopping rules (forces evaluation to run all available turns)",
+    )
+    parser.add_argument(
+        "--settled_k",
+        type=int,
+        default=2,
+        help="Number of consecutive settled turns (k) before stopping (default 2)",
+    )
+    parser.add_argument(
+        "--stalled_m",
+        type=int,
+        default=3,
+        help="Number of consecutive below-floor turns (m) with no upward trend before stopping (default 3)",
+    )
     return parser.parse_args()
 
 
@@ -124,6 +153,10 @@ def main():
     output_dir = args.output_dir
     if not os.path.isabs(output_dir):
         output_dir = os.path.join(REPO_ROOT, output_dir)
+
+    claims_json_path = args.claims_json_path
+    if not os.path.isabs(claims_json_path):
+        claims_json_path = os.path.join(REPO_ROOT, claims_json_path)
 
     score_mapping = dict(ACTIVE_POSITIVE_SCORES)
     if args.custom_scores:
@@ -143,6 +176,11 @@ def main():
         random_seed=args.random_seed,
         max_new_tokens=args.max_new_tokens,
         generate_plots=not args.no_plot,
+        claims_json_path=claims_json_path,
+        confidence_floor=args.confidence_floor,
+        use_stopping_rules=not args.disable_stopping_rules,
+        settled_turns_k=args.settled_k,
+        stalled_turns_m=args.stalled_m,
     )
 
 
