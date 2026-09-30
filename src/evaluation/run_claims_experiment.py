@@ -132,6 +132,7 @@ def run_experiment(
     load_in_4bit: bool = False,
     random_seed: int = 42,
     max_new_tokens: int = 512,
+    track: str = "both",
 ):
     os.makedirs(output_dir, exist_ok=True)
     results_path = os.path.join(output_dir, "claims_drift_results.jsonl")
@@ -176,10 +177,15 @@ def run_experiment(
             rng.shuffle(pos_shuffled)
             rng.shuffle(neg_shuffled)
 
-            tracks = [
-                ("positive", pos_shuffled),
-                ("negative", neg_shuffled),
-            ]
+            if track == "positive":
+                tracks = [("positive", pos_shuffled)]
+            elif track == "negative":
+                tracks = [("negative", neg_shuffled)]
+            else:
+                tracks = [
+                    ("positive", pos_shuffled),
+                    ("negative", neg_shuffled),
+                ]
 
             for track_name, track_prompts in tracks:
                 messages = [{"role": "system", "content": SYSTEM_PROMPT}]
@@ -288,6 +294,13 @@ if __name__ == "__main__":
     parser.add_argument("--load_in_4bit", action="store_true")
     parser.add_argument("--random_seed", type=int, default=42)
     parser.add_argument("--max_new_tokens", type=int, default=512)
+    parser.add_argument(
+        "--track",
+        type=str,
+        choices=["both", "positive", "negative"],
+        default="both",
+        help="Which pressure track to evaluate (positive, negative, or both)",
+    )
 
     args = parser.parse_args()
 
@@ -305,4 +318,5 @@ if __name__ == "__main__":
         load_in_4bit=args.load_in_4bit,
         random_seed=args.random_seed,
         max_new_tokens=args.max_new_tokens,
+        track=args.track,
     )
