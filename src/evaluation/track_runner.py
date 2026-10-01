@@ -285,15 +285,41 @@ def run_track(
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
+    has_accelerate = False
+    try:
+        from transformers.utils import is_accelerate_available
+        has_accelerate = is_accelerate_available()
+    except Exception:
+        try:
+            import accelerate
+            has_accelerate = True
+        except Exception:
+            has_accelerate = False
+
+    target_dtype = torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float16
     load_kwargs = {
-        "torch_dtype": torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float16,
-        "device_map": "auto",
+        "torch_dtype": target_dtype,
     }
+    if has_accelerate:
+        load_kwargs["device_map"] = "auto"
+
     if load_in_4bit:
         from transformers import BitsAndBytesConfig
         load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True)
 
-    model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+    try:
+        model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+    except ValueError as e:
+        if "requires accelerate" in str(e) and "device_map" in load_kwargs:
+            print("[Warning] device_map='auto' failed due to accelerate issue. Falling back to direct model load...")
+            load_kwargs.pop("device_map", None)
+            model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+            has_accelerate = False
+        else:
+            raise e
+
+    if not has_accelerate and torch.cuda.is_available():
+        model = model.to("cuda")
     model.eval()
 
     # 2. Ingest Prompts

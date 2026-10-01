@@ -28,6 +28,10 @@ else
 fi
 echo "=============================================================================="
 
+# 0. Ensure accelerate package is available
+echo -e "\n[0/3] Checking environment dependencies..."
+python3 -m pip install -q accelerate
+
 # 1. Run Trajectory Experiment (Positive Track)
 echo -e "\n>>> [Phase 1/3] Running Multi-Turn Trajectory Experiment ($TRACK track)..."
 python3 src/evaluation/run_claims_experiment.py \
