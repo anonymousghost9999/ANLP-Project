@@ -8,7 +8,7 @@ set -e
 MODEL_NAME="${1:-meta-llama/Meta-Llama-3.1-8B-Instruct}"
 OUTPUT_DIR="${2:-results/production_run}"
 LIMIT_CLAIMS="${3:-}"
-TRACK="${4:-positive}"
+TRACK="${4:-both}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
@@ -18,7 +18,7 @@ echo " STARTING PRODUCTION EXPERIMENT RUN ON JARVISLABS GPU"
 echo "=============================================================================="
 echo " Model Target:     $MODEL_NAME"
 echo " Output Directory: $OUTPUT_DIR"
-echo " Track Selection:  $TRACK"
+echo " Track Selection:  $TRACK (options: positive, negative, both)"
 if [ -n "$LIMIT_CLAIMS" ]; then
     echo " Claim Limit:      First $LIMIT_CLAIMS claims (Subsetting)"
     LIMIT_FLAG="--limit_claims $LIMIT_CLAIMS"

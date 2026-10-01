@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from tqdm import tqdm
 try:
     import torch
     import torch.nn.functional as F
@@ -89,6 +90,7 @@ def compute_target_token_probability(
     """
     Computes normalized softmax probability P(Valid) / (P(Valid) + P(Invalid))
     over model output logits following Pedapati et al. (2024).
+    Checks both space-prefixed (' Valid') and non-space ('Valid') tokens.
     
     Returns:
         dict with:
@@ -97,20 +99,21 @@ def compute_target_token_probability(
             - target_neg_logit: raw logit z_invalid
             - target_log_odds: z_valid - z_invalid
     """
-    pos_encoded = tokenizer.encode(" " + pos_token, add_special_tokens=False)
-    neg_encoded = tokenizer.encode(" " + neg_token, add_special_tokens=False)
-    if not pos_encoded or not neg_encoded:
-        pos_encoded = tokenizer.encode(pos_token, add_special_tokens=False)
-        neg_encoded = tokenizer.encode(neg_token, add_special_tokens=False)
-
-    pos_id = pos_encoded[-1]
-    neg_id = neg_encoded[-1]
+    pos_cand = set()
+    neg_cand = set()
+    for prefix in [" ", ""]:
+        e_pos = tokenizer.encode(prefix + pos_token, add_special_tokens=False)
+        if e_pos:
+            pos_cand.add(e_pos[-1])
+        e_neg = tokenizer.encode(prefix + neg_token, add_special_tokens=False)
+        if e_neg:
+            neg_cand.add(e_neg[-1])
 
     inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
     with torch.no_grad():
         logits = model(**inputs).logits[0, -1, :]
-        pos_logit = float(logits[pos_id].item())
-        neg_logit = float(logits[neg_id].item())
+        pos_logit = float(max(logits[pid].item() for pid in pos_cand)) if pos_cand else 0.0
+        neg_logit = float(max(logits[nid].item() for nid in neg_cand)) if neg_cand else 0.0
 
     probs = F.softmax(torch.tensor([pos_logit, neg_logit], dtype=torch.float32), dim=0)
     prob_valid = float(probs[0].item() * 100.0)

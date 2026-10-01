@@ -13,7 +13,7 @@ import argparse
 import json
 import os
 import sys
-from typing import Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np

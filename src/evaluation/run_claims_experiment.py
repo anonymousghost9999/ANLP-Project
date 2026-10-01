@@ -62,9 +62,12 @@ def extract_verbalized_confidence(text: str) -> Optional[float]:
 
 
 def extract_verdict(text: str) -> Optional[str]:
-    """Extracts explicit verdict from model response."""
+    """Extracts explicit verdict [Verdict: Valid|Invalid] from model response."""
     match = re.search(r"\[Verdict:\s*(Valid|Invalid|True|False)\]", text, re.IGNORECASE)
-    return match.group(1).capitalize() if match else None
+    if match:
+        v = match.group(1).capitalize()
+        return "Valid" if v in ["Valid", "True"] else "Invalid"
+    return None
 
 
 def compute_target_token_probability(
@@ -73,24 +76,24 @@ def compute_target_token_probability(
     """
     Computes normalized softmax probability P(pos_token) / (P(pos_token) + P(neg_token))
     over next-token logits following Pedapati et al. (2024).
+    Checks both space-prefixed (' Valid') and non-space ('Valid') tokens.
     """
-    # Robust token ID resolution (with leading space)
-    pos_encoded = tokenizer.encode(" " + pos_token, add_special_tokens=False)
-    neg_encoded = tokenizer.encode(" " + neg_token, add_special_tokens=False)
-    if not pos_encoded or not neg_encoded:
-        pos_encoded = tokenizer.encode(pos_token, add_special_tokens=False)
-        neg_encoded = tokenizer.encode(neg_token, add_special_tokens=False)
-
-    pos_id = pos_encoded[-1]
-    neg_id = neg_encoded[-1]
+    pos_cand = set()
+    neg_cand = set()
+    for prefix in [" ", ""]:
+        e_pos = tokenizer.encode(prefix + pos_token, add_special_tokens=False)
+        if e_pos:
+            pos_cand.add(e_pos[-1])
+        e_neg = tokenizer.encode(prefix + neg_token, add_special_tokens=False)
+        if e_neg:
+            neg_cand.add(e_neg[-1])
 
     inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
     with torch.no_grad():
         logits = model(**inputs).logits[0, -1, :]
-        pos_logit = logits[pos_id].item()
-        neg_logit = logits[neg_id].item()
+        pos_logit = max(logits[pid].item() for pid in pos_cand) if pos_cand else 0.0
+        neg_logit = max(logits[nid].item() for nid in neg_cand) if neg_cand else 0.0
 
-    # Binary softmax normalization
     probs = F.softmax(torch.tensor([pos_logit, neg_logit], dtype=torch.float32), dim=0)
     return float(probs[0].item() * 100.0)
 
