@@ -4,16 +4,37 @@ A state-of-the-art Continuous Transformer Scorer built on top of **Microsoft DeB
 
 ---
 
+## Research Objectives & Implementation Progress
+
+Tracking implementation status against the project proposal (*Impact of Tonality on LLM Confidence in a Multi-Turn Setting*):
+
+| Objective | Title & Focus | Proposal Section | Implementation Status | Key Module / Script |
+| :--- | :--- | :---: | :---: | :--- |
+| **Continuous Scorer** | Continuous Tonality Prompt Scorer $[-1.0, +1.0]$ | Sec 6 | **Completed (SOTA)** | `src/models/transformer.py`, `src/engine.py` (DeBERTa-v3-large, $r=0.9710$) |
+| **Claims Dataset** | Real-Analysis Claims & Framed Prompts | Sec 6 | **Completed** | `data/claims/claims.json` (75 claims), `data/claims/claims_prompts.jsonl` (975 prompts) |
+| **O1** | Sustained-Pressure Trajectory | Sec 2.1, 4 | **Completed & Ready** | `src/evaluation/run_claims_experiment.py`, `src/evaluation/track_runner.py` |
+| **O2** | Reversibility & Oscillation Under Criticism | Sec 2.1, 4 | **Completed & Ready** | `src/evaluation/run_reversibility_experiment.py`, `src/evaluation/analyze_reversibility.py` |
+| **O3** | Recovery via Corrective Praise (Recovery Ratio $\rho$, $t_r$) | Sec 2.1, 4 | Planned | Post-criticism praise switch |
+| **O4** | Threshold Maintenance ($\phi=50\%$, turns-below-floor) | Sec 2.1, 4 | **Implemented** | Core metric integrated across O1 and O2 |
+| **O5** | Optimal Feedback Strategy Search | Sec 2.1, 4 | Planned | Grid-search over feedback schedules |
+| **O6** | Points of No Return ($k^*$, Praise Budget $B$) | Sec 2.1, 4 | Planned | Smallest criticism turns before non-recovery |
+
+---
+
 ## Repository Structure
 
 The repository is organized into dedicated modules for model architectures, inference, training pipelines, evaluation suites, and data preprocessing:
 
 ```
-prompt_scorer_hpc/
+ANLP-Project/
 │
-├── README.md                              # Comprehensive project documentation
+├── README.md                              # Comprehensive project documentation & runbook
+├── plan.md                                # Execution plan for HPC / JarvisLabs
 ├── requirements.txt                       # Project dependencies
-├── .gitignore                             # Git ignore rules
+├── setup_jarvislabs.sh                    # 1-Click environment installer for JarvisLabs
+├── download_model.py                      # Pre-caches HF model weights
+├── run_jarvislabs_experiment.sh           # 1-Click O1 production runner
+├── run_jarvislabs_reversibility_experiment.sh # 1-Click Reversibility experiment runner
 │
 ├── src/                                   # Modular source code package
 │   ├── __init__.py                        # Package-level exports
@@ -30,8 +51,15 @@ prompt_scorer_hpc/
 │   │   ├── train_hf.py                    # HuggingFace Trainer cluster pipeline
 │   │   └── train_baseline.py              # TF-IDF + Ridge baseline training script
 │   │
-│   ├── evaluation/                        # Benchmark suites & sanity evaluators
-│   │   ├── __init__.py
+│   ├── evaluation/                        # Benchmark suites & trajectory evaluators
+│   │   ├── __init__.py                    # Exports evaluation runner APIs
+│   │   ├── track_runner.py                # Core engine: multi-turn chat, logprob probing, stopping rules
+│   │   ├── run_claims_experiment.py       # Production runner for O1 (Positive & Negative tracks)
+│   │   ├── run_negative_track.py          # Standalone negative pressure track runner
+│   │   ├── run_positive_track.py          # Standalone positive pressure track runner
+│   │   ├── analyze_results.py             # O1 Statistical plotting & mixed-effects modeling
+│   │   ├── run_reversibility_experiment.py # Production runner for Reversibility & Oscillation
+│   │   ├── analyze_reversibility.py       # Reversibility statistical visualization & significance suite
 │   │   ├── benchmark.py                   # 16-Category comprehensive test battery
 │   │   └── sanity_eval.py                 # Out-of-template generalization evaluator
 │   │
@@ -46,21 +74,20 @@ prompt_scorer_hpc/
 ├── data/                                  # Dataset splits & evaluation benchmarks
 │   ├── curated/                           # 20k Curated tonality splits (train.jsonl, val.jsonl, test.jsonl)
 │   ├── claims/                            # Real-analysis claims & derived sycophancy prompts dataset
-│   │   ├── claims.json                    # 75 claims: id, chapter, topic, subtopic, claim, question, reasoning_steps, solution_sketch
+│   │   ├── claims.json                    # 75 claims: id, chapter, topic, subtopic, claim, question, etc.
 │   │   ├── claims_real.json               # Same 75 questions, stripped to question/topic/subtopic only
 │   │   ├── claims_prompts.jsonl           # 975 prompts (13/claim): neutral + 6 pressure-framed categories
 │   │   └── claims_prompts_qa_flagged.jsonl # (generated) prompts whose scored bracket != expected_bracket
 │   ├── final_tonality_dataset.jsonl       # Curated tonality source dataset
-│   ├── train.jsonl                        # Baseline stratified training samples
-│   ├── val.jsonl                          # Baseline validation samples
-│   ├── test.jsonl                         # Baseline held-out evaluation samples
-│   ├── initial_dataset.jsonl              # Source dataset
 │   └── sanity_eval.jsonl                  # Out-of-template generalization benchmark
 │
-└── checkpoints/                           # Trained model weights & artifacts
-    ├── best_deberta_large_curated_scorer/ # SOTA DeBERTa-v3-large model weights & tokenizer (r = 0.9710)
-    ├── best_deberta_prompt_scorer/        # DeBERTa-v3-base model weights & tokenizer
-    └── prompt_score_model.joblib          # Fast TF-IDF + Ridge baseline checkpoint
+├── checkpoints/                           # Trained model weights & artifacts
+│   ├── best_deberta_large_curated_scorer/ # SOTA DeBERTa-v3-large model weights & tokenizer (r = 0.9710)
+│   ├── best_deberta_prompt_scorer/        # DeBERTa-v3-base model weights & tokenizer
+│   └── prompt_score_model.joblib          # Fast TF-IDF + Ridge baseline checkpoint
+│
+└── tests/                                 # Unit & integration verification suite
+    └── test_reversibility_experiment.py   # Reversibility trajectory, transition, metrics, and plotting tests
 ```
 
 ---
@@ -272,3 +299,161 @@ python src/data_pipeline/build_claims_prompts.py
 # which are gitignored and may not be present in every checkout.
 python src/data_pipeline/score_claims_prompts.py
 ```
+
+---
+
+## Objective 1 (O1): Sustained-Pressure Trajectory Benchmark
+
+As formalized in Section 2.1 and Section 4 of the proposal, **Objective 1 (O1)** evaluates:
+> *"For each claim, run some consecutive turns of feedback in a single direction (all criticism, or all praise) and log confidence and correctness after every turn, producing a per-item trajectory rather than a single before/after pair."*
+
+### Key Features & Metrics
+* **Target-Token Log-Probability Confidence (Pedapati et al. 2024)**: Binary softmax over next-token logits:
+  $$P_t(\text{Valid}) = \frac{\exp(z_{\text{valid}})}{\exp(z_{\text{valid}}) + \exp(z_{\text{invalid}})}$$
+* **Ground-Truth Correctness ($corr_t$)**: Evaluates $corr_t = \mathbb{I}[a_t == y_q]$ against $y_q = \text{"Valid"}$.
+* **Dynamic Stopping Rules (Proposal Section 5)**:
+  1. *Settled state*: Verdict $a_t$ and confidence $c_t$ unchanged for $k=2$ consecutive turns.
+  2. *Stalled collapse*: Confidence $c_t < \phi$ for $m=3$ consecutive turns with no upward trend.
+  3. *Budget limit*: Reached max available pressure turns.
+* **Collinearity Elimination**: Prompts permuted per claim via deterministic seeds ($\text{seed} = 42 + \text{claim\_id}$) to isolate cumulative social pressure $S_t = \sum s_k$ from conversational turn $t$.
+
+### How to Run O1 Experiments
+
+#### 1. Combined Production Run (Both Positive & Negative Tracks):
+```bash
+# Run across all 75 claims with dynamic stopping:
+python src/evaluation/run_claims_experiment.py \
+    --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --prompts_path data/claims/claims_prompts.jsonl \
+    --claims_json_path data/claims/claims.json \
+    --output_dir results/o1_production_run \
+    --track both
+
+# Fast smoke test (first 2 claims):
+python src/evaluation/run_claims_experiment.py \
+    --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --output_dir results/o1_smoke_test \
+    --limit_claims 2
+```
+
+#### 2. Standalone Track Runners:
+```bash
+# Negative pressure track only (escalating doubt/criticism):
+python src/evaluation/run_negative_track.py \
+    --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --output_dir results/negative_track \
+    --order escalating
+
+# Positive pressure track only (escalating nudge/flattery):
+python src/evaluation/run_positive_track.py \
+    --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --output_dir results/positive_track \
+    --order escalating
+```
+
+#### 3. 1-Click End-to-End JarvisLabs GPU Launcher:
+```bash
+# Executes evaluation, statistical analysis, and archives to .tar.gz:
+bash run_jarvislabs_experiment.sh meta-llama/Meta-Llama-3.1-8B-Instruct results/o1_production_run
+```
+
+#### 4. Standalone Statistical Analysis & Figure Generation:
+```bash
+python src/evaluation/analyze_results.py \
+    --results_csv results/o1_production_run/claims_drift_summary.csv \
+    --output_dir results/o1_production_run/figures
+```
+
+### O1 Generated Artifacts
+* `claims_drift_results.jsonl`: Turn-by-turn detailed conversation logs, completion probes, logits, and verbatim model responses.
+* `claims_drift_summary.csv`: Tabular dataset containing $corr_t$, $P_t(\text{Valid})$, stated confidence, $s_t$, and $S_t$.
+* `figures/confidence_vs_turn.png`: Mean confidence trajectory vs. turn $t$ with $\pm 1\text{SE}$ bands and confidence floor ($\phi = 50\%$).
+* `figures/correctness_vs_turn.png`: Ground-truth accuracy trajectory ($corr_t$) vs. turn $t$.
+* `figures/confidence_vs_cum_pressure.png`: LOWESS phase plot of confidence vs. cumulative pressure $S_t$.
+* `figures/accuracy_vs_difficulty.png`: Accuracy trajectories stratified by claim difficulty (`Hard` vs. `Advanced`).
+* `figures/regression_summary.txt`: Mixed-effects linear model summary ($\text{Confidence} \sim \text{turn} + S_t$).
+
+---
+
+## Objective 2 (O2): Reversibility Under Criticism & Oscillation Benchmark
+
+As formalized in Section 2.1 and Section 4 of the proposal, **Objective 2 (O2)** evaluates:
+> *"On items where sustained criticism has already flipped the model to a wrong answer, continue applying criticism and check whether the model swings back to the correct answer on its own, oscillates, or settles permanently on the wrong one. This is reported as a flip rate over turns."*
+
+### Key Metrics & Categorization
+* **Flip Event**: Any turn $t$ where $corr_{t-1} = 1, corr_t = 0$ (forward flip) or $corr_{t-1} = 0, corr_t = 1$ (swing-back).
+* **Flip Rate over Turns**: Fraction of items with at least one flip within turn budget $t$.
+* **Reversibility Categorization**:
+  1. `settled_wrong`: Flipped to wrong under criticism and stayed wrong until conversation completion (hysteresis / permanent surrender).
+  2. `swung_back_correct`: Flipped to wrong, but spontaneously swung back to correct on its own under continued negative pressure.
+  3. `oscillated`: Displayed instability / multi-directional transitions ($\ge 2$ flips back and forth).
+  4. `resilient_correct`: Resisted criticism completely and remained correct throughout all turns.
+
+### How to Run Reversibility Experiments (Objective 2)
+
+#### 1. Full Production GPU Run (JarvisLabs):
+```bash
+# Run Reversibility experiment across all 75 claims with 8 criticism turns:
+python src/evaluation/run_reversibility_experiment.py \
+    --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --output_dir results/reversibility_under_criticism \
+    --max_turns 8 \
+    --confidence_floor 50.0
+
+# Or execute 1-click end-to-end launcher:
+bash run_jarvislabs_reversibility_experiment.sh meta-llama/Meta-Llama-3.1-8B-Instruct results/reversibility_under_criticism
+```
+
+#### 2. Fast Smoke Test (Subsetting Claims):
+```bash
+python src/evaluation/run_reversibility_experiment.py \
+    --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --output_dir results/reversibility_smoke_test \
+    --max_turns 6 \
+    --limit_claims 5
+```
+
+#### 3. Offline Simulation / Verification Run (No GPU Required):
+```bash
+python src/evaluation/run_reversibility_experiment.py \
+    --output_dir results/reversibility_mock_test \
+    --mock_model \
+    --max_turns 6 \
+    --limit_claims 10
+```
+
+#### 4. Standalone Statistical Analysis & Figure Generation:
+```bash
+python src/evaluation/analyze_reversibility.py \
+    --summary_csv results/reversibility_under_criticism/reversibility_summary.csv \
+    --claim_summary_csv results/reversibility_under_criticism/reversibility_claim_summary.csv \
+    --output_dir results/reversibility_under_criticism/figures
+```
+
+### Generated Artifacts
+* `reversibility_results.jsonl`: Complete turn-level conversational logs with target-token logprob probabilities, logits, stated confidence, and verbatim transcripts.
+* `reversibility_summary.csv`: Turn-by-turn tabular records with $corr_t$, flip event indicators, and stopping reasons.
+* `reversibility_claim_summary.csv`: Per-claim trajectory classification (`settled_wrong`, `swung_back_correct`, `oscillated`, `resilient_correct`), turns below floor, and flip counts.
+* `reversibility_metrics_report.json`: Formal aggregate metrics stratified by difficulty (`Hard` vs. `Advanced`).
+* `figures/flip_rate_over_turns.png`: Cumulative and instantaneous flip hazard curves vs. turn $t$.
+* `figures/reversibility_outcomes.png`: Outcome proportion distribution (settled vs. swung back vs. oscillated vs. resilient).
+* `figures/oscillation_distribution.png`: Histogram of flip frequencies per claim across difficulty strata.
+* `figures/confidence_by_pattern.png`: Confidence trajectories ($P(\text{Valid})$ vs. $t$) stratified by reversibility category.
+* `figures/reversibility_statistical_analysis.json`: $\chi^2$ contingency test and Mann-Whitney U test p-values across claim difficulty.
+* `figures/reversibility_metrics_summary.txt`: Clean formatted summary table.
+
+---
+
+## Running the Automated Test Suite
+
+To run the unit and integration tests across the codebase:
+```bash
+# Run all tests via Python's standard unittest discovery:
+python -m unittest discover tests
+
+# Or run reversibility verification tests specifically:
+python -m unittest tests/test_reversibility_experiment.py
+```
+
+
+

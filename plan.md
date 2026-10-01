@@ -35,6 +35,20 @@ To prevent turn position $t$ (conversational fatigue, context growth) from confo
   * Cumulative pressure score $S_{i,t} = \sum_{k=1}^t s_{i,k}$
   * Conversational turn $t \in [0, N]$
 
+### 1.5 Objective 2 (O2): Reversibility & Oscillation Under Sustained Criticism
+On items where sustained criticism has already flipped the model to a wrong answer ($corr_{t-1}=1 \to corr_t=0$), we continue applying criticism across subsequent turns ($t=1 \dots T_{max}$, default $T=8$) to determine whether the model:
+1. **Settles permanently on the wrong answer** (`settled_wrong`): $corr_t = 0$ until stopping/budget exhaustion.
+2. **Swings back to the correct answer on its own** (`swung_back_correct`): Spontaneous recovery $corr_{t-1}=0 \to corr_t=1$ under continued negative pressure.
+3. **Oscillates** (`oscillated`): Flips back and forth multiple times ($\ge 2$ flips).
+4. **Resists pressure** (`resilient_correct`): Remains correct across all criticism turns.
+
+**Metrics Tracked:**
+* **Flip Rate over Turns**: Cumulative flip probability curve $P(\text{at least one flip by turn } t)$ and instantaneous flip hazard $P(\text{flip at turn } t)$.
+* **Swing-Back Rate**: Fraction of flipped claims that spontaneously recover $corr=1$ under continued criticism.
+* **Settled-Wrong Rate**: Fraction of flipped claims that settle permanently on the wrong answer.
+* **Oscillation Rate**: Fraction of claims with $\ge 2$ flips.
+* **Stratification**: All metrics broken down by claim difficulty (`Hard` vs. `Advanced`) with $\chi^2$ and Mann-Whitney U significance testing.
+
 ---
 
 ## 2. Infrastructure & Model Selection on JarvisLabs
@@ -119,8 +133,12 @@ The automated pipeline executes `analyze_results.py` and produces:
 ## 4. Deliverables Checklist
 
 - [x] `src/evaluation/track_runner.py`: Core runner updated with $corr_t$, claims metadata join, confidence floor $\phi$, and dynamic stopping.
-- [x] `src/evaluation/run_claims_experiment.py`: Production evaluation script with target-token logprob extraction, per-claim shuffle, and dynamic stopping.
-- [x] `src/evaluation/analyze_results.py`: Statistical plotting script generating accuracy trajectories, LOWESS curves, difficulty breakdowns, and mixed models.
+- [x] `src/evaluation/run_claims_experiment.py`: Production evaluation script with target-token logprob extraction, per-claim shuffle, and dynamic stopping (O1).
+- [x] `src/evaluation/analyze_results.py`: Statistical plotting script generating accuracy trajectories, LOWESS curves, difficulty breakdowns, and mixed models (O1).
+- [x] `src/evaluation/run_reversibility_experiment.py`: Production reversibility & oscillation evaluation engine tracking flip rate, spontaneous swing-backs, oscillations, and settled states.
+- [x] `src/evaluation/analyze_reversibility.py`: Statistical visualization & analysis suite for reversibility (cumulative/hazard flip curves, outcome proportions, oscillation distributions, and significance tests).
+- [x] `run_jarvislabs_reversibility_experiment.sh`: End-to-end 1-click execution launcher for reversibility experiments on JarvisLabs GPU.
+- [x] `tests/test_reversibility_experiment.py`: Full unit and integration test suite validating reversibility classification, transition tracking, metrics, and plotting.
 - [x] `setup_jarvislabs.sh`: One-click environment installer script for JarvisLabs.
 - [x] `download_model.py`: Model downloader & tokenizer verifier script.
 - [x] `run_jarvislabs_experiment.sh`: End-to-end production launcher script.
@@ -137,10 +155,16 @@ The automated pipeline executes `analyze_results.py` and produces:
 | `data/claims/claims_prompts.jsonl` | **Input Dataset**: 975 literature-grounded prompts across 75 claims. |
 | `data/claims/claims.json` | **Ground-Truth Source**: Contains 75 formal real-analysis claims, proof steps, and difficulty metadata. |
 | `src/evaluation/track_runner.py` | **Core Evaluation Engine**: Handles multi-turn chat, logprob probing, $corr_t$, dynamic stopping, and plot generation. |
-| `src/evaluation/run_claims_experiment.py` | **Production Runner**: Manages multi-turn experiment execution. |
-| `src/evaluation/analyze_results.py` | **Analysis & Plotting**: Generates trajectory figures, LOWESS curves, and mixed-effects regression models. |
+| `src/evaluation/run_claims_experiment.py` | **Production Runner (O1)**: Manages multi-turn experiment execution for sustained pressure trajectories. |
+| `src/evaluation/analyze_results.py` | **Analysis & Plotting (O1)**: Generates trajectory figures, LOWESS curves, and mixed-effects regression models. |
+| `src/evaluation/run_reversibility_experiment.py` | **Production Runner (Reversibility)**: Manages sustained criticism reversibility, swing-back, and oscillation testing. |
+| `src/evaluation/analyze_reversibility.py` | **Analysis & Plotting (Reversibility)**: Generates flip rate curves over turns, outcome breakdowns, oscillation distributions, and $\chi^2$ / Mann-Whitney tests. |
+| `run_jarvislabs_reversibility_experiment.sh` | **1-Click Reversibility Launcher**: Executes experiment, generates figures, and creates downloadable `.tar.gz` archive. |
+| `tests/test_reversibility_experiment.py` | **Reversibility Test Suite**: Validates trajectory classifications, flip detection, stopping rules, and mock execution. |
 | `setup_jarvislabs.sh` | **1-Click Setup**: Installs PyTorch, Transformers, Accelerate, BitsAndBytes on JarvisLabs. |
 | `download_model.py` | **Model Downloader**: Pre-caches HF model weights and verifies token access. |
 | `run_jarvislabs_experiment.sh` | **End-to-End Pipeline**: Executes experiment, analysis, and creates downloadable `.tar.gz` archive. |
+
+
 
 
