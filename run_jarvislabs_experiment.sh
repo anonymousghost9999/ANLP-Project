@@ -37,9 +37,10 @@ echo -e "\n>>> [Phase 1/3] Running Multi-Turn Trajectory Experiment ($TRACK trac
 python3 src/evaluation/run_claims_experiment.py \
     --model_name "$MODEL_NAME" \
     --prompts_path "data/claims/claims_prompts.jsonl" \
-    --claims_json_path "data/claims/claims.json" \
+    --claims_json_path "data/claims/claims_paired.json" \
     --output_dir "$OUTPUT_DIR" \
     --track "$TRACK" \
+    --max_new_tokens 256 \
     --confidence_floor 50.0 \
     --settled_turns_k 2 \
     --stalled_turns_m 3 \

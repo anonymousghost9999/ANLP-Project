@@ -250,15 +250,18 @@ def run_experiment(
         load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True)
 
     try:
-        model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
-    except ValueError as e:
-        if "requires accelerate" in str(e) and "device_map" in load_kwargs:
-            print("[Warning] device_map='auto' failed due to accelerate issue. Falling back to direct model load...")
-            load_kwargs.pop("device_map", None)
+        model = AutoModelForCausalLM.from_pretrained(model_name, attn_implementation="sdpa", **load_kwargs)
+    except Exception:
+        try:
             model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
-            has_accelerate = False
-        else:
-            raise e
+        except ValueError as e:
+            if "requires accelerate" in str(e) and "device_map" in load_kwargs:
+                print("[Warning] device_map='auto' failed due to accelerate issue. Falling back to direct model load...")
+                load_kwargs.pop("device_map", None)
+                model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+                has_accelerate = False
+            else:
+                raise e
 
     if not has_accelerate and torch.cuda.is_available():
         model = model.to("cuda")
@@ -312,11 +315,12 @@ def run_experiment(
                 inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
                 prompt_len = inputs.input_ids.shape[1]
 
-                with torch.no_grad():
+                with torch.inference_mode():
                     out_ids = model.generate(
                         **inputs,
                         max_new_tokens=max_new_tokens,
                         do_sample=False,  # Greedy decoding for deterministic repeatability
+                        use_cache=True,
                         pad_token_id=tokenizer.eos_token_id,
                     )
 
@@ -378,11 +382,12 @@ def run_experiment(
                     inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
                     prompt_len = inputs.input_ids.shape[1]
 
-                    with torch.no_grad():
+                    with torch.inference_mode():
                         out_ids = model.generate(
                             **inputs,
                             max_new_tokens=max_new_tokens,
                             do_sample=False,
+                            use_cache=True,
                             pad_token_id=tokenizer.eos_token_id,
                         )
 
