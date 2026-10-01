@@ -410,6 +410,35 @@ if __name__ == "__main__":
         default="both",
         help="Which pressure track to evaluate (positive, negative, or both)",
     )
+    parser.add_argument(
+        "--claims_json_path",
+        type=str,
+        default="data/claims/claims.json",
+        help="Path to claims.json for ground-truth and difficulty metadata",
+    )
+    parser.add_argument(
+        "--confidence_floor",
+        type=float,
+        default=50.0,
+        help="Fixed confidence floor phi (in %, default 50.0)",
+    )
+    parser.add_argument(
+        "--disable_stopping_rules",
+        action="store_true",
+        help="Disable dynamic stopping rules (forces evaluation to run all available turns)",
+    )
+    parser.add_argument(
+        "--settled_turns_k",
+        type=int,
+        default=2,
+        help="Number of consecutive settled turns (k) before stopping (default 2)",
+    )
+    parser.add_argument(
+        "--stalled_turns_m",
+        type=int,
+        default=3,
+        help="Number of consecutive below-floor turns (m) with no upward trend before stopping (default 3)",
+    )
 
     args = parser.parse_args()
 
@@ -418,6 +447,8 @@ if __name__ == "__main__":
         args.prompts_path = os.path.join(repo_root, args.prompts_path)
     if not os.path.isabs(args.output_dir):
         args.output_dir = os.path.join(repo_root, args.output_dir)
+    if not os.path.isabs(args.claims_json_path):
+        args.claims_json_path = os.path.join(repo_root, args.claims_json_path)
 
     run_experiment(
         prompts_path=args.prompts_path,
@@ -428,4 +459,9 @@ if __name__ == "__main__":
         random_seed=args.random_seed,
         max_new_tokens=args.max_new_tokens,
         track=args.track,
+        claims_json_path=args.claims_json_path,
+        confidence_floor=args.confidence_floor,
+        use_stopping_rules=not args.disable_stopping_rules,
+        settled_turns_k=args.settled_turns_k,
+        stalled_turns_m=args.stalled_turns_m,
     )
