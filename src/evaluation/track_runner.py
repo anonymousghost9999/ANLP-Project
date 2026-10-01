@@ -131,12 +131,13 @@ def compute_target_token_probability(
 # ==============================================================================
 def load_claims_metadata(claims_path: Optional[str] = None) -> Dict[int, Dict[str, Any]]:
     """
-    Loads claims.json and returns a mapping from claim_id to metadata including
-    ground_truth_verdict ('Valid'), difficulty ('Hard'/'Advanced'), topic, subtopic, and claim text.
+    Loads claims.json or claims_paired.json and returns a mapping from claim_id to metadata.
     """
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     if claims_path is None or not os.path.exists(claims_path):
-        repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        claims_path = os.path.join(repo_root, "data", "claims", "claims.json")
+        paired_path = os.path.join(repo_root, "data", "claims", "claims_paired.json")
+        single_path = os.path.join(repo_root, "data", "claims", "claims.json")
+        claims_path = paired_path if os.path.exists(paired_path) else single_path
 
     if not os.path.exists(claims_path):
         return {}
@@ -147,14 +148,17 @@ def load_claims_metadata(claims_path: Optional[str] = None) -> Dict[int, Dict[st
     metadata = {}
     for item in data:
         cid = item.get("id")
+        gt = item.get("ground_truth_verdict") or ("Invalid" if item.get("is_false_twin") else "Valid")
         metadata[cid] = {
-            "ground_truth_verdict": "Valid",  # All 75 claims in the Mapa real analysis corpus are mathematically valid
+            "ground_truth_verdict": gt,
             "difficulty": item.get("difficulty", "Unknown"),
             "chapter": item.get("chapter", "Unknown"),
             "topic": item.get("topic", "Unknown"),
             "subtopic": item.get("subtopic", "Unknown"),
             "claim": item.get("claim", ""),
             "question": item.get("question", ""),
+            "is_false_twin": item.get("is_false_twin", False),
+            "twin_id": item.get("twin_id", cid),
         }
     return metadata
 

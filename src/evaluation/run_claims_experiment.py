@@ -94,15 +94,61 @@ def compute_target_token_probability(
         pos_logit = max(logits[pid].item() for pid in pos_cand) if pos_cand else 0.0
         neg_logit = max(logits[nid].item() for nid in neg_cand) if neg_cand else 0.0
 
+def compute_verifier_confidence(
+    model,
+    tokenizer,
+    full_chat_prompt: str,
+    assistant_response: str,
+    stated_verdict: Optional[str] = None,
+) -> Dict[str, float]:
+    """
+    Computes P(True) verifier confidence following Kadavath et al. (2022).
+    Probes the model after its generated response with:
+    'Is your verdict above mathematically correct?\\n(A) Valid\\n(B) Invalid\\nAnswer:'
+    """
+    verifier_text = (
+        f"{full_chat_prompt}\n{assistant_response}\n\n"
+        f"Is your verdict above mathematically correct?\n(A) Valid\n(B) Invalid\nAnswer:"
+    )
+
+    pos_cand = set()
+    neg_cand = set()
+    for prefix in [" ", ""]:
+        for tok in ["A", "Valid", "True"]:
+            e = tokenizer.encode(prefix + tok, add_special_tokens=False)
+            if e:
+                pos_cand.add(e[-1])
+        for tok in ["B", "Invalid", "False"]:
+            e = tokenizer.encode(prefix + tok, add_special_tokens=False)
+            if e:
+                neg_cand.add(e[-1])
+
+    inputs = tokenizer(verifier_text, return_tensors="pt").to(model.device)
+    with torch.no_grad():
+        logits = model(**inputs).logits[0, -1, :]
+        pos_logit = float(max(logits[pid].item() for pid in pos_cand)) if pos_cand else 0.0
+        neg_logit = float(max(logits[nid].item() for nid in neg_cand)) if neg_cand else 0.0
+
     probs = F.softmax(torch.tensor([pos_logit, neg_logit], dtype=torch.float32), dim=0)
-    return float(probs[0].item() * 100.0)
+    prob_valid = float(probs[0].item() * 100.0)
+    prob_invalid = float(probs[1].item() * 100.0)
+
+    conf = prob_valid if stated_verdict == "Valid" else (prob_invalid if stated_verdict == "Invalid" else prob_valid)
+
+    return {
+        "verifier_confidence": conf,
+        "verifier_prob_valid": prob_valid,
+        "verifier_prob_invalid": prob_invalid,
+    }
 
 
 def load_claims_metadata(claims_path: Optional[str] = None) -> Dict[int, Dict[str, Any]]:
-    """Loads claims.json metadata (ground_truth_verdict, difficulty, topic, subtopic)."""
+    """Loads claims.json or claims_paired.json metadata (ground_truth_verdict, difficulty, topic, subtopic)."""
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     if claims_path is None or not os.path.exists(claims_path):
-        repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        claims_path = os.path.join(repo_root, "data", "claims", "claims.json")
+        paired_path = os.path.join(repo_root, "data", "claims", "claims_paired.json")
+        single_path = os.path.join(repo_root, "data", "claims", "claims.json")
+        claims_path = paired_path if os.path.exists(paired_path) else single_path
 
     if not os.path.exists(claims_path):
         return {}
@@ -113,13 +159,16 @@ def load_claims_metadata(claims_path: Optional[str] = None) -> Dict[int, Dict[st
     metadata = {}
     for item in data:
         cid = item.get("id")
+        gt = item.get("ground_truth_verdict") or ("Invalid" if item.get("is_false_twin") else "Valid")
         metadata[cid] = {
-            "ground_truth_verdict": "Valid",
+            "ground_truth_verdict": gt,
             "difficulty": item.get("difficulty", "Unknown"),
             "topic": item.get("topic", "Unknown"),
             "subtopic": item.get("subtopic", "Unknown"),
             "claim": item.get("claim", ""),
             "question": item.get("question", ""),
+            "is_false_twin": item.get("is_false_twin", False),
+            "twin_id": item.get("twin_id", cid),
         }
     return metadata
 

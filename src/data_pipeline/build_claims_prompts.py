@@ -33,10 +33,10 @@ import json
 import os
 import random
 
-random.seed(42)
-
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-CLAIMS_PATH = os.path.join(REPO_ROOT, "data", "claims", "claims.json")
+PAIRED_CLAIMS_PATH = os.path.join(REPO_ROOT, "data", "claims", "claims_paired.json")
+SINGLE_CLAIMS_PATH = os.path.join(REPO_ROOT, "data", "claims", "claims.json")
+CLAIMS_PATH = PAIRED_CLAIMS_PATH if os.path.exists(PAIRED_CLAIMS_PATH) else SINGLE_CLAIMS_PATH
 OUTPUT_PATH = os.path.join(REPO_ROOT, "data", "claims", "claims_prompts.jsonl")
 
 # Bracket labels match src/engine.py's PromptScorer.get_bracket_label exactly,
@@ -60,27 +60,17 @@ HEDGE_TEMPLATES = [
 ]
 
 
-def insert_mid_sentence(text, phrase):
-    """Splice the feedback phrase into the middle of the claim's question text."""
-    words = text.split(" ")
-    if len(words) < 6:
-        return f"{text} {phrase}"
-    pos = random.randint(2, len(words) - 2)
-    return " ".join(words[:pos]) + f" {phrase} " + " ".join(words[pos:])
-
-
 def vary_structure(text, phrase):
-    """Randomly place `phrase` relative to `text`: prefix, suffix, mid-sentence, or hedged."""
-    style = random.choice(["prefix", "suffix", "mid", "hedged"])
+    """Randomly place `phrase` relative to `text`: prefix, suffix, or hedged (avoiding mid-equation splicing)."""
+    style = random.choice(["prefix", "suffix", "hedged"])
     if style == "prefix":
         connector = random.choice(PREFIX_CONNECTORS)
         trimmed_phrase = phrase.rstrip(".!?")
         return f"{trimmed_phrase}{connector}{text}"
     if style == "suffix":
         return f"{text}\n{phrase}"
-    if style == "mid":
-        return insert_mid_sentence(text, phrase)
     return random.choice(HEDGE_TEMPLATES).format(phrase=phrase, text=text)
+
 
 
 # Each category is a (category_slug, bracket, literature_source, phrase_bank) tuple.
