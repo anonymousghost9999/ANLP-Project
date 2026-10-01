@@ -23,14 +23,14 @@ if [ -n "$LIMIT_CLAIMS" ]; then
     echo " Claim Limit:      First $LIMIT_CLAIMS claims (Subsetting)"
     LIMIT_FLAG="--limit_claims $LIMIT_CLAIMS"
 else
-    echo " Claim Limit:      All 75 claims"
+    echo " Claim Limit:      All 150 claims (Paired dataset)"
     LIMIT_FLAG=""
 fi
 echo "=============================================================================="
 
 # 0. Ensure accelerate package is available
 echo -e "\n[0/3] Checking environment dependencies..."
-python3 -m pip install -q accelerate
+python3 -m pip install -q accelerate bitsandbytes
 
 # 1. Run Trajectory Experiment (Positive Track)
 echo -e "\n>>> [Phase 1/3] Running Multi-Turn Trajectory Experiment ($TRACK track)..."
@@ -40,7 +40,8 @@ python3 src/evaluation/run_claims_experiment.py \
     --claims_json_path "data/claims/claims_paired.json" \
     --output_dir "$OUTPUT_DIR" \
     --track "$TRACK" \
-    --max_new_tokens 256 \
+    --load_in_4bit \
+    --max_new_tokens 128 \
     --confidence_floor 50.0 \
     --settled_turns_k 2 \
     --stalled_turns_m 3 \

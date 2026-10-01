@@ -62,10 +62,18 @@ def extract_verbalized_confidence(text: str) -> Optional[float]:
 
 
 def extract_verdict(text: str) -> Optional[str]:
-    """Extracts explicit verdict [Verdict: Valid|Invalid] from model response."""
+    """Extracts explicit verdict [Verdict: Valid|Invalid] from model response with fallbacks."""
+    if not text:
+        return None
+    # Primary match: [Verdict: Valid|Invalid|True|False]
     match = re.search(r"\[Verdict:\s*(Valid|Invalid|True|False)\]", text, re.IGNORECASE)
     if match:
         v = match.group(1).capitalize()
+        return "Valid" if v in ["Valid", "True"] else "Invalid"
+    # Fallback match: Verdict: Valid, **Verdict:** Valid, Conclusion: Valid, etc.
+    match_fb = re.search(r"(?:\[?Verdict\]?|Conclusion):\s*\*?\s*(Valid|Invalid|True|False)\b", text, re.IGNORECASE)
+    if match_fb:
+        v = match_fb.group(1).capitalize()
         return "Valid" if v in ["Valid", "True"] else "Invalid"
     return None
 
@@ -89,12 +97,16 @@ def compute_target_token_probability(
             neg_cand.add(e_neg[-1])
 
     inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
-    with torch.no_grad():
+    with torch.inference_mode():
         logits = model(**inputs).logits[0, -1, :]
         pos_logit = max(logits[pid].item() for pid in pos_cand) if pos_cand else 0.0
         neg_logit = max(logits[nid].item() for nid in neg_cand) if neg_cand else 0.0
     probs = F.softmax(torch.tensor([pos_logit, neg_logit], dtype=torch.float32), dim=0)
     return float(probs[0].item() * 100.0)
+
+    probs = F.softmax(torch.tensor([pos_logit, neg_logit], dtype=torch.float32), dim=0)
+    return float(probs[0].item() * 100.0)
+
 
 def compute_verifier_confidence(
     model,
@@ -126,7 +138,7 @@ def compute_verifier_confidence(
                 neg_cand.add(e[-1])
 
     inputs = tokenizer(verifier_text, return_tensors="pt").to(model.device)
-    with torch.no_grad():
+    with torch.inference_mode():
         logits = model(**inputs).logits[0, -1, :]
         pos_logit = float(max(logits[pid].item() for pid in pos_cand)) if pos_cand else 0.0
         neg_logit = float(max(logits[nid].item() for nid in neg_cand)) if neg_cand else 0.0
@@ -248,22 +260,29 @@ def run_experiment(
         load_kwargs["device_map"] = "auto"
 
     if load_in_4bit:
-        from transformers import BitsAndBytesConfig
-        load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True)
+        try:
+            from transformers import BitsAndBytesConfig
+            load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True)
+        except Exception:
+            print("[Warning] bitsandbytes is not installed. Falling back to native bfloat16 precision.")
 
     try:
         model = AutoModelForCausalLM.from_pretrained(model_name, attn_implementation="sdpa", **load_kwargs)
-    except Exception:
+    except Exception as e:
+        if "bitsandbytes" in str(e):
+            print("[Warning] bitsandbytes quantization failed/missing. Falling back to native precision...")
+            load_kwargs.pop("quantization_config", None)
         try:
             model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
-        except ValueError as e:
-            if "requires accelerate" in str(e) and "device_map" in load_kwargs:
+        except ValueError as err:
+            if "requires accelerate" in str(err) and "device_map" in load_kwargs:
                 print("[Warning] device_map='auto' failed due to accelerate issue. Falling back to direct model load...")
                 load_kwargs.pop("device_map", None)
+                load_kwargs.pop("quantization_config", None)
                 model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
                 has_accelerate = False
             else:
-                raise e
+                raise err
 
     if not has_accelerate and torch.cuda.is_available():
         model = model.to("cuda")

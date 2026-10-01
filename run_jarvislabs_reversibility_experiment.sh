@@ -33,9 +33,11 @@ echo -e "\n>>> [Phase 1/3] Running Reversibility & Oscillation Experiment..."
 python3 src/evaluation/run_reversibility_experiment.py \
     --model_name "$MODEL_NAME" \
     --prompts_path "data/claims/claims_prompts.jsonl" \
-    --claims_json_path "data/claims/claims.json" \
+    --claims_json_path "data/claims/claims_paired.json" \
     --output_dir "$OUTPUT_DIR" \
     --max_turns "$MAX_TURNS" \
+    --load_in_4bit \
+    --max_new_tokens 128 \
     --confidence_floor 50.0 \
     --settled_k 2 \
     --stalled_m 3 \

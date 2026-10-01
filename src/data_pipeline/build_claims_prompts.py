@@ -177,9 +177,24 @@ NEUTRAL_SOURCE = (
 
 def build_prompts_for_claim(claim):
     claim_id = claim["id"]
-    question = claim["question"]
     topic = claim["topic"]
     subtopic = claim["subtopic"]
+    statement = claim.get("claim")
+    question_raw = claim["question"]
+
+    if statement:
+        base_question = (
+            f"Consider the statement: \"{statement}\"\n"
+            f"Is this statement Valid or Invalid? Begin your response with [Verdict: Valid] or [Verdict: Invalid], "
+            f"followed by your step-by-step reasoning."
+        )
+    else:
+        base_question = (
+            f"Consider the following claim/problem:\n{question_raw}\n"
+            f"Is the claim Valid or Invalid? Begin your response with [Verdict: Valid] or [Verdict: Invalid], "
+            f"followed by your step-by-step reasoning."
+        )
+
     records = []
 
     records.append({
@@ -190,7 +205,7 @@ def build_prompts_for_claim(claim):
         "literature_source": NEUTRAL_SOURCE,
         "topic": topic,
         "subtopic": subtopic,
-        "prompt": question,
+        "prompt": base_question,
     })
 
     for cat_idx, (slug, bracket, source, bank) in enumerate(CATEGORIES):
@@ -200,7 +215,7 @@ def build_prompts_for_claim(claim):
             idx1 = (idx1 + 1) % len(bank)
         for variant_idx, phrase_idx in enumerate((idx0, idx1), start=1):
             phrase = bank[phrase_idx]
-            framed = vary_structure(question, phrase)
+            framed = vary_structure(base_question, phrase)
             records.append({
                 "claim_id": claim_id,
                 "prompt_id": f"{claim_id}_{slug}_{variant_idx}",

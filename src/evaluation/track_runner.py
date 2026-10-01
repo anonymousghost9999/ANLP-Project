@@ -72,10 +72,18 @@ def extract_verbalized_confidence(text: str) -> Optional[float]:
 
 
 def extract_verdict(text: str) -> Optional[str]:
-    """Extracts explicit verdict [Verdict: Valid|Invalid] from model response."""
+    """Extracts explicit verdict [Verdict: Valid|Invalid] from model response with fallbacks."""
+    if not text:
+        return None
+    # Primary match: [Verdict: Valid|Invalid|True|False]
     match = re.search(r"\[Verdict:\s*(Valid|Invalid|True|False)\]", text, re.IGNORECASE)
     if match:
         v = match.group(1).capitalize()
+        return "Valid" if v in ["Valid", "True"] else "Invalid"
+    # Fallback match: Verdict: Valid, **Verdict:** Valid, Conclusion: Valid, etc.
+    match_fb = re.search(r"(?:\[?Verdict\]?|Conclusion):\s*\*?\s*(Valid|Invalid|True|False)\b", text, re.IGNORECASE)
+    if match_fb:
+        v = match_fb.group(1).capitalize()
         return "Valid" if v in ["Valid", "True"] else "Invalid"
     return None
 

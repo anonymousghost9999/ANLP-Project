@@ -14,8 +14,12 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import statsmodels.api as sm
-import statsmodels.formula.api as smf
+try:
+    import statsmodels.api as sm
+    import statsmodels.formula.api as smf
+except ImportError:
+    sm = None
+    smf = None
 
 
 def analyze_and_plot(csv_path: str, output_dir: str):
@@ -165,18 +169,21 @@ def analyze_and_plot(csv_path: str, output_dir: str):
     # --------------------------------------------------------------------------
     summary_path = os.path.join(output_dir, "regression_summary.txt")
     try:
-        score_col = "running_prompt_score" if "running_prompt_score" in df.columns else "aggregate_prompt_score"
-        model = smf.mixedlm(
-            f"target_token_confidence ~ turn + {score_col}",
-            df,
-            groups=df["claim_id"],
-        )
-        fit_result = model.fit()
-        with open(summary_path, "w", encoding="utf-8") as f:
-            f.write(fit_result.summary().as_text())
-        print(f"Mixed-effects regression summary saved -> {summary_path}")
-        print("\n--- Regression Coefficients ---")
-        print(fit_result.summary().tables[1])
+        if smf is not None:
+            score_col = "running_prompt_score" if "running_prompt_score" in df.columns else "aggregate_prompt_score"
+            model = smf.mixedlm(
+                f"target_token_confidence ~ turn + {score_col}",
+                df,
+                groups=df["claim_id"],
+            )
+            fit_result = model.fit()
+            with open(summary_path, "w", encoding="utf-8") as f:
+                f.write(fit_result.summary().as_text())
+            print(f"Mixed-effects regression summary saved -> {summary_path}")
+            print("\n--- Regression Coefficients ---")
+            print(fit_result.summary().tables[1])
+        else:
+            print("Notice: statsmodels not installed locally. Skipping LMM regression table (plots generated successfully).")
     except Exception as e:
         print(f"Could not fit mixed-effects model: {e}")
 

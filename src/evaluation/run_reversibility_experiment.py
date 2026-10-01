@@ -276,7 +276,7 @@ def run_reversibility_experiment(
     print("=" * 80)
     print(f"Model Identifier:          {model_name if not mock_model else 'MOCK_SIMULATOR'}")
     print(f"Max Criticism Turns (T):   {max_turns}")
-    print(f"Confidence Floor (\u03c6):        {confidence_floor}%")
+    print(f"Confidence Floor (phi):      {confidence_floor}%")
     print(f"Dynamic Stopping Rules:    {use_stopping_rules} (k={settled_turns_k}, m={stalled_turns_m})")
     print(f"Prompt Ordering Strategy:  {order_mode}")
     print(f"Output Directory:          {output_dir}")
@@ -326,15 +326,22 @@ def run_reversibility_experiment(
             load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True)
 
         try:
-            model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
-        except ValueError as e:
-            if "requires accelerate" in str(e) and "device_map" in load_kwargs:
-                print("[Warning] device_map='auto' failed due to accelerate issue. Falling back to direct model load...")
-                load_kwargs.pop("device_map", None)
+            model = AutoModelForCausalLM.from_pretrained(model_name, attn_implementation="sdpa", **load_kwargs)
+        except Exception as e:
+            if "bitsandbytes" in str(e):
+                print("[Warning] bitsandbytes quantization failed/missing. Falling back to native precision...")
+                load_kwargs.pop("quantization_config", None)
+            try:
                 model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
-                has_accelerate = False
-            else:
-                raise e
+            except ValueError as err:
+                if "requires accelerate" in str(err) and "device_map" in load_kwargs:
+                    print("[Warning] device_map='auto' failed due to accelerate issue. Falling back to direct model load...")
+                    load_kwargs.pop("device_map", None)
+                    load_kwargs.pop("quantization_config", None)
+                    model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+                    has_accelerate = False
+                else:
+                    raise err
 
         if not has_accelerate and torch.cuda.is_available():
             model = model.to("cuda")
@@ -391,16 +398,19 @@ def run_reversibility_experiment(
                 inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
                 prompt_len = inputs.input_ids.shape[1]
 
-                with torch.no_grad():
+                with torch.inference_mode():
                     out_ids = model.generate(
                         **inputs,
                         max_new_tokens=max_new_tokens,
                         do_sample=False,
+                        use_cache=True,
                         pad_token_id=tokenizer.eos_token_id,
                     )
                 resp_t0 = tokenizer.decode(out_ids[0][prompt_len:], skip_special_tokens=True).strip()
                 v_conf_t0 = extract_verbalized_confidence(resp_t0)
-                verdict_t0 = extract_verdict(resp_t0) or "Valid"
+                parsed_v0 = extract_verdict(resp_t0)
+                is_parse_fail_t0 = (parsed_v0 is None)
+                verdict_t0 = parsed_v0 if parsed_v0 else "Parse_Fail"
                 probe_prompt = prompt_chat + "\nConclusion: The statement is strictly [Verdict: "
                 logprob_metrics_t0 = compute_target_token_probability(model, tokenizer, probe_prompt)
                 conf_t0 = logprob_metrics_t0["target_token_confidence"]
@@ -492,16 +502,19 @@ def run_reversibility_experiment(
                     inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
                     prompt_len = inputs.input_ids.shape[1]
 
-                    with torch.no_grad():
+                    with torch.inference_mode():
                         out_ids = model.generate(
                             **inputs,
                             max_new_tokens=max_new_tokens,
                             do_sample=False,
+                            use_cache=True,
                             pad_token_id=tokenizer.eos_token_id,
                         )
                     resp = tokenizer.decode(out_ids[0][prompt_len:], skip_special_tokens=True).strip()
                     v_conf = extract_verbalized_confidence(resp)
-                    verdict = extract_verdict(resp) or prev_verdict
+                    parsed_v = extract_verdict(resp)
+                    is_parse_fail = (parsed_v is None)
+                    verdict = parsed_v if parsed_v else "Parse_Fail"
                     probe_prompt = prompt_chat + "\nConclusion: The statement is strictly [Verdict: "
                     logprob_metrics = compute_target_token_probability(model, tokenizer, probe_prompt)
                     curr_conf = logprob_metrics["target_token_confidence"]
@@ -838,7 +851,7 @@ def print_summary_metrics(report: Dict[str, Any]):
     print(f"  - Oscillated (>= 2 flips):      {rates_flip.get('oscillation_rate', 0.0)}%")
     print("-" * 60)
     print(f"Mean Turns to First Flip:      {ov.get('mean_first_flip_turn')}")
-    print(f"Mean Turns Below Floor (\u03c6=50%):  {ov.get('mean_turns_below_confidence_floor')}")
+    print(f"Mean Turns Below Floor (phi=50%): {ov.get('mean_turns_below_confidence_floor')}")
 
     diff_data = report.get("by_difficulty", {})
     if diff_data:
