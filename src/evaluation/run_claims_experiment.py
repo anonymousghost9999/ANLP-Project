@@ -93,6 +93,8 @@ def compute_target_token_probability(
         logits = model(**inputs).logits[0, -1, :]
         pos_logit = max(logits[pid].item() for pid in pos_cand) if pos_cand else 0.0
         neg_logit = max(logits[nid].item() for nid in neg_cand) if neg_cand else 0.0
+    probs = F.softmax(torch.tensor([pos_logit, neg_logit], dtype=torch.float32), dim=0)
+    return float(probs[0].item() * 100.0)
 
 def compute_verifier_confidence(
     model,
