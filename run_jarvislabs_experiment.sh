@@ -8,6 +8,7 @@ set -e
 MODEL_NAME="${1:-meta-llama/Meta-Llama-3.1-8B-Instruct}"
 OUTPUT_DIR="${2:-results/production_run}"
 LIMIT_CLAIMS="${3:-}"
+TRACK="${4:-positive}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
@@ -17,6 +18,7 @@ echo " STARTING PRODUCTION EXPERIMENT RUN ON JARVISLABS GPU"
 echo "=============================================================================="
 echo " Model Target:     $MODEL_NAME"
 echo " Output Directory: $OUTPUT_DIR"
+echo " Track Selection:  $TRACK"
 if [ -n "$LIMIT_CLAIMS" ]; then
     echo " Claim Limit:      First $LIMIT_CLAIMS claims (Subsetting)"
     LIMIT_FLAG="--limit_claims $LIMIT_CLAIMS"
@@ -26,13 +28,14 @@ else
 fi
 echo "=============================================================================="
 
-# 1. Run Complete Combined Experiment (Positive & Negative Tracks)
-echo -e "\n>>> [Phase 1/3] Running Combined Multi-Turn Trajectory Experiment..."
+# 1. Run Trajectory Experiment (Positive Track)
+echo -e "\n>>> [Phase 1/3] Running Multi-Turn Trajectory Experiment ($TRACK track)..."
 python3 src/evaluation/run_claims_experiment.py \
     --model_name "$MODEL_NAME" \
     --prompts_path "data/claims/claims_prompts.jsonl" \
     --claims_json_path "data/claims/claims.json" \
     --output_dir "$OUTPUT_DIR" \
+    --track "$TRACK" \
     --confidence_floor 50.0 \
     --settled_turns_k 2 \
     --stalled_turns_m 3 \
