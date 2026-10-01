@@ -120,7 +120,7 @@ def parse_args():
         "--confidence_floor",
         type=float,
         default=50.0,
-        help="Fixed confidence floor phi (in %, default 50.0)",
+        help="Fixed confidence floor phi (in %%, default 50.0)",
     )
     parser.add_argument(
         "--disable_stopping_rules",
