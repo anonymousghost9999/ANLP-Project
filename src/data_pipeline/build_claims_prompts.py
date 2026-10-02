@@ -33,6 +33,8 @@ import json
 import os
 import random
 
+random.seed(42)
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PAIRED_CLAIMS_PATH = os.path.join(REPO_ROOT, "data", "claims", "claims_paired.json")
 SINGLE_CLAIMS_PATH = os.path.join(REPO_ROOT, "data", "claims", "claims.json")
@@ -185,14 +187,14 @@ def build_prompts_for_claim(claim):
     if statement:
         base_question = (
             f"Consider the statement: \"{statement}\"\n"
-            f"Is this statement Valid or Invalid? Begin your response with [Verdict: Valid] or [Verdict: Invalid], "
-            f"followed by your step-by-step reasoning."
+            f"Is this statement Valid or Invalid? Begin your response with one line of the form '[Verdict: Valid] [Confidence: X%]' or '[Verdict: Invalid] [Confidence: X%]' "
+            f"(X an integer from 0 to 100), followed by brief step-by-step reasoning."
         )
     else:
         base_question = (
             f"Consider the following claim/problem:\n{question_raw}\n"
-            f"Is the claim Valid or Invalid? Begin your response with [Verdict: Valid] or [Verdict: Invalid], "
-            f"followed by your step-by-step reasoning."
+            f"Is the claim Valid or Invalid? Begin your response with one line of the form '[Verdict: Valid] [Confidence: X%]' or '[Verdict: Invalid] [Confidence: X%]' "
+            f"(X an integer from 0 to 100), followed by brief step-by-step reasoning."
         )
 
     records = []

@@ -274,7 +274,7 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Subsequences and Cauchy Sequences",
     "subtopic": "Harmonic Mean Recurrence Convergence",
-    "claim": "For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2).",
+    "claim": "For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (2*u_1 + u_2).",
     "question": "Let 0 < u_1 < u_2 and define \\frac{2}{u_{n+2}} = \\frac{1}{u_{n+1}} + \\frac{1}{u_n} for n >= 1. Show that {u_n} is convergent and determine \\lim_{n \\to \\infty} u_n in closed form.",
     "difficulty": "Hard",
     "reasoning_steps": [
@@ -285,7 +285,9 @@
       "Step 5: Substitute w_1 = 1/u_1 and w_2 = 1/u_2: lim w_n = (1/u_1 + 2/u_2)/3 = (u_2 + 2 u_1) / (3 u_1 u_2). Since u_n = 1/w_n, lim_{n -> infty} u_n = 3 u_1 u_2 / (2 u_1 + u_2)."
     ],
     "solution_sketch": "Let w_n = 1/u_n. Then w_{n+2} = (w_{n+1} + w_n)/2, which converges to (w_1 + 2w_2)/3 = (2u_1 + u_2)/(3u_1 u_2). Inverting gives lim u_n = 3 u_1 u_2 / (2 u_1 + u_2).",
-    "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(iii)"
+    "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(iii)",
+    "claim_as_originally_written": "For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2).",
+    "correction_note": "With w_n = 1/u_n the limit of w_n is (w_1 + 2 w_2)/3 = (2 u_1 + u_2)/(3 u_1 u_2), so lim u_n = 3 u_1 u_2/(2 u_1 + u_2), as the dataset's own solution_sketch states."
   },
   {
     "id": 17,
@@ -346,7 +348,7 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Upper Limit and Lower Limit",
     "subtopic": "Subsequential Limits of Oscillating Sequences",
-    "claim": "For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.",
+    "claim": "For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 1}, with limsup x_n = 1 and liminf x_n = -2.",
     "question": "Let x_n = (-1)^n \\left(1 + \\frac{1}{n}\\right) + \\sin\\left(\\frac{n\\pi}{2}\\right) for n in N. Determine the set of all subsequential limits of {x_n}, and find \\limsup_{n \\to \\infty} x_n and \\liminf_{n \\to \\infty} x_n.",
     "difficulty": "Hard",
     "reasoning_steps": [
@@ -357,7 +359,9 @@
       "Step 5: Case n = 4k+3: x_{4k+3} = (-1)(1 + 1/(4k+3)) + sin(2k*pi + 3pi/2) = -(1 + 1/(4k+3)) - 1 = -2 - 1/(4k+3) -> -2. Wait, what about x_{4k}? If n=4k, (-1)^{4k} = 1, sin(2k*pi) = 0, limit is 1. If n=4k+2, (-1)^{4k+2} = 1, sin(2k*pi+pi) = 0, limit is 1. What about n = 2k? If sin(n*pi/2) = 1 (when n = 4k+1), (-1)^n = -1, sum limit is -1 + 1 = 0. If sin(n*pi/2) = -1 (when n = 4k+3), (-1)^n = -1, sum limit is -1 - 1 = -2. If n is even, sin = 0, (-1)^n = 1, sum limit is 1. Thus subsequential limits are {-2, 0, 1}. limsup is 1, liminf is -2."
     ],
     "solution_sketch": "Mod 4 analysis: n=4k -> 1; n=4k+1 -> 0; n=4k+2 -> 1; n=4k+3 -> -2. The set of subsequential limits is {-2, 0, 1}. Thus limsup x_n = 1 and liminf x_n = -2.",
-    "source_reference": "S.K. Mapa, Sequence, Section 5.14 & Exercises 8"
+    "source_reference": "S.K. Mapa, Sequence, Section 5.14 & Exercises 8",
+    "claim_as_originally_written": "For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.",
+    "correction_note": "Mod 4: n=4k -> 1, n=4k+1 -> 0, n=4k+2 -> 1, n=4k+3 -> -2, so the limit set is {-2, 0, 1}, as the solution_sketch states."
   },
   {
     "id": 21,
@@ -904,7 +908,7 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Taylor's Theorem and Expansions",
     "subtopic": "Limiting Value of Intermediate Theta in Taylor Remainder",
-    "claim": "For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).",
+    "claim": "For f(x) = sin x with f(h) = f(0) + h*f'(theta*h) (Lagrange mean value form, i.e. sin h = h cos(theta*h)), the limiting value of theta as h -> 0 is 1/sqrt(3).",
     "question": "Let f(x) = \\sin x. Taylor's theorem with Lagrange's remainder gives \\sin h = h \\cos(\\theta h) where 0 < \\theta < 1. By expanding \\sin h and \\cos(\\theta h) in higher-order Taylor series around 0, prove in multiple steps that \\lim_{h \\to 0} \\theta = \\frac{1}{\\sqrt{3}}.",
     "difficulty": "Hard",
     "reasoning_steps": [
@@ -915,7 +919,9 @@
       "Step 5: Cancel 1, divide by -h^2/2: theta^2 * cos(theta_2 * theta * h) = (1/3) * cos(theta_1 * h). As h -> 0, cos(theta_2 * theta * h) -> 1 and cos(theta_1 * h) -> 1. Therefore lim_{h -> 0} theta^2 = 1/3, which gives lim_{h -> 0} theta = 1/sqrt(3)."
     ],
     "solution_sketch": "From sin h = h cos(theta*h), higher order Taylor expansions give 1 - (theta^2 h^2)/2 cos(...) = 1 - (h^2/6) cos(...). Equating coefficients of h^2 yields theta^2 -> 1/3, so lim_{h -> 0} theta = 1/sqrt(3).",
-    "source_reference": "S.K. Mapa, Differentiation, Section 9.7, Worked Example 5"
+    "source_reference": "S.K. Mapa, Differentiation, Section 9.7, Worked Example 5",
+    "claim_as_originally_written": "For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).",
+    "correction_note": "The question and solution_sketch use sin h = h cos(theta h), which gives theta -> 1/sqrt(3). The second-order form written in the claim gives sin h = h - (h^2/2) sin(theta h), hence theta -> 1/3."
   },
   {
     "id": 52,
@@ -976,7 +982,7 @@
     "chapter": "Chapter 10: Functions of bounded variation",
     "topic": "Functions of Bounded Variation",
     "subtopic": "Total Variation and Jordan Decomposition of Polynomials",
-    "claim": "For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.",
+    "claim": "For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(x)]/2 - [V_f(x) - f(x)]/2.",
     "question": "Let f(x) = x^2 - 2x + 2 on [0, 2]. Prove that f is a function of bounded variation on [0, 2]. Find the total variation V_f([0, 2]), the positive variation P_f([0, 2]), the negative variation N_f([0, 2]), and determine the variation function V_f(x) on [0, 2]. Express f as the difference of two monotonic increasing functions.",
     "difficulty": "Hard",
     "reasoning_steps": [
@@ -987,7 +993,9 @@
       "Step 5: Determine the variation function V_f(x) for x in [0, 2]: for x in [0, 1], f is decreasing so V_f(x) = f(0) - f(x) = 2 - (x^2 - 2x + 2) = 2x - x^2. For x in [1, 2], V_f(x) = V_f([0, 1]) + [f(x) - f(1)] = 1 + (x^2 - 2x + 2 - 1) = x^2 - 2x + 2. Jordan decomposition gives f(x) = g(x) - h(x) where g(x) = [V_f(x) + f(x)]/2 and h(x) = [V_f(x) - f(x)]/2 are both monotone increasing."
     ],
     "solution_sketch": "f decreases on [0, 1] from 2 to 1 and increases on [1, 2] from 1 to 2. V_f([0, 2]) = |1 - 2| + |2 - 1| = 2. P_f = 1, N_f = 1. V_f(x) = 2x - x^2 on [0, 1] and x^2 - 2x + 2 on [1, 2]. Decomposition is given by Jordan's theorem: f = p - n.",
-    "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 6(i)"
+    "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 6(i)",
+    "claim_as_originally_written": "For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.",
+    "correction_note": "The original expression simplifies to f(x)/2, not f(x). The Jordan decomposition f = (V_f + f)/2 - (V_f - f)/2 is correct."
   },
   {
     "id": 56,
@@ -1228,7 +1236,7 @@
     "chapter": "Chapter 13: Sequence of functions",
     "topic": "Sequence of Functions",
     "subtopic": "Uniform Convergence via Mn-Test and Integral Limit",
-    "claim": "For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.",
+    "claim": "For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; nevertheless lim_{n -> infty} int_0^1 f_n(x)dx = int_0^1 lim_{n -> infty} f_n(x)dx = 0.",
     "question": "Let f_n(x) = \\frac{nx}{1 + n^2 x^2} for x \\in [0, 1]. Find the pointwise limit f(x). Compute M_n = \\sup_{x \\in [0, 1]} |f_n(x) - f(x)| using calculus to test uniform convergence. Compute \\lim_{n \\to \\infty} \\int_0^1 f_n(x)dx and compare it with \\int_0^1 f(x)dx.",
     "difficulty": "Hard",
     "reasoning_steps": [
@@ -1239,7 +1247,9 @@
       "Step 5: Compare integral of limit vs limit of integrals: int_0^1 f(x)dx = int_0^1 0 dx = 0. For the integrals: int_0^1 [nx / (1 + n^2 x^2)] dx = (1/(2n)) [ ln(1 + n^2 x^2) ]_0^1 = ln(1 + n^2) / (2n). As n -> infty, ln(1 + n^2)/(2n) -> 0 by L'Hopital. Thus lim int f_n = int lim f_n = 0 holds coincidentally even though convergence is non-uniform."
     ],
     "solution_sketch": "Pointwise limit is 0. Maximum of f_n occurs at x = 1/n with value f_n(1/n) = 1/2, so M_n = 1/2 != 0, proving non-uniform convergence on [0, 1]. The integral int_0^1 f_n dx = ln(1+n^2)/(2n) -> 0, agreeing with int 0 dx.",
-    "source_reference": "S.K. Mapa, Sequence of functions, Section 13.3, Worked Example 5 & 13.4"
+    "source_reference": "S.K. Mapa, Sequence of functions, Section 13.3, Worked Example 5 & 13.4",
+    "claim_as_originally_written": "For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.",
+    "correction_note": "int_0^1 f_n = ln(1 + n^2)/(2n) -> 0, which equals the integral of the limit, as the solution_sketch shows."
   },
   {
     "id": 70,

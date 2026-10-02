@@ -5,18 +5,15 @@
     "chapter": "Chapter 2: Real numbers",
     "topic": "Real Number System & Completeness",
     "subtopic": "Field Axioms and Irrational Numbers",
-    "claim": "The real number sqrt(2) + sqrt(3) is a rational number.",
-    "question": "Determine whether the real number alpha = sqrt(2) + sqrt(3) is a rational number.",
+    "claim": "The real number sqrt(2) + sqrt(3) is irrational, but its square (sqrt(2) + sqrt(3))^2 is rational.",
+    "question": "Evaluate the mathematical claim: 'The real number sqrt(2) + sqrt(3) is irrational, but its square (sqrt(2) + sqrt(3))^2 is rational.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Step 1: Assume alpha = sqrt(2) + sqrt(3) is rational.",
-      "Step 2: Squaring yields alpha^2 = 5 + 2*sqrt(6), so sqrt(6) = (alpha^2 - 5)/2.",
-      "Step 3: If alpha is rational, then sqrt(6) must be rational, which is false since 6 is not a perfect square.",
-      "Step 4: Therefore, alpha is irrational, making the claim that alpha is rational INVALID."
-    ],
-    "solution_sketch": "The claim is false; sqrt(2)+sqrt(3) is irrational because its square implies rationality of sqrt(6).",
+    "perturbation_type": "false_property",
+    "falsity_reason": "(sqrt(2)+sqrt(3))^2 = 5 + 2 sqrt(6), which is irrational.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: (sqrt(2)+sqrt(3))^2 = 5 + 2 sqrt(6), which is irrational. The true statement is: The real number sqrt(2) + sqrt(3) is irrational.",
     "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 3(i) (False Twin Variant)"
   },
   {
@@ -25,16 +22,15 @@
     "chapter": "Chapter 2: Real numbers",
     "topic": "Real Number System & Completeness",
     "subtopic": "Archimedean Property and Density",
-    "claim": "Between any two distinct real numbers x and y with x < y, there are no irrational numbers.",
-    "question": "Evaluate the statement that between any two distinct real numbers x < y, there exist no irrational numbers.",
+    "claim": "Between any two distinct real numbers x and y with x < y, there exists an irrational number, but only finitely many.",
+    "question": "Evaluate the mathematical claim: 'Between any two distinct real numbers x and y with x < y, there exists an irrational number, but only finitely many.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Step 1: By the density of irrationals in R, between any two distinct real numbers x < y there exists at least one (in fact infinitely many) irrational numbers.",
-      "Step 2: Hence, the assertion that there are no irrational numbers between x and y is false."
-    ],
-    "solution_sketch": "The claim is invalid because irrationals are dense in R.",
+    "perturbation_type": "false_quantity",
+    "falsity_reason": "Applying the density argument to sub-intervals gives infinitely many irrationals.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Applying the density argument to sub-intervals gives infinitely many irrationals. The true statement is: Between any two distinct real numbers x and y with x < y, there exists an irrational number.",
     "source_reference": "S.K. Mapa, Real numbers, Section 2.4.24, Density Property 2 (False Twin Variant)"
   },
   {
@@ -43,17 +39,15 @@
     "chapter": "Chapter 2: Real numbers",
     "topic": "Real Number System & Completeness",
     "subtopic": "Incompleteness of Q and Dedekind Cuts",
-    "claim": "The set S = {x in Q : x > 0 and x^2 > 2} has a rational infimum in Q equal to 1.414.",
-    "question": "Evaluate the statement that the set S = {x in Q : x > 0 and x^2 > 2} has a rational infimum in Q.",
+    "claim": "The set S = {x in Q : x > 0 and x^2 > 2} is bounded below in Q and has an infimum in Q.",
+    "question": "Evaluate the mathematical claim: 'The set S = {x in Q : x > 0 and x^2 > 2} is bounded below in Q and has an infimum in Q.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Step 1: The infimum of S in R is sqrt(2).",
-      "Step 2: Since sqrt(2) is irrational, inf S does not belong to Q.",
-      "Step 3: Thus, S has no infimum in Q, making the claim INVALID."
-    ],
-    "solution_sketch": "The claim is invalid because Q is incomplete and sqrt(2) is not in Q.",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "The infimum would be sqrt(2), which is not rational; Q is incomplete.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The infimum would be sqrt(2), which is not rational; Q is incomplete. The true statement is: The set S = {x in Q : x > 0 and x^2 > 2} is bounded below in Q, but has no infimum in Q.",
     "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 18 (False Twin Variant)"
   },
   {
@@ -62,16 +56,15 @@
     "chapter": "Chapter 2: Real numbers",
     "topic": "Real Number System & Completeness",
     "subtopic": "Supremum and Infimum of Difference Sets",
-    "claim": "It is FALSE that for any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = 0.",
+    "question": "Evaluate the mathematical claim: 'For any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "inf T = m - M, which is negative whenever S has more than one point.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: inf T = m - M, which is negative whenever S has more than one point. The true statement is: For any bounded non-empty set S in R with sup S = M and inf S = m, the set T = {x - y : x in S, y in S} satisfies sup T = M - m and inf T = m - M.",
     "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 16 (False Twin Variant)"
   },
   {
@@ -80,16 +73,15 @@
     "chapter": "Chapter 2: Real numbers",
     "topic": "Real Number System & Completeness",
     "subtopic": "Exact Supremum and Infimum of Double Sequences",
-    "claim": "It is FALSE that the set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/3 and sup S = 1, and neither bound belongs to S.",
+    "question": "Evaluate the mathematical claim: 'The set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/3 and sup S = 1, and neither bound belongs to S.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Every element exceeds 1/2 and values approach 1/2, so inf S = 1/2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Every element exceeds 1/2 and values approach 1/2, so inf S = 1/2. The true statement is: The set S = {m/(m+n) + n/(m+2n) : m, n in N} has inf S = 1/2 and sup S = 1, and neither bound belongs to S.",
     "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 10(iii) (False Twin Variant)"
   },
   {
@@ -98,16 +90,15 @@
     "chapter": "Chapter 3: Sets in R",
     "topic": "Point-Set Topology of R",
     "subtopic": "Derived Sets and Accumulation Points",
-    "claim": "It is FALSE that for S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set S'' is empty.",
+    "question": "Evaluate the mathematical claim: 'For S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set S'' is empty.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "The points 1/2^k accumulate at 0, so S'' = {0}.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The points 1/2^k accumulate at 0, so S'' = {0}. The true statement is: For S = {1/2^m + 1/2^n : m, n in N}, the derived set is S' = {0} U {1/2^k : k in N}, and the second derived set is S'' = {0}.",
     "source_reference": "S.K. Mapa, Sets in R, Exercises 3, Problem 6 (False Twin Variant)"
   },
   {
@@ -116,16 +107,15 @@
     "chapter": "Chapter 3: Sets in R",
     "topic": "Point-Set Topology of R",
     "subtopic": "Supremum and Accumulation Points",
-    "claim": "It is FALSE that if S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'.'. Determine if this statement is Valid or Invalid.",
+    "claim": "If S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* is not a limit point of S.",
+    "question": "Evaluate the mathematical claim: 'If S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* is not a limit point of S.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "Every neighbourhood of s* contains points of S other than s*, so s* is in S'.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Every neighbourhood of s* contains points of S other than s*, so s* is in S'. The true statement is: If S is a non-empty bounded above subset of R and s* = sup S does not belong to S, then s* in S' and s* = sup S'.",
     "source_reference": "S.K. Mapa, Sets in R, Exercises 3, Problem 14(i) (False Twin Variant)"
   },
   {
@@ -134,16 +124,15 @@
     "chapter": "Chapter 3: Sets in R",
     "topic": "Point-Set Topology of R",
     "subtopic": "Closed and Open Sets in Oscillatory Domains",
-    "claim": "It is FALSE that the set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The set S = {x in R : sin(1/x) = 0} is closed in R.",
+    "question": "Evaluate the mathematical claim: 'The set S = {x in R : sin(1/x) = 0} is closed in R.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "1/(k pi) -> 0 and 0 is not in S, so S is not closed.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: 1/(k pi) -> 0 and 0 is not in S, so S is not closed. The true statement is: The set S = {x in R : sin(1/x) = 0} is neither open nor closed in R, and its closure is S U {0}.",
     "source_reference": "S.K. Mapa, Sets in R, Exercises 3, Problem 9(ii) (False Twin Variant)"
   },
   {
@@ -152,16 +141,15 @@
     "chapter": "Chapter 3: Sets in R",
     "topic": "Point-Set Topology of R",
     "subtopic": "Cantor Nested Intervals and Compactness",
-    "claim": "It is FALSE that cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For the nested open intervals I_n = (0, 1/n), I_1 supset I_2 supset ..., the intersection bigcap_{n=1}^infty I_n = {0}.",
+    "question": "Evaluate the mathematical claim: 'For the nested open intervals I_n = (0, 1/n), I_1 supset I_2 supset ..., the intersection bigcap_{n=1}^infty I_n = {0}.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'Cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: Cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "0 is not in any I_n; the intersection is empty.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: 0 is not in any I_n; the intersection is empty. The true statement is: Cantor's Intersection Theorem fails if intervals are open or unbounded; specifically, I_n = (0, 1/n) satisfies I_1 supset I_2 supset ... with bigcap_{n=1}^infty I_n = emptyset.",
     "source_reference": "S.K. Mapa, Sets in R, Exercises 4, Problem 2 (False Twin Variant)"
   },
   {
@@ -170,16 +158,15 @@
     "chapter": "Chapter 3: Sets in R",
     "topic": "Point-Set Topology of R",
     "subtopic": "Open Covers and Heine-Borel Theorem",
-    "claim": "It is FALSE that the open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The open interval (0, 1) is compact: the open cover G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} has a finite subcover.",
+    "question": "Evaluate the mathematical claim: 'The open interval (0, 1) is compact: the open cover G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} has a finite subcover.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "Any finite subfamily has union (1/(m+2), 1 - 1/(m+2)), which misses points near 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Any finite subfamily has union (1/(m+2), 1 - 1/(m+2)), which misses points near 0. The true statement is: The open interval (0, 1) is not compact: the family G = {I_n = (1/(n+2), 1 - 1/(n+2)) : n in N} is an open cover of (0, 1) with no finite subcover.",
     "source_reference": "S.K. Mapa, Sets in R, Exercises 5, Problem 2 (False Twin Variant)"
   },
   {
@@ -188,16 +175,15 @@
     "chapter": "Chapter 3: Sets in R",
     "topic": "Enumerable Sets and Cardinality",
     "subtopic": "Uncountability of R via Nested Intervals",
-    "claim": "It is FALSE that the closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable).",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable).'. Determine if this statement is Valid or Invalid.",
+    "claim": "The closed bounded interval [a, b] (with a < b) is uncountable, but the set of irrational numbers in [a, b] is countable.",
+    "question": "Evaluate the mathematical claim: 'The closed bounded interval [a, b] (with a < b) is uncountable, but the set of irrational numbers in [a, b] is countable.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable).' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable)..",
+    "perturbation_type": "false_property",
+    "falsity_reason": "[a, b] = (rationals in [a,b]) U (irrationals in [a,b]); if both were countable, [a, b] would be countable.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: [a, b] = (rationals in [a,b]) U (irrationals in [a,b]); if both were countable, [a, b] would be countable. The true statement is: The closed bounded interval [a, b] (with a < b) is non-enumerable (uncountable).",
     "source_reference": "S.K. Mapa, Sets in R, Section 3.13.2 (False Twin Variant)"
   },
   {
@@ -206,16 +192,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Limits of Sequences",
     "subtopic": "Sandwich Theorem for Algebraic Sum Sequences",
-    "claim": "The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) diverges to 1 as n -> infinity.",
-    "question": "Evaluate the mathematical claim: 'The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) diverges to 1 as n -> infinity.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) converges to 1/2 as n -> infinity.",
+    "question": "Evaluate the mathematical claim: 'The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) converges to 1/2 as n -> infinity.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) converges to 1 as n -> infinity.' (Valid).",
-      "Perturbed false claim: 'The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) diverges to 1 as n -> infinity.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) converges to 1 as n -> infinity..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Sandwich bounds n/sqrt(n^2+n) <= u_n <= n/sqrt(n^2+1) both tend to 1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Sandwich bounds n/sqrt(n^2+n) <= u_n <= n/sqrt(n^2+1) both tend to 1. The true statement is: The sequence u_n = sum_{k=1}^n 1/sqrt(n^2 + k) converges to 1 as n -> infinity.",
     "source_reference": "S.K. Mapa, Sequence, Section 5.5.5, Worked Examples (False Twin Variant)"
   },
   {
@@ -224,16 +209,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Monotone Sequences",
     "subtopic": "Convergence of Non-linear Nested Radical Sequences",
-    "claim": "The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and diverges to 2.",
-    "question": "Evaluate the mathematical claim: 'The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and diverges to 2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and converges to (1 + sqrt(5))/2.",
+    "question": "Evaluate the mathematical claim: 'The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and converges to (1 + sqrt(5))/2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and converges to 2.' (Valid).",
-      "Perturbed false claim: 'The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and diverges to 2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and converges to 2..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "The limit satisfies L^2 = 2 + L, so L = 2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The limit satisfies L^2 = 2 + L, so L = 2. The true statement is: The recursive sequence defined by u_1 = sqrt(2) and u_{n+1} = sqrt(2 + u_n) for n >= 1 is strictly increasing, bounded above by 2, and converges to 2.",
     "source_reference": "S.K. Mapa, Real numbers, Exercises 2, Problem 1(iii) & Sequence Section 5.9 (False Twin Variant)"
   },
   {
@@ -242,16 +226,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Subsequences and Cauchy Sequences",
     "subtopic": "Linear Recurrence with Odd/Even Subsequences",
-    "claim": "For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} diverges to (2*u_1 + 3*u_2)/5.",
-    "question": "Evaluate the mathematical claim: 'For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} diverges to (2*u_1 + 3*u_2)/5.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} converges to (u_1 + 2*u_2)/3.",
+    "question": "Evaluate the mathematical claim: 'For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} converges to (u_1 + 2*u_2)/3.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} converges to (2*u_1 + 3*u_2)/5.' (Valid).",
-      "Perturbed false claim: 'For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} diverges to (2*u_1 + 3*u_2)/5.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} converges to (2*u_1 + 3*u_2)/5..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Telescoping gives the limit (2 u_1 + 3 u_2)/5, which differs from (u_1 + 2 u_2)/3 when u_1 != u_2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Telescoping gives the limit (2 u_1 + 3 u_2)/5, which differs from (u_1 + 2 u_2)/3 when u_1 != u_2. The true statement is: For 0 < u_1 < u_2 and u_{n+2} = (u_{n+1} + 2*u_n)/3 for n >= 1, the sequence {u_n} converges to (2*u_1 + 3*u_2)/5.",
     "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(i) (False Twin Variant)"
   },
   {
@@ -260,16 +243,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Subsequences and Cauchy Sequences",
     "subtopic": "Geometric Mean Recurrence Convergence",
-    "claim": "For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} diverges to (u_1 * u_2^2)^{1/3}.",
-    "question": "Evaluate the mathematical claim: 'For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} diverges to (u_1 * u_2^2)^{1/3}.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} converges to sqrt(u_1 * u_2).",
+    "question": "Evaluate the mathematical claim: 'For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} converges to sqrt(u_1 * u_2).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} converges to (u_1 * u_2^2)^{1/3}.' (Valid).",
-      "Perturbed false claim: 'For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} diverges to (u_1 * u_2^2)^{1/3}.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} converges to (u_1 * u_2^2)^{1/3}..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Taking logs, the limit is (u_1 * u_2^2)^{1/3}, which differs from sqrt(u_1 u_2) when u_1 != u_2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Taking logs, the limit is (u_1 * u_2^2)^{1/3}, which differs from sqrt(u_1 u_2) when u_1 != u_2. The true statement is: For 0 < u_1 < u_2 and u_{n+2} = sqrt(u_{n+1} * u_n) for n >= 1, {u_n} converges to (u_1 * u_2^2)^{1/3}.",
     "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(ii) (False Twin Variant)"
   },
   {
@@ -278,16 +260,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Subsequences and Cauchy Sequences",
     "subtopic": "Harmonic Mean Recurrence Convergence",
-    "claim": "For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} diverges to 3*u_1*u_2 / (u_1 + 2*u_2).",
-    "question": "Evaluate the mathematical claim: 'For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} diverges to 3*u_1*u_2 / (u_1 + 2*u_2).'. Determine if this statement is Valid or Invalid.",
+    "claim": "For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2).",
+    "question": "Evaluate the mathematical claim: 'For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2).' (Valid).",
-      "Perturbed false claim: 'For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} diverges to 3*u_1*u_2 / (u_1 + 2*u_2).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (u_1 + 2*u_2)..",
+    "perturbation_type": "dataset_original_error",
+    "falsity_reason": "This was the dataset's original (incorrect) claim; the limit is 3 u_1 u_2/(2 u_1 + u_2).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: This was the dataset's original (incorrect) claim; the limit is 3 u_1 u_2/(2 u_1 + u_2). The true statement is: For 0 < u_1 < u_2 and 2/u_{n+2} = 1/u_{n+1} + 1/u_n for n >= 1, {u_n} converges to 3*u_1*u_2 / (2*u_1 + u_2).",
     "source_reference": "S.K. Mapa, Sequence, Exercises 8, Problem 2(iii) (False Twin Variant)"
   },
   {
@@ -296,16 +277,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Cauchy Theorems on Limits",
     "subtopic": "Cauchy Second Limit Theorem on Product Sequences",
-    "claim": "It is FALSE that the limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 2/e.",
+    "question": "Evaluate the mathematical claim: 'The limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 2/e.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Cauchy's second limit theorem gives 4/e.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Cauchy's second limit theorem gives 4/e. The true statement is: The limit lim_{n -> infty} [ (n+1)(n+2)...(2n) / n^n ]^{1/n} = 4/e.",
     "source_reference": "S.K. Mapa, Sequence, Section 5.16, Worked Example (False Twin Variant)"
   },
   {
@@ -314,16 +294,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Cauchy Sequences",
     "subtopic": "Cauchy Principle of Convergence for Series Partial Sums",
-    "claim": "It is FALSE that the harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is a Cauchy sequence, hence converges.",
+    "question": "Evaluate the mathematical claim: 'The harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is a Cauchy sequence, hence converges.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "|s_{2n} - s_n| >= 1/2 for all n.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: |s_{2n} - s_n| >= 1/2 for all n. The true statement is: The harmonic sequence of partial sums s_n = sum_{k=1}^n 1/k is not a Cauchy sequence, hence diverges.",
     "source_reference": "S.K. Mapa, Sequence Section 5.15 & Series Section 6.1 (False Twin Variant)"
   },
   {
@@ -332,16 +311,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Cauchy Theorems on Limits",
     "subtopic": "Stolz-Cesaro Theorem for Polynomial Powers",
-    "claim": "It is FALSE that for any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1).",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1).'. Determine if this statement is Valid or Invalid.",
+    "claim": "For any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/k.",
+    "question": "Evaluate the mathematical claim: 'For any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/k.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1).' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1)..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Stolz-Cesaro gives 1/(k+1).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Stolz-Cesaro gives 1/(k+1). The true statement is: For any integer k >= 1, lim_{n -> infty} (1^k + 2^k + ... + n^k) / n^{k+1} = 1/(k+1).",
     "source_reference": "S.K. Mapa, Sequence, Section 5.16 (False Twin Variant)"
   },
   {
@@ -350,16 +328,15 @@
     "chapter": "Chapter 5: Sequence",
     "topic": "Upper Limit and Lower Limit",
     "subtopic": "Subsequential Limits of Oscillating Sequences",
-    "claim": "It is FALSE that for x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.",
+    "question": "Evaluate the mathematical claim: 'For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 2}, with limsup x_n = 2 and liminf x_n = -2..",
+    "perturbation_type": "dataset_original_error",
+    "falsity_reason": "This was the dataset's original (incorrect) claim; the limit set is {-2, 0, 1} and limsup x_n = 1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: This was the dataset's original (incorrect) claim; the limit set is {-2, 0, 1} and limsup x_n = 1. The true statement is: For x_n = (-1)^n (1 + 1/n) + sin(n*pi/2), the set of subsequential limits is {-2, 0, 1}, with limsup x_n = 1 and liminf x_n = -2.",
     "source_reference": "S.K. Mapa, Sequence, Section 5.14 & Exercises 8 (False Twin Variant)"
   },
   {
@@ -368,16 +345,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Positive Terms",
     "subtopic": "Convergence of Squares of Terms",
-    "claim": "It is FALSE that if sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For a series of positive real numbers, sum u_n converges if and only if sum u_n^2 converges.",
+    "question": "Evaluate the mathematical claim: 'For a series of positive real numbers, sum u_n converges if and only if sum u_n^2 converges.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false..",
+    "perturbation_type": "false_converse",
+    "falsity_reason": "u_n = 1/n: sum 1/n^2 converges but sum 1/n diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: u_n = 1/n: sum 1/n^2 converges but sum 1/n diverges. The true statement is: If sum u_n is a convergent series of positive real numbers, then sum u_n^2 is convergent, but the converse is false.",
     "source_reference": "S.K. Mapa, Series, Exercises 9, Problem 1 (False Twin Variant)"
   },
   {
@@ -386,16 +362,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Positive Terms",
     "subtopic": "Cauchy Condensation Test for Logarithmic Series",
-    "claim": "The series sum_{n=2}^infty 1 / [n (log n)^p] diverges if and only if p > 1.",
-    "question": "Evaluate the mathematical claim: 'The series sum_{n=2}^infty 1 / [n (log n)^p] diverges if and only if p > 1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=2}^infty 1 / [n (log n)^p] converges if and only if p >= 1.",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=2}^infty 1 / [n (log n)^p] converges if and only if p >= 1.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=2}^infty 1 / [n (log n)^p] converges if and only if p > 1.' (Valid).",
-      "Perturbed false claim: 'The series sum_{n=2}^infty 1 / [n (log n)^p] diverges if and only if p > 1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=2}^infty 1 / [n (log n)^p] converges if and only if p > 1..",
+    "perturbation_type": "boundary_error",
+    "falsity_reason": "At p = 1 the condensed series is a multiple of sum 1/k, which diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: At p = 1 the condensed series is a multiple of sum 1/k, which diverges. The true statement is: The series sum_{n=2}^infty 1 / [n (log n)^p] converges if and only if p > 1.",
     "source_reference": "S.K. Mapa, Series, Section 6.3.3 (False Twin Variant)"
   },
   {
@@ -404,16 +379,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Positive Terms",
     "subtopic": "Raabe's Test for Factorial Quotients",
-    "claim": "It is FALSE that the series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is divergent.",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is divergent.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "Raabe's test gives the limit 3/2 > 1, so the series converges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Raabe's test gives the limit 3/2 > 1, so the series converges. The true statement is: The series sum_{n=1}^infty [ (1*3*5*...*(2n-1)) / (2*4*6*...*(2n)) ] * [ 1 / (2n+1) ] is convergent.",
     "source_reference": "S.K. Mapa, Series, Section 6.3.10, Worked Example (False Twin Variant)"
   },
   {
@@ -422,16 +396,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Positive Terms",
     "subtopic": "Gauss's Test for Power of Factorial Quotients",
-    "claim": "The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p diverges if and only if p > 2.",
-    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p diverges if and only if p > 2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p converges if and only if p > 1.",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p converges if and only if p > 1.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p converges if and only if p > 2.' (Valid).",
-      "Perturbed false claim: 'The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p diverges if and only if p > 2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p converges if and only if p > 2..",
+    "perturbation_type": "boundary_error",
+    "falsity_reason": "Gauss's test gives convergence iff p/2 > 1, i.e. p > 2; e.g. p = 2 diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Gauss's test gives convergence iff p/2 > 1, i.e. p > 2; e.g. p = 2 diverges. The true statement is: The series sum_{n=1}^infty [ (1*3*...*(2n-1)) / (2*4*...*(2n)) ]^p converges if and only if p > 2.",
     "source_reference": "S.K. Mapa, Series, Section 6.3.13 & Exercises 9 (False Twin Variant)"
   },
   {
@@ -440,16 +413,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Positive Terms",
     "subtopic": "Logarithmic Test for Exponential Log Powers",
-    "claim": "The series sum_{n=1}^infty x^{log n} diverges for 0 < x < 1/e and diverges for x >= 1/e.",
-    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty x^{log n} diverges for 0 < x < 1/e and diverges for x >= 1/e.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty x^{log n} converges for 0 < x <= 1/e and diverges for x > 1/e.",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty x^{log n} converges for 0 < x <= 1/e and diverges for x > 1/e.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty x^{log n} converges for 0 < x < 1/e and diverges for x >= 1/e.' (Valid).",
-      "Perturbed false claim: 'The series sum_{n=1}^infty x^{log n} diverges for 0 < x < 1/e and diverges for x >= 1/e.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty x^{log n} converges for 0 < x < 1/e and diverges for x >= 1/e..",
+    "perturbation_type": "boundary_error",
+    "falsity_reason": "At x = 1/e the series is sum 1/n, which diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: At x = 1/e the series is sum 1/n, which diverges. The true statement is: The series sum_{n=1}^infty x^{log n} converges for 0 < x < 1/e and diverges for x >= 1/e.",
     "source_reference": "S.K. Mapa, Series, Exercises 9, Problem 10(ix) (False Twin Variant)"
   },
   {
@@ -458,16 +430,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Arbitrary Terms",
     "subtopic": "Leibniz Test with Arithmetic Means",
-    "claim": "For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... diverges.",
-    "question": "Evaluate the mathematical claim: 'For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... diverges.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... converges absolutely.",
+    "question": "Evaluate the mathematical claim: 'For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... converges absolutely.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... converges.' (Valid).",
-      "Perturbed false claim: 'For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... diverges.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... converges..",
+    "perturbation_type": "strengthened_conclusion",
+    "falsity_reason": "For a_n = 1/n the absolute terms are H_n/n >= 1/n, whose sum diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: For a_n = 1/n the absolute terms are H_n/n >= 1/n, whose sum diverges. The true statement is: For any monotone decreasing null sequence {a_n}, the alternating series a_1 - (a_1+a_2)/2 + (a_1+a_2+a_3)/3 - ... converges.",
     "source_reference": "S.K. Mapa, Series, Exercises 10, Problem 3(i) (False Twin Variant)"
   },
   {
@@ -476,16 +447,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Arbitrary Terms",
     "subtopic": "Dirichlet's Test for Trigonometric Series",
-    "claim": "The series sum_{n=1}^infty cos(nx)/n diverges for all x in R \\ {2k*pi : k in Z}.",
-    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty cos(nx)/n diverges for all x in R \\ {2k*pi : k in Z}.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty cos(nx)/n converges for all x in R.",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty cos(nx)/n converges for all x in R.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty cos(nx)/n converges for all x in R \\ {2k*pi : k in Z}.' (Valid).",
-      "Perturbed false claim: 'The series sum_{n=1}^infty cos(nx)/n diverges for all x in R \\ {2k*pi : k in Z}.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty cos(nx)/n converges for all x in R \\ {2k*pi : k in Z}..",
+    "perturbation_type": "overgeneralisation",
+    "falsity_reason": "At x = 0 it is the harmonic series, which diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: At x = 0 it is the harmonic series, which diverges. The true statement is: The series sum_{n=1}^infty cos(nx)/n converges for all x in R \\ {2k*pi : k in Z}.",
     "source_reference": "S.K. Mapa, Series, Section 6.4.11 (False Twin Variant)"
   },
   {
@@ -494,16 +464,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Arbitrary Terms",
     "subtopic": "Abel's Test for Alternating Factors",
-    "claim": "It is FALSE that the series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is absolutely convergent.",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is absolutely convergent.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent..",
+    "perturbation_type": "strengthened_conclusion",
+    "falsity_reason": "The absolute terms are at least 2/n, so the absolute series diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The absolute terms are at least 2/n, so the absolute series diverges. The true statement is: The series sum_{n=1}^infty [(-1)^{n-1}/n] * (1 + 1/n)^n is convergent.",
     "source_reference": "S.K. Mapa, Series, Section 6.4.12 & Exercises 10 (False Twin Variant)"
   },
   {
@@ -512,16 +481,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Arbitrary Terms",
     "subtopic": "Divergence of Cauchy Product of Conditionally Convergent Series",
-    "claim": "It is FALSE that the Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is convergent.",
+    "question": "Evaluate the mathematical claim: 'The Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is convergent.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "|c_n| >= 2(n+1)/(n+2) >= 1, so c_n does not tend to 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: |c_n| >= 2(n+1)/(n+2) >= 1, so c_n does not tend to 0. The true statement is: The Cauchy product of the conditionally convergent series sum_{n=0}^infty (-1)^n / sqrt(n+1) with itself is divergent.",
     "source_reference": "S.K. Mapa, Series, Section 6.6, Worked Example (False Twin Variant)"
   },
   {
@@ -530,16 +498,15 @@
     "chapter": "Chapter 6: Series",
     "topic": "Series of Arbitrary Terms",
     "subtopic": "Riemann Rearrangement of Conditionally Convergent Series",
-    "claim": "The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... diverges to (1/2) * log 2.",
-    "question": "Evaluate the mathematical claim: 'The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... diverges to (1/2) * log 2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... converges to log 2.",
+    "question": "Evaluate the mathematical claim: 'The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... converges to log 2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... converges to (1/2) * log 2.' (Valid).",
-      "Perturbed false claim: 'The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... diverges to (1/2) * log 2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... converges to (1/2) * log 2..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Grouping in blocks gives (1/2) log 2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Grouping in blocks gives (1/2) log 2. The true statement is: The rearranged alternating harmonic series 1 - 1/2 - 1/4 + 1/3 - 1/6 - 1/8 + ... converges to (1/2) * log 2.",
     "source_reference": "S.K. Mapa, Series, Section 6.5, Worked Example (False Twin Variant)"
   },
   {
@@ -548,16 +515,15 @@
     "chapter": "Chapter 7: Limits",
     "topic": "Limits of Functions",
     "subtopic": "Epsilon-Delta Rigorous Verification",
-    "claim": "It is FALSE that for f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 18.",
+    "question": "Evaluate the mathematical claim: 'For f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 18.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "f is continuous and f(3) = 9 + 6 = 15.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f is continuous and f(3) = 9 + 6 = 15. The true statement is: For f(x) = x^2 + 2x, lim_{x -> 3} f(x) = 15.",
     "source_reference": "S.K. Mapa, Limits, Section 7.1, Worked Examples (False Twin Variant)"
   },
   {
@@ -566,16 +532,15 @@
     "chapter": "Chapter 7: Limits",
     "topic": "Limits of Functions",
     "subtopic": "Sequential Criterion for Non-Existence of Limits",
-    "claim": "It is FALSE that the limit lim_{x -> 0} cos(1/x) does not exist.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the limit lim_{x -> 0} cos(1/x) does not exist.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The limit lim_{x -> 0} cos(1/x) exists and equals 0.",
+    "question": "Evaluate the mathematical claim: 'The limit lim_{x -> 0} cos(1/x) exists and equals 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The limit lim_{x -> 0} cos(1/x) does not exist.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the limit lim_{x -> 0} cos(1/x) does not exist.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The limit lim_{x -> 0} cos(1/x) does not exist..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "Along x_n = 1/(2 n pi) the values are 1, and along y_n = 1/((2n+1) pi) they are -1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Along x_n = 1/(2 n pi) the values are 1, and along y_n = 1/((2n+1) pi) they are -1. The true statement is: The limit lim_{x -> 0} cos(1/x) does not exist.",
     "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 1(i) (False Twin Variant)"
   },
   {
@@ -584,16 +549,15 @@
     "chapter": "Chapter 7: Limits",
     "topic": "Limits of Functions",
     "subtopic": "Piecewise Dirichlet-Type Function Limits",
-    "claim": "It is FALSE that for f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> c} f(x) exists for every c in R.",
+    "question": "Evaluate the mathematical claim: 'For f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> c} f(x) exists for every c in R.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1..",
+    "perturbation_type": "overgeneralisation",
+    "falsity_reason": "For c != 1, rationals give limit c and irrationals give 2 - c, which differ.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: For c != 1, rationals give limit c and irrationals give 2 - c, which differ. The true statement is: For f(x) = x for x in Q and f(x) = 2 - x for x in R \\ Q, lim_{x -> 1} f(x) = 1, but lim_{x -> c} f(x) does not exist for any c != 1.",
     "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 2 (False Twin Variant)"
   },
   {
@@ -602,16 +566,15 @@
     "chapter": "Chapter 7: Limits",
     "topic": "Limits of Functions",
     "subtopic": "One-Sided Limits Involving Floor Function",
-    "claim": "It is FALSE that the one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = -1.",
+    "question": "Evaluate the mathematical claim: 'The one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = -1.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "For x < 0, 1 <= x[1/x] < 1 - x, so the left limit is also 1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: For x < 0, 1 <= x[1/x] < 1 - x, so the left limit is also 1. The true statement is: The one-sided limits of x[1/x] as x -> 0 are lim_{x -> 0^+} x[1/x] = 1 and lim_{x -> 0^-} x[1/x] = 1.",
     "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 4(iv) (False Twin Variant)"
   },
   {
@@ -620,16 +583,15 @@
     "chapter": "Chapter 7: Limits",
     "topic": "Limits of Functions",
     "subtopic": "Floor Function of Sinc Quotient",
-    "claim": "It is FALSE that the limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The limit lim_{x -> 0^+} [(sin x)/x] = 1, where [.] denotes the greatest integer function.",
+    "question": "Evaluate the mathematical claim: 'The limit lim_{x -> 0^+} [(sin x)/x] = 1, where [.] denotes the greatest integer function.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "0 < (sin x)/x < 1 on (0, pi/2), so [(sin x)/x] = 0 there and the limit is 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: 0 < (sin x)/x < 1 on (0, pi/2), so [(sin x)/x] = 0 there and the limit is 0. The true statement is: The limit lim_{x -> 0^+} [(sin x)/x] = 0, whereas lim_{x -> 0} (sin x)/x = 1.",
     "source_reference": "S.K. Mapa, Limits, Exercises 11, Problem 4(v) (False Twin Variant)"
   },
   {
@@ -638,16 +600,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Continuity of Real Functions",
     "subtopic": "Cauchy Additive Functional Equation",
-    "claim": "If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is discontinuous at x = 0, then f(x) = cx for all x in R where c = f(1).",
-    "question": "Evaluate the mathematical claim: 'If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is discontinuous at x = 0, then f(x) = cx for all x in R where c = f(1).'. Determine if this statement is Valid or Invalid.",
+    "claim": "Every function f: R -> R satisfying f(x + y) = f(x) + f(y) for all x, y in R is of the form f(x) = cx with c = f(1), even without any continuity assumption.",
+    "question": "Evaluate the mathematical claim: 'Every function f: R -> R satisfying f(x + y) = f(x) + f(y) for all x, y in R is of the form f(x) = cx with c = f(1), even without any continuity assumption.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is continuous at x = 0, then f(x) = cx for all x in R where c = f(1).' (Valid).",
-      "Perturbed false claim: 'If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is discontinuous at x = 0, then f(x) = cx for all x in R where c = f(1).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is continuous at x = 0, then f(x) = cx for all x in R where c = f(1)..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "Using a Hamel basis of R over Q there are discontinuous additive functions that are not linear.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Using a Hamel basis of R over Q there are discontinuous additive functions that are not linear. The true statement is: If f: R -> R satisfies f(x + y) = f(x) + f(y) for all x, y in R and is continuous at x = 0, then f(x) = cx for all x in R where c = f(1).",
     "source_reference": "S.K. Mapa, Continuity, Exercises 12, Problem 4 & 7 (False Twin Variant)"
   },
   {
@@ -656,16 +617,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Continuity of Real Functions",
     "subtopic": "Thomae's (Riemann's) Function Continuity",
-    "claim": "Thomae's function is discontinuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1).",
-    "question": "Evaluate the mathematical claim: 'Thomae's function is discontinuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1).'. Determine if this statement is Valid or Invalid.",
+    "claim": "Thomae's function is continuous at every rational point in (0, 1) and discontinuous at every irrational point in (0, 1).",
+    "question": "Evaluate the mathematical claim: 'Thomae's function is continuous at every rational point in (0, 1) and discontinuous at every irrational point in (0, 1).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'Thomae's function is continuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1).' (Valid).",
-      "Perturbed false claim: 'Thomae's function is discontinuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: Thomae's function is continuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1)..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "It is the reverse: discontinuous at rationals, continuous at irrationals.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: It is the reverse: discontinuous at rationals, continuous at irrationals. The true statement is: Thomae's function is continuous at every irrational point in (0, 1) and discontinuous at every rational point in (0, 1).",
     "source_reference": "S.K. Mapa, Continuity, Section 8.2, Worked Example 3 (False Twin Variant)"
   },
   {
@@ -674,16 +634,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Properties of Continuous Functions",
     "subtopic": "Fixed Point Theorem on Closed Intervals",
-    "claim": "It is FALSE that every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c.'. Determine if this statement is Valid or Invalid.",
+    "claim": "Every continuous function f: (a, b) -> (a, b) on an open interval possesses at least one fixed point c in (a, b) such that f(c) = c.",
+    "question": "Evaluate the mathematical claim: 'Every continuous function f: (a, b) -> (a, b) on an open interval possesses at least one fixed point c in (a, b) such that f(c) = c.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'Every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: Every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "f(x) = (x + a)/2 maps (a, b) into itself and its only fixed point is a, which is not in (a, b).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f(x) = (x + a)/2 maps (a, b) into itself and its only fixed point is a, which is not in (a, b). The true statement is: Every continuous function f: [a, b] -> [a, b] possesses at least one fixed point c in [a, b] such that f(c) = c.",
     "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 5 & Section 8.5 (False Twin Variant)"
   },
   {
@@ -692,16 +651,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Properties of Continuous Functions",
     "subtopic": "Universal Chord Theorem",
-    "claim": "For any continuous function f: [0, 2] -> R with f(0) = f(2), there does not exist c in [0, 1] such that f(c) = f(c + 1).",
-    "question": "Evaluate the mathematical claim: 'For any continuous function f: [0, 2] -> R with f(0) = f(2), there does not exist c in [0, 1] such that f(c) = f(c + 1).'. Determine if this statement is Valid or Invalid.",
+    "claim": "For any continuous function f: [0, 2] -> R with f(0) = f(2), there exists a unique c in [0, 1] such that f(c) = f(c + 1).",
+    "question": "Evaluate the mathematical claim: 'For any continuous function f: [0, 2] -> R with f(0) = f(2), there exists a unique c in [0, 1] such that f(c) = f(c + 1).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For any continuous function f: [0, 2] -> R with f(0) = f(2), there exists c in [0, 1] such that f(c) = f(c + 1).' (Valid).",
-      "Perturbed false claim: 'For any continuous function f: [0, 2] -> R with f(0) = f(2), there does not exist c in [0, 1] such that f(c) = f(c + 1).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For any continuous function f: [0, 2] -> R with f(0) = f(2), there exists c in [0, 1] such that f(c) = f(c + 1)..",
+    "perturbation_type": "strengthened_conclusion",
+    "falsity_reason": "A constant function satisfies f(c) = f(c+1) for every c in [0, 1].",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: A constant function satisfies f(c) = f(c+1) for every c in [0, 1]. The true statement is: For any continuous function f: [0, 2] -> R with f(0) = f(2), there exists c in [0, 1] such that f(c) = f(c + 1).",
     "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 14 (False Twin Variant)"
   },
   {
@@ -710,16 +668,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Properties of Continuous Functions",
     "subtopic": "Intermediate Value Property with Overlapping Ranges",
-    "claim": "It is FALSE that if f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b].",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b].'. Determine if this statement is Valid or Invalid.",
+    "claim": "If f, g: (a, b) -> R are continuous functions on an open interval having the same range (0, 1), then f(c) = g(c) for some c in (a, b).",
+    "question": "Evaluate the mathematical claim: 'If f, g: (a, b) -> R are continuous functions on an open interval having the same range (0, 1), then f(c) = g(c) for some c in (a, b).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b].' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b]..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "On (0, 1), f(x) = x and g(x) = x^2 both have range (0, 1) but never agree.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: On (0, 1), f(x) = x and g(x) = x^2 both have range (0, 1) but never agree. The true statement is: If f, g: [a, b] -> R are continuous functions having the same range [0, 1], then f(c) = g(c) for some c in [a, b].",
     "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 13 (False Twin Variant)"
   },
   {
@@ -728,16 +685,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Uniform Continuity",
     "subtopic": "Failure of Uniform Continuity on Bounded Open Intervals",
-    "claim": "The function f(x) = 1/x is discontinuous on (0, 1) but not uniformly continuous on (0, 1).",
-    "question": "Evaluate the mathematical claim: 'The function f(x) = 1/x is discontinuous on (0, 1) but not uniformly continuous on (0, 1).'. Determine if this statement is Valid or Invalid.",
+    "claim": "The function f(x) = 1/x is uniformly continuous on (0, 1).",
+    "question": "Evaluate the mathematical claim: 'The function f(x) = 1/x is uniformly continuous on (0, 1).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The function f(x) = 1/x is continuous on (0, 1) but not uniformly continuous on (0, 1).' (Valid).",
-      "Perturbed false claim: 'The function f(x) = 1/x is discontinuous on (0, 1) but not uniformly continuous on (0, 1).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The function f(x) = 1/x is continuous on (0, 1) but not uniformly continuous on (0, 1)..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "x_n = 1/n and y_n = 1/(n+1) get arbitrarily close while |f(x_n) - f(y_n)| = 1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: x_n = 1/n and y_n = 1/(n+1) get arbitrarily close while |f(x_n) - f(y_n)| = 1. The true statement is: The function f(x) = 1/x is continuous on (0, 1) but not uniformly continuous on (0, 1).",
     "source_reference": "S.K. Mapa, Continuity, Section 8.7, Worked Examples (False Twin Variant)"
   },
   {
@@ -746,16 +702,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Uniform Continuity",
     "subtopic": "Uniform Continuity of Square Root Function on Unbounded Domains",
-    "claim": "The function f(x) = sqrt(x) is not uniformly continuous on [0, infinity) despite having an unbounded derivative near 0.",
-    "question": "Evaluate the mathematical claim: 'The function f(x) = sqrt(x) is not uniformly continuous on [0, infinity) despite having an unbounded derivative near 0.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The function f(x) = sqrt(x) is not uniformly continuous on [0, infinity), because its derivative is unbounded near 0.",
+    "question": "Evaluate the mathematical claim: 'The function f(x) = sqrt(x) is not uniformly continuous on [0, infinity), because its derivative is unbounded near 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The function f(x) = sqrt(x) is uniformly continuous on [0, infinity) despite having an unbounded derivative near 0.' (Valid).",
-      "Perturbed false claim: 'The function f(x) = sqrt(x) is not uniformly continuous on [0, infinity) despite having an unbounded derivative near 0.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The function f(x) = sqrt(x) is uniformly continuous on [0, infinity) despite having an unbounded derivative near 0..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "|sqrt(x) - sqrt(y)| <= sqrt(|x - y|), so delta = eps^2 works.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: |sqrt(x) - sqrt(y)| <= sqrt(|x - y|), so delta = eps^2 works. The true statement is: The function f(x) = sqrt(x) is uniformly continuous on [0, infinity) despite having an unbounded derivative near 0.",
     "source_reference": "S.K. Mapa, Continuity, Section 8.7, Worked Example 3 (False Twin Variant)"
   },
   {
@@ -764,16 +719,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Uniform Continuity",
     "subtopic": "Continuous Functions with Limits at Infinity",
-    "claim": "If f: [0, infinity) -> R is discontinuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity).",
-    "question": "Evaluate the mathematical claim: 'If f: [0, infinity) -> R is discontinuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity).'. Determine if this statement is Valid or Invalid.",
+    "claim": "If f: [0, infinity) -> R is continuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is Lipschitz continuous on [0, infinity).",
+    "question": "Evaluate the mathematical claim: 'If f: [0, infinity) -> R is continuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is Lipschitz continuous on [0, infinity).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If f: [0, infinity) -> R is continuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity).' (Valid).",
-      "Perturbed false claim: 'If f: [0, infinity) -> R is discontinuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If f: [0, infinity) -> R is continuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity)..",
+    "perturbation_type": "strengthened_conclusion",
+    "falsity_reason": "f(x) = sqrt(x) on [0, 1] and f(x) = 1 for x > 1 satisfies the hypotheses but is not Lipschitz near 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f(x) = sqrt(x) on [0, 1] and f(x) = 1 for x > 1 satisfies the hypotheses but is not Lipschitz near 0. The true statement is: If f: [0, infinity) -> R is continuous on [0, infinity) and lim_{x -> infty} f(x) = L in R, then f is uniformly continuous on [0, infinity).",
     "source_reference": "S.K. Mapa, Continuity, Exercises 13, Problem 15 (False Twin Variant)"
   },
   {
@@ -782,16 +736,15 @@
     "chapter": "Chapter 8: Continuity",
     "topic": "Uniform Continuity",
     "subtopic": "Preservation of Cauchy Sequences",
-    "claim": "It is FALSE that a uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that a uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.'. Determine if this statement is Valid or Invalid.",
+    "claim": "Every continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.",
+    "question": "Evaluate the mathematical claim: 'Every continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'A uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that a uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: A uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "f(x) = 1/x on (0, 1) maps the Cauchy sequence 1/n to n.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f(x) = 1/x on (0, 1) maps the Cauchy sequence 1/n to n. The true statement is: A uniformly continuous function f: D -> R maps every Cauchy sequence in D to a Cauchy sequence in R.",
     "source_reference": "S.K. Mapa, Continuity, Section 8.7, Corollary & Worked Examples (False Twin Variant)"
   },
   {
@@ -800,16 +753,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Differentiability",
     "subtopic": "Modulated Oscillating Functions and Continuity of Derivative",
-    "claim": "It is FALSE that the function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, and f' is continuous at x = 0.",
+    "question": "Evaluate the mathematical claim: 'The function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, and f' is continuous at x = 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "f'(x) = 2x sin(1/x) - cos(1/x) has no limit as x -> 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f'(x) = 2x sin(1/x) - cos(1/x) has no limit as x -> 0. The true statement is: The function f(x) = x^2 sin(1/x) for x != 0 and f(0) = 0 is differentiable on R, but f' is discontinuous at x = 0.",
     "source_reference": "S.K. Mapa, Differentiation, Section 9.1, Worked Examples (False Twin Variant)"
   },
   {
@@ -818,16 +770,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Properties of the Derivative",
     "subtopic": "Darboux's Intermediate Value Theorem for Derivatives",
-    "claim": "If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there does not exist c in (a, b) such that f'(c) = k.",
-    "question": "Evaluate the mathematical claim: 'If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there does not exist c in (a, b) such that f'(c) = k.'. Determine if this statement is Valid or Invalid.",
+    "claim": "If f: [a, b] -> R is differentiable on [a, b], then f' is continuous on [a, b].",
+    "question": "Evaluate the mathematical claim: 'If f: [a, b] -> R is differentiable on [a, b], then f' is continuous on [a, b].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there exists c in (a, b) such that f'(c) = k.' (Valid).",
-      "Perturbed false claim: 'If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there does not exist c in (a, b) such that f'(c) = k.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there exists c in (a, b) such that f'(c) = k..",
+    "perturbation_type": "strengthened_conclusion",
+    "falsity_reason": "x^2 sin(1/x) (extended by 0) is differentiable with a discontinuous derivative.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: x^2 sin(1/x) (extended by 0) is differentiable with a discontinuous derivative. The true statement is: If f: [a, b] -> R is differentiable on [a, b] and f'(a) < k < f'(b), there exists c in (a, b) such that f'(c) = k.",
     "source_reference": "S.K. Mapa, Differentiation, Section 9.4, Theorem 9.4.1 (False Twin Variant)"
   },
   {
@@ -836,16 +787,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Properties of the Derivative",
     "subtopic": "Continuity of Monotonic Derivatives",
-    "claim": "It is FALSE that if a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I.'. Determine if this statement is Valid or Invalid.",
+    "claim": "There exists a function f that is differentiable on an open interval I whose derivative f' is monotonic on I but has a jump discontinuity in I.",
+    "question": "Evaluate the mathematical claim: 'There exists a function f that is differentiable on an open interval I whose derivative f' is monotonic on I but has a jump discontinuity in I.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "By Darboux's theorem f' has the intermediate value property, so it cannot have a jump.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: By Darboux's theorem f' has the intermediate value property, so it cannot have a jump. The true statement is: If a function f is differentiable on an open interval I and f' is monotonic on I, then f' must be continuous on I.",
     "source_reference": "S.K. Mapa, Differentiation, Exercises 15, Problem 2 (False Twin Variant)"
   },
   {
@@ -854,16 +804,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Mean Value Theorems",
     "subtopic": "Rolle's Theorem Root Interlacing",
-    "claim": "Between any two real roots of e^x * cos x = 1, there does not exist at least one real root of e^x * sin x = 1.",
-    "question": "Evaluate the mathematical claim: 'Between any two real roots of e^x * cos x = 1, there does not exist at least one real root of e^x * sin x = 1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The equation e^x * cos x = 1 has exactly one real root.",
+    "question": "Evaluate the mathematical claim: 'The equation e^x * cos x = 1 has exactly one real root.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'Between any two real roots of e^x * cos x = 1, there exists at least one real root of e^x * sin x = 1.' (Valid).",
-      "Perturbed false claim: 'Between any two real roots of e^x * cos x = 1, there does not exist at least one real root of e^x * sin x = 1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: Between any two real roots of e^x * cos x = 1, there exists at least one real root of e^x * sin x = 1..",
+    "perturbation_type": "false_quantity",
+    "falsity_reason": "x = 0 is a root and cos x = e^{-x} has further roots for x > 0 (for example near 3 pi/2 and 5 pi/2).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: x = 0 is a root and cos x = e^{-x} has further roots for x > 0 (for example near 3 pi/2 and 5 pi/2). The true statement is: Between any two real roots of e^x * cos x = 1, there exists at least one real root of e^x * sin x = 1.",
     "source_reference": "S.K. Mapa, Differentiation, Section 9.5, Worked Examples (False Twin Variant)"
   },
   {
@@ -872,16 +821,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Mean Value Theorems",
     "subtopic": "Cauchy Mean Value Theorem Evaluation",
-    "claim": "It is FALSE that for f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/3.",
+    "question": "Evaluate the mathematical claim: 'For f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/3.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "-cot xi = -1 gives xi = pi/4.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: -cot xi = -1 gives xi = pi/4. The true statement is: For f(x) = sin x and g(x) = cos x on [0, pi/2], Cauchy's Mean Value Theorem gives xi = pi/4.",
     "source_reference": "S.K. Mapa, Differentiation, Exercises 15, Problem 6(i) (False Twin Variant)"
   },
   {
@@ -890,16 +838,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Mean Value Theorems",
     "subtopic": "Logarithmic Inequalities via Lagrange's MVT",
-    "claim": "It is FALSE that for all x > 0, x/(1 + x) < log(1 + x) < x.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for all x > 0, x/(1 + x) < log(1 + x) < x.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For all x > 0, x/(1 + x) < log(1 + x) < 2x/(2 + x).",
+    "question": "Evaluate the mathematical claim: 'For all x > 0, x/(1 + x) < log(1 + x) < 2x/(2 + x).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For all x > 0, x/(1 + x) < log(1 + x) < x.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for all x > 0, x/(1 + x) < log(1 + x) < x.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For all x > 0, x/(1 + x) < log(1 + x) < x..",
+    "perturbation_type": "false_bound",
+    "falsity_reason": "log(1 + x) > 2x/(2 + x) for all x > 0 (compare derivatives: 1/(1+x) > 4/(2+x)^2).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: log(1 + x) > 2x/(2 + x) for all x > 0 (compare derivatives: 1/(1+x) > 4/(2+x)^2). The true statement is: For all x > 0, x/(1 + x) < log(1 + x) < x.",
     "source_reference": "S.K. Mapa, Differentiation, Section 9.5, Worked Example 3 (False Twin Variant)"
   },
   {
@@ -908,16 +855,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Taylor's Theorem and Expansions",
     "subtopic": "Limiting Value of Intermediate Theta in Taylor Remainder",
-    "claim": "It is FALSE that for f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).",
+    "question": "Evaluate the mathematical claim: 'For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = sin x with f(h) = f(0) + h*f'(0) + (h^2/2!)*f''(theta*h), the limiting value of theta as h -> 0 is 1/sqrt(3)..",
+    "perturbation_type": "dataset_original_error",
+    "falsity_reason": "This was the dataset's original (incorrect) claim; in this second-order form sin h = h - (h^2/2) sin(theta h), which gives theta -> 1/3.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: This was the dataset's original (incorrect) claim; in this second-order form sin h = h - (h^2/2) sin(theta h), which gives theta -> 1/3. The true statement is: For f(x) = sin x with f(h) = f(0) + h*f'(theta*h) (Lagrange mean value form, i.e. sin h = h cos(theta*h)), the limiting value of theta as h -> 0 is 1/sqrt(3).",
     "source_reference": "S.K. Mapa, Differentiation, Section 9.7, Worked Example 5 (False Twin Variant)"
   },
   {
@@ -926,16 +872,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Indeterminate Forms",
     "subtopic": "L'Hopital's Rule for Mixed Transcendental 0/0 Forms",
-    "claim": "It is FALSE that the limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 1/2.",
+    "question": "Evaluate the mathematical claim: 'The limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 1/2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Maclaurin expansion gives (x + x^2 - x + x^2/2)/x^2 -> 3/2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Maclaurin expansion gives (x + x^2 - x + x^2/2)/x^2 -> 3/2. The true statement is: The limit lim_{x -> 0} [x*e^x - log(1 + x)] / x^2 = 3/2.",
     "source_reference": "S.K. Mapa, Differentiation, Exercises 19, Problem 1(i) (False Twin Variant)"
   },
   {
@@ -944,16 +889,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Indeterminate Forms",
     "subtopic": "Exponential-Trigonometric Indeterminate Limits",
-    "claim": "It is FALSE that the limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 0.",
+    "question": "Evaluate the mathematical claim: 'The limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Factoring e^{sin x}(e^u - 1)/u with u = x - sin x gives limit 1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Factoring e^{sin x}(e^u - 1)/u with u = x - sin x gives limit 1. The true statement is: The limit lim_{x -> 0} (e^x - e^{sin x}) / (x - sin x) = 1.",
     "source_reference": "S.K. Mapa, Differentiation, Exercises 19, Problem 1(v) (False Twin Variant)"
   },
   {
@@ -962,16 +906,15 @@
     "chapter": "Chapter 9: Differentiation",
     "topic": "Indeterminate Forms",
     "subtopic": "Power Indeterminate Forms 1^infinity",
-    "claim": "It is FALSE that the limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{1/6}.",
+    "question": "Evaluate the mathematical claim: 'The limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{1/6}.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "ln((sin x)/x) = -x^2/6 + O(x^4), so the limit is e^{-1/6}.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: ln((sin x)/x) = -x^2/6 + O(x^4), so the limit is e^{-1/6}. The true statement is: The limit lim_{x -> 0} [(sin x)/x]^{1/x^2} = e^{-1/6}.",
     "source_reference": "S.K. Mapa, Differentiation, Section 9.9, Worked Examples (False Twin Variant)"
   },
   {
@@ -980,16 +923,15 @@
     "chapter": "Chapter 10: Functions of bounded variation",
     "topic": "Functions of Bounded Variation",
     "subtopic": "Total Variation and Jordan Decomposition of Polynomials",
-    "claim": "It is FALSE that for f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.",
+    "question": "Evaluate the mathematical claim: 'For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(0)]/2 - [V_f(x) - f(x) + f(0)]/2..",
+    "perturbation_type": "dataset_original_error",
+    "falsity_reason": "This was the dataset's original (incorrect) claim; the stated difference simplifies to f(x)/2, not f(x).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: This was the dataset's original (incorrect) claim; the stated difference simplifies to f(x)/2, not f(x). The true statement is: For f(x) = x^2 - 2x + 2 on [0, 2], the total variation is V(f; [0, 2]) = 2, and f can be decomposed as the difference of two monotone increasing functions f(x) = [V_f(x) + f(x)]/2 - [V_f(x) - f(x)]/2.",
     "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 6(i) (False Twin Variant)"
   },
   {
@@ -998,16 +940,15 @@
     "chapter": "Chapter 10: Functions of bounded variation",
     "topic": "Functions of Bounded Variation",
     "subtopic": "Continuous Functions Failing Bounded Variation",
-    "claim": "The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is discontinuous on [0, 1] but is not of bounded variation on [0, 1].",
-    "question": "Evaluate the mathematical claim: 'The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is discontinuous on [0, 1] but is not of bounded variation on [0, 1].'. Determine if this statement is Valid or Invalid.",
+    "claim": "The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is continuous on [0, 1] and of bounded variation on [0, 1].",
+    "question": "Evaluate the mathematical claim: 'The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is continuous on [0, 1] and of bounded variation on [0, 1].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is continuous on [0, 1] but is not of bounded variation on [0, 1].' (Valid).",
-      "Perturbed false claim: 'The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is discontinuous on [0, 1] but is not of bounded variation on [0, 1].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is continuous on [0, 1] but is not of bounded variation on [0, 1]..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "Partitions at x_k = 2/(2k+1) give variation sums bounded below by a divergent harmonic-type sum.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Partitions at x_k = 2/(2k+1) give variation sums bounded below by a divergent harmonic-type sum. The true statement is: The function f(x) = x * sin(pi/x) for x in (0, 1] and f(0) = 0 is continuous on [0, 1] but is not of bounded variation on [0, 1].",
     "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 4(i) (False Twin Variant)"
   },
   {
@@ -1016,16 +957,15 @@
     "chapter": "Chapter 10: Functions of bounded variation",
     "topic": "Functions of Bounded Variation",
     "subtopic": "Bounded Derivatives Implies Bounded Variation",
-    "claim": "It is FALSE that the function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1].",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1].'. Determine if this statement is Valid or Invalid.",
+    "claim": "The function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is not of bounded variation on [0, 1].",
+    "question": "Evaluate the mathematical claim: 'The function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is not of bounded variation on [0, 1].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1].' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1]..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "|f'| <= 3 on [0, 1], and a bounded derivative implies bounded variation.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: |f'| <= 3 on [0, 1], and a bounded derivative implies bounded variation. The true statement is: The function f(x) = x^2 sin(1/x) for x in (0, 1] and f(0) = 0 is of bounded variation on [0, 1].",
     "source_reference": "S.K. Mapa, Functions of bounded variation, Section 10.1, Theorem 10.1.7 & Worked Examples (False Twin Variant)"
   },
   {
@@ -1034,16 +974,15 @@
     "chapter": "Chapter 10: Functions of bounded variation",
     "topic": "Functions of Bounded Variation",
     "subtopic": "Variation of Discontinuous Step Functions",
-    "claim": "It is FALSE that for f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 2.",
+    "question": "Evaluate the mathematical claim: 'For f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Each unit interval contributes a decrease of 1 and a jump of 1, so V = 4.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Each unit interval contributes a decrease of 1 and a jump of 1, so V = 4. The true statement is: For f(x) = [x] - x on [0, 2], the total variation is V(f; [0, 2]) = 4.",
     "source_reference": "S.K. Mapa, Functions of bounded variation, Exercises 20, Problem 6(ii) (False Twin Variant)"
   },
   {
@@ -1052,16 +991,15 @@
     "chapter": "Chapter 11: Riemann integral",
     "topic": "Riemann Integration",
     "subtopic": "Darboux Sums Evaluation and Integrability",
-    "claim": "It is FALSE that for f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/2.",
+    "question": "Evaluate the mathematical claim: 'For f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Both sums tend to 2/6 = 1/3.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Both sums tend to 2/6 = 1/3. The true statement is: For f(x) = x^2 on [0, 1] with equidistant partition P_n, L(P_n, f) = (n - 1)(2n - 1)/(6n^2) and U(P_n, f) = (n + 1)(2n + 1)/(6n^2), proving int_0^1 x^2 dx = 1/3.",
     "source_reference": "S.K. Mapa, Riemann integral, Exercises 21, Problem 1(i) (False Twin Variant)"
   },
   {
@@ -1070,16 +1008,15 @@
     "chapter": "Chapter 11: Riemann integral",
     "topic": "Riemann Integration",
     "subtopic": "Integrability of Monotonic Functions",
-    "claim": "It is FALSE that every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b].",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b].'. Determine if this statement is Valid or Invalid.",
+    "claim": "A bounded function on [a, b] that is discontinuous at every rational point of [a, b] cannot be Riemann integrable on [a, b].",
+    "question": "Evaluate the mathematical claim: 'A bounded function on [a, b] that is discontinuous at every rational point of [a, b] cannot be Riemann integrable on [a, b].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'Every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b].' (Valid).",
-      "Perturbed false claim: 'It is FALSE that every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: Every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b]..",
+    "perturbation_type": "false_property",
+    "falsity_reason": "Thomae's function is discontinuous at every rational point yet Riemann integrable (its discontinuity set has measure zero).",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Thomae's function is discontinuous at every rational point yet Riemann integrable (its discontinuity set has measure zero). The true statement is: Every bounded monotone increasing function f: [a, b] -> R is Riemann integrable on [a, b].",
     "source_reference": "S.K. Mapa, Riemann integral, Section 11.5, Theorem 11.5.2 & Exercises 21, Problem 2 (False Twin Variant)"
   },
   {
@@ -1088,16 +1025,15 @@
     "chapter": "Chapter 11: Riemann integral",
     "topic": "Riemann Integration",
     "subtopic": "Integrability of Functions with Countable Discontinuities",
-    "claim": "It is FALSE that thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0.'. Determine if this statement is Valid or Invalid.",
+    "claim": "Thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 1/2.",
+    "question": "Evaluate the mathematical claim: 'Thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 1/2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'Thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: Thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "Every lower sum is 0 and upper sums can be made arbitrarily small, so the integral is 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Every lower sum is 0 and upper sums can be made arbitrarily small, so the integral is 0. The true statement is: Thomae's function is Riemann integrable on [0, 1] and int_0^1 f(x) dx = 0.",
     "source_reference": "S.K. Mapa, Riemann integral, Section 11.5, Worked Example 3 (False Twin Variant)"
   },
   {
@@ -1106,16 +1042,15 @@
     "chapter": "Chapter 11: Riemann integral",
     "topic": "Riemann Integration",
     "subtopic": "First Mean Value Theorem of Integral Calculus",
-    "claim": "It is FALSE that if f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f].",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f].'. Determine if this statement is Valid or Invalid.",
+    "claim": "If f, g are Riemann integrable on [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f], even if g changes sign on [a, b].",
+    "question": "Evaluate the mathematical claim: 'If f, g are Riemann integrable on [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f], even if g changes sign on [a, b].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f].' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f]..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "On [-1, 1] with f(x) = x and g(x) = x: int fg = 2/3 but int g = 0, so no mu works.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: On [-1, 1] with f(x) = x and g(x) = x: int fg = 2/3 but int g = 0, so no mu works. The true statement is: If f, g are Riemann integrable on [a, b] and g(x) >= 0 for all x in [a, b], then int_a^b f(x)g(x)dx = mu int_a^b g(x)dx for some mu in [inf f, sup f].",
     "source_reference": "S.K. Mapa, Riemann integral, Section 11.12, Theorem 11.12.1 (False Twin Variant)"
   },
   {
@@ -1124,16 +1059,15 @@
     "chapter": "Chapter 11: Riemann integral",
     "topic": "Riemann Integration",
     "subtopic": "Fundamental Theorem of Integral Calculus",
-    "claim": "It is FALSE that if f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c).",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c).'. Determine if this statement is Valid or Invalid.",
+    "claim": "If f: [a, b] -> R is Riemann integrable, then F(x) = int_a^x f(t)dt is differentiable at every c in (a, b) and F'(c) = f(c).",
+    "question": "Evaluate the mathematical claim: 'If f: [a, b] -> R is Riemann integrable, then F(x) = int_a^x f(t)dt is differentiable at every c in (a, b) and F'(c) = f(c).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c).' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c)..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "For a step function with a jump at c, F has a corner at c and is not differentiable there.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: For a step function with a jump at c, F has a corner at c and is not differentiable there. The true statement is: If f: [a, b] -> R is Riemann integrable and continuous at c in [a, b], then F(x) = int_a^x f(t)dt is differentiable at c and F'(c) = f(c).",
     "source_reference": "S.K. Mapa, Riemann integral, Section 11.8, Theorem 11.8.2 (False Twin Variant)"
   },
   {
@@ -1142,16 +1076,15 @@
     "chapter": "Chapter 12: Improper integrals",
     "topic": "Improper Integrals",
     "subtopic": "Dirichlet's Test and Non-Absolute Convergence",
-    "claim": "The improper integral int_0^infty (sin x)/x dx diverges, but int_0^infty |sin x|/x dx diverges to infinity.",
-    "question": "Evaluate the mathematical claim: 'The improper integral int_0^infty (sin x)/x dx diverges, but int_0^infty |sin x|/x dx diverges to infinity.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The improper integral int_0^infty (sin x)/x dx converges absolutely.",
+    "question": "Evaluate the mathematical claim: 'The improper integral int_0^infty (sin x)/x dx converges absolutely.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The improper integral int_0^infty (sin x)/x dx converges, but int_0^infty |sin x|/x dx diverges to infinity.' (Valid).",
-      "Perturbed false claim: 'The improper integral int_0^infty (sin x)/x dx diverges, but int_0^infty |sin x|/x dx diverges to infinity.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The improper integral int_0^infty (sin x)/x dx converges, but int_0^infty |sin x|/x dx diverges to infinity..",
+    "perturbation_type": "strengthened_conclusion",
+    "falsity_reason": "|sin x|/x >= (1 - cos 2x)/(2x), whose integral diverges.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: |sin x|/x >= (1 - cos 2x)/(2x), whose integral diverges. The true statement is: The improper integral int_0^infty (sin x)/x dx converges, but int_0^infty |sin x|/x dx diverges to infinity.",
     "source_reference": "S.K. Mapa, Improper integrals, Section 12.8, Worked Example 1 (False Twin Variant)"
   },
   {
@@ -1160,16 +1093,15 @@
     "chapter": "Chapter 12: Improper integrals",
     "topic": "Improper Integrals",
     "subtopic": "Evaluation of Singular Log-Trigonometric Integrals",
-    "claim": "The improper integral int_0^{pi/2} log(sin x) dx diverges and equals -(pi/2) * log 2.",
-    "question": "Evaluate the mathematical claim: 'The improper integral int_0^{pi/2} log(sin x) dx diverges and equals -(pi/2) * log 2.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The improper integral int_0^{pi/2} log(sin x) dx converges and equals -pi * log 2.",
+    "question": "Evaluate the mathematical claim: 'The improper integral int_0^{pi/2} log(sin x) dx converges and equals -pi * log 2.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The improper integral int_0^{pi/2} log(sin x) dx converges and equals -(pi/2) * log 2.' (Valid).",
-      "Perturbed false claim: 'The improper integral int_0^{pi/2} log(sin x) dx diverges and equals -(pi/2) * log 2.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The improper integral int_0^{pi/2} log(sin x) dx converges and equals -(pi/2) * log 2..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "The symmetry argument gives -(pi/2) log 2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The symmetry argument gives -(pi/2) log 2. The true statement is: The improper integral int_0^{pi/2} log(sin x) dx converges and equals -(pi/2) * log 2.",
     "source_reference": "S.K. Mapa, Improper integrals, Section 12.10, Worked Example 6 (False Twin Variant)"
   },
   {
@@ -1178,16 +1110,15 @@
     "chapter": "Chapter 12: Improper integrals",
     "topic": "Improper Integrals",
     "subtopic": "Frullani's Integral Theorem",
-    "claim": "It is FALSE that for continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(a/b) for a, b > 0.",
+    "question": "Evaluate the mathematical claim: 'For continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(a/b) for a, b > 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0..",
+    "perturbation_type": "sign_error",
+    "falsity_reason": "Frullani's formula gives [f(0) - f(infty)] log(b/a); the stated sign is reversed whenever f(0) != f(infty) and a != b.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Frullani's formula gives [f(0) - f(infty)] log(b/a); the stated sign is reversed whenever f(0) != f(infty) and a != b. The true statement is: For continuous f on [0, infty) with lim_{x -> infty} f(x) = f(infty), int_0^infty [f(ax) - f(bx)]/x dx = [f(0) - f(infty)] * log(b/a) for a, b > 0.",
     "source_reference": "S.K. Mapa, Improper integrals, Section 12.10, Theorem 12.10.1 (False Twin Variant)"
   },
   {
@@ -1196,16 +1127,15 @@
     "chapter": "Chapter 12: Improper integrals",
     "topic": "Beta and Gamma Functions",
     "subtopic": "Beta and Gamma Function Fundamental Relation",
-    "claim": "It is FALSE that for all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n).",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n).'. Determine if this statement is Valid or Invalid.",
+    "claim": "For all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n + 1).",
+    "question": "Evaluate the mathematical claim: 'For all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n + 1).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n).' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n)..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "The correct identity has Gamma(m + n) in the denominator; e.g. B(1, 1) = 1 but the formula gives 1/2.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The correct identity has Gamma(m + n) in the denominator; e.g. B(1, 1) = 1 but the formula gives 1/2. The true statement is: For all m > 0 and n > 0, B(m, n) = [Gamma(m) * Gamma(n)] / Gamma(m + n).",
     "source_reference": "S.K. Mapa, Improper integrals, Section 12.11, Theorem 12.11.4 (False Twin Variant)"
   },
   {
@@ -1214,16 +1144,15 @@
     "chapter": "Chapter 12: Improper integrals",
     "topic": "Beta and Gamma Functions",
     "subtopic": "Evaluation of Singular Radical Integrals via Beta Function",
-    "claim": "It is FALSE that the integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)].",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)].'. Determine if this statement is Valid or Invalid.",
+    "claim": "The integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [2 * Gamma(3/4)].",
+    "question": "Evaluate the mathematical claim: 'The integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [2 * Gamma(3/4)].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)].' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)]..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "(1/4) B(1/4, 1/2) = sqrt(pi) Gamma(1/4)/(4 Gamma(3/4)); the stated value is twice that.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: (1/4) B(1/4, 1/2) = sqrt(pi) Gamma(1/4)/(4 Gamma(3/4)); the stated value is twice that. The true statement is: The integral int_0^1 dx / sqrt(1 - x^4) = (1/4) * B(1/4, 1/2) = [sqrt(pi) * Gamma(1/4)] / [4 * Gamma(3/4)].",
     "source_reference": "S.K. Mapa, Improper integrals, Exercises 23, Problem 3(i) & Section 12.11 (False Twin Variant)"
   },
   {
@@ -1232,16 +1161,15 @@
     "chapter": "Chapter 13: Sequence of functions",
     "topic": "Sequence of Functions",
     "subtopic": "Uniform Convergence via Mn-Test and Integral Limit",
-    "claim": "For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} diverges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.",
-    "question": "Evaluate the mathematical claim: 'For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} diverges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.",
+    "question": "Evaluate the mathematical claim: 'For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.' (Valid).",
-      "Perturbed false claim: 'For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} diverges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; however, lim_{n -> infty} int_0^1 f_n(x)dx != int_0^1 lim_{n -> infty} f_n(x)dx..",
+    "perturbation_type": "dataset_original_error",
+    "falsity_reason": "This was the dataset's original (incorrect) claim; int_0^1 f_n = ln(1 + n^2)/(2n) -> 0, which equals the integral of the limit.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: This was the dataset's original (incorrect) claim; int_0^1 f_n = ln(1 + n^2)/(2n) -> 0, which equals the integral of the limit. The true statement is: For f_n(x) = nx / (1 + n^2 x^2) on [0, 1], {f_n} converges pointwise to 0 on [0, 1], but not uniformly on [0, 1]; nevertheless lim_{n -> infty} int_0^1 f_n(x)dx = int_0^1 lim_{n -> infty} f_n(x)dx = 0.",
     "source_reference": "S.K. Mapa, Sequence of functions, Section 13.3, Worked Example 5 & 13.4 (False Twin Variant)"
   },
   {
@@ -1250,16 +1178,15 @@
     "chapter": "Chapter 13: Sequence of functions",
     "topic": "Sequence of Functions",
     "subtopic": "Non-Commutativity of Limit and Derivative",
-    "claim": "For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} diverges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0).",
-    "question": "Evaluate the mathematical claim: 'For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} diverges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0).'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} converges uniformly to f(x) = 0, and lim_{n -> infty} f'_n(0) = f'(0).",
+    "question": "Evaluate the mathematical claim: 'For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} converges uniformly to f(x) = 0, and lim_{n -> infty} f'_n(0) = f'(0).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} converges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0).' (Valid).",
-      "Perturbed false claim: 'For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} diverges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0).' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} converges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0)..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "f'_n(0) = 1 for every n, while f'(0) = 0.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f'_n(0) = 1 for every n, while f'(0) = 0. The true statement is: For f_n(x) = x / (1 + n x^2) on [0, 1], {f_n} converges uniformly to f(x) = 0, but lim_{n -> infty} f'_n(0) != f'(0).",
     "source_reference": "S.K. Mapa, Sequence of functions, Section 13.4, Worked Example 9 (False Twin Variant)"
   },
   {
@@ -1268,16 +1195,15 @@
     "chapter": "Chapter 13: Sequence of functions",
     "topic": "Sequence of Functions",
     "subtopic": "Dini's Theorem on Monotone Sequences",
-    "claim": "It is FALSE that if {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b].",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that if {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b].'. Determine if this statement is Valid or Invalid.",
+    "claim": "If {f_n} is a sequence of continuous functions on [0, 1] such that f_{n+1}(x) <= f_n(x) for all x and f_n -> 0 pointwise on (0, 1), then f_n -> 0 uniformly on (0, 1).",
+    "question": "Evaluate the mathematical claim: 'If {f_n} is a sequence of continuous functions on [0, 1] such that f_{n+1}(x) <= f_n(x) for all x and f_n -> 0 pointwise on (0, 1), then f_n -> 0 uniformly on (0, 1).'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Advanced",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'If {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b].' (Valid).",
-      "Perturbed false claim: 'It is FALSE that if {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b].' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: If {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b]..",
+    "perturbation_type": "dropped_hypothesis",
+    "falsity_reason": "f_n(x) = x^n decreases to 0 pointwise on (0, 1) but sup_{(0,1)} x^n = 1.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: f_n(x) = x^n decreases to 0 pointwise on (0, 1) but sup_{(0,1)} x^n = 1. The true statement is: If {f_n} is a sequence of continuous functions on [a, b] such that f_{n+1}(x) <= f_n(x) for all x in [a, b] and f_n -> 0 pointwise on [a, b], then f_n -> 0 uniformly on [a, b].",
     "source_reference": "S.K. Mapa, Sequence of functions, Section 13.3, Theorem 13.3.6 (Dini's Theorem) (False Twin Variant)"
   },
   {
@@ -1286,16 +1212,15 @@
     "chapter": "Chapter 14: Series of functions",
     "topic": "Series of Functions",
     "subtopic": "Weierstrass M-Test for Rational-Trigonometric Series",
-    "claim": "It is FALSE that the series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty x / [n (1 + n x^2)] is not uniformly convergent on [0, 1].",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty x / [n (1 + n x^2)] is not uniformly convergent on [0, 1].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "|u_n(x)| <= 1/(2 n^{3/2}) and the Weierstrass M-test gives uniform convergence on all of R.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: |u_n(x)| <= 1/(2 n^{3/2}) and the Weierstrass M-test gives uniform convergence on all of R. The true statement is: The series sum_{n=1}^infty x / [n (1 + n x^2)] is uniformly convergent on any bounded interval [a, b] in R.",
     "source_reference": "S.K. Mapa, Series of functions, Section 14.1 & Exercises 25, Problem 2 (False Twin Variant)"
   },
   {
@@ -1304,16 +1229,15 @@
     "chapter": "Chapter 14: Series of functions",
     "topic": "Series of Functions",
     "subtopic": "Dirichlet's Test for Function Series on Compact Subintervals",
-    "claim": "It is FALSE that the series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that the series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [0, 2*pi].",
+    "question": "Evaluate the mathematical claim: 'The series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [0, 2*pi].'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that the series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi..",
+    "perturbation_type": "overgeneralisation",
+    "falsity_reason": "The sum is (pi - x)/2 on (0, 2 pi) but 0 at x = 0, so the limit is discontinuous at 0 while every partial sum is continuous; uniform convergence fails.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: The sum is (pi - x)/2 on (0, 2 pi) but 0 at x = 0, so the limit is discontinuous at 0 while every partial sum is continuous; uniform convergence fails. The true statement is: The series sum_{n=1}^infty (sin nx)/n is uniformly convergent on [delta, 2*pi - delta] for any 0 < delta < pi.",
     "source_reference": "S.K. Mapa, Series of functions, Section 14.3, Worked Example 5 (False Twin Variant)"
   },
   {
@@ -1322,16 +1246,15 @@
     "chapter": "Chapter 15: Power series",
     "topic": "Power Series",
     "subtopic": "Radius of Convergence and Endpoint Analysis",
-    "claim": "The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], diverges conditionally at x = 3, and diverges at x = -1.",
-    "question": "Evaluate the mathematical claim: 'The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], diverges conditionally at x = 3, and diverges at x = -1.'. Determine if this statement is Valid or Invalid.",
+    "claim": "The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence [-1, 3), converges conditionally at x = -1, and diverges at x = 3.",
+    "question": "Evaluate the mathematical claim: 'The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence [-1, 3), converges conditionally at x = -1, and diverges at x = 3.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], converges conditionally at x = 3, and diverges at x = -1.' (Valid).",
-      "Perturbed false claim: 'The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], diverges conditionally at x = 3, and diverges at x = -1.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], converges conditionally at x = 3, and diverges at x = -1..",
+    "perturbation_type": "false_final_answer",
+    "falsity_reason": "At x = -1 the series is sum 1/n (diverges); at x = 3 it is sum (-1)^n/n (converges). The interval is (-1, 3].",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: At x = -1 the series is sum 1/n (diverges); at x = 3 it is sum (-1)^n/n (converges). The interval is (-1, 3]. The true statement is: The power series sum_{n=1}^infty [(-1)^n / (n * 2^n)] * (x - 1)^n has radius of convergence R = 2, interval of convergence (-1, 3], converges conditionally at x = 3, and diverges at x = -1.",
     "source_reference": "S.K. Mapa, Power series, Exercises 26 & Section 15.2 (False Twin Variant)"
   },
   {
@@ -1340,16 +1263,15 @@
     "chapter": "APPENDIX 1- Sets in R2",
     "topic": "Multivariable Limits in R^2",
     "subtopic": "Path-Dependent Limits and Double Limits",
-    "claim": "It is FALSE that for f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist.",
-    "question": "Evaluate the mathematical claim: 'It is FALSE that for f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist.'. Determine if this statement is Valid or Invalid.",
+    "claim": "For f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, and therefore lim_{(x, y) -> (0, 0)} f(x, y) = 0.",
+    "question": "Evaluate the mathematical claim: 'For f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, and therefore lim_{(x, y) -> (0, 0)} f(x, y) = 0.'. Determine if this statement is Valid or Invalid.",
     "difficulty": "Hard",
     "ground_truth_verdict": "Invalid",
     "is_false_twin": true,
-    "reasoning_steps": [
-      "Original claim was: 'For f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist.' (Valid).",
-      "Perturbed false claim: 'It is FALSE that for f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist.' (Invalid)."
-    ],
-    "solution_sketch": "The perturbed claim is false; the true property is: For f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist..",
+    "perturbation_type": "inverted_property",
+    "falsity_reason": "Along x = y^2 the function equals 1/2, so the limit does not exist.",
+    "verified_by": "llm_unverified",
+    "solution_sketch": "The claim is false: Along x = y^2 the function equals 1/2, so the limit does not exist. The true statement is: For f(x, y) = (x * y^2) / (x^2 + y^4) for (x, y) != (0, 0) and f(0, 0) = 0, the directional limit along every straight line through the origin is 0, yet lim_{(x, y) -> (0, 0)} f(x, y) does not exist.",
     "source_reference": "S.K. Mapa, APPENDIX 1- Sets in R2, Worked Examples (False Twin Variant)"
   }
 ]
