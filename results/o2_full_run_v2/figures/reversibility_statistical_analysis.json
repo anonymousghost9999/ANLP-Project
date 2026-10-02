@@ -1,0 +1,22 @@
+{
+  "sample_sizes": {
+    "total_initially_correct": 97,
+    "hard": 88,
+    "advanced": 9
+  },
+  "flip_rate_chi2_test": {
+    "chi2_statistic": 0.0,
+    "p_value": 1.0,
+    "is_significant_at_05": false
+  },
+  "flip_count_mann_whitney_u": {
+    "u_statistic": 287.5,
+    "p_value": 0.171,
+    "is_significant_at_05": false
+  },
+  "first_flip_turn_mann_whitney_u": {
+    "u_statistic": 349.5,
+    "p_value": 0.5658,
+    "is_significant_at_05": false
+  }
+}

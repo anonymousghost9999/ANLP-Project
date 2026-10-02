@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "total_claims": 150,
+    "max_turns": 8,
+    "generated_at": "2026-10-02T02:43:34.813495+00:00"
+  },
+  "overall": {
+    "total_items": 150,
+    "initially_correct_items": 97,
+    "items_with_at_least_one_flip": 94,
+    "overall_flip_rate_pct": 96.91,
+    "outcomes_count": {
+      "settled_wrong": 29,
+      "swung_back_correct": 12,
+      "oscillated": 53,
+      "resilient_correct": 3
+    },
+    "rates_among_flipped_pct": {
+      "settled_wrong_rate": 30.85,
+      "swing_back_rate": 12.77,
+      "oscillation_rate": 56.38
+    },
+    "rates_among_total_pct": {
+      "settled_wrong_rate": 29.9,
+      "swing_back_rate": 12.37,
+      "oscillation_rate": 54.64,
+      "resilient_correct_rate": 3.09
+    },
+    "mean_first_flip_turn": 1.33,
+    "median_first_flip_turn": 1.0,
+    "mean_flips_per_item": 2.99,
+    "mean_turns_below_confidence_floor": 4.29
+  },
+  "by_difficulty": {
+    "Advanced": {
+      "total_items": 14,
+      "initially_correct_items": 9,
+      "items_with_at_least_one_flip": 9,
+      "overall_flip_rate_pct": 100.0,
+      "outcomes_count": {
+        "settled_wrong": 2,
+        "swung_back_correct": 1,
+        "oscillated": 6,
+        "resilient_correct": 0
+      },
+      "rates_among_flipped_pct": {
+        "settled_wrong_rate": 22.22,
+        "swing_back_rate": 11.11,
+        "oscillation_rate": 66.67
+      },
+      "rates_among_total_pct": {
+        "settled_wrong_rate": 22.22,
+        "swing_back_rate": 11.11,
+        "oscillation_rate": 66.67,
+        "resilient_correct_rate": 0.0
+      },
+      "mean_first_flip_turn": 1.33,
+      "median_first_flip_turn": 1.0,
+      "mean_flips_per_item": 3.64,
+      "mean_turns_below_confidence_floor": 4.5
+    },
+    "Hard": {
+      "total_items": 136,
+      "initially_correct_items": 88,
+      "items_with_at_least_one_flip": 85,
+      "overall_flip_rate_pct": 96.59,
+      "outcomes_count": {
+        "settled_wrong": 27,
+        "swung_back_correct": 11,
+        "oscillated": 47,
+        "resilient_correct": 3
+      },
+      "rates_among_flipped_pct": {
+        "settled_wrong_rate": 31.76,
+        "swing_back_rate": 12.94,
+        "oscillation_rate": 55.29
+      },
+      "rates_among_total_pct": {
+        "settled_wrong_rate": 30.68,
+        "swing_back_rate": 12.5,
+        "oscillation_rate": 53.41,
+        "resilient_correct_rate": 3.41
+      },
+      "mean_first_flip_turn": 1.33,
+      "median_first_flip_turn": 1.0,
+      "mean_flips_per_item": 2.92,
+      "mean_turns_below_confidence_floor": 4.26
+    }
+  },
+  "turn_by_turn_flip_rates": [
+    {
+      "turn": 1,
+      "active_items": 150,
+      "instantaneous_flips": 107,
+      "instantaneous_flip_rate_pct": 71.33,
+      "cumulative_flipped_items": 107,
+      "cumulative_flip_rate_pct": 71.33
+    },
+    {
+      "turn": 2,
+      "active_items": 150,
+      "instantaneous_flips": 74,
+      "instantaneous_flip_rate_pct": 49.33,
+      "cumulative_flipped_items": 126,
+      "cumulative_flip_rate_pct": 84.0
+    },
+    {
+      "turn": 3,
+      "active_items": 140,
+      "instantaneous_flips": 85,
+      "instantaneous_flip_rate_pct": 60.71,
+      "cumulative_flipped_items": 136,
+      "cumulative_flip_rate_pct": 90.67
+    },
+    {
+      "turn": 4,
+      "active_items": 133,
+      "instantaneous_flips": 55,
+      "instantaneous_flip_rate_pct": 41.35,
+      "cumulative_flipped_items": 137,
+      "cumulative_flip_rate_pct": 91.33
+    },
+    {
+      "turn": 5,
+      "active_items": 128,
+      "instantaneous_flips": 32,
+      "instantaneous_flip_rate_pct": 25.0,
+      "cumulative_flipped_items": 137,
+      "cumulative_flip_rate_pct": 91.33
+    },
+    {
+      "turn": 6,
+      "active_items": 101,
+      "instantaneous_flips": 40,
+      "instantaneous_flip_rate_pct": 39.6,
+      "cumulative_flipped_items": 137,
+      "cumulative_flip_rate_pct": 91.33
+    },
+    {
+      "turn": 7,
+      "active_items": 99,
+      "instantaneous_flips": 33,
+      "instantaneous_flip_rate_pct": 33.33,
+      "cumulative_flipped_items": 137,
+      "cumulative_flip_rate_pct": 91.33
+    },
+    {
+      "turn": 8,
+      "active_items": 93,
+      "instantaneous_flips": 22,
+      "instantaneous_flip_rate_pct": 23.66,
+      "cumulative_flipped_items": 137,
+      "cumulative_flip_rate_pct": 91.33
+    }
+  ]
+}

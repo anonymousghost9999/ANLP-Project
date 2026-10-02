@@ -1,0 +1,151 @@
+claim_id,difficulty,topic,subtopic,total_turns,corr_t0,corr_final,conf_t0,conf_final,total_flips,has_ever_flipped,first_flip_turn,swing_back_turn,swing_back_count,reversibility_category,is_settled_wrong,is_swung_back_correct,is_oscillated,is_resilient_correct,turns_below_floor,terminal_stopping_reason,cumulative_criticism_score
+1,Hard,Real Number System & Completeness,Field Axioms and Irrational Numbers,8,1,0,98.7568,32.0821,3,True,4.0,5.0,1,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.25
+2,Hard,Real Number System & Completeness,Archimedean Property and Density,8,1,0,99.478,29.4215,3,True,3.0,6.0,1,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.45
+3,Advanced,Real Number System & Completeness,Incompleteness of Q and Dedekind Cuts,8,0,0,26.8941,29.4215,4,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,8,turn_budget_exhausted,-5.2
+4,Hard,Real Number System & Completeness,Supremum and Infimum of Difference Sets,3,1,0,56.2177,3.7327,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-1.45
+5,Hard,Real Number System & Completeness,Exact Supremum and Infimum of Double Sequences,5,0,0,40.7333,2.5957,0,False,,,0,initially_wrong_static,False,False,False,False,6,stalled_collapse,-3.0
+6,Hard,Point-Set Topology of R,Derived Sets and Accumulation Points,3,0,0,70.5785,3.3086,0,False,,,0,initially_wrong_static,False,False,False,False,3,stalled_collapse,-1.45
+7,Hard,Point-Set Topology of R,Supremum and Accumulation Points,5,0,0,43.7824,4.7426,2,True,2.0,1.0,1,initially_wrong_oscillated,False,False,False,False,4,stalled_collapse,-3.0
+8,Hard,Point-Set Topology of R,Closed and Open Sets in Oscillatory Domains,8,0,0,56.2177,62.2459,4,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,4,turn_budget_exhausted,-5.2
+9,Hard,Point-Set Topology of R,Cantor Nested Intervals and Compactness,8,1,0,62.2459,11.9203,5,True,1.0,2.0,2,oscillated,False,False,True,False,6,turn_budget_exhausted,-5.75
+10,Hard,Point-Set Topology of R,Open Covers and Heine-Borel Theorem,8,0,0,24.5085,29.4215,6,True,2.0,1.0,3,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-5.25
+11,Advanced,Enumerable Sets and Cardinality,Uncountability of R via Nested Intervals,8,1,0,95.7912,59.2667,5,True,1.0,2.0,2,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.5
+12,Hard,Limits of Sequences,Sandwich Theorem for Algebraic Sum Sequences,7,0,0,13.2964,2.0332,2,True,3.0,2.0,1,initially_wrong_oscillated,False,False,False,False,8,settled,-4.8
+13,Hard,Monotone Sequences,Convergence of Non-linear Nested Radical Sequences,5,1,0,77.73,3.7327,1,True,1.0,,0,settled_wrong,True,False,False,False,4,stalled_collapse,-3.0
+14,Hard,Subsequences and Cauchy Sequences,Linear Recurrence with Odd/Even Subsequences,2,0,0,18.2426,8.5099,0,False,,,0,initially_wrong_static,False,False,False,False,3,stalled_collapse,-0.8
+15,Hard,Subsequences and Cauchy Sequences,Geometric Mean Recurrence Convergence,5,0,0,16.4516,1.2432,0,False,,,0,initially_wrong_static,False,False,False,False,6,settled,-3.0
+16,Hard,Subsequences and Cauchy Sequences,Harmonic Mean Recurrence Convergence,5,1,0,40.7333,2.5957,1,True,1.0,,0,settled_wrong,True,False,False,False,6,settled,-3.0
+17,Hard,Cauchy Theorems on Limits,Cauchy Second Limit Theorem on Product Sequences,5,1,0,65.1355,1.0987,1,True,3.0,,0,settled_wrong,True,False,False,False,4,stalled_collapse,-3.0
+18,Hard,Cauchy Sequences,Cauchy Principle of Convergence for Series Partial Sums,8,0,0,11.9203,18.2426,6,True,2.0,1.0,3,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-5.45
+19,Hard,Cauchy Theorems on Limits,Stolz-Cesaro Theorem for Polynomial Powers,5,1,0,70.5785,0.5911,1,True,3.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-3.0
+20,Hard,Upper Limit and Lower Limit,Subsequential Limits of Oscillating Sequences,2,0,0,24.5085,6.7547,0,False,,,0,initially_wrong_static,False,False,False,False,3,stalled_collapse,-0.8
+21,Hard,Series of Positive Terms,Convergence of Squares of Terms,8,1,0,92.4142,40.7333,1,True,1.0,,0,settled_wrong,True,False,False,False,7,turn_budget_exhausted,-5.2
+22,Hard,Series of Positive Terms,Cauchy Condensation Test for Logarithmic Series,7,1,0,96.2673,1.2432,3,True,2.0,4.0,1,oscillated,False,False,True,False,5,stalled_collapse,-4.8
+23,Hard,Series of Positive Terms,Raabe's Test for Factorial Quotients,8,1,0,62.2459,0.8062,1,True,3.0,,0,settled_wrong,True,False,False,False,5,turn_budget_exhausted,-5.5
+24,Advanced,Series of Positive Terms,Gauss's Test for Power of Factorial Quotients,4,1,0,85.1953,7.5858,1,True,2.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-2.1
+25,Hard,Series of Positive Terms,Logarithmic Test for Exponential Log Powers,5,1,0,83.5484,2.2977,1,True,1.0,,0,settled_wrong,True,False,False,False,5,stalled_collapse,-3.0
+26,Hard,Series of Arbitrary Terms,Leibniz Test with Arithmetic Means,8,1,0,37.7541,4.2088,1,True,1.0,,0,settled_wrong,True,False,False,False,9,settled,-5.45
+27,Hard,Series of Arbitrary Terms,Dirichlet's Test for Trigonometric Series,5,1,0,88.0797,4.7426,3,True,1.0,2.0,1,oscillated,False,False,True,False,4,stalled_collapse,-3.0
+28,Hard,Series of Arbitrary Terms,Abel's Test for Alternating Factors,8,1,0,73.1059,9.5349,1,True,1.0,,0,settled_wrong,True,False,False,False,8,turn_budget_exhausted,-5.5
+29,Hard,Series of Arbitrary Terms,Divergence of Cauchy Product of Conditionally Convergent Series,8,0,1,67.9179,70.5785,7,True,3.0,1.0,4,initially_wrong_oscillated,False,False,False,False,1,turn_budget_exhausted,-5.5
+30,Hard,Series of Arbitrary Terms,Riemann Rearrangement of Conditionally Convergent Series,5,1,0,83.5484,0.8577,3,True,1.0,2.0,1,oscillated,False,False,True,False,4,stalled_collapse,-3.0
+31,Hard,Limits of Functions,Epsilon-Delta Rigorous Verification,6,0,0,9.5349,1.4064,2,True,4.0,2.0,1,initially_wrong_oscillated,False,False,False,False,5,stalled_collapse,-3.9
+32,Hard,Limits of Functions,Sequential Criterion for Non-Existence of Limits,8,0,1,20.1813,67.9179,5,True,2.0,1.0,3,initially_wrong_oscillated,False,False,False,False,4,turn_budget_exhausted,-4.95
+33,Hard,Limits of Functions,Piecewise Dirichlet-Type Function Limits,5,0,0,10.6691,6.0087,2,True,3.0,2.0,1,initially_wrong_oscillated,False,False,False,False,5,stalled_collapse,-3.0
+34,Hard,Limits of Functions,One-Sided Limits Involving Floor Function,8,0,0,29.4215,6.0087,0,False,,,0,initially_wrong_static,False,False,False,False,8,turn_budget_exhausted,-5.0
+35,Hard,Limits of Functions,Floor Function of Sinc Quotient,5,0,0,3.3086,1.5906,2,True,3.0,1.0,1,initially_wrong_oscillated,False,False,False,False,4,stalled_collapse,-3.0
+36,Hard,Continuity of Real Functions,Cauchy Additive Functional Equation,5,1,0,95.7912,1.0987,1,True,3.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-3.0
+37,Advanced,Continuity of Real Functions,Thomae's (Riemann's) Function Continuity,5,1,0,98.9013,10.6691,3,True,1.0,2.0,1,oscillated,False,False,True,False,4,stalled_collapse,-3.0
+38,Hard,Properties of Continuous Functions,Fixed Point Theorem on Closed Intervals,8,1,0,98.4094,7.5858,1,True,2.0,,0,settled_wrong,True,False,False,False,7,turn_budget_exhausted,-5.75
+39,Hard,Properties of Continuous Functions,Universal Chord Theorem,8,1,0,65.1355,16.4516,3,True,1.0,2.0,1,oscillated,False,False,True,False,8,turn_budget_exhausted,-4.75
+40,Hard,Properties of Continuous Functions,Intermediate Value Property with Overlapping Ranges,8,1,0,53.1209,34.8645,5,True,1.0,2.0,2,oscillated,False,False,True,False,6,turn_budget_exhausted,-5.25
+41,Hard,Uniform Continuity,Failure of Uniform Continuity on Bounded Open Intervals,8,1,0,91.4901,11.9203,5,True,1.0,2.0,2,oscillated,False,False,True,False,6,turn_budget_exhausted,-5.55
+42,Hard,Uniform Continuity,Uniform Continuity of Square Root Function on Unbounded Domains,8,1,0,95.2574,18.2426,3,True,1.0,2.0,1,oscillated,False,False,True,False,6,turn_budget_exhausted,-4.75
+43,Hard,Uniform Continuity,Continuous Functions with Limits at Infinity,8,0,0,32.0821,11.9203,4,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-5.0
+44,Hard,Uniform Continuity,Preservation of Cauchy Sequences,8,1,0,95.2574,43.7824,3,True,2.0,5.0,1,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.2
+45,Hard,Differentiability,Modulated Oscillating Functions and Continuity of Derivative,8,0,0,40.7333,53.1209,6,True,2.0,1.0,3,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-5.45
+46,Hard,Properties of the Derivative,Darboux's Intermediate Value Theorem for Derivatives,8,1,0,96.6914,9.5349,3,True,1.0,2.0,1,oscillated,False,False,True,False,7,turn_budget_exhausted,-5.5
+47,Hard,Properties of the Derivative,Continuity of Monotonic Derivatives,8,1,0,81.7574,56.2177,5,True,1.0,2.0,2,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.2
+48,Hard,Mean Value Theorems,Rolle's Theorem Root Interlacing,3,1,0,79.8187,3.7327,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-1.45
+49,Hard,Mean Value Theorems,Cauchy Mean Value Theorem Evaluation,7,0,0,26.8941,3.7327,4,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,4,stalled_collapse,-4.8
+50,Hard,Mean Value Theorems,Logarithmic Inequalities via Lagrange's MVT,8,1,0,97.0688,14.8047,1,True,3.0,,0,settled_wrong,True,False,False,False,6,turn_budget_exhausted,-4.95
+51,Hard,Taylor's Theorem and Expansions,Limiting Value of Intermediate Theta in Taylor Remainder,2,1,0,43.7824,10.6691,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-0.8
+52,Hard,Indeterminate Forms,L'Hopital's Rule for Mixed Transcendental 0/0 Forms,7,1,0,32.0821,0.9708,1,True,1.0,,0,settled_wrong,True,False,False,False,8,settled,-4.8
+53,Hard,Indeterminate Forms,Exponential-Trigonometric Indeterminate Limits,5,1,0,62.2459,0.522,1,True,3.0,,0,settled_wrong,True,False,False,False,5,stalled_collapse,-3.0
+54,Hard,Indeterminate Forms,Power Indeterminate Forms 1^infinity,5,1,0,24.5085,0.5911,1,True,1.0,,0,settled_wrong,True,False,False,False,6,stalled_collapse,-3.0
+55,Hard,Functions of Bounded Variation,Total Variation and Jordan Decomposition of Polynomials,3,1,0,62.2459,4.7426,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-1.45
+56,Hard,Functions of Bounded Variation,Continuous Functions Failing Bounded Variation,4,0,1,53.1209,37.7541,3,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,3,stalled_collapse,-2.1
+57,Hard,Functions of Bounded Variation,Bounded Derivatives Implies Bounded Variation,8,1,0,65.1355,24.5085,3,True,1.0,2.0,1,oscillated,False,False,True,False,3,turn_budget_exhausted,-4.75
+58,Hard,Functions of Bounded Variation,Variation of Discontinuous Step Functions,7,0,0,29.4215,0.522,2,True,3.0,1.0,1,initially_wrong_oscillated,False,False,False,False,6,stalled_collapse,-4.8
+59,Hard,Riemann Integration,Darboux Sums Evaluation and Integrability,5,0,0,22.27,2.5957,0,False,,,0,initially_wrong_static,False,False,False,False,6,stalled_collapse,-3.0
+60,Hard,Riemann Integration,Integrability of Monotonic Functions,3,1,0,93.2453,40.7333,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-1.45
+61,Advanced,Riemann Integration,Integrability of Functions with Countable Discontinuities,8,0,0,32.0821,2.9312,4,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-5.45
+62,Hard,Riemann Integration,First Mean Value Theorem of Integral Calculus,4,1,0,81.7574,2.9312,1,True,2.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-2.1
+63,Hard,Riemann Integration,Fundamental Theorem of Integral Calculus,8,1,0,99.6406,6.0087,1,True,2.0,,0,settled_wrong,True,False,False,False,6,turn_budget_exhausted,-5.75
+64,Hard,Improper Integrals,Dirichlet's Test and Non-Absolute Convergence,8,0,0,43.7824,14.8047,4,True,3.0,2.0,2,initially_wrong_oscillated,False,False,False,False,8,turn_budget_exhausted,-5.5
+65,Hard,Improper Integrals,Evaluation of Singular Log-Trigonometric Integrals,2,0,0,37.7541,20.1813,0,False,,,0,initially_wrong_static,False,False,False,False,3,stalled_collapse,-0.8
+66,Hard,Improper Integrals,Frullani's Integral Theorem,3,1,0,65.1355,1.2432,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-1.45
+67,Advanced,Beta and Gamma Functions,Beta and Gamma Function Fundamental Relation,6,1,0,99.1422,1.5906,1,True,2.0,,0,settled_wrong,True,False,False,False,5,stalled_collapse,-3.9
+68,Hard,Beta and Gamma Functions,Evaluation of Singular Radical Integrals via Beta Function,8,1,0,98.5936,0.461,1,True,3.0,,0,settled_wrong,True,False,False,False,6,settled,-5.75
+69,Hard,Sequence of Functions,Uniform Convergence via Mn-Test and Integral Limit,4,0,0,73.1059,24.5085,2,True,2.0,1.0,1,initially_wrong_oscillated,False,False,False,False,3,stalled_collapse,-2.1
+70,Hard,Sequence of Functions,Non-Commutativity of Limit and Derivative,8,0,0,20.1813,8.5099,2,True,3.0,2.0,1,initially_wrong_oscillated,False,False,False,False,8,turn_budget_exhausted,-5.55
+71,Advanced,Sequence of Functions,Dini's Theorem on Monotone Sequences,8,0,0,29.4215,22.27,2,True,2.0,1.0,1,initially_wrong_oscillated,False,False,False,False,8,turn_budget_exhausted,-5.5
+72,Hard,Series of Functions,Weierstrass M-Test for Rational-Trigonometric Series,5,1,0,93.2453,2.2977,3,True,1.0,2.0,1,oscillated,False,False,True,False,3,stalled_collapse,-3.0
+73,Hard,Series of Functions,Dirichlet's Test for Function Series on Compact Subintervals,5,1,0,79.8187,0.7577,1,True,1.0,,0,settled_wrong,True,False,False,False,3,stalled_collapse,-3.0
+74,Hard,Power Series,Radius of Convergence and Endpoint Analysis,8,0,0,29.4215,2.2977,0,False,,,0,initially_wrong_static,False,False,False,False,9,settled,-5.75
+75,Hard,Multivariable Limits in R^2,Path-Dependent Limits and Double Limits,2,0,0,32.0821,22.27,2,True,2.0,1.0,1,initially_wrong_oscillated,False,False,False,False,3,stalled_collapse,-0.8
+101,Hard,Real Number System & Completeness,Field Axioms and Irrational Numbers,2,1,1,0.6693,1.5906,0,False,,,0,resilient_correct,False,False,False,True,3,settled,-0.8
+102,Hard,Real Number System & Completeness,Archimedean Property and Density,8,1,1,2.2977,13.2964,4,True,2.0,3.0,2,oscillated,False,False,True,False,5,turn_budget_exhausted,-5.45
+103,Advanced,Real Number System & Completeness,Incompleteness of Q and Dedekind Cuts,5,1,1,6.7547,10.6691,2,True,2.0,3.0,1,swung_back_correct,False,True,False,False,5,stalled_collapse,-3.0
+104,Hard,Real Number System & Completeness,Supremum and Infimum of Difference Sets,8,1,1,46.8791,43.7824,4,True,1.0,3.0,2,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.75
+105,Hard,Real Number System & Completeness,Exact Supremum and Infimum of Double Sequences,8,1,0,50.0,79.8187,5,True,1.0,3.0,2,oscillated,False,False,True,False,2,turn_budget_exhausted,-4.75
+106,Hard,Point-Set Topology of R,Derived Sets and Accumulation Points,8,1,1,40.7333,65.1355,6,True,1.0,2.0,3,oscillated,False,False,True,False,1,turn_budget_exhausted,-5.75
+107,Hard,Point-Set Topology of R,Supremum and Accumulation Points,8,1,1,50.0,50.0,6,True,1.0,3.0,3,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.25
+108,Hard,Point-Set Topology of R,Closed and Open Sets in Oscillatory Domains,8,1,1,59.2667,46.8791,6,True,1.0,3.0,3,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.25
+109,Hard,Point-Set Topology of R,Cantor Nested Intervals and Compactness,8,1,1,40.7333,46.8791,4,True,1.0,2.0,2,oscillated,False,False,True,False,7,turn_budget_exhausted,-5.25
+110,Hard,Point-Set Topology of R,Open Covers and Heine-Borel Theorem,8,1,0,18.2426,75.4915,7,True,1.0,2.0,3,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.3
+111,Advanced,Enumerable Sets and Cardinality,Uncountability of R via Nested Intervals,8,1,1,46.8791,56.2177,6,True,1.0,3.0,3,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.3
+112,Hard,Limits of Sequences,Sandwich Theorem for Algebraic Sum Sequences,8,1,1,7.5858,6.7547,2,True,1.0,3.0,1,swung_back_correct,False,True,False,False,7,settled,-5.0
+113,Hard,Monotone Sequences,Convergence of Non-linear Nested Radical Sequences,5,0,1,81.7574,7.5858,1,True,,1.0,1,initially_wrong_oscillated,False,False,False,False,4,stalled_collapse,-3.0
+114,Hard,Subsequences and Cauchy Sequences,Linear Recurrence with Odd/Even Subsequences,2,1,1,9.5349,4.2088,0,False,,,0,resilient_correct,False,False,False,True,3,stalled_collapse,-0.8
+115,Hard,Subsequences and Cauchy Sequences,Geometric Mean Recurrence Convergence,8,1,1,11.9203,1.1687,2,True,2.0,3.0,1,swung_back_correct,False,True,False,False,7,turn_budget_exhausted,-5.45
+116,Hard,Subsequences and Cauchy Sequences,Harmonic Mean Recurrence Convergence,2,0,1,34.8645,6.7547,1,True,,1.0,1,initially_wrong_oscillated,False,False,False,False,3,stalled_collapse,-0.8
+117,Hard,Cauchy Theorems on Limits,Cauchy Second Limit Theorem on Product Sequences,8,0,1,67.9179,43.7824,5,True,2.0,1.0,3,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-5.5
+118,Hard,Cauchy Sequences,Cauchy Principle of Convergence for Series Partial Sums,8,1,1,40.7333,59.2667,4,True,1.0,3.0,2,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.0
+119,Hard,Cauchy Theorems on Limits,Stolz-Cesaro Theorem for Polynomial Powers,8,1,1,65.1355,62.2459,4,True,1.0,6.0,2,oscillated,False,False,True,False,0,turn_budget_exhausted,-5.5
+120,Hard,Upper Limit and Lower Limit,Subsequential Limits of Oscillating Sequences,8,1,1,40.7333,50.0,4,True,1.0,3.0,2,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.45
+121,Hard,Series of Positive Terms,Convergence of Squares of Terms,8,0,1,67.9179,59.2667,5,True,3.0,1.0,3,initially_wrong_oscillated,False,False,False,False,4,turn_budget_exhausted,-5.2
+122,Hard,Series of Positive Terms,Cauchy Condensation Test for Logarithmic Series,8,0,1,93.9913,16.4516,1,True,,3.0,1,initially_wrong_oscillated,False,False,False,False,6,turn_budget_exhausted,-5.25
+123,Hard,Series of Positive Terms,Raabe's Test for Factorial Quotients,8,0,0,65.1355,85.1953,8,True,2.0,1.0,4,initially_wrong_oscillated,False,False,False,False,3,turn_budget_exhausted,-5.45
+124,Advanced,Series of Positive Terms,Gauss's Test for Power of Factorial Quotients,5,0,1,86.7036,8.5099,3,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,4,stalled_collapse,-3.0
+125,Hard,Series of Positive Terms,Logarithmic Test for Exponential Log Powers,8,0,1,75.4915,32.0821,3,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,7,turn_budget_exhausted,-4.95
+126,Hard,Series of Arbitrary Terms,Leibniz Test with Arithmetic Means,4,1,1,16.4516,24.5085,2,True,1.0,3.0,1,swung_back_correct,False,True,False,False,4,stalled_collapse,-2.1
+127,Hard,Series of Arbitrary Terms,Dirichlet's Test for Trigonometric Series,8,1,1,50.0,29.4215,2,True,1.0,3.0,1,swung_back_correct,False,True,False,False,5,turn_budget_exhausted,-5.0
+128,Hard,Series of Arbitrary Terms,Abel's Test for Alternating Factors,8,1,0,34.8645,73.1059,3,True,1.0,3.0,1,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.25
+129,Hard,Series of Arbitrary Terms,Divergence of Cauchy Product of Conditionally Convergent Series,8,0,1,46.8791,73.1059,7,True,2.0,1.0,4,initially_wrong_oscillated,False,False,False,False,4,turn_budget_exhausted,-5.0
+130,Hard,Series of Arbitrary Terms,Riemann Rearrangement of Conditionally Convergent Series,5,0,1,26.8941,1.5906,1,True,,1.0,1,initially_wrong_oscillated,False,False,False,False,6,settled,-3.0
+131,Hard,Limits of Functions,Epsilon-Delta Rigorous Verification,8,1,1,40.7333,65.1355,4,True,1.0,3.0,2,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.2
+132,Hard,Limits of Functions,Sequential Criterion for Non-Existence of Limits,8,0,1,56.2177,37.7541,7,True,2.0,1.0,4,initially_wrong_oscillated,False,False,False,False,4,turn_budget_exhausted,-5.7
+133,Hard,Limits of Functions,Piecewise Dirichlet-Type Function Limits,8,1,1,29.4215,46.8791,6,True,1.0,2.0,3,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.25
+134,Hard,Limits of Functions,One-Sided Limits Involving Floor Function,8,1,1,50.0,50.0,4,True,1.0,3.0,2,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.0
+135,Hard,Limits of Functions,Floor Function of Sinc Quotient,8,1,0,4.2088,70.5785,7,True,1.0,2.0,3,oscillated,False,False,True,False,4,turn_budget_exhausted,-4.75
+136,Hard,Continuity of Real Functions,Cauchy Additive Functional Equation,5,0,1,85.1953,3.7327,1,True,,1.0,1,initially_wrong_oscillated,False,False,False,False,5,stalled_collapse,-3.0
+137,Advanced,Continuity of Real Functions,Thomae's (Riemann's) Function Continuity,8,0,1,85.1953,8.5099,3,True,3.0,1.0,2,initially_wrong_oscillated,False,False,False,False,8,turn_budget_exhausted,-5.3
+138,Hard,Properties of Continuous Functions,Fixed Point Theorem on Closed Intervals,8,1,0,26.8941,59.2667,7,True,1.0,2.0,3,oscillated,False,False,True,False,4,turn_budget_exhausted,-4.95
+139,Hard,Properties of Continuous Functions,Universal Chord Theorem,8,1,1,34.8645,40.7333,4,True,1.0,2.0,2,oscillated,False,False,True,False,5,turn_budget_exhausted,-5.5
+140,Hard,Properties of Continuous Functions,Intermediate Value Property with Overlapping Ranges,8,1,1,53.1209,14.8047,6,True,1.0,3.0,3,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.2
+141,Hard,Uniform Continuity,Failure of Uniform Continuity on Bounded Open Intervals,5,0,1,67.9179,6.7547,3,True,2.0,1.0,2,initially_wrong_oscillated,False,False,False,False,5,settled,-3.0
+142,Hard,Uniform Continuity,Uniform Continuity of Square Root Function on Unbounded Domains,8,1,0,59.2667,65.1355,5,True,1.0,2.0,2,oscillated,False,False,True,False,3,turn_budget_exhausted,-4.95
+143,Hard,Uniform Continuity,Continuous Functions with Limits at Infinity,5,1,1,5.3403,14.8047,2,True,2.0,3.0,1,swung_back_correct,False,True,False,False,5,stalled_collapse,-3.0
+144,Hard,Uniform Continuity,Preservation of Cauchy Sequences,8,1,1,34.8645,83.5484,4,True,1.0,2.0,2,oscillated,False,False,True,False,5,turn_budget_exhausted,-5.3
+145,Hard,Differentiability,Modulated Oscillating Functions and Continuity of Derivative,8,0,1,62.2459,56.2177,7,True,2.0,1.0,4,initially_wrong_oscillated,False,False,False,False,6,turn_budget_exhausted,-5.0
+146,Hard,Properties of the Derivative,Darboux's Intermediate Value Theorem for Derivatives,8,1,1,20.1813,56.2177,4,True,1.0,2.0,2,oscillated,False,False,True,False,6,turn_budget_exhausted,-5.45
+147,Hard,Properties of the Derivative,Continuity of Monotonic Derivatives,8,1,1,53.1209,88.0797,6,True,1.0,2.0,3,oscillated,False,False,True,False,1,turn_budget_exhausted,-5.25
+148,Hard,Mean Value Theorems,Rolle's Theorem Root Interlacing,8,1,1,37.7541,3.7327,2,True,2.0,3.0,1,swung_back_correct,False,True,False,False,8,stalled_collapse,-5.0
+149,Hard,Mean Value Theorems,Cauchy Mean Value Theorem Evaluation,8,1,0,62.2459,86.7036,1,True,1.0,,0,settled_wrong,True,False,False,False,0,turn_budget_exhausted,-5.7
+150,Hard,Mean Value Theorems,Logarithmic Inequalities via Lagrange's MVT,8,1,1,40.7333,79.8187,4,True,1.0,2.0,2,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.5
+151,Hard,Taylor's Theorem and Expansions,Limiting Value of Intermediate Theta in Taylor Remainder,8,1,0,56.2177,81.7574,5,True,1.0,3.0,2,oscillated,False,False,True,False,0,turn_budget_exhausted,-5.25
+152,Hard,Indeterminate Forms,L'Hopital's Rule for Mixed Transcendental 0/0 Forms,8,0,1,59.2667,43.7824,3,True,4.0,3.0,2,initially_wrong_oscillated,False,False,False,False,5,turn_budget_exhausted,-4.75
+153,Hard,Indeterminate Forms,Exponential-Trigonometric Indeterminate Limits,8,0,1,59.2667,46.8791,7,True,2.0,1.0,4,initially_wrong_oscillated,False,False,False,False,3,turn_budget_exhausted,-5.75
+154,Hard,Indeterminate Forms,Power Indeterminate Forms 1^infinity,8,1,0,40.7333,83.5484,3,True,1.0,2.0,1,oscillated,False,False,True,False,1,turn_budget_exhausted,-5.25
+155,Hard,Functions of Bounded Variation,Total Variation and Jordan Decomposition of Polynomials,8,1,0,59.2667,79.8187,3,True,1.0,6.0,1,oscillated,False,False,True,False,0,turn_budget_exhausted,-5.2
+156,Hard,Functions of Bounded Variation,Continuous Functions Failing Bounded Variation,8,1,1,32.0821,13.2964,2,True,1.0,2.0,1,swung_back_correct,False,True,False,False,8,turn_budget_exhausted,-5.0
+157,Hard,Functions of Bounded Variation,Bounded Derivatives Implies Bounded Variation,8,0,1,62.2459,59.2667,7,True,2.0,1.0,4,initially_wrong_oscillated,False,False,False,False,4,turn_budget_exhausted,-5.45
+158,Hard,Functions of Bounded Variation,Variation of Discontinuous Step Functions,8,1,1,62.2459,46.8791,2,True,1.0,7.0,1,swung_back_correct,False,True,False,False,1,turn_budget_exhausted,-4.95
+159,Hard,Riemann Integration,Darboux Sums Evaluation and Integrability,8,1,1,22.27,13.2964,2,True,1.0,2.0,1,swung_back_correct,False,True,False,False,7,turn_budget_exhausted,-5.45
+160,Hard,Riemann Integration,Integrability of Monotonic Functions,8,1,0,20.1813,83.5484,5,True,1.0,2.0,2,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.5
+161,Advanced,Riemann Integration,Integrability of Functions with Countable Discontinuities,8,1,1,53.1209,56.2177,6,True,1.0,3.0,3,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.0
+162,Hard,Riemann Integration,First Mean Value Theorem of Integral Calculus,8,0,1,56.2177,73.1059,3,True,3.0,2.0,2,initially_wrong_oscillated,False,False,False,False,1,turn_budget_exhausted,-5.0
+163,Hard,Riemann Integration,Fundamental Theorem of Integral Calculus,8,1,1,32.0821,59.2667,6,True,1.0,2.0,3,oscillated,False,False,True,False,1,turn_budget_exhausted,-5.45
+164,Hard,Improper Integrals,Dirichlet's Test and Non-Absolute Convergence,5,1,1,32.0821,7.5858,2,True,1.0,3.0,1,swung_back_correct,False,True,False,False,4,settled,-3.0
+165,Hard,Improper Integrals,Evaluation of Singular Log-Trigonometric Integrals,2,1,1,34.8645,10.6691,0,False,,,0,resilient_correct,False,False,False,True,3,stalled_collapse,-0.8
+166,Hard,Improper Integrals,Frullani's Integral Theorem,3,1,0,46.8791,83.5484,1,True,1.0,,0,settled_wrong,True,False,False,False,1,settled,-1.45
+167,Advanced,Beta and Gamma Functions,Beta and Gamma Function Fundamental Relation,8,1,0,50.0,75.4915,5,True,1.0,3.0,2,oscillated,False,False,True,False,1,turn_budget_exhausted,-5.25
+168,Hard,Beta and Gamma Functions,Evaluation of Singular Radical Integrals via Beta Function,7,1,1,59.2667,16.4516,2,True,1.0,4.0,1,swung_back_correct,False,True,False,False,4,stalled_collapse,-4.3
+169,Hard,Sequence of Functions,Uniform Convergence via Mn-Test and Integral Limit,8,0,1,75.4915,9.5349,1,True,,1.0,1,initially_wrong_oscillated,False,False,False,False,8,turn_budget_exhausted,-5.45
+170,Hard,Sequence of Functions,Non-Commutativity of Limit and Derivative,8,1,1,40.7333,26.8941,4,True,1.0,2.0,2,oscillated,False,False,True,False,5,turn_budget_exhausted,-5.45
+171,Advanced,Sequence of Functions,Dini's Theorem on Monotone Sequences,8,1,1,46.8791,40.7333,6,True,1.0,3.0,3,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.75
+172,Hard,Series of Functions,Weierstrass M-Test for Rational-Trigonometric Series,8,1,0,53.1209,73.1059,5,True,1.0,3.0,2,oscillated,False,False,True,False,2,turn_budget_exhausted,-5.0
+173,Hard,Series of Functions,Dirichlet's Test for Function Series on Compact Subintervals,8,0,0,79.8187,53.1209,2,True,4.0,2.0,1,initially_wrong_oscillated,False,False,False,False,2,turn_budget_exhausted,-5.25
+174,Hard,Power Series,Radius of Convergence and Endpoint Analysis,2,0,0,40.7333,14.8047,0,False,,,0,initially_wrong_static,False,False,False,False,3,stalled_collapse,-0.8
+175,Hard,Multivariable Limits in R^2,Path-Dependent Limits and Double Limits,8,1,1,37.7541,34.8645,6,True,1.0,3.0,3,oscillated,False,False,True,False,3,turn_budget_exhausted,-5.25

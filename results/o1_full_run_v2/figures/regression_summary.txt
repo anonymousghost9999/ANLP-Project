@@ -1,0 +1,16 @@
+                Mixed Linear Model Regression Results
+=====================================================================
+Model:            MixedLM Dependent Variable: target_token_confidence
+No. Observations: 1922    Method:             REML                   
+No. Groups:       150     Scale:              647.2018               
+Min. group size:  6       Log-Likelihood:     -9066.8351             
+Max. group size:  14      Converged:          Yes                    
+Mean group size:  12.8                                               
+----------------------------------------------------------------------
+                       Coef.   Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------------------
+Intercept              53.496     1.549  34.530  0.000  50.460  56.533
+turn                    0.862     0.297   2.905  0.004   0.280   1.444
+running_prompt_score    5.687     0.272  20.876  0.000   5.153   6.221
+Group Var             206.220     1.241                               
+=====================================================================
