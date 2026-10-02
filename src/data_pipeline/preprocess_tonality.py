@@ -536,7 +536,7 @@ def curate_dataset(
 
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DEFAULT_FINAL_DATASET = os.path.join(REPO_ROOT, "data", "final_tonality_dataset.jsonl")
+DEFAULT_FINAL_DATASET = os.path.join(REPO_ROOT, "data", "raw", "final_tonality_dataset.jsonl")
 DEFAULT_INITIAL_DATASET = os.path.join(REPO_ROOT, "data", "initial_dataset.jsonl")
 DEFAULT_OUTPUT_DIR = os.path.join(REPO_ROOT, "data", "curated")
 

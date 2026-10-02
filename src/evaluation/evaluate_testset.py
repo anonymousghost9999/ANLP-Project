@@ -363,7 +363,7 @@ def main():
     parser.add_argument(
         "--output_json",
         type=str,
-        default=os.path.join(REPO_ROOT, "evaluation_metrics_testset.json"),
+        default=os.path.join(REPO_ROOT, "results", "scorer", "evaluation_metrics_testset.json"),
         help="Path to save output metrics JSON",
     )
     parser.add_argument(

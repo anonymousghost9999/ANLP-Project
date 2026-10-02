@@ -1,3 +1,5 @@
+> **Historical note (2 Oct 2026).** These are the audit and planning notes written on 1 Oct 2026. Many items have since been fixed (curated false twins, corrected claims, control track, P(True)-style probe, truth confidence, paired analysis). See the README for the current state.
+
 # Plan: make the scorer and the O1/O2 experiments valid, each change tied to published work
 
 ## Context

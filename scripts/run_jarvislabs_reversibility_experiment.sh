@@ -11,7 +11,7 @@ LIMIT_CLAIMS="${3:-}"
 MAX_TURNS="${4:-8}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+cd "$SCRIPT_DIR/.."  # repo root
 
 echo "=============================================================================="
 echo " STARTING REVERSIBILITY & OSCILLATION EXPERIMENT ON JARVISLABS GPU"

@@ -38,6 +38,8 @@ runs/
 wandb/
 
 # Caches & Temporary Files
+.ipynb_checkpoints/
+*.tar.gz
 .cache/
 .pytest_cache/
 hf_cache/
@@ -51,7 +53,8 @@ Thumbs.db
 
 anlp_unclean/
 
-# Raw / Old Dataset Files (replaced by curated/ pipeline output)
+# Raw / Old Dataset Files (replaced by curated/ pipeline output).
+# The tonality source dataset is tracked at data/raw/final_tonality_dataset.jsonl.
 data/initial_dataset.jsonl
 data/final_tonality_dataset.jsonl
 data/train.jsonl

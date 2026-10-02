@@ -263,8 +263,7 @@ def main():
     best_rmse = 999.0
     os.makedirs(args.output_dir, exist_ok=True)
 
-    print("
-" + "=" * 105, flush=True)
+    print("\n" + "=" * 105, flush=True)
     print(f" {'Epoch':<7} | {'Train Loss':<10} | {'Val Loss':<10} | {'Val Pearson (r)':<16} | {'Val RMSE':<10} | {'Val DirAcc':<11} | {'Time':<8} | {'Status'}", flush=True)
     print("=" * 105, flush=True)
 
@@ -324,11 +323,11 @@ def main():
                 pct = (step / total_batches) * 100
                 elapsed = time.time() - epoch_start
                 it_per_sec = step / (elapsed + 1e-6)
-                sys.stdout.write(f" >> [Epoch {epoch}/{args.epochs}] Batch {step:>4}/{total_batches} ({pct:>5.1f}%) | Current Loss: {raw_loss.item():.4f} | Speed: {it_per_sec:.1f} batch/s")
+                sys.stdout.write(f"\r >> [Epoch {epoch}/{args.epochs}] Batch {step:>4}/{total_batches} ({pct:>5.1f}%) | Current Loss: {raw_loss.item():.4f} | Speed: {it_per_sec:.1f} batch/s")
                 sys.stdout.flush()
 
         avg_train_loss = train_loss / len(train_labels)
-        sys.stdout.write(f" >> [Epoch {epoch}/{args.epochs}] Validating model...{' '*40}")
+        sys.stdout.write(f"\r >> [Epoch {epoch}/{args.epochs}] Validating model...{' '*40}\r")
         sys.stdout.flush()
 
         val_metrics, _ = evaluate_model(model, val_loader, device, use_amp=use_amp, amp_dtype=amp_dtype)
@@ -353,16 +352,14 @@ def main():
             }
             pd.Series(meta).to_json(os.path.join(args.output_dir, "training_meta.json"))
 
-        sys.stdout.write(f" {epoch:^2}/{args.epochs:<3} | {avg_train_loss:<10.4f} | {val_metrics['eval_loss']:<10.4f} | {val_metrics['pearson']:<16.4f} | {val_metrics['rmse']:<10.4f} | {val_metrics['directional_accuracy']:<9.2f}% | {epoch_sec:>5.1f}s   | {status_tag}
-")
+        sys.stdout.write(f"\r {epoch:^2}/{args.epochs:<3} | {avg_train_loss:<10.4f} | {val_metrics['eval_loss']:<10.4f} | {val_metrics['pearson']:<16.4f} | {val_metrics['rmse']:<10.4f} | {val_metrics['directional_accuracy']:<9.2f}% | {epoch_sec:>5.1f}s   | {status_tag}\n")
         sys.stdout.flush()
 
     print("=" * 105, flush=True)
     total_time = time.time() - start_time
     print(f"Training completed in {total_time/60:.2f} minutes (Best Val Pearson r: {best_pearson:.4f}, Best RMSE: {best_rmse:.4f})", flush=True)
 
-    print("
-" + "=" * 80, flush=True)
+    print("\n" + "=" * 80, flush=True)
     print(" FINAL EVALUATION ON UNSEEN TEST SET (BEST CHECKPOINT)", flush=True)
     print("=" * 80, flush=True)
     

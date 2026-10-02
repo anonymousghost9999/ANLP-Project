@@ -103,6 +103,6 @@ def verify_splits(data_dir: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_dir", default="classifier_data/curated")
+    parser.add_argument("--data_dir", default=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "curated"))
     args = parser.parse_args()
     verify_splits(args.data_dir)

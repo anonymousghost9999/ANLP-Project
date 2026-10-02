@@ -8,7 +8,7 @@
 # claim gets the same 6 follow-up turns. Then runs the paired analysis.
 #
 # Usage:
-#   bash run_jarvislabs_experiment.sh [MODEL] [OUTPUT_DIR] [LIMIT_PAIRS] [QUANT]
+#   bash scripts/run_jarvislabs_experiment.sh [MODEL] [OUTPUT_DIR] [LIMIT_PAIRS] [QUANT]
 #     MODEL       default meta-llama/Meta-Llama-3.1-8B-Instruct
 #     OUTPUT_DIR  default results/o1_paired_v3
 #     LIMIT_PAIRS number of claim pairs (original + false twin); empty = all 75
@@ -16,7 +16,7 @@
 #                 or bf16 (~16 GB per process; use on 48-80 GB cards)
 #
 # Smoke test (about 15-20 min):
-#   bash run_jarvislabs_experiment.sh meta-llama/Meta-Llama-3.1-8B-Instruct results/smoke_v3 2
+#   bash scripts/run_jarvislabs_experiment.sh meta-llama/Meta-Llama-3.1-8B-Instruct results/smoke_v3 2
 # ==============================================================================
 
 set -e
@@ -27,7 +27,7 @@ LIMIT_PAIRS="${3:-}"
 QUANT="${4:-4bit}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+cd "$SCRIPT_DIR/.."  # repo root
 
 LIMIT_FLAG=""
 if [ -n "$LIMIT_PAIRS" ]; then

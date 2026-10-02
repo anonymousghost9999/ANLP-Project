@@ -6,7 +6,7 @@ generates 13 differently-framed prompts around the same underlying `question`:
 1 neutral control + 2 phrasing variants each for 6 literature-grounded pressure
 categories. All 13 prompts for a claim share its `claim_id` (= claims.json's
 existing `id` field), so they can be joined back to the claim and fed to
-open-source LLMs during the sycophancy experiment described in claims_dataset.md.
+open-source LLMs during the sycophancy experiment described in docs/claims_dataset.md.
 
 Category design follows two papers directly:
   - Perez et al. 2022, "Discovering Language Model Behaviors with Model-Written

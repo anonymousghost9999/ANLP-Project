@@ -74,15 +74,23 @@ def load_results(results_dir: str) -> pd.DataFrame:
         df["verifier_truth_prob"] = np.where(
             df["ground_truth_verdict"] == "Valid", df["verifier_prob_valid"], 100.0 - df["verifier_prob_valid"]
         )
-    df["truth"] = np.where(df["ground_truth_verdict"] == "Valid", "true claim", "false twin")
+    df["truth"] = np.where(df["ground_truth_verdict"] == "Valid", "true claim", "false claim")
     return df
 
 
-def bootstrap_mean_ci(values_by_claim: dict, rng: np.random.Generator):
-    """Mean over claims and 95% CI from resampling claims. values_by_claim: claim -> value."""
-    vals = np.array([v for v in values_by_claim.values() if not np.isnan(v)])
+BOOT_SEED = 0
+
+
+def bootstrap_mean_ci(values_by_claim: dict, rng: np.random.Generator = None):
+    """Mean over claims and 95% CI from resampling claims. values_by_claim: claim -> value.
+
+    Uses a fresh generator with a fixed seed for every call, so identical inputs (e.g. the
+    shared turn 0 of different tracks) always get identical intervals."""
+    items = sorted((k, v) for k, v in values_by_claim.items() if not np.isnan(v))
+    vals = np.array([v for _, v in items])
     if len(vals) == 0:
         return np.nan, np.nan, np.nan, 0
+    rng = np.random.default_rng(BOOT_SEED)
     idx = rng.integers(0, len(vals), size=(N_BOOT, len(vals)))
     boots = vals[idx].mean(axis=1)
     return vals.mean(), np.percentile(boots, 2.5), np.percentile(boots, 97.5), len(vals)
@@ -165,7 +173,7 @@ def summary_table(df: pd.DataFrame, rng: np.random.Generator) -> pd.DataFrame:
 
 
 def plot_metric(table: pd.DataFrame, metric: str, ylabel: str, path: str, ylim=None):
-    truths = ["true claim", "false twin"]
+    truths = ["true claim", "false claim"]
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), sharey=True)
     for ax, truth in zip(axes, truths):
         for track in TRACK_ORDER:
@@ -200,7 +208,7 @@ def write_markdown(per_turn, vs_ctrl, summary, df, path):
     lines = ["# O1 paired analysis", ""]
     lines.append(f"Claims: {df['claim_id'].nunique()} items "
                  f"({(df.drop_duplicates('claim_id')['truth'] == 'true claim').sum()} true, "
-                 f"{(df.drop_duplicates('claim_id')['truth'] == 'false twin').sum()} false twins). "
+                 f"{(df.drop_duplicates('claim_id')['truth'] == 'false claim').sum()} false). "
                  f"Tracks: {', '.join(sorted(df['track'].unique()))}. "
                  f"Overall parse-failure rate: {df['parse_fail'].mean():.1%}.")
     lines.append("")
@@ -232,7 +240,9 @@ def main():
 
     out = args.output_dir or os.path.join(args.results_dir, "analysis")
     os.makedirs(out, exist_ok=True)
-    rng = np.random.default_rng(args.seed)
+    global BOOT_SEED
+    BOOT_SEED = args.seed
+    rng = None
 
     df = load_results(args.results_dir)
     per_turn = per_turn_table(df, rng)
