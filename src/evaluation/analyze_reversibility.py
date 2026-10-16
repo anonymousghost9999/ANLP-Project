@@ -22,10 +22,29 @@ from scipy import stats
 import seaborn as sns
 
 
+def bootstrap_proportion_ci(
+    values: np.ndarray,
+    n_boot: int = 1000,
+    seed: int = 42,
+) -> Tuple[float, float, float]:
+    """
+    Computes percentage mean and 95% bootstrap confidence interval over items using n_boot resamples.
+    Returns (mean_pct, ci_lo_pct, ci_hi_pct).
+    """
+    if len(values) == 0:
+        return 0.0, 0.0, 0.0
+    arr = np.asarray(values, dtype=float)
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, len(arr), size=(n_boot, len(arr)))
+    boots = arr[idx].mean(axis=1) * 100.0
+    return float(arr.mean() * 100.0), float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))
+
+
 def analyze_and_plot_reversibility(
     summary_csv: str,
     claim_summary_csv: Optional[str] = None,
     output_dir: Optional[str] = None,
+    n_boot: int = 1000,
 ):
     """
     Generates all diagnostic figures, summary tables, and statistical tests for reversibility.
@@ -302,9 +321,9 @@ def analyze_and_plot_reversibility(
         print(f"Warning: Could not generate Figure 4: {e}")
 
     # --------------------------------------------------------------------------
-    # Statistical Significance Testing Across Difficulty
+    # Statistical Significance Testing Across Difficulty & 1,000-Resample CIs
     # --------------------------------------------------------------------------
-    stat_report = run_reversibility_statistical_tests(df_claims)
+    stat_report = run_reversibility_statistical_tests(df_claims, n_boot=n_boot)
     stat_json_path = os.path.join(output_dir, "reversibility_statistical_analysis.json")
     with open(stat_json_path, "w", encoding="utf-8") as f:
         json.dump(stat_report, f, indent=2)
@@ -376,22 +395,46 @@ def reconstruct_claim_summary(df_turns: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(records)
 
 
-def run_reversibility_statistical_tests(df_claims: pd.DataFrame) -> Dict[str, Any]:
-    """Runs statistical significance tests comparing Hard vs. Advanced claims."""
+def run_reversibility_statistical_tests(df_claims: pd.DataFrame, n_boot: int = 1000) -> Dict[str, Any]:
+    """Runs statistical significance tests and 95% bootstrap CIs comparing Hard vs. Advanced claims."""
     init_correct = df_claims[df_claims["corr_t0"] == 1]
     hard = init_correct[init_correct["difficulty"] == "Hard"]
     adv = init_correct[init_correct["difficulty"] == "Advanced"]
 
-    results = {
+    results: Dict[str, Any] = {
         "sample_sizes": {
             "total_initially_correct": len(init_correct),
             "hard": len(hard),
             "advanced": len(adv),
-        }
+        },
+        "bootstrap_n_resamples": n_boot,
     }
 
+    # 1. Claim-level 95% Bootstrap Confidence Intervals (1,000 resamples)
+    if len(init_correct) > 0:
+        ov_m, ov_lo, ov_hi = bootstrap_proportion_ci(init_correct["has_ever_flipped"].to_numpy(), n_boot=n_boot)
+        results["overall_flip_rate_bootstrap_95ci"] = {
+            "mean_pct": round(ov_m, 2),
+            "ci_lo_pct": round(ov_lo, 2),
+            "ci_hi_pct": round(ov_hi, 2),
+        }
+    if len(hard) > 0:
+        h_m, h_lo, h_hi = bootstrap_proportion_ci(hard["has_ever_flipped"].to_numpy(), n_boot=n_boot)
+        results["hard_flip_rate_bootstrap_95ci"] = {
+            "mean_pct": round(h_m, 2),
+            "ci_lo_pct": round(h_lo, 2),
+            "ci_hi_pct": round(h_hi, 2),
+        }
+    if len(adv) > 0:
+        a_m, a_lo, a_hi = bootstrap_proportion_ci(adv["has_ever_flipped"].to_numpy(), n_boot=n_boot)
+        results["advanced_flip_rate_bootstrap_95ci"] = {
+            "mean_pct": round(a_m, 2),
+            "ci_lo_pct": round(a_lo, 2),
+            "ci_hi_pct": round(a_hi, 2),
+        }
+
     if len(hard) > 0 and len(adv) > 0:
-        # 1. Chi-Squared Contingency Test for Overall Flip Rate
+        # 2. Chi-Squared and Fisher's Exact Contingency Test for Overall Flip Rate
         hard_flipped = hard["has_ever_flipped"].sum()
         hard_non_flipped = len(hard) - hard_flipped
         adv_flipped = adv["has_ever_flipped"].sum()
@@ -408,7 +451,19 @@ def run_reversibility_statistical_tests(df_claims: pd.DataFrame) -> Dict[str, An
         except Exception as e:
             results["flip_rate_chi2_test"] = {"error": str(e)}
 
-        # 2. Mann-Whitney U test on flip count
+        # Fisher's Exact Test (robust for small sample counts, e.g. 7 Advanced claims)
+        try:
+            res_fisher = stats.fisher_exact(contingency)
+            odds_ratio, p_fisher = res_fisher.statistic, res_fisher.pvalue
+            results["flip_rate_fisher_exact_test"] = {
+                "odds_ratio": round(float(odds_ratio), 4) if not np.isinf(odds_ratio) else "inf",
+                "p_value": round(float(p_fisher), 4),
+                "is_significant_at_05": bool(p_fisher < 0.05),
+            }
+        except Exception as e:
+            results["flip_rate_fisher_exact_test"] = {"error": str(e)}
+
+        # 3. Mann-Whitney U test on flip count
         try:
             u_stat, u_pval = stats.mannwhitneyu(hard["total_flips"], adv["total_flips"], alternative="two-sided")
             results["flip_count_mann_whitney_u"] = {
@@ -419,7 +474,7 @@ def run_reversibility_statistical_tests(df_claims: pd.DataFrame) -> Dict[str, An
         except Exception as e:
             results["flip_count_mann_whitney_u"] = {"error": str(e)}
 
-        # 3. Mann-Whitney U test on turns to first flip
+        # 4. Mann-Whitney U test on turns to first flip
         hard_tf = hard[hard["first_flip_turn"].notna()]["first_flip_turn"]
         adv_tf = adv[adv["first_flip_turn"].notna()]["first_flip_turn"]
         if len(hard_tf) > 0 and len(adv_tf) > 0:
@@ -480,6 +535,14 @@ def generate_ascii_table(df_claims: pd.DataFrame, stat_report: Dict[str, Any]) -
     if "p_value" in chi2_info:
         lines.append(f"Difficulty Comparison Chi2: p-value = {chi2_info['p_value']} "
                      f"(Significant at alpha=0.05: {chi2_info['is_significant_at_05']})")
+    fisher_info = stat_report.get("flip_rate_fisher_exact_test", {})
+    if "p_value" in fisher_info:
+        lines.append(f"Difficulty Comparison Fisher Exact: p-value = {fisher_info['p_value']} "
+                     f"(Odds Ratio: {fisher_info['odds_ratio']}, Significant: {fisher_info['is_significant_at_05']})")
+    boot_info = stat_report.get("overall_flip_rate_bootstrap_95ci", {})
+    if "ci_lo_pct" in boot_info:
+        lines.append(f"Overall Flip Rate 95% Bootstrap CI: [{boot_info['ci_lo_pct']}%, {boot_info['ci_hi_pct']}%] "
+                     f"(n_boot={stat_report.get('bootstrap_n_resamples', 1000)})")
     lines.append("=" * 80)
     return "\n".join(lines) + "\n"
 
@@ -489,6 +552,7 @@ if __name__ == "__main__":
     parser.add_argument("--summary_csv", type=str, required=True, help="Path to o2_reversibility_summary.csv")
     parser.add_argument("--claim_summary_csv", type=str, default=None, help="Path to o2_claim_level_summary.csv")
     parser.add_argument("--output_dir", type=str, default=None, help="Output directory for figures")
+    parser.add_argument("--n_boot", type=int, default=1000, help="Number of bootstrap resamples for 95% CIs (default: 1000)")
     args = parser.parse_args()
 
-    analyze_and_plot_o2(args.summary_csv, args.claim_summary_csv, args.output_dir)
+    analyze_and_plot_o2(args.summary_csv, args.claim_summary_csv, args.output_dir, n_boot=args.n_boot)

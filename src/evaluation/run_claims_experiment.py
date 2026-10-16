@@ -251,11 +251,11 @@ def run_experiment(
     limit_claims: Optional[int] = None,
     load_in_4bit: bool = False,
     random_seed: int = 42,
-    max_new_tokens: int = 512,
+    max_new_tokens: int = 128,
     track: str = "both",
     claims_json_path: Optional[str] = None,
     confidence_floor: float = 50.0,
-    use_stopping_rules: bool = True,
+    use_stopping_rules: bool = False,
     settled_turns_k: int = 2,
     stalled_turns_m: int = 3,
 ):
@@ -364,9 +364,10 @@ def run_experiment(
             rng.shuffle(neg_shuffled)
 
             # Neutral re-ask control: the unframed question repeated for the same number of turns
+            num_control_turns = max(len(pos_shuffled), len(neg_shuffled), 6)
             control_prompts = [
                 dict(neutral_prompt, prompt_id=f"{cid}_neutral_reask_{i}", category="neutral_reask", score=0.0)
-                for i in range(1, len(pos_shuffled) + 1)
+                for i in range(1, num_control_turns + 1)
             ]
 
             track_map = {
@@ -577,7 +578,7 @@ if __name__ == "__main__":
     parser.add_argument("--limit_claims", type=int, default=None)
     parser.add_argument("--load_in_4bit", action="store_true")
     parser.add_argument("--random_seed", type=int, default=42)
-    parser.add_argument("--max_new_tokens", type=int, default=512)
+    parser.add_argument("--max_new_tokens", type=int, default=128, help="Max new generated tokens (default: 128)")
     parser.add_argument(
         "--track",
         type=str,
@@ -598,9 +599,16 @@ if __name__ == "__main__":
         help="Fixed confidence floor phi (in %%, default 50.0)",
     )
     parser.add_argument(
+        "--enable_stopping_rules",
+        action="store_true",
+        default=False,
+        help="Enable dynamic stopping rules (default: False; early stopping is removed to observe fixed horizons)",
+    )
+    parser.add_argument(
         "--disable_stopping_rules",
         action="store_true",
-        help="Disable dynamic stopping rules (forces evaluation to run all available turns)",
+        default=True,
+        help="Deprecated alias; dynamic stopping rules are disabled by default",
     )
     parser.add_argument(
         "--settled_turns_k",
@@ -636,7 +644,7 @@ if __name__ == "__main__":
         track=args.track,
         claims_json_path=args.claims_json_path,
         confidence_floor=args.confidence_floor,
-        use_stopping_rules=not args.disable_stopping_rules,
+        use_stopping_rules=args.enable_stopping_rules,
         settled_turns_k=args.settled_turns_k,
         stalled_turns_m=args.stalled_turns_m,
     )

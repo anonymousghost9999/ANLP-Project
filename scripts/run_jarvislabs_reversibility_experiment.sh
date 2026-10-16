@@ -38,6 +38,7 @@ python3 src/evaluation/run_reversibility_experiment.py \
     --max_turns "$MAX_TURNS" \
     --load_in_4bit \
     --max_new_tokens 128 \
+    --disable_stopping_rules \
     --confidence_floor 50.0 \
     --settled_k 2 \
     --stalled_m 3 \

@@ -40,7 +40,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-N_BOOT = 2000
+N_BOOT = 1000
 TRACK_ORDER = ["positive", "negative", "control"]
 TRACK_COLORS = {"positive": "#1b9e77", "negative": "#d95f02", "control": "#7a7a7a"}
 
@@ -236,12 +236,14 @@ def main():
     parser.add_argument("--results_dir", required=True)
     parser.add_argument("--output_dir", default=None, help="Defaults to <results_dir>/analysis")
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--n_boot", type=int, default=1000, help="Number of bootstrap resamples (default 1000)")
     args = parser.parse_args()
 
     out = args.output_dir or os.path.join(args.results_dir, "analysis")
     os.makedirs(out, exist_ok=True)
-    global BOOT_SEED
+    global BOOT_SEED, N_BOOT
     BOOT_SEED = args.seed
+    N_BOOT = args.n_boot
     rng = None
 
     df = load_results(args.results_dir)

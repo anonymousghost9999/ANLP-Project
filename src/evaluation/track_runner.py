@@ -88,6 +88,14 @@ def extract_verdict(text: str) -> Optional[str]:
     return None
 
 
+def _first_content_token(tokenizer, text: str) -> Optional[int]:
+    """First token id of `text`, or None if that token is whitespace only (e.g. a lone leading space)."""
+    ids = tokenizer.encode(text, add_special_tokens=False)
+    if not ids or not tokenizer.decode([ids[0]]).strip():
+        return None
+    return ids[0]
+
+
 def compute_target_token_probability(
     model,
     tokenizer,
@@ -98,7 +106,8 @@ def compute_target_token_probability(
     """
     Computes normalized softmax probability P(Valid) / (P(Valid) + P(Invalid))
     over model output logits following Pedapati et al. (2024).
-    Checks both space-prefixed (' Valid') and non-space ('Valid') tokens.
+    Checks both space-prefixed (' Valid') and non-space ('Valid') tokens using
+    first-content-token resolution to avoid subtoken truncation bugs.
     
     Returns:
         dict with:
@@ -110,15 +119,20 @@ def compute_target_token_probability(
     pos_cand = set()
     neg_cand = set()
     for prefix in [" ", ""]:
-        e_pos = tokenizer.encode(prefix + pos_token, add_special_tokens=False)
-        if e_pos:
-            pos_cand.add(e_pos[-1])
-        e_neg = tokenizer.encode(prefix + neg_token, add_special_tokens=False)
-        if e_neg:
-            neg_cand.add(e_neg[-1])
+        pos_first = _first_content_token(tokenizer, prefix + pos_token)
+        if pos_first is not None:
+            pos_cand.add(pos_first)
+        neg_first = _first_content_token(tokenizer, prefix + neg_token)
+        if neg_first is not None:
+            neg_cand.add(neg_first)
 
-    inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
-    with torch.no_grad():
+    if pos_cand & neg_cand:
+        raise ValueError(
+            f"'{pos_token}' and '{neg_token}' share a first token {pos_cand & neg_cand}; the probe cannot separate them."
+        )
+
+    inputs = tokenizer(prompt_text, return_tensors="pt", add_special_tokens=False).to(model.device)
+    with torch.inference_mode() if hasattr(torch, "inference_mode") else torch.no_grad():
         logits = model(**inputs).logits[0, -1, :]
         pos_logit = float(max(logits[pid].item() for pid in pos_cand)) if pos_cand else 0.0
         neg_logit = float(max(logits[nid].item() for nid in neg_cand)) if neg_cand else 0.0
@@ -249,11 +263,11 @@ def run_track(
     limit_claims: Optional[int] = None,
     load_in_4bit: bool = False,
     random_seed: int = 42,
-    max_new_tokens: int = 512,
+    max_new_tokens: int = 128,
     generate_plots: bool = True,
     claims_json_path: Optional[str] = None,
     confidence_floor: float = 50.0,
-    use_stopping_rules: bool = True,
+    use_stopping_rules: bool = False,
     settled_turns_k: int = 2,
     stalled_turns_m: int = 3,
 ) -> Tuple[str, str]:
@@ -379,7 +393,7 @@ def run_track(
             # ------------------------------------------------------------------
             messages.append({"role": "user", "content": neutral_prompt["prompt"]})
             prompt_chat = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-            inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
+            inputs = tokenizer(prompt_chat, return_tensors="pt", add_special_tokens=False).to(model.device)
             prompt_len = inputs.input_ids.shape[1]
 
             with torch.no_grad():
@@ -460,7 +474,7 @@ def run_track(
                 running_score += p["score"]
 
                 prompt_chat = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-                inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
+                inputs = tokenizer(prompt_chat, return_tensors="pt", add_special_tokens=False).to(model.device)
                 prompt_len = inputs.input_ids.shape[1]
 
                 with torch.no_grad():

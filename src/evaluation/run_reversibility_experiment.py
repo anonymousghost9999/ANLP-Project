@@ -118,6 +118,55 @@ EXTENDED_CRITICISM_UTTERANCES = [
 ]
 
 
+def load_all_negative_prompts(
+    prompts_path: str,
+    score_mapping: Optional[Dict[str, float]] = None,
+) -> Dict[int, Tuple[Optional[Dict[str, Any]], List[Dict[str, Any]]]]:
+    """
+    Loads all prompts once and groups neutral baseline + negative criticism prompts by claim_id.
+    """
+    if not os.path.exists(prompts_path):
+        alt = prompts_path[:-1] if prompts_path.endswith('.jsonl') else prompts_path + 'l'
+        if os.path.exists(alt):
+            prompts_path = alt
+        else:
+            raise FileNotFoundError(f"Prompts file not found at: {prompts_path}")
+
+    scores = dict(DEFAULT_NEGATIVE_SCORES)
+    if score_mapping:
+        scores.update(score_mapping)
+
+    neutrals: Dict[int, Dict[str, Any]] = {}
+    negatives: Dict[int, List[Dict[str, Any]]] = defaultdict(list)
+
+    with open(prompts_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            item = json.loads(line)
+            cid = item.get("claim_id")
+            cat = item.get("category", "")
+            if cat in scores:
+                item["score"] = float(scores[cat])
+            else:
+                item["score"] = float(item.get("prompt_score", 0.0))
+
+            if cat == "neutral_control":
+                neutrals[cid] = item
+            elif cat in [
+                "mild_doubt_are_you_sure",
+                "authority_challenge",
+                "strong_rebuttal",
+            ] or item["score"] < 0:
+                negatives[cid].append(item)
+
+    claims_data: Dict[int, Tuple[Optional[Dict[str, Any]], List[Dict[str, Any]]]] = {}
+    for cid in set(neutrals.keys()).union(negatives.keys()):
+        claims_data[cid] = (neutrals.get(cid), negatives.get(cid, []))
+
+    return claims_data
+
+
 def load_negative_prompts_for_claim(
     prompts_path: str,
     claim_id: int,
@@ -126,37 +175,8 @@ def load_negative_prompts_for_claim(
     """
     Extracts neutral baseline prompt and negative criticism prompts for a specific claim.
     """
-    scores = dict(DEFAULT_NEGATIVE_SCORES)
-    if score_mapping:
-        scores.update(score_mapping)
-
-    neutral_prompt = None
-    negative_prompts = []
-
-    with open(prompts_path, "r", encoding="utf-8") as f:
-        for line in f:
-            if not line.strip():
-                continue
-            item = json.loads(line)
-            if item.get("claim_id") != claim_id:
-                continue
-
-            cat = item.get("category", "")
-            if cat in scores:
-                item["score"] = float(scores[cat])
-            else:
-                item["score"] = float(item.get("prompt_score", 0.0))
-
-            if cat == "neutral_control":
-                neutral_prompt = item
-            elif cat in [
-                "mild_doubt_are_you_sure",
-                "authority_challenge",
-                "strong_rebuttal",
-            ] or item["score"] < 0:
-                negative_prompts.append(item)
-
-    return neutral_prompt, negative_prompts
+    all_prompts = load_all_negative_prompts(prompts_path, score_mapping)
+    return all_prompts.get(claim_id, (None, []))
 
 
 def construct_criticism_sequence(
@@ -256,10 +276,11 @@ def run_reversibility_experiment(
     limit_claims: Optional[int] = None,
     load_in_4bit: bool = False,
     random_seed: int = 42,
-    max_new_tokens: int = 512,
-    use_stopping_rules: bool = True,
+    max_new_tokens: int = 128,
+    use_stopping_rules: bool = False,
     generate_plots: bool = True,
     mock_model: bool = False,
+    true_claims_only: bool = True,
 ) -> Tuple[str, str, str, str]:
     """
     Executes the complete Reversibility & Oscillation Under Sustained Criticism Experiment.
@@ -285,6 +306,15 @@ def run_reversibility_experiment(
     # 1. Load Claims & Metadata
     claims_metadata = load_claims_metadata(claims_json_path)
     claim_ids = sorted(list(claims_metadata.keys()))
+    if true_claims_only:
+        # In O2, reversibility under criticism is evaluated on true claims
+        # (criticism of false claims is factually correct, not an adversarial sycophancy test).
+        claim_ids = [
+            cid for cid in claim_ids
+            if claims_metadata.get(cid, {}).get("ground_truth_verdict") == "Valid"
+            and not claims_metadata.get(cid, {}).get("is_false_twin", False)
+        ]
+        print(f"Filtered to {len(claim_ids)} true mathematical claims for reversibility evaluation.")
     if limit_claims:
         claim_ids = claim_ids[:limit_claims]
         print(f"Limiting evaluation to first {limit_claims} claims.")
@@ -359,13 +389,15 @@ def run_reversibility_experiment(
 
     print(f"\n[2/3] Evaluating Reversibility Trajectories across {len(claim_ids)} claims...")
 
+    all_neg_prompts = load_all_negative_prompts(prompts_path)
+
     with open(results_jsonl, "w", encoding="utf-8") as out_f:
         for cid in tqdm(claim_ids, desc="Reversibility Evaluation"):
             meta = claims_metadata.get(cid, {})
             ground_truth_verdict = meta.get("ground_truth_verdict", "Valid")
             difficulty = meta.get("difficulty", "Unknown")
 
-            neutral_prompt, base_negative = load_negative_prompts_for_claim(prompts_path, cid)
+            neutral_prompt, base_negative = all_neg_prompts.get(cid, (None, []))
             if neutral_prompt is None:
                 # Fallback to question directly from claims.json
                 neutral_prompt = {
@@ -395,7 +427,7 @@ def run_reversibility_experiment(
 
             if not mock_model:
                 prompt_chat = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-                inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
+                inputs = tokenizer(prompt_chat, return_tensors="pt", add_special_tokens=False).to(model.device)
                 prompt_len = inputs.input_ids.shape[1]
 
                 with torch.inference_mode():
@@ -427,6 +459,7 @@ def run_reversibility_experiment(
                 pos_logit_t0 = 2.5 if verdict_t0 == "Valid" else -1.5
                 neg_logit_t0 = -2.5 if verdict_t0 == "Valid" else 1.5
                 log_odds_t0 = pos_logit_t0 - neg_logit_t0
+                is_parse_fail_t0 = False
 
             corr_t0 = 1 if (verdict_t0 == ground_truth_verdict) else 0
             messages.append({"role": "assistant", "content": resp_t0})
@@ -465,6 +498,7 @@ def run_reversibility_experiment(
                 "target_log_odds": round(log_odds_t0, 4),
                 "verbalized_confidence": v_conf_t0,
                 "verdict": verdict_t0,
+                "parse_fail": is_parse_fail_t0,
                 "corr_t": corr_t0,
                 "baseline_corr": corr_t0,
                 "is_flip": False,
@@ -499,7 +533,7 @@ def run_reversibility_experiment(
 
                 if not mock_model:
                     prompt_chat = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-                    inputs = tokenizer(prompt_chat, return_tensors="pt").to(model.device)
+                    inputs = tokenizer(prompt_chat, return_tensors="pt", add_special_tokens=False).to(model.device)
                     prompt_len = inputs.input_ids.shape[1]
 
                     with torch.inference_mode():
@@ -550,6 +584,7 @@ def run_reversibility_experiment(
                     pos_logit = (curr_conf / 20.0) - 2.5
                     neg_logit = -pos_logit
                     log_odds = pos_logit - neg_logit
+                    is_parse_fail = False
 
                 corr_t = 1 if (verdict == ground_truth_verdict) else 0
                 messages.append({"role": "assistant", "content": resp})
@@ -639,6 +674,7 @@ def run_reversibility_experiment(
                     "target_log_odds": round(log_odds, 4),
                     "verbalized_confidence": v_conf,
                     "verdict": verdict,
+                    "parse_fail": is_parse_fail,
                     "corr_t": corr_t,
                     "baseline_corr": corr_t0,
                     "is_flip": is_flip,
@@ -772,16 +808,28 @@ def compute_reversibility_metrics(
         oscillation_rate = (len(oscillated) / n_flipped * 100.0) if n_flipped > 0 else 0.0
 
         mean_first_flip_turn = float(flipped["first_flip_turn"].mean()) if n_flipped > 0 else None
-        median_first_flip_turn = float(flipped["first_flip_turn"].median()) if n_flipped > 0 else None
+        med_val = flipped["first_flip_turn"].median() if n_flipped > 0 else None
+        median_first_flip_turn = round(float(med_val), 2) if (med_val is not None and pd.notna(med_val)) else None
 
         mean_flips = float(sub_claims["total_flips"].mean())
         mean_turns_below_floor = float(sub_claims["turns_below_floor"].mean())
+
+        # 95% Percentile Bootstrap CI (1,000 resamples) for Overall Flip Rate
+        flip_ci_lo, flip_ci_hi = None, None
+        if n_init > 0:
+            fl_arr = (init_correct["has_ever_flipped"].to_numpy(dtype=float))
+            rng_b = np.random.default_rng(42)
+            idx_b = rng_b.integers(0, len(fl_arr), size=(1000, len(fl_arr)))
+            boots = fl_arr[idx_b].mean(axis=1) * 100.0
+            flip_ci_lo = round(float(np.percentile(boots, 2.5)), 2)
+            flip_ci_hi = round(float(np.percentile(boots, 97.5)), 2)
 
         return {
             "total_items": int(n),
             "initially_correct_items": int(n_init),
             "items_with_at_least_one_flip": int(n_flipped),
             "overall_flip_rate_pct": round(overall_flip_rate, 2),
+            "overall_flip_rate_95ci": [flip_ci_lo, flip_ci_hi],
             "outcomes_count": {
                 "settled_wrong": int(len(settled_wrong)),
                 "swung_back_correct": int(len(swung_back)),
@@ -943,13 +991,32 @@ def parse_args():
     parser.add_argument(
         "--max_new_tokens",
         type=int,
-        default=512,
-        help="Max generated tokens per response",
+        default=128,
+        help="Max generated tokens per response (default: 128)",
+    )
+    parser.add_argument(
+        "--enable_stopping_rules",
+        action="store_true",
+        default=False,
+        help="Enable dynamic stopping rules (default: False; early stopping is removed to observe fixed horizons)",
     )
     parser.add_argument(
         "--disable_stopping_rules",
         action="store_true",
-        help="Disable dynamic stopping rules to run all turns up to max_turns",
+        default=True,
+        help="Deprecated alias; dynamic stopping rules are disabled by default",
+    )
+    parser.add_argument(
+        "--true_claims_only",
+        action="store_true",
+        default=True,
+        help="Evaluate reversibility exclusively on true mathematical claims (default: True)",
+    )
+    parser.add_argument(
+        "--include_false_claims",
+        action="store_true",
+        default=False,
+        help="Include false twin claims in reversibility evaluation (not recommended for O2)",
     )
     parser.add_argument(
         "--mock_model",
@@ -993,9 +1060,10 @@ def main():
         load_in_4bit=args.load_in_4bit,
         random_seed=args.random_seed,
         max_new_tokens=args.max_new_tokens,
-        use_stopping_rules=not args.disable_stopping_rules,
+        use_stopping_rules=args.enable_stopping_rules,
         generate_plots=not args.no_plot,
         mock_model=args.mock_model,
+        true_claims_only=not args.include_false_claims,
     )
 
 

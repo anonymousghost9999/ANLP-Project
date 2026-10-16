@@ -102,8 +102,8 @@ def parse_args():
     parser.add_argument(
         "--max_new_tokens",
         type=int,
-        default=512,
-        help="Maximum generated tokens per conversational response",
+        default=128,
+        help="Maximum generated tokens per conversational response (default: 128)",
     )
     parser.add_argument(
         "--no_plot",
@@ -123,9 +123,16 @@ def parse_args():
         help="Fixed confidence floor phi (in %%, default 50.0)",
     )
     parser.add_argument(
+        "--enable_stopping_rules",
+        action="store_true",
+        default=False,
+        help="Enable dynamic stopping rules (default: False; early stopping is removed to observe fixed horizons)",
+    )
+    parser.add_argument(
         "--disable_stopping_rules",
         action="store_true",
-        help="Disable dynamic stopping rules (forces evaluation to run all available turns)",
+        default=True,
+        help="Deprecated alias; dynamic stopping rules are disabled by default",
     )
     parser.add_argument(
         "--settled_k",
@@ -178,7 +185,7 @@ def main():
         generate_plots=not args.no_plot,
         claims_json_path=claims_json_path,
         confidence_floor=args.confidence_floor,
-        use_stopping_rules=not args.disable_stopping_rules,
+        use_stopping_rules=args.enable_stopping_rules,
         settled_turns_k=args.settled_k,
         stalled_turns_m=args.stalled_m,
     )

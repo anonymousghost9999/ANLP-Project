@@ -146,8 +146,60 @@ class TestO2Reversibility(unittest.TestCase):
             rep = json.load(f)
         self.assertIn("overall", rep)
         self.assertIn("overall_flip_rate_pct", rep["overall"])
+        self.assertIn("overall_flip_rate_95ci", rep["overall"])
         self.assertIn("rates_among_flipped_pct", rep["overall"])
         self.assertIn("by_difficulty", rep)
+
+    def test_bootstrap_proportion_ci_1000(self):
+        from src.evaluation.analyze_reversibility import bootstrap_proportion_ci
+        # 10 items, 5 flipped
+        data = np.array([1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
+        mean_pct, lo, hi = bootstrap_proportion_ci(data, n_boot=1000, seed=42)
+        self.assertEqual(mean_pct, 50.0)
+        self.assertTrue(10.0 <= lo <= 50.0)
+        self.assertTrue(50.0 <= hi <= 90.0)
+
+    def test_o1_bootstrap_mean_ci_1000(self):
+        from src.evaluation.analyze_o1_paired import bootstrap_mean_ci, N_BOOT
+        self.assertEqual(N_BOOT, 1000)
+        vals_by_claim = {i: 1.0 if i < 5 else 0.0 for i in range(10)}
+        m, lo, hi, n = bootstrap_mean_ci(vals_by_claim)
+        self.assertEqual(m, 0.5)
+        self.assertEqual(n, 10)
+        self.assertTrue(0.1 <= lo <= 0.5)
+        self.assertTrue(0.5 <= hi <= 0.9)
+
+    def test_o2_statistical_tests_fisher_and_bootstrap(self):
+        from src.evaluation.analyze_reversibility import run_reversibility_statistical_tests
+        df_dummy = pd.DataFrame([
+            {"claim_id": 1, "corr_t0": 1, "difficulty": "Hard", "has_ever_flipped": True, "total_flips": 1, "first_flip_turn": 1},
+            {"claim_id": 2, "corr_t0": 1, "difficulty": "Hard", "has_ever_flipped": False, "total_flips": 0, "first_flip_turn": None},
+            {"claim_id": 3, "corr_t0": 1, "difficulty": "Advanced", "has_ever_flipped": True, "total_flips": 2, "first_flip_turn": 2},
+            {"claim_id": 4, "corr_t0": 1, "difficulty": "Advanced", "has_ever_flipped": True, "total_flips": 1, "first_flip_turn": 1},
+        ])
+        res = run_reversibility_statistical_tests(df_dummy, n_boot=1000)
+        self.assertEqual(res["bootstrap_n_resamples"], 1000)
+        self.assertIn("overall_flip_rate_bootstrap_95ci", res)
+        self.assertIn("flip_rate_fisher_exact_test", res)
+        self.assertIn("p_value", res["flip_rate_fisher_exact_test"])
+
+    def test_default_token_limit_and_early_stopping(self):
+        import inspect
+        from src.evaluation.run_reversibility_experiment import run_reversibility_experiment
+        from src.evaluation.run_claims_experiment import run_experiment
+        from src.evaluation.track_runner import run_track
+
+        sig_o2 = inspect.signature(run_reversibility_experiment)
+        self.assertEqual(sig_o2.parameters["max_new_tokens"].default, 128)
+        self.assertEqual(sig_o2.parameters["use_stopping_rules"].default, False)
+
+        sig_o1 = inspect.signature(run_experiment)
+        self.assertEqual(sig_o1.parameters["max_new_tokens"].default, 128)
+        self.assertEqual(sig_o1.parameters["use_stopping_rules"].default, False)
+
+        sig_track = inspect.signature(run_track)
+        self.assertEqual(sig_track.parameters["max_new_tokens"].default, 128)
+        self.assertEqual(sig_track.parameters["use_stopping_rules"].default, False)
 
 
 if __name__ == "__main__":
