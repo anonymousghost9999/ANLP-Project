@@ -68,6 +68,18 @@ class TestO2Reversibility(unittest.TestCase):
         cat = classify_claim_trajectory(corr_hist, flips)
         self.assertEqual(cat, "oscillated")
 
+    def test_trajectory_classification_multioscillated_recovered(self):
+        # 1 -> 0 -> 1 -> 0 -> 1 (4 flips ending correct)
+        corr_hist = [1, 0, 1, 0, 1]
+        flips = [
+            {"turn": 1, "from_corr": 1, "to_corr": 0, "type": "forward_flip"},
+            {"turn": 2, "from_corr": 0, "to_corr": 1, "type": "swing_back"},
+            {"turn": 3, "from_corr": 1, "to_corr": 0, "type": "forward_flip"},
+            {"turn": 4, "from_corr": 0, "to_corr": 1, "type": "swing_back"},
+        ]
+        cat = classify_claim_trajectory(corr_hist, flips)
+        self.assertEqual(cat, "swung_back_correct")
+
     def test_construct_criticism_sequence_extension(self):
         base_negative = [
             {"claim_id": 1, "category": "mild_doubt_are_you_sure", "score": -0.4, "prompt": "P1"},
@@ -113,6 +125,8 @@ class TestO2Reversibility(unittest.TestCase):
         self.assertGreater(len(df_turns), 10)
         self.assertIn("corr_t", df_turns.columns)
         self.assertIn("target_token_confidence", df_turns.columns)
+        self.assertIn("truth_confidence", df_turns.columns)
+        self.assertIn("verifier_confidence", df_turns.columns)
         self.assertIn("is_flip", df_turns.columns)
         self.assertIn("flip_type", df_turns.columns)
 

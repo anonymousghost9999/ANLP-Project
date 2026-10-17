@@ -24,7 +24,7 @@ import seaborn as sns
 
 def bootstrap_proportion_ci(
     values: np.ndarray,
-    n_boot: int = 1000,
+    n_boot: int = 2000,
     seed: int = 42,
 ) -> Tuple[float, float, float]:
     """
@@ -44,7 +44,7 @@ def analyze_and_plot_reversibility(
     summary_csv: str,
     claim_summary_csv: Optional[str] = None,
     output_dir: Optional[str] = None,
-    n_boot: int = 1000,
+    n_boot: int = 2000,
 ):
     """
     Generates all diagnostic figures, summary tables, and statistical tests for reversibility.
@@ -84,36 +84,56 @@ def analyze_and_plot_reversibility(
         max_turn = int(df_turns["turn"].max())
         turn_range = list(range(1, max_turn + 1))
 
+        # Restrict to initially correct claims (corr_0 == 1) for consistent denominators
+        df_claims_init = df_claims[df_claims["corr_t0"] == 1]
+        init_cids_all = set(df_claims_init["claim_id"].unique())
+        df_turns_init = df_turns[df_turns["claim_id"].isin(init_cids_all)]
+
         curve_data = []
         for t in turn_range:
             # Overall
-            flipped_by_t_all = df_turns[(df_turns["turn"] <= t) & (df_turns["is_flip"] == True)]["claim_id"].nunique()
-            active_t_all = len(df_turns[df_turns["turn"] == t])
-            flips_at_t_all = (df_turns[df_turns["turn"] == t]["is_flip"] == True).sum()
-            total_claims_all = df_claims["claim_id"].nunique()
+            flipped_by_t_all = df_turns_init[(df_turns_init["turn"] <= t) & (df_turns_init["is_flip"] == True)]["claim_id"].nunique()
+            total_claims_all = len(init_cids_all)
+
+            # At-risk cohort for forward flip at turn t: correct at turn t-1
+            if t == 1:
+                at_risk_cids_all = init_cids_all
+            else:
+                at_risk_cids_all = set(df_turns_init[(df_turns_init["turn"] == t - 1) & (df_turns_init["corr_t"] == 1)]["claim_id"].unique())
+
+            sub_at_risk_all = df_turns_init[(df_turns_init["turn"] == t) & (df_turns_init["claim_id"].isin(at_risk_cids_all))]
+            flips_at_t_all = (sub_at_risk_all["flip_type"] == "forward_flip").sum()
+            active_at_risk_all = len(sub_at_risk_all)
 
             curve_data.append({
                 "turn": t,
                 "difficulty": "Overall",
                 "cum_flip_rate": (flipped_by_t_all / total_claims_all * 100.0) if total_claims_all > 0 else 0.0,
-                "instantaneous_flip_rate": (flips_at_t_all / active_t_all * 100.0) if active_t_all > 0 else 0.0,
+                "instantaneous_flip_rate": (flips_at_t_all / active_at_risk_all * 100.0) if active_at_risk_all > 0 else 0.0,
             })
 
             # By difficulty
             for diff in ["Hard", "Advanced"]:
-                diff_claims = df_claims[df_claims["difficulty"] == diff]["claim_id"].unique()
+                diff_claims = set(df_claims_init[df_claims_init["difficulty"] == diff]["claim_id"].unique())
                 if len(diff_claims) == 0:
                     continue
-                diff_turns = df_turns[df_turns["claim_id"].isin(diff_claims)]
+                diff_turns = df_turns_init[df_turns_init["claim_id"].isin(diff_claims)]
                 flipped_by_t = diff_turns[(diff_turns["turn"] <= t) & (diff_turns["is_flip"] == True)]["claim_id"].nunique()
-                active_t = len(diff_turns[diff_turns["turn"] == t])
-                flips_at_t = (diff_turns[diff_turns["turn"] == t]["is_flip"] == True).sum()
+
+                if t == 1:
+                    at_risk_diff = diff_claims
+                else:
+                    at_risk_diff = set(diff_turns[(diff_turns["turn"] == t - 1) & (diff_turns["corr_t"] == 1)]["claim_id"].unique())
+
+                sub_at_risk_diff = diff_turns[(diff_turns["turn"] == t) & (diff_turns["claim_id"].isin(at_risk_diff))]
+                flips_at_t = (sub_at_risk_diff["flip_type"] == "forward_flip").sum()
+                active_at_risk_diff = len(sub_at_risk_diff)
 
                 curve_data.append({
                     "turn": t,
                     "difficulty": diff,
                     "cum_flip_rate": (flipped_by_t / len(diff_claims) * 100.0),
-                    "instantaneous_flip_rate": (flips_at_t / active_t * 100.0) if active_t > 0 else 0.0,
+                    "instantaneous_flip_rate": (flips_at_t / active_at_risk_diff * 100.0) if active_at_risk_diff > 0 else 0.0,
                 })
 
         df_curves = pd.DataFrame(curve_data)
@@ -142,7 +162,7 @@ def analyze_and_plot_reversibility(
         ax_top.set_ylim(-2, 102)
         ax_top.legend(loc="upper left")
 
-        # Bottom Panel: Instantaneous Flip Rate
+        # Bottom Panel: Instantaneous Flip Hazard
         bar_width = 0.25
         turns_arr = np.array(turn_range)
         diffs = [d for d in ["Hard", "Advanced"] if d in df_curves["difficulty"].values]
@@ -153,14 +173,14 @@ def analyze_and_plot_reversibility(
                 turns_arr + offset,
                 sub["instantaneous_flip_rate"],
                 width=bar_width,
-                label=f"{diff} (Instantaneous)",
+                label=f"{diff} (Forward Hazard)",
                 color=palette_diff.get(diff, "#555555"),
                 alpha=0.8,
             )
 
-        ax_bot.set_title("Instantaneous Flip Likelihood at Turn t", fontweight="bold")
+        ax_bot.set_title("Forward Flip Hazard at Turn t (At-Risk Set)", fontweight="bold")
         ax_bot.set_xlabel("Sustained Criticism Turn t (1 .. T)")
-        ax_bot.set_ylabel("Flip Hazard (%)")
+        ax_bot.set_ylabel("Forward Flip Hazard (%)")
         ax_bot.set_xticks(turn_range)
         ax_bot.set_ylim(0, max(df_curves["instantaneous_flip_rate"].max() * 1.25, 10))
         ax_bot.legend(loc="upper right")
@@ -356,10 +376,14 @@ def reconstruct_claim_summary(df_turns: pd.DataFrame) -> pd.DataFrame:
         total_flips = len(flips)
         first_flip_turn = flips["turn"].iloc[0] if total_flips > 0 else None
 
-        # Swing backs
-        swings = grp_sorted[grp_sorted["flip_type"] == "swing_back"]
-        swing_count = len(swings)
-        first_swing_turn = swings["turn"].iloc[0] if swing_count > 0 else None
+        # Swing backs: only valid for items initially correct
+        if corr_0 == 1:
+            swings = grp_sorted[grp_sorted["flip_type"] == "swing_back"]
+            swing_count = len(swings)
+            first_swing_turn = swings["turn"].iloc[0] if swing_count > 0 else None
+        else:
+            swing_count = 0
+            first_swing_turn = None
 
         turns_below = (grp_sorted["target_token_confidence"] < 50.0).sum()
 
@@ -369,7 +393,7 @@ def reconstruct_claim_summary(df_turns: pd.DataFrame) -> pd.DataFrame:
                 cat = "resilient_correct"
             elif total_flips == 1:
                 cat = "settled_wrong"
-            elif total_flips == 2 and corr_final == 1:
+            elif total_flips >= 2 and corr_final == 1:
                 cat = "swung_back_correct"
             else:
                 cat = "oscillated"
@@ -395,7 +419,7 @@ def reconstruct_claim_summary(df_turns: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(records)
 
 
-def run_reversibility_statistical_tests(df_claims: pd.DataFrame, n_boot: int = 1000) -> Dict[str, Any]:
+def run_reversibility_statistical_tests(df_claims: pd.DataFrame, n_boot: int = 2000) -> Dict[str, Any]:
     """Runs statistical significance tests and 95% bootstrap CIs comparing Hard vs. Advanced claims."""
     init_correct = df_claims[df_claims["corr_t0"] == 1]
     hard = init_correct[init_correct["difficulty"] == "Hard"]
@@ -531,18 +555,18 @@ def generate_ascii_table(df_claims: pd.DataFrame, stat_report: Dict[str, Any]) -
     lines.append(f"{'  - Resilient (Never Flipped)':<35} | {ov_res:<12} | {h_res:<12} | {a_res:<12}")
 
     lines.append("-" * len(header))
-    chi2_info = stat_report.get("flip_rate_chi2_test", {})
-    if "p_value" in chi2_info:
-        lines.append(f"Difficulty Comparison Chi2: p-value = {chi2_info['p_value']} "
-                     f"(Significant at alpha=0.05: {chi2_info['is_significant_at_05']})")
     fisher_info = stat_report.get("flip_rate_fisher_exact_test", {})
     if "p_value" in fisher_info:
         lines.append(f"Difficulty Comparison Fisher Exact: p-value = {fisher_info['p_value']} "
                      f"(Odds Ratio: {fisher_info['odds_ratio']}, Significant: {fisher_info['is_significant_at_05']})")
+    chi2_info = stat_report.get("flip_rate_chi2_test", {})
+    if "p_value" in chi2_info:
+        lines.append(f"Difficulty Comparison Chi2: p-value = {chi2_info['p_value']} "
+                     f"(Note: Chi2 is approximate; Fisher Exact is preferred when stratum N < 10)")
     boot_info = stat_report.get("overall_flip_rate_bootstrap_95ci", {})
     if "ci_lo_pct" in boot_info:
         lines.append(f"Overall Flip Rate 95% Bootstrap CI: [{boot_info['ci_lo_pct']}%, {boot_info['ci_hi_pct']}%] "
-                     f"(n_boot={stat_report.get('bootstrap_n_resamples', 1000)})")
+                     f"(n_boot={stat_report.get('bootstrap_n_resamples', 2000)})")
     lines.append("=" * 80)
     return "\n".join(lines) + "\n"
 
@@ -552,7 +576,7 @@ if __name__ == "__main__":
     parser.add_argument("--summary_csv", type=str, required=True, help="Path to o2_reversibility_summary.csv")
     parser.add_argument("--claim_summary_csv", type=str, default=None, help="Path to o2_claim_level_summary.csv")
     parser.add_argument("--output_dir", type=str, default=None, help="Output directory for figures")
-    parser.add_argument("--n_boot", type=int, default=1000, help="Number of bootstrap resamples for 95% CIs (default: 1000)")
+    parser.add_argument("--n_boot", type=int, default=2000, help="Number of bootstrap resamples for 95% CIs (default: 2000)")
     args = parser.parse_args()
 
     analyze_and_plot_o2(args.summary_csv, args.claim_summary_csv, args.output_dir, n_boot=args.n_boot)
