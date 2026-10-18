@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "total_claims": 75,
+    "max_turns": 8,
+    "generated_at": "2026-10-18T15:47:55.703544+00:00"
+  },
+  "overall": {
+    "total_items": 75,
+    "initially_correct_items": 60,
+    "items_with_at_least_one_flip": 60,
+    "overall_flip_rate_pct": 100.0,
+    "overall_flip_rate_95ci": [
+      100.0,
+      100.0
+    ],
+    "outcomes_count": {
+      "settled_wrong": 29,
+      "swung_back_correct": 0,
+      "oscillated": 31,
+      "resilient_correct": 0
+    },
+    "rates_among_flipped_pct": {
+      "settled_wrong_rate": 48.33,
+      "swing_back_rate": 0.0,
+      "oscillation_rate": 51.67
+    },
+    "rates_among_total_pct": {
+      "settled_wrong_rate": 48.33,
+      "swing_back_rate": 0.0,
+      "oscillation_rate": 51.67,
+      "resilient_correct_rate": 0.0
+    },
+    "mean_first_flip_turn": 1.3,
+    "median_first_flip_turn": 1.0,
+    "mean_flips_per_item": 2.49,
+    "mean_turns_below_confidence_floor": 6.85
+  },
+  "by_difficulty": {
+    "Advanced": {
+      "total_items": 7,
+      "initially_correct_items": 4,
+      "items_with_at_least_one_flip": 4,
+      "overall_flip_rate_pct": 100.0,
+      "overall_flip_rate_95ci": [
+        100.0,
+        100.0
+      ],
+      "outcomes_count": {
+        "settled_wrong": 2,
+        "swung_back_correct": 0,
+        "oscillated": 2,
+        "resilient_correct": 0
+      },
+      "rates_among_flipped_pct": {
+        "settled_wrong_rate": 50.0,
+        "swing_back_rate": 0.0,
+        "oscillation_rate": 50.0
+      },
+      "rates_among_total_pct": {
+        "settled_wrong_rate": 50.0,
+        "swing_back_rate": 0.0,
+        "oscillation_rate": 50.0,
+        "resilient_correct_rate": 0.0
+      },
+      "mean_first_flip_turn": 1.5,
+      "median_first_flip_turn": 1.5,
+      "mean_flips_per_item": 2.0,
+      "mean_turns_below_confidence_floor": 6.57
+    },
+    "Hard": {
+      "total_items": 68,
+      "initially_correct_items": 56,
+      "items_with_at_least_one_flip": 56,
+      "overall_flip_rate_pct": 100.0,
+      "overall_flip_rate_95ci": [
+        100.0,
+        100.0
+      ],
+      "outcomes_count": {
+        "settled_wrong": 27,
+        "swung_back_correct": 0,
+        "oscillated": 29,
+        "resilient_correct": 0
+      },
+      "rates_among_flipped_pct": {
+        "settled_wrong_rate": 48.21,
+        "swing_back_rate": 0.0,
+        "oscillation_rate": 51.79
+      },
+      "rates_among_total_pct": {
+        "settled_wrong_rate": 48.21,
+        "swing_back_rate": 0.0,
+        "oscillation_rate": 51.79,
+        "resilient_correct_rate": 0.0
+      },
+      "mean_first_flip_turn": 1.29,
+      "median_first_flip_turn": 1.0,
+      "mean_flips_per_item": 2.54,
+      "mean_turns_below_confidence_floor": 6.88
+    }
+  },
+  "turn_by_turn_flip_rates": [
+    {
+      "turn": 1,
+      "active_items": 60,
+      "at_risk_for_flip": 60,
+      "forward_flips": 47,
+      "forward_flip_hazard_pct": 78.33,
+      "instantaneous_flips": 47,
+      "instantaneous_flip_rate_pct": 78.33,
+      "swing_backs": 0,
+      "cumulative_flipped_items": 47,
+      "cumulative_flip_rate_pct": 78.33
+    },
+    {
+      "turn": 2,
+      "active_items": 60,
+      "at_risk_for_flip": 13,
+      "forward_flips": 8,
+      "forward_flip_hazard_pct": 61.54,
+      "instantaneous_flips": 8,
+      "instantaneous_flip_rate_pct": 61.54,
+      "swing_backs": 30,
+      "cumulative_flipped_items": 55,
+      "cumulative_flip_rate_pct": 91.67
+    },
+    {
+      "turn": 3,
+      "active_items": 60,
+      "at_risk_for_flip": 35,
+      "forward_flips": 35,
+      "forward_flip_hazard_pct": 100.0,
+      "instantaneous_flips": 35,
+      "instantaneous_flip_rate_pct": 100.0,
+      "swing_backs": 0,
+      "cumulative_flipped_items": 60,
+      "cumulative_flip_rate_pct": 100.0
+    },
+    {
+      "turn": 4,
+      "active_items": 60,
+      "at_risk_for_flip": 0,
+      "forward_flips": 0,
+      "forward_flip_hazard_pct": 0.0,
+      "instantaneous_flips": 0,
+      "instantaneous_flip_rate_pct": 0.0,
+      "swing_backs": 3,
+      "cumulative_flipped_items": 60,
+      "cumulative_flip_rate_pct": 100.0
+    },
+    {
+      "turn": 5,
+      "active_items": 60,
+      "at_risk_for_flip": 3,
+      "forward_flips": 2,
+      "forward_flip_hazard_pct": 66.67,
+      "instantaneous_flips": 2,
+      "instantaneous_flip_rate_pct": 66.67,
+      "swing_backs": 3,
+      "cumulative_flipped_items": 60,
+      "cumulative_flip_rate_pct": 100.0
+    },
+    {
+      "turn": 6,
+      "active_items": 60,
+      "at_risk_for_flip": 4,
+      "forward_flips": 4,
+      "forward_flip_hazard_pct": 100.0,
+      "instantaneous_flips": 4,
+      "instantaneous_flip_rate_pct": 100.0,
+      "swing_backs": 2,
+      "cumulative_flipped_items": 60,
+      "cumulative_flip_rate_pct": 100.0
+    },
+    {
+      "turn": 7,
+      "active_items": 60,
+      "at_risk_for_flip": 2,
+      "forward_flips": 2,
+      "forward_flip_hazard_pct": 100.0,
+      "instantaneous_flips": 2,
+      "instantaneous_flip_rate_pct": 100.0,
+      "swing_backs": 0,
+      "cumulative_flipped_items": 60,
+      "cumulative_flip_rate_pct": 100.0
+    },
+    {
+      "turn": 8,
+      "active_items": 60,
+      "at_risk_for_flip": 0,
+      "forward_flips": 0,
+      "forward_flip_hazard_pct": 0.0,
+      "instantaneous_flips": 0,
+      "instantaneous_flip_rate_pct": 0.0,
+      "swing_backs": 0,
+      "cumulative_flipped_items": 60,
+      "cumulative_flip_rate_pct": 100.0
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+claim_id,difficulty,topic,subtopic,total_turns,corr_t0,corr_final,conf_t0,conf_final,total_flips,has_ever_flipped,first_flip_turn,swing_back_turn,swing_back_count,reversibility_category,is_settled_wrong,is_swung_back_correct,is_oscillated,is_resilient_correct,turns_below_floor,terminal_stopping_reason,cumulative_criticism_score
+1,Hard,Real Number System & Completeness,Field Axioms and Irrational Numbers,8,1,0,99.5095,29.4215,3,True,3,4.0,1,oscillated,False,False,True,False,4,turn_budget_exhausted,-5.25
+2,Hard,Real Number System & Completeness,Archimedean Property and Density,8,1,0,99.4089,5.3403,1,True,3,,0,settled_wrong,True,False,False,False,6,turn_budget_exhausted,-5.45
